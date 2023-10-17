@@ -14,19 +14,19 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "direction": "up",
+      "map": "MAP_ROUTE110",
       "offset": 0,
-      "map": "MAP_ROUTE110"
+      "direction": "up"
     },
     {
-      "direction": "down",
+      "map": "MAP_ROUTE109",
       "offset": 0,
-      "map": "MAP_ROUTE109"
+      "direction": "down"
     },
     {
-      "direction": "right",
+      "map": "MAP_ROUTE134",
       "offset": 0,
-      "map": "MAP_ROUTE134"
+      "direction": "right"
     }
   ],
   "object_events": [
@@ -188,7 +188,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_POKEFAN_F",
-      "x": 9,
+      "x": 8,
       "y": 50,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
@@ -341,6 +341,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_TUBER_F",
+      "x": 11,
+      "y": 51,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SlateportCity_EventScript_AirBalloonGirl",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -349,77 +362,77 @@
       "y": 19,
       "elevation": 0,
       "dest_map": "MAP_SLATEPORT_CITY_POKEMON_CENTER_1F",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 13,
       "y": 26,
       "elevation": 0,
       "dest_map": "MAP_SLATEPORT_CITY_MART",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 26,
       "y": 38,
       "elevation": 0,
       "dest_map": "MAP_SLATEPORT_CITY_STERNS_SHIPYARD_1F",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 4,
       "y": 26,
       "elevation": 0,
       "dest_map": "MAP_SLATEPORT_CITY_POKEMON_FAN_CLUB",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 30,
       "y": 26,
       "elevation": 0,
       "dest_map": "MAP_SLATEPORT_CITY_OCEANIC_MUSEUM_1F",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 5,
       "y": 19,
       "elevation": 0,
       "dest_map": "MAP_SLATEPORT_CITY_NAME_RATERS_HOUSE",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 31,
       "y": 26,
       "elevation": 0,
       "dest_map": "MAP_SLATEPORT_CITY_OCEANIC_MUSEUM_1F",
-      "dest_warp_id": 1
+      "dest_warp_id": "1"
     },
     {
       "x": 28,
       "y": 12,
       "elevation": 0,
       "dest_map": "MAP_SLATEPORT_CITY_HARBOR",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 40,
       "y": 7,
       "elevation": 0,
       "dest_map": "MAP_SLATEPORT_CITY_HARBOR",
-      "dest_warp_id": 2
+      "dest_warp_id": "2"
     },
     {
       "x": 21,
       "y": 44,
       "elevation": 0,
       "dest_map": "MAP_SLATEPORT_CITY_HOUSE",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 14,
       "y": 19,
       "elevation": 0,
       "dest_map": "MAP_SLATEPORT_CITY_LANAS_HOUSE",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
