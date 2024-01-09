@@ -1398,6 +1398,8 @@
 #define FLAG_RYU_FACING_GENESECT                                  0x52A
 #define FLAG_RYU_DFT_PAST_GENESECT                                0x52B
 #define FLAG_RYU_HIDE_SL_SUMAC_2                                  0x52C
+#define FLAG_HIDE_JOY_QUARTERS_GUARD                              0x52D
+#define FLAG_RYU_BETA_MENU_OPEN                                   0x52E
 
 
 //tutorial system flags
