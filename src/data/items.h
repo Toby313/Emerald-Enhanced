@@ -6633,7 +6633,7 @@ const struct Item gItems[] =
     {
         .name = _("Air Balloon"),
         .itemId = ITEM_AIR_BALLOON,
-        .price = 10000,
+        .price = 200,
         .holdEffect = HOLD_EFFECT_AIR_BALLOON,
         .holdEffectParam = 0,
         .description = sAirBalloonDesc,

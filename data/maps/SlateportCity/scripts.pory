@@ -52,6 +52,50 @@ SC1_LeafSignMsg:
 	.string "on the sign. It must have been a\l"
 	.string "recent sale.$"
 
+SlateportCity_EventScript_AirBalloonGirl::
+	lock
+	faceplayer
+	showmoneybox 0, 0, 0
+	msgbox SlateportCity_Text_AirBalloon200, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq SlateportCity_EventScript_DeclineAirBalloon
+	checkmoney 200
+	compare VAR_RESULT, FALSE
+	goto_if_eq SlateportCity_EventScript_NotEnoughMoney
+	msgbox SlateportCity_Text_ThankYou, MSGBOX_DEFAULT
+	checkitemspace ITEM_AIR_BALLOON, 1
+	compare VAR_RESULT, TRUE
+	call_if_eq SlateportCity_EventScript_removemoney
+	giveitem ITEM_AIR_BALLOON
+	compare VAR_RESULT, FALSE
+	goto_if_eq SlateportCity_EventScript_BagIsFull
+	hidemoneybox
+	release
+	end
+
+SlateportCity_EventScript_BagIsFull::
+	msgbox gText_TooBadBagIsFull, MSGBOX_DEFAULT
+	hidemoneybox
+	release
+	end
+
+SlateportCity_EventScript_removemoney::
+	removemoney 200
+	updatemoneybox 0, 0
+	return
+
+SlateportCity_EventScript_DeclineAirBalloon::
+	msgbox SlateportCity_Text_OhOkay, MSGBOX_DEFAULT
+	hidemoneybox
+	release
+	end
+
+SlateportCity_EventScript_NotEnoughMoney::
+	msgbox SlateportCity_Text_YouveNotGotTheMoney, MSGBOX_DEFAULT
+	hidemoneybox
+	release
+	end
+
 SlateportCity_EventScript_EnergyGuru:: @ 81DCDBD
 	lock
 	faceplayer
@@ -581,6 +625,19 @@ SlateportCity_Movement_ScottExitAfterBattleTent: @ 81DD63A
 
 SlateportCity_EventScript_BerryCrushRankingsSign:: @ 81DD643
 	end
+
+SlateportCity_Text_AirBalloon200:
+	.string "I'm selling cute balloons!\n"
+	.string "Would you like one for ¥200?$"
+
+SlateportCity_Text_ThankYou:
+	.string "Thank you!$"
+
+SlateportCity_Text_YouveNotGotTheMoney:
+	.string "Oh, no. You're broke!$"
+
+SlateportCity_Text_OhOkay:
+	.string "Oh, okay.$"
 
 SlateportCity_Text_EnergyGuruSellWhatYouNeed: @ 81DD64A
 	.string "I'm the Energy Guru! I'll go for it and\n"

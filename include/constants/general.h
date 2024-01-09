@@ -542,7 +542,7 @@
 #define FOLLOWER_SHELLY 241 //
 #define FOLLOWER_COURTNEY 240 //
 #define FOLLOWER_JOY 58//
-#define FOLLOWER_DAWN 105 //
+#define FOLLOWER_DAWN 250 //
 #define FOLLOWER_BRENDAN 235 //
 #define FOLLOWER_LANETTE 243 //
 #define FOLLOWER_LEAF 231 //
@@ -580,6 +580,6 @@
 //uncomment to punish save states. Otherwise detections are just logged.
 //#define RYU_PUNISH_SAVE_STATE 1
 
-#define EE_GAME_VERSION 10000
+#define EE_GAME_VERSION 10002
 
 #endif 
