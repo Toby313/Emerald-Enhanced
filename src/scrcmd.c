@@ -2393,8 +2393,11 @@ bool8 ScrCmd_modflag(struct ScriptContext *ctx)
     if (func == SET){
         SetModFlag(id);
     }
-    else if (func == CLEAR){
+    else if (func == CLR){
         ClearModFlag(id);
+    }
+    else if (func == TGL){
+        ToggleModFlag(id);
     }
     else{
         gSpecialVar_Result = GetModFlag(id);

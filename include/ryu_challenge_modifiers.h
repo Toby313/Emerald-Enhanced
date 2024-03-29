@@ -9,6 +9,7 @@ extern void   SetModFlag(u32 id);
 extern bool32 GetModFlag(u32 id);
 extern void   ClearModFlag(u32 id);
 extern void   ResetModFlags(void);
+extern void   ToggleModFlag(u32 id);
 extern void TryRevelationModPenalties(void);
 
 extern const u8 gRyuChallengeModifierNames[14][16];

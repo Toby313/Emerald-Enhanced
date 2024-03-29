@@ -135,6 +135,8 @@ u32 RyuChooseLevel(u8 badges, bool8 maxScale, u8 scalingType, s16 playerPartyStr
             level = Random() % (sWildRange[badges][1] - sWildRange[badges][0]) + sWildRange[badges][0];
             break;
     }
+    gSpecialVar_0x800A = __abs(sAutoscalingAdjustments[scalingType]);
+    gSpecialVar_0x800B = MAX_LEVEL;
     return max(level, minLevel);
 }
 

@@ -679,7 +679,23 @@ static void ListMenuPrintEntries(struct ListMenu *list, u16 startIndex, u16 yOff
         if (list->template.itemPrintFunc != NULL)
             list->template.itemPrintFunc(list->template.windowId, list->template.items[startIndex].id, y);
 
-        ListMenuPrint(list, list->template.items[startIndex].name, x, y);
+        if (FlagGet(FLAG_RYU_SHOW_DIFFICULTY_MOD_MENU) == TRUE){
+            if (GetModFlag(startIndex) == TRUE){
+                StringCopy(gRyuStringVar4, ((const u8[])_("{COLOR LIGHT_GREEN}{SHADOW GREEN}")));
+                StringAppend(gRyuStringVar4, list->template.items[startIndex].name);
+                StringExpandPlaceholders(gStringVar4, gRyuStringVar4);
+                ListMenuPrint(list, gStringVar4, x, y);
+            }
+            else{
+                StringCopy(gRyuStringVar4, ((const u8[])_("{COLOR LIGHT_RED}{SHADOW RED}")));
+                StringAppend(gRyuStringVar4, list->template.items[startIndex].name);
+                StringExpandPlaceholders(gStringVar4, gRyuStringVar4);
+                ListMenuPrint(list, gStringVar4, x, y);
+            }
+        }
+        else{
+            ListMenuPrint(list, list->template.items[startIndex].name, x, y);
+        }
         startIndex++;
     }
 }

@@ -472,9 +472,10 @@
 #define query 2
 
 //hack to make the modflag script command multi-use
-#define CLEAR 0
+#define CLR 0
 #define SET 1
 #define GET 2
+#define TGL 3
 
 //factions related
 #define FACTION_NATURALISTS 0 //Trainers who like to be in nature, surrounded by nature, simple existence. Campers, picknickers, rangers.          Opposed: Richkids(x1) "Pokemon are fine as they are!"
@@ -605,8 +606,8 @@
 //uncomment to punish save states. Otherwise detections are just logged.
 //#define RYU_PUNISH_SAVE_STATE 1
 
-#define EE_GAME_VERSION 10104
+#define EE_GAME_VERSION 10105
 //uncomment to allow dev switch to be accessed.
-#define DEV_BUILD 69
+//#define DEV_BUILD 69
 
 #endif 

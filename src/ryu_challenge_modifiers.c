@@ -28,6 +28,19 @@ void ClearModFlag(u32 id)
     gSaveBlock1Ptr->challengeFlags[id / 8] &= ~(1 << (id % 8));
 }
 
+void ToggleModFlag(u32 id)
+{
+    if (id > 63){
+        return;
+    }
+    if (GetModFlag(id) == FALSE){
+        SetModFlag(id);
+    }
+    else {
+        ClearModFlag(id);
+    }
+}
+
 void ResetModFlags(void)
 {
     memset(gSaveBlock1Ptr->challengeFlags, 0, NUM_CHALLENGE_FLAG_BYTES);

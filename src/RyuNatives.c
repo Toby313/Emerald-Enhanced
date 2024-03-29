@@ -93,6 +93,7 @@
     #include "scripted_encounters.h"
     #include "StatAssist.h"
     #include "ryu_challenge_modifiers.h"
+    #include "theme_color_factory.h"
 
     extern u8 GetObjectEventIdByLocalId(u8 id);
 
@@ -3174,6 +3175,86 @@
         }
     }
 
+    void RyuBufferAutoscaleInfo(void)
+    {
+        int strength = (CalculatePlayerPartyStrength());
+        int badges = (CountBadges());
+        int autolevelMaxLevel = (BASE_MAX_LEVEL + min(VarGet(VAR_RYU_NGPLUS_COUNT), MAX_NGPLUS_COUNT) * LEVELS_PER_NGPLUS);
+        StringCopy(gRyuStringVar1, ((const u8[])_("Autoscale Data")));
+        if (FlagGet(FLAG_RYU_ISNGPLUS) == TRUE){
+            int temp;
+            StringAppend(gRyuStringVar1, ((const u8[])_(" (New Game Plus, prestige ")));
+            ConvertIntToDecimalStringN(gStringVar1, VarGet(VAR_RYU_NGPLUS_COUNT), 0, 5);
+            StringAppend(gRyuStringVar1, gStringVar1);
+            StringAppend(gRyuStringVar1, ((const u8[])_(") \n")));
+            //wild range
+            temp = (RyuChooseLevel(badges, FALSE, SCALING_TYPE_WILD, strength));
+            StringAppend(gRyuStringVar1, ((const u8[])_("Wild range: ")));
+            if (CheckAPFlag(AP_STRONGER_WILDS) == TRUE){
+                ConvertIntToDecimalStringN(gStringVar1, (autolevelMaxLevel - 8), 0, 3);
+                ConvertIntToDecimalStringN(gStringVar2, autolevelMaxLevel, 0, 3);
+                StringAppend(gRyuStringVar1, gStringVar1);
+                StringAppend(gRyuStringVar1, ((const u8[])_(" - ")));
+                StringAppend(gRyuStringVar1, gStringVar2);
+                StringAppend(gRyuStringVar1, ((const u8[])_("\n")));
+            }
+            else{
+                ConvertIntToDecimalStringN(gStringVar1, sWildRange[badges][0], 0, 3);
+                ConvertIntToDecimalStringN(gStringVar2, sWildRange[badges][1], 0, 3);
+                StringAppend(gRyuStringVar1, gStringVar1);
+                StringAppend(gRyuStringVar1, ((const u8[])_(" - ")));
+                StringAppend(gRyuStringVar1, gStringVar2);
+                StringAppend(gRyuStringVar1, ((const u8[])_("\n")));
+            }
+            //trainer range
+            temp = (RyuChooseLevel(badges, FALSE, SCALING_TYPE_TRAINER, strength));
+            StringAppend(gRyuStringVar1, ((const u8[])_("Standard Trainer range: ")));
+            ConvertIntToDecimalStringN(gStringVar1, (autolevelMaxLevel - 3), 0, 3);
+            ConvertIntToDecimalStringN(gStringVar2, autolevelMaxLevel, 0, 3);
+            StringAppend(gRyuStringVar1, gStringVar1);
+            StringAppend(gRyuStringVar1, ((const u8[])_(" - ")));
+            StringAppend(gRyuStringVar1, gStringVar2);
+            StringAppend(gRyuStringVar1, ((const u8[])_("\n")));
+            //boss range
+            temp = (RyuChooseLevel(badges, FALSE, SCALING_TYPE_BOSS, strength));
+            StringAppend(gRyuStringVar1, ((const u8[])_("Strong Opponent range: ")));
+            ConvertIntToDecimalStringN(gStringVar1, autolevelMaxLevel, 0, 3);
+            ConvertIntToDecimalStringN(gStringVar2, autolevelMaxLevel, 0, 3);
+            StringAppend(gRyuStringVar1, gStringVar1);
+            StringAppend(gRyuStringVar1, ((const u8[])_(" - ")));
+            StringAppend(gRyuStringVar1, gStringVar2);
+            StringAppend(gRyuStringVar1, ((const u8[])_("\n")));
+        }
+        else{
+            StringAppend(gRyuStringVar1, ((const u8[])_(" (Standard New Game)\n")));
+            //wild range
+            StringAppend(gRyuStringVar1, ((const u8[])_("Wild range: ")));
+            ConvertIntToDecimalStringN(gStringVar1, sWildRange[badges][0], 0, 3);
+            ConvertIntToDecimalStringN(gStringVar2, sWildRange[badges][1], 0, 3);
+            StringAppend(gRyuStringVar1, gStringVar1);
+            StringAppend(gRyuStringVar1, ((const u8[])_(" - ")));
+            StringAppend(gRyuStringVar1, gStringVar2);
+            StringAppend(gRyuStringVar1, ((const u8[])_("\n")));
+            //trainer range
+            StringAppend(gRyuStringVar1, ((const u8[])_("Standard Trainer range: ")));
+            ConvertIntToDecimalStringN(gStringVar1, sRange[badges][0], 0, 3);
+            ConvertIntToDecimalStringN(gStringVar2, sRange[badges][1], 0, 3);
+            StringAppend(gRyuStringVar1, gStringVar1);
+            StringAppend(gRyuStringVar1, ((const u8[])_(" - ")));
+            StringAppend(gRyuStringVar1, gStringVar2);
+            StringAppend(gRyuStringVar1, ((const u8[])_("\n")));
+            //wild range
+            StringAppend(gRyuStringVar1, ((const u8[])_("Strong Opponent range: ")));
+            ConvertIntToDecimalStringN(gStringVar1, sGymRange[badges][0], 0, 3);
+            ConvertIntToDecimalStringN(gStringVar2, sGymRange[badges][1], 0, 3);
+            StringAppend(gRyuStringVar1, gStringVar1);
+            StringAppend(gRyuStringVar1, ((const u8[])_(" - ")));
+            StringAppend(gRyuStringVar1, gStringVar2);
+            StringAppend(gRyuStringVar1, ((const u8[])_("\n")));
+        }
+        StringAppend(gRyuStringVar1, ((const u8[])_("Note that difficulty, challenge mods,\nand other factors also affect this!")));
+    }
+
 
     static const struct WindowTemplate UIBoxTemplate = 
     {
@@ -3187,9 +3268,19 @@
     };
 
     static const u8  WindowFontBlack[3]  = {TEXT_COLOR_TRANSPARENT,  TEXT_COLOR_DARK_GREY,  TEXT_COLOR_LIGHT_GREY};
-    void RyuDrawUiBox(void)
+    void RyuDrawActiveEffectsUiBox(void)
     {
         RyuBufferActiveEffectsInfo();
+        UiBoxWindow = CreateWindowFromRect(0, 0, 28, 12);
+        //SetStandardWindowBorderStyle(UiBoxWindow, 0);
+        FillWindowPixelBuffer(UiBoxWindow, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
+        AddTextPrinterParameterized4(UiBoxWindow, 0, 0, 0, 0, 0, WindowFontBlack, 0xff, gRyuStringVar1);
+        CopyWindowToVram(UiBoxWindow, 2);
+        ScheduleBgCopyTilemapToVram(0);
+    }
+    void RyuDrawAutoscaleInfoUiBox(void)
+    {
+        RyuBufferAutoscaleInfo();
         UiBoxWindow = CreateWindowFromRect(0, 0, 28, 12);
         //SetStandardWindowBorderStyle(UiBoxWindow, 0);
         FillWindowPixelBuffer(UiBoxWindow, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));

@@ -130,7 +130,13 @@ text RDBM_Tut6Lbl {
 
 script RDBM_DisplayModsEnabled{
     drawfullscreenimage(SCENEBGBLANK)
-    callnative(RyuDrawUiBox)
+    callnative(RyuDrawActiveEffectsUiBox)
+    waitbuttonpress
+    callnative(RyuDestroyUIBox)
+    clearfullscreenimage
+    delay(10)
+    drawfullscreenimage(SCENEBGBLANK)
+    callnative(RyuDrawAutoscaleInfoUiBox)
     waitbuttonpress
     callnative(RyuDestroyUIBox)
     clearfullscreenimage

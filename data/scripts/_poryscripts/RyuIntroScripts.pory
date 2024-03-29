@@ -845,8 +845,8 @@ script Ryu_MonotypeSelector{
 	if (var(VAR_0x8005) > 19){
 		msgbox("Cancel monotype selection?", MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES){
-			modflag(CLEAR, MONOTYPE_MOD)
-			modflag(CLEAR, ADV_MONOTYPE_MOD)
+			modflag(CLR, MONOTYPE_MOD)
+			modflag(CLR, ADV_MONOTYPE_MOD)
 			clearflag(FLAG_RYU_SHOW_DIFFICULTY_MOD_MENU)
 			goto(DiffModReUp)
 		}
@@ -871,7 +871,7 @@ script DMSMENU_SELECTIONCONFIRM{
 	copyvar(VAR_0x8001, VAR_RESULT)
 	msgbox(DMSMENUQUERY, MSGBOX_YESNO)
 	if (var(VAR_RESULT) == YES){
-		modflag(SET, VAR_0x8001)
+		modflag(TGL, VAR_0x8001)
 		modflag(GET, ADV_MONOTYPE_MOD)
 		if (var(VAR_RESULT) == TRUE){
 			modflag(SET, MONOTYPE_MOD) //if advanced monotype, regular monotype must also be set.
