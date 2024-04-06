@@ -36,8 +36,10 @@ RyuNowDeveloper:
 	.string "{PLAYER} is now a developer.$"
 
 RyuDebugMenuBootstrap::
-	fadescreenspeed FADE_FROM_BLACK, 0
 	goto RyuDebugMenuScript
+
+RyuBetaMenuBootstrap::
+	goto RyuDebug_ShowBetaMenu
 	
 RyuDebugMenuScript::
 	msgbox RyuDebug_msg, MSGBOX_SIGN
@@ -92,7 +94,7 @@ RyuDebug_UtilitiesMenu:
 	case 8, RyuDebug_SaveFileDebug
 	case 9, RyuDebug_FillTheDex
 	case 10, RDB_GiveOrTakeAllAchievements
-	case 11, RDB_GetCurrentAndMaxAP
+	case 11, RDB_ShowModsMenu
 	case 12, RyuDebug_EnableDexnav
 	case 13, RDB_AlchemyInfo
 	case 14, RDB_ToggleLevelCap
@@ -275,13 +277,11 @@ RDB_EnableRealEstate::
 	release
 	end
 
-RDB_GetCurrentAndMaxAP::
-	callnative APDebugInfo
-	buffernumberstring 0, VAR_TEMP_1
-	buffernumberstring 1, VAR_TEMP_2
-	msgbox RDB_APDebug
-	closemessage
-	goto RyuDebug_UtilitiesMenu
+RDB_ShowModsMenu::
+	call RyuDifficultyModScript
+	release
+	end
+
 
 RDB_APDebug:
 	.string "You currently have {STR_VAR_2}/{STR_VAR_1} AP active.$"

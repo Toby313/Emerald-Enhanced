@@ -57,6 +57,7 @@
 
 extern u8 RDB_StartMenuBetaOptionBootstrap[];
 extern u8 RyuDebugMenuBootstrap[];
+extern u8 RyuBetaMenuBootstrap[];
 
 extern const u8 gText_RyuVersion[];
 
@@ -271,8 +272,8 @@ static const struct StartMenuAction sStartMenuItems[] =
         {gStartMenuButtonImages_Journal, gText_MenuJournal, {.u8_void = StartMenuJournalCallback}},
         {gStartMenuButtonImages_Save, gText_MenuSave, {.u8_void = StartMenuSaveCallback}},
         {gStartMenuButtonImages_Options, gText_MenuOption, {.u8_void = StartMenuOptionCallback}},
-        {gStartMenuButtonImages_Beta, gText_BetaMenu, {.u8_void = StartMenuBetaMenuCallback}},
-        {gStartMenuButtonImages_Dev, gText_DevMenu, {.u8_void = StartMenuDevMenuCallback}},
+        {gStartMenuButtonImages_Beta, gText_BetaMenu, {.u8_void = StartMenuBetaMenuCallback}},//ignored
+        {gStartMenuButtonImages_Dev, gText_DevMenu, {.u8_void = StartMenuDevMenuCallback}},//ignored
         {gStartMenuButtonImages_Empty, gText_MenuExit, {.u8_void = StartMenuExitCallback}},
         {gStartMenuButtonImages_Empty, gText_MenuPlayer, {.u8_void = StartMenuLinkModePlayerNameCallback}},
         {gStartMenuButtonImages_Empty, gText_MenuRest, {.u8_void = StartMenuSaveCallback}},
@@ -1414,6 +1415,16 @@ static bool8 HandleStartMenuInput(void)
             ScriptContext1_SetupScript(RyuDebugMenuBootstrap);
             return TRUE;
         }
+        else
+        {
+            RemoveExtraStartMenuWindows();
+
+            HideStartMenu();
+            HideFieldMessageBox();
+            ScriptContext2_Enable();
+            ScriptContext1_SetupScript(RyuBetaMenuBootstrap);
+            return TRUE;
+        }
     }
 
     if (JOY_NEW(DPAD_LEFT))
@@ -1444,6 +1455,31 @@ static bool8 HandleStartMenuInput(void)
             if (GetNationalPokedexCount(FLAG_GET_SEEN) == 0)
                 return FALSE;
         }
+
+        //if selecting beta or dev menu, bypass callback to prevent softlocks.
+        if ((sStartMenuItems[sCurrentStartMenuActions[sStartMenuCursorPos]].func.u8_void == StartMenuDevMenuCallback) ||
+        (sStartMenuItems[sCurrentStartMenuActions[sStartMenuCursorPos]].func.u8_void == StartMenuBetaMenuCallback))
+        {
+            if (FlagGet(FLAG_RYU_DEV_MODE) == 1)
+            {
+                RemoveExtraStartMenuWindows();
+                HideStartMenu();
+                HideFieldMessageBox();
+                ScriptContext2_Enable();
+                ScriptContext1_SetupScript(RyuDebugMenuBootstrap);
+                return TRUE;
+            }
+            else
+            {
+                RemoveExtraStartMenuWindows();
+                HideStartMenu();
+                HideFieldMessageBox();
+                ScriptContext2_Enable();
+                ScriptContext1_SetupScript(RyuBetaMenuBootstrap);
+                return TRUE;
+            }
+        }
+
 
         gMenuCallback = sStartMenuItems[sCurrentStartMenuActions[sStartMenuCursorPos]].func.u8_void;
 
@@ -1608,27 +1644,9 @@ static bool8 StartMenuOptionCallback(void)
     return FALSE;
 }
 
-static bool8 StartMenuBetaMenuCallback(void)
-{
-    RemoveExtraStartMenuWindows();
-    HideStartMenu();
-    if (!gPaletteFade.active)
-    {
-        ScriptContext1_SetupScript(RDB_StartMenuBetaOptionBootstrap);
-        return TRUE;
-    }
-}
+static bool8 StartMenuBetaMenuCallback(void){}
 
-static bool8 StartMenuDevMenuCallback(void)
-{
-    RemoveExtraStartMenuWindows();
-    HideStartMenu();
-    if (!gPaletteFade.active)
-    {
-        ScriptContext1_SetupScript(RyuDebugMenuBootstrap);
-        return TRUE;
-    }
-}
+static bool8 StartMenuDevMenuCallback(void){}
 
 static bool8 StartMenuExitCallback(void)
 {

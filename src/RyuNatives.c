@@ -3294,3 +3294,8 @@
         ClearStdWindowAndFrame(UiBoxWindow, TRUE);
         RemoveWindow(UiBoxWindow);
     }
+
+    void RyuDisableAutobattle(void)
+    {
+        gSaveBlock2Ptr->autobattle = FALSE;
+    }
