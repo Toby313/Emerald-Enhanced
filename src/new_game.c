@@ -328,6 +328,7 @@ void NewGameInitData(void)
     FlagSet(FLAG_RYU_MAUVILLE_PC_BARD);
     FlagSet(FLAG_RYU_DFT_BARD_GENESECT);
     FlagSet(FLAG_RYU_HIDE_SL_SUMAC_2);
+    FlagSet(FLAG_RYU_HIDE_SZ_AETHER_WICKE);
     //vars
     VarSet(VAR_RYU_GCMS_SPECIES, 0);
     VarSet(VAR_RYU_GCMS_VALUE, 0);

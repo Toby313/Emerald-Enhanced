@@ -72,7 +72,7 @@ ACO_ShellyNeutral::
 	end
 
 ACO_ShellyNMsg:
-	.string "{PLAYER}, you have your orders.$"
+	.string "Sorry, We're not accepting any\nnon-commercial orders currently.$"
 
 ACO_NonRomanceShelly::
 	lockall

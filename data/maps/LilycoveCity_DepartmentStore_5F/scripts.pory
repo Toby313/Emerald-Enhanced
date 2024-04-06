@@ -135,7 +135,7 @@ LilycoveCity_DepartmentStore_5F_Text_GettingDollInsteadOfPokemon: @ 8220122
 	.string "evolve my sweet Skitty.$"
 
 LilycoveCity_DepartmentStore_5F_Text_SellManyCuteMatsHere: @ 822016B
-	.string "They sell many powerfull battle\n"
+	.string "They sell many powerful battle\n"
 	.string "items here.\p"
 	.string "I wonder which one will improve my\n"
 	.string "Wigglytuff the most?$"

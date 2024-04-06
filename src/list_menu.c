@@ -1023,8 +1023,8 @@ const u8 RyuBetaMenuHelpStrings[13][75] =
 {
     _("Show bug report info"),
     _("Try fixing the waystone by\nchecking quest data."),
-    _("Reset temporary battle effects like\nrandom battle, inverse, magnetoshpere."),
-    _("Reset temporary cutscene data\nto fix potential sequence breaks."),
+    _("Reset temporary battle effects like\nboss mechanics or autobattle."),
+    _("Reset temporary cutscene data\nto fix potential soft locks."),
     _("Remove all badges so that they\ncan be obtained again"),
     _("Reset the data in GCMS to try\nagain."),
     _("Go to littleroot."),
@@ -1036,7 +1036,7 @@ const u8 RyuBetaMenuHelpStrings[13][75] =
     _("Exit the menu.")
 };
 
-const u8 RyuDifficultyModDescs[14][75] = 
+const u8 RyuDifficultyModDescs[15][75] = 
 {
     _("Capture one mon per route,\nDefeated mons die."),
     _("Select and use only Pokémon of the\nselected type."),
@@ -1051,7 +1051,8 @@ const u8 RyuDifficultyModDescs[14][75] =
     _("Team Aether's Magnetosphere always\nactive."),
     _("Player's pokemon always move last."),
     _("Wild Pokemon caught with 0 IV.\nIncoming status chance is 100%"),
-    _("Player's Pokemon don't evolve.")
+    _("Player's Pokemon don't evolve."),
+    _("Close Mod Selection."),
 };
 
 void RyuDrawBetaMenuHelpText(u16 selection)
