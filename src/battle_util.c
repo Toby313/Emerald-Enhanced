@@ -6446,8 +6446,10 @@ u8 IsMonDisobedient(void)
         if (gBattleMons[gBattlerAttacker].type1 != gSaveBlock1Ptr->monotypeChallengeChoice)
         {
             if (gBattleMons[gBattlerAttacker].type2 != gSaveBlock1Ptr->monotypeChallengeChoice)
-            gBattlescriptCurrInstr = BattleScript_MonIsntMonotype;
-            return 1;
+            {
+                gBattlescriptCurrInstr = BattleScript_MonIsntMonotype;
+                return 1;
+            }
         }
         if (GetModFlag(ADV_MONOTYPE_MOD) == TRUE)
         {

@@ -830,7 +830,7 @@ script RyuDifficultyModScript{
 script Ryu_MonotypeSelector{
 	msgbox("Select your monotype.")
 	closemessage
-	multichoicegrid(0, 0, MULTI_MONOTYPE_MENU, 3, 1)
+	multichoicegrid(2, 0, MULTI_MONOTYPE_MENU, 3, 1)
 	
 	if (var(VAR_RESULT) <= 8){
 		addvar(VAR_RESULT, 1)//account for normal type removal
@@ -842,7 +842,7 @@ script Ryu_MonotypeSelector{
 		setvar(VAR_RESULT, TYPE_FIRE)
 	}
 	copyvar(VAR_0x8005, VAR_RESULT)
-	if (var(VAR_0x8005) > 19){
+	if (var(VAR_0x8005) > 18){
 		msgbox("Cancel monotype selection?", MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES){
 			modflag(CLR, MONOTYPE_MOD)

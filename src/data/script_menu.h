@@ -1364,6 +1364,7 @@ static const struct MenuAction MultichoiceList_MonoTypesList[] =
     {sText_SelectDragon},
     {sText_SelectDark},
     {sText_SelectFairy},
+    {sText_SelectNone}
 };
 
 static const struct MenuAction MultichoiceList_Exit[] =

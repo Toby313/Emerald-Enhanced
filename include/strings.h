@@ -3337,6 +3337,7 @@ extern const u8 sText_SelectIce[];
 extern const u8 sText_SelectDragon[];
 extern const u8 sText_SelectDark[];
 extern const u8 sText_SelectFairy[];
+extern const u8 sText_SelectNone[];
 
 extern const u8 gText_RyuAttendantNameLanette[];
 extern const u8 gText_RyuAttendantNameMinnie[];
