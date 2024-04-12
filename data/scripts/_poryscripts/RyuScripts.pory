@@ -1144,13 +1144,10 @@ RyuCheckForWellTravelledAch::
 `
 
 script RyuDebug_Utility1 {
-	setflag(FLAG_RYU_ISNGPLUS)
-	setvar(VAR_RYU_NGPLUS_COUNT, 2)
-	setflag(FLAG_BADGE01_GET)
-	setflag(FLAG_BADGE02_GET)
-	setflag(FLAG_BADGE03_GET)
-	setflag(FLAG_BADGE04_GET)
-	setflag(FLAG_BADGE05_GET)
+	callnative(CheckNF)
+	if (var(VAR_RESULT) == TRUE){
+		msgbox("Nuzlocke Flag Set for This Area.")
+	}
     release
     end
 }

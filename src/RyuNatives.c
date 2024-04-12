@@ -3299,3 +3299,8 @@
     {
         gSaveBlock2Ptr->autobattle = FALSE;
     }
+
+    void CheckNF(void)
+    {
+        gSpecialVar_Result = (GetNuzlockeFlag(gMapHeader.regionMapSectionId));
+    }

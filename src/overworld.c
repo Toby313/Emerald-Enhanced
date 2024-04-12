@@ -77,6 +77,7 @@
 #include "ach_atlas.h"
 #include "RyuRealEstate.h"
 #include "overworld_notif.h"
+#include "ryu_challenge_modifiers.h"
 
 #define PLAYER_TRADING_STATE_IDLE 0x80
 #define PLAYER_TRADING_STATE_BUSY 0x81
@@ -431,6 +432,8 @@ void DoWhiteOut(void)
         RyuWipeParty();
     if (FlagGet(FLAG_RYU_NO_MERCY_MODE) == 1)
         RyuWipeParty();
+    if (GetModFlag(NUZLOCKE_MOD) == TRUE)
+        RyuWipeParty();
 
     if (FlagGet(FLAG_RYU_UNDERWORLD) == FALSE)
         FlagSet(FLAG_RYU_PREMATURE_DEATH);
@@ -438,7 +441,7 @@ void DoWhiteOut(void)
     FlagClear(FLAG_RYU_PERSISTENT_WEATHER);
     FlagClear(FLAG_RYU_FACING_GENESECT);
 
-    if ((CalculatePlayerPartyCount() == 0) && (FlagGet(FLAG_RYU_CHALLENGEFAILED) == 1))
+    if ((CalculatePlayerPartyCount() == 0) && (((FlagGet(FLAG_RYU_CHALLENGEFAILED) == 1)) || (GetModFlag(NUZLOCKE_MOD) == TRUE)))
     {
         if (VarGet(VAR_RYU_NGPLUS_COUNT) > 1)
         {
@@ -1813,6 +1816,8 @@ void CB2_ReturnToFieldLocal(void)
         RyuKillMon();
     if (FlagGet(FLAG_RYU_NO_MERCY_MODE) == 1)
         RyuKillMon();
+    if (GetModFlag(NUZLOCKE_MOD) == TRUE)
+        RyuKillMon();
 } 
 
 void CB2_ReturnToField(void)
@@ -2152,6 +2157,8 @@ static bool32 ReturnToFieldLocal(u8 *state)
     if (FlagGet(FLAG_RYU_HARDCORE_MODE) == 1)
         RyuKillMon();
     if (FlagGet(FLAG_RYU_NO_MERCY_MODE) == 1)
+        RyuKillMon();
+    if (GetModFlag(NUZLOCKE_MOD) == 1)
         RyuKillMon();
 
     switch (*state)

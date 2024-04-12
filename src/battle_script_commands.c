@@ -12789,6 +12789,10 @@ static void Cmd_handleballthrow(void)
                 else
                     gBattleCommunication[MULTISTRING_CHOOSER] = 1;
 
+                if (GetModFlag(NUZLOCKE_MOD) == TRUE)
+                {
+                    SetNuzlockeFlag(gMapHeader.regionMapSectionId);
+                }
             }
             else // not caught
             {

@@ -574,6 +574,7 @@
 #define NAVCALL_AQUASTAGE91 11
 #define NAVCALL_AQUASTAGE123 12
 #define NAVCALL_NOMERCYOVER 13
+#define NAVCALL_NUZLOCKEOVER 14
 
 //difficulty setting
 #define DIFF_EASY 0
@@ -606,9 +607,9 @@
 //uncomment to punish save states. Otherwise detections are just logged.
 //#define RYU_PUNISH_SAVE_STATE 1
 
-#define EE_GAME_VERSION 10107
+#define EE_GAME_VERSION 10109
 
 //uncomment to allow dev switch to be accessed.
-//#define DEV_BUILD 69
+//define DEV_BUILD 69
 
 #endif 
