@@ -22,7 +22,7 @@ GameModeSelect:: @ 823BF04
 	lockall
 	msgbox RI_ChooseStartLocation
 	bufferdynamicmulti SL_1, SL_2, SL_3, SL_4, SL_5, SL_6
-	multichoicedefault 0, 0, MULTI_DYNAMIC_6, 0, 1
+	multichoicedefault 0, 0, MULTI_DYNAMIC_6, 1, 1
 	copyvar VAR_0x8002, VAR_RESULT
 	closemessage
 	setflag FLAG_RYU_STARTER_LOCATION_CHOSEN
@@ -62,7 +62,7 @@ RyuScript_ContinueIntroAfterStarter::
 RETRYSELECTION::
 	msgbox Ryu_PleaseSelectDifficulty
 	bufferdynamicmulti NGEASY, NGNORMAL, NGHARD, NGFRONTIER, NGNOMERCY
-	multichoicedefault 1, 2, MULTI_DYNAMIC_5, 0, 0
+	multichoicedefault 1, 2, MULTI_DYNAMIC_5, 1, 0
 	switch VAR_RESULT
 	case 0, IT_EasyMode
 	case 1, IT_NormalMode
