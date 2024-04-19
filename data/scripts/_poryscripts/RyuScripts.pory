@@ -1144,10 +1144,7 @@ RyuCheckForWellTravelledAch::
 `
 
 script RyuDebug_Utility1 {
-	callnative(CheckNF)
-	if (var(VAR_RESULT) == TRUE){
-		msgbox("Nuzlocke Flag Set for This Area.")
-	}
+	goto(RyuDebug_InitTimeSlide)
     release
     end
 }
@@ -1363,9 +1360,9 @@ text PlayersHouse_1F_Text_TheresAMovieOnTV {
 //There are 1440 minutes in a day.
 
 script(global) RyuDebug_InitTimeSlide {//ngl, this may be the lewdest script i have ever made.
-	setvar(VAR_TEMP_3, 1440) //number of steps to loop in minutes.
-	setvar(VAR_TEMP_1, 4) //hour to start at
-	setvar(VAR_TEMP_2, 45) //minute to start at
+	setvar(VAR_TEMP_3, 1080) //number of steps to loop in minutes.
+	setvar(VAR_TEMP_1, 16) //hour to start at
+	setvar(VAR_TEMP_2, 0) //minute to start at
 	goto(RyuDoTImeSlide)
 }
 
