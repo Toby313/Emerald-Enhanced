@@ -1305,6 +1305,7 @@ const u8 gText_LeaderLeftEndingChat[] = _("The LEADER, {DYNAMIC 0}, has\nleft, e
 const u8 gText_RegisteredTextChangedOKToSave[] = _("The registered text has been changed.\nIs it okay to save the game?");
 const u8 gText_AlreadySavedFile_Chat[] = _("There is already a saved file.\nIs it okay to overwrite it?");
 const u8 gText_SavingDontTurnOff_Chat[] = _("Now Saving…\nDon't close/exit the game.");
+const u8 gText_AutoSaving[] = _("Please wait... Auto saving...");
 const u8 gText_PlayerSavedGame_Chat[] = _("{DYNAMIC 0} saved the game.");
 const u8 gText_IfLeaderLeavesChatEnds[] = _("If the LEADER leaves, the chat\nwill end. Is that okay?");
 const u8 gText_Hello[] = _("HELLO");

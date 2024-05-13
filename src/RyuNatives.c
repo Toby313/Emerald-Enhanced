@@ -3304,3 +3304,9 @@
     {
         gSpecialVar_Result = (GetNuzlockeFlag(gMapHeader.regionMapSectionId));
     }
+
+    void readoutAutosaveData(void)
+    {
+        mgba_open();
+        mgba_printf(LOGINFO, "En: %d, int: %d", gSaveBlock1Ptr->autosaveEnabled, gSaveBlock1Ptr->autosaveInterval);
+    }

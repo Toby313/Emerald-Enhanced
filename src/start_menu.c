@@ -102,7 +102,7 @@ EWRAM_DATA static u8 sCurrentStartMenuActions[16] = {0};
 EWRAM_DATA static u8 sInitStartMenuData[2] = {0};
 EWRAM_DATA static u8 sStartMenuActionSpriteIds[16] = {0};
 
-EWRAM_DATA static u8 (*sSaveDialogCallback)(void) = NULL;
+EWRAM_DATA u8 (*sSaveDialogCallback)(void) = NULL;
 EWRAM_DATA static u8 sSaveDialogTimer = 0;
 EWRAM_DATA static bool8 sSavingComplete = FALSE;
 EWRAM_DATA static u8 sSaveInfoWindowId = 0;
@@ -1978,6 +1978,12 @@ static u8 SaveOverwriteInputCallback(void)
 static u8 SaveSavingMessageCallback(void)
 {
     ShowSaveMessage(gText_SavingDontTurnOff, SaveDoSaveCallback);
+    return SAVE_IN_PROGRESS;
+}
+
+u8 autosaveWithMessage(void)
+{
+    ShowSaveMessage(gText_AutoSaving, SaveDoSaveCallback);
     return SAVE_IN_PROGRESS;
 }
 

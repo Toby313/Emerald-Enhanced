@@ -20,7 +20,10 @@
 #include "constants/weather.h"
 #include "random.h"
 #include "ryu_challenge_modifiers.h"
+#include "RyuPokenavScheduler.h"
+#include "RyuFieldNotificationSystem.h"
 
+extern u8 RyuAutosaveScript[];
 static void UpdatePerDay(struct Time *localTime);
 void UpdatePerHour(struct Time *localTime);
 static void UpdatePerMinute(struct Time *localTime);
@@ -274,6 +277,19 @@ static void UpdatePerDay(struct Time *localTime)
 }
 extern void Task_MapNamePopUpWindow(u8 taskId);
 extern void RyuDoNotifyTasks(void);
+extern u8 autosaveWithMessage(void);
+extern u8 sSaveDialogCallback;
+
+void TryCheckAutosave(u32 mins)
+{
+    VarSet(VAR_RYU_AUTOSAVE_MINUTES, (VarGet(VAR_RYU_AUTOSAVE_MINUTES)) + 1);
+    mgba_open();
+    mgba_printf(LOGINFO, "autosave check. time: %d:%d Status: %d/%d, var: %d, flag: %d", gLocalTime.hours, gLocalTime.minutes, gSaveBlock1Ptr->autosaveEnabled, gSaveBlock1Ptr->autosaveInterval, VarGet(VAR_RYU_AUTOSAVE_MINUTES), FlagGet(FLAG_RYU_SKIPPED_AUTOSAVE));
+    if (VarGet(VAR_RYU_AUTOSAVE_MINUTES) >= gSaveBlock1Ptr->autosaveInterval){
+        VarSet(VAR_RYU_AUTOSAVE_MINUTES, 0);
+        ScriptContext1_SetupScript(RyuAutosaveScript);
+    }
+}
 
 static void UpdatePerMinute(struct Time *localTime)
 {
@@ -284,8 +300,11 @@ static void UpdatePerMinute(struct Time *localTime)
     minutes = 24 * 60 * difference.days + 60 * difference.hours + difference.minutes;
     if (minutes != 0)
     {
+        mgba_printf(LOGINFO, "minute not zero. cur: %d", minutes);
+        TryCheckAutosave(minutes);
         if (minutes >= 0)
         {
+            mgba_printf(LOGINFO, "minute advanced. cur: %d", minutes);
             BerryTreeTimeUpdate(minutes);
             gSaveBlock2Ptr->lastBerryTreeUpdate = *localTime;
             TryMoveRivalIdleLocation();

@@ -894,6 +894,8 @@ struct SaveBlock1
                u32 unusedChallengeBitsBlock3:32;
                u32 unusedChallengeBitsBlock4:32;
                //total 56
+               u8 autosaveEnabled:1;
+               u8 autosaveInterval:7;
 };
 
 extern struct SaveBlock1* gSaveBlock1Ptr;

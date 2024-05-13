@@ -381,9 +381,12 @@ void NewGameInitData(void)
     VarSet(VAR_RYU_POKEFANS_OBJID, OBJ_EVENT_GFX_BRENDAN_NORMAL);
     VarSet(VAR_RYU_PLAYER_STAMINA, 100);
     VarSet(VAR_RYU_DEV_EXP_MULT, 1);
+    VarSet(VAR_RYU_AUTOSAVE_MINUTES, 0);
 
     memset(gSaveBlock1Ptr->dexNavSearchLevels, 0, sizeof(gSaveBlock1Ptr->dexNavSearchLevels));
     gSaveBlock1Ptr->dexNavChain = 0;
+    gSaveBlock1Ptr->autosaveEnabled = FALSE;
+    gSaveBlock1Ptr->autosaveInterval = 127;
     RyuClearAlchemyEffect();
 }
 

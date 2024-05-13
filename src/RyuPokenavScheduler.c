@@ -20,6 +20,7 @@ const u8 sText_AquaStage80[] = _("This is an urgent message from Admin\nMatt!\pC
 const u8 sText_AquaStage91[] = _("{COLOR LIGHT_RED}{SHADOW RED}{PLAYER}, this is Shelly.\pWe've discovered what Magma is\nscheming, and it's far from good.\pWe were able to weaken their forces\nat Mt. Chimney, so now they're\ldesperate.\pIt's time to hit them while they're\nstill down!\pMeet me at their hideout located in\nJagged Pass.");
 const u8 sText_AquaStage123[] = _("{COLOR LIGHT_RED}{SHADOW RED}{PLAYER}, it's time...meet us in the\nmain Team Aqua Headquarters.\pWe'll be waiting by the dock.");
 const u8 sText_NuzlockeOver[] = _("Hello!\nDuskull Afterlife service calling!\pIt appears that you have lost your\nNuzlocke Challenge!\pHow unfortunate for you!\nYou will be escorted to the afterlife\lshortly!");
+const u8 sText_Autosaving[] = _("One moment, Autosaving...");
 
 
 const u8 * const RyuPokenavCallMessages[] = 
@@ -39,6 +40,7 @@ const u8 * const RyuPokenavCallMessages[] =
     [NAVCALL_AQUASTAGE123] = sText_AquaStage123,
     [NAVCALL_NOMERCYOVER] = sText_DuskullAfterlifeNoMercy,
     [NAVCALL_NUZLOCKEOVER] = sText_NuzlockeOver,
+    [NAVCALL_AUTOSAVING] = sText_Autosaving,
 };
 
 int RyuTryGetScheduledPokenavCall(void)

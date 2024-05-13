@@ -44,6 +44,7 @@ enum
     MENUITEM_VANILLACAP,
     MENUITEM_AUTORUN,
     MENUITEM_TRAINERSLIDE,
+    MENUITEM_AUTOSAVE,
     MENUITEM_SAVE,
     MENUITEM_COUNT,
 };
@@ -77,6 +78,7 @@ static void TrainerSlide_DrawChoices(int selection, int y, u8 textSpeed);
 static void ToggleAutoRun_DrawChoices(int selection, int y, u8 textSpeed);
 static void ThemeSelection_DrawChoices(int selection, int y, u8 textSpeed);
 static void PresetThemeSelection_DrawChoices(int selection, int y, u8 textSpeed);
+static void Autosave_DrawChoices(int selection, int y, u8 textSpeed);
 //FULL_COLOR
 static void ThemeUISelection_DrawChoices(int selection, int y, u8 textSpeed);
 static int ThemeUI_ProcessInput(int selection);
@@ -95,6 +97,7 @@ static int FrameType_ProcessInput(int selection);
 static int FourOptions_ProcessInput(int selection);
 static int ThreeOptions_ProcessInput(int selection);
 static int TwoOptions_ProcessInput(int selection);
+static int SevenOptions_ProcessInput(int selection);
 static int ElevenOptions_ProcessInput(int selection);
 static int PresetThemeSelection_ProcessInput(int selection);
 static int Theme_ProcessInput(int selection);
@@ -129,6 +132,7 @@ static const sItemFunctions[MENUITEM_COUNT] =
     [MENUITEM_VANILLACAP] = {VanillaCap_DrawChoices, TwoOptions_ProcessInput},
     [MENUITEM_AUTORUN] = {ToggleAutoRun_DrawChoices, TwoOptions_ProcessInput},
     [MENUITEM_TRAINERSLIDE] = {TrainerSlide_DrawChoices, TwoOptions_ProcessInput},
+    [MENUITEM_AUTOSAVE] = {Autosave_DrawChoices, SevenOptions_ProcessInput},
     [MENUITEM_SAVE] = {NULL, NULL},
 };
 
@@ -155,6 +159,7 @@ static const u8 OptionText_No[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}No");
 static const u8 sText_ToggleDamageInfo[] = _("Xtr Battle Info");
 const u8 sText_On[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}On");
 const u8 sText_Off[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Off");
+const u8 sText_Autosave[] = _("Autosave Int");
 
 //FULL_COLOR
 static const u8 *const sOptionMenuItemsNames[MENUITEM_COUNT] =
@@ -176,6 +181,7 @@ static const u8 *const sOptionMenuItemsNames[MENUITEM_COUNT] =
     [MENUITEM_VANILLACAP]  = sText_VanillaLevelCap,
     [MENUITEM_AUTORUN]  = sText_ToggleAutoRun,
     [MENUITEM_TRAINERSLIDE]  = sText_TrainerSlideOption,
+    [MENUITEM_AUTOSAVE] = sText_Autosave,
     [MENUITEM_SAVE]        = gText_OptionMenuSave,
 };
 
@@ -253,6 +259,37 @@ static void VBlankCB(void)
     LoadOam();
     ProcessSpriteCopyRequests();
     TransferPlttBuffer();
+}
+
+int RyuLoadAutosaveSetting()
+{
+    switch(gSaveBlock1Ptr->autosaveInterval)
+    {
+        case 0:
+            return 0;
+            break;
+        case 3:
+            return 1;
+            break;
+        case 8:
+            return 2;
+            break;
+        case 15:
+            return 3;
+            break;
+        case 23:
+            return 4;
+            break;
+        case 30:
+            return 5;
+            break;
+        case 45:
+            return 6;
+            break;
+        case 60:
+            return 7;
+            break;
+    }
 }
 
 static void DrawChoices(u32 id, int y, u8 textSpeed)
@@ -394,6 +431,7 @@ void CB2_InitOptionMenu(void)
         sOptions->sel[MENUITEM_VANILLACAP] = FlagGet(FLAG_RYU_VANILLA_CAP);
         sOptions->sel[MENUITEM_TRAINERSLIDE] = gSaveBlock2Ptr->trainerSlideEnabled;
         sOptions->sel[MENUITEM_AUTORUN] = FlagGet(FLAG_RYU_AUTORUN);
+        sOptions->sel[MENUITEM_AUTOSAVE] = RyuLoadAutosaveSetting();
 
 
         for (i = 0; i < 8; i++)
@@ -1111,13 +1149,52 @@ extern bool32 RyuCheckFor100Lv(void);
 extern void StopMapMusic(void);
 extern void LoadMapMusic(void);
 extern void ApplyPresetRGBUserTheme(void);
+extern void readoutAutosaveData(void);
 
 static void Task_OptionMenuSave(u8 taskId)
 {
     gSaveBlock2Ptr->optionsTextSpeed = sOptions->sel[MENUITEM_TEXTSPEED];
     if (sOptions->sel[MENUITEM_TEXTSPEED] == 3)
         gSaveBlock2Ptr->optionsTextSpeed = 2;
-        
+    
+    //gSaveBlock1Ptr->autosaveInterval = sOptions->sel[MENUITEM_AUTOSAVE];
+    switch(sOptions->sel[MENUITEM_AUTOSAVE]) //for some reason, update perminute is only called every 2 minutes... so actual value is 2x these.
+    {
+        case 0:
+            gSaveBlock1Ptr->autosaveEnabled = FALSE;
+            gSaveBlock1Ptr->autosaveInterval = FALSE;
+            break;
+        case 1:
+            gSaveBlock1Ptr->autosaveEnabled = TRUE;
+            gSaveBlock1Ptr->autosaveInterval = 3;
+            break;
+        case 2:
+            gSaveBlock1Ptr->autosaveEnabled = TRUE;
+            gSaveBlock1Ptr->autosaveInterval = 8;
+            break;
+        case 3:
+            gSaveBlock1Ptr->autosaveEnabled = TRUE;
+            gSaveBlock1Ptr->autosaveInterval = 15;
+            break;
+        case 4:
+            gSaveBlock1Ptr->autosaveEnabled = TRUE;
+            gSaveBlock1Ptr->autosaveInterval = 23;
+            break;
+        case 5:
+            gSaveBlock1Ptr->autosaveEnabled = TRUE;
+            gSaveBlock1Ptr->autosaveInterval = 30;
+            break;
+        case 6:
+            gSaveBlock1Ptr->autosaveEnabled = TRUE;
+            gSaveBlock1Ptr->autosaveInterval = 45;
+            break;
+        case 7:
+            gSaveBlock1Ptr->autosaveEnabled = TRUE;
+            gSaveBlock1Ptr->autosaveInterval = 60;
+            break;
+    }
+    VarSet(VAR_RYU_AUTOSAVE_MINUTES, 0);
+    readoutAutosaveData();
 
     gSaveBlock2Ptr->optionsBattleSceneOff = sOptions->sel[MENUITEM_BATTLESCENE];
     gSaveBlock2Ptr->optionsThemeNumber = sOptions->sel[MENUITEM_THEME];
@@ -1251,6 +1328,11 @@ static int FourOptions_ProcessInput(int selection)
 static int ElevenOptions_ProcessInput(int selection)
 {
     return XOptions_ProcessInput(11, selection);
+}
+
+static int SevenOptions_ProcessInput(int selection)
+{
+    return XOptions_ProcessInput(7, selection);
 }
 
 static int TwoOptions_ProcessInput(int selection)
@@ -1545,6 +1627,23 @@ static void HpBar_DrawChoices(int selection, int y, u8 textSpeed)
     {
         DrawOptionMenuChoice(sText_Instant, 104, y, 1, textSpeed);
     }
+}
+
+const u8 autosaveOptions[8][19] = {
+    _("{COLOR GREEN}{SHADOW LIGHT_GREEN}disabled    "),
+    _("{COLOR GREEN}{SHADOW LIGHT_GREEN}5m          "),
+    _("{COLOR GREEN}{SHADOW LIGHT_GREEN}10m         "),
+    _("{COLOR GREEN}{SHADOW LIGHT_GREEN}30m         "),
+    _("{COLOR GREEN}{SHADOW LIGHT_GREEN}45m         "),
+    _("{COLOR GREEN}{SHADOW LIGHT_GREEN}60m         "),
+    _("{COLOR GREEN}{SHADOW LIGHT_GREEN}90m         "),
+    _("{COLOR GREEN}{SHADOW LIGHT_GREEN}120m        ")
+};
+
+static void Autosave_DrawChoices(int selection, int y, u8 textSpeed)
+{
+
+    DrawOptionMenuChoice(autosaveOptions[selection], 104, y, 1, textSpeed);
 }
 
 static void BattleScene_DrawChoices(int selection, int y, u8 textSpeed)

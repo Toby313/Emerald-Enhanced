@@ -1144,7 +1144,8 @@ RyuCheckForWellTravelledAch::
 `
 
 script RyuDebug_Utility1 {
-	goto(RyuDebug_InitTimeSlide)
+	setvar(VAR_RYU_AUTOSAVE_MINUTES, 4)
+	callnative(readoutAutosaveData)
     release
     end
 }
@@ -1916,4 +1917,13 @@ script RyuCheckEligibleSwimFollower {
 		goto(ryu_end)
 	}
 	return
+}
+
+script RyuAutosaveScript{
+	lock
+	msgbox("Autosaving game data...", MSGBOX_AUTOCLOSE)
+	callnative(RyuForceSaveTheGame)
+	closemessage
+	release
+	end
 }

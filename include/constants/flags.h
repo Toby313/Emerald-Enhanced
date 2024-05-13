@@ -1407,6 +1407,7 @@
 #define FLAG_RYU_NOTIFY_NUZLOCKE_FAIL                             0x533
 #define FLAG_RYU_NOTIFY_NO_MERCY_FAIL                             0x534
 #define FLAG_RYU_NOTIFY_HARDCORE_FAIL                             0x535
+#define FLAG_RYU_SKIPPED_AUTOSAVE                                 0x536
 
 //tutorial system flags
 #define FLAG_RYU_FACTION_TUTORIAL_UNLOCKED                        0x5FB
