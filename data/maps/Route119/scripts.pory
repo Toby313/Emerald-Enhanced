@@ -387,7 +387,7 @@ r119_RivalInteractionMale:: @ 81F4585
 	end
 
 r119_RivalBattleMale:: @ Male Rival battle #4
-	trainerbattle_no_intro TRAINER_BRENDAN_4, r119_maleRivalDefeated
+	trainerbattle_single TRAINER_BRENDAN_4, r119_maleRivaIntro, r119_maleRivalDefeated, r119_maleRivalOutro
 	goto r119_maleRivalOutro
 	end
 
@@ -407,6 +407,7 @@ r119_BrendanExit::
 	compare VAR_TEMP_5, 1
 	call_if_eq r119_BrendanExitNorth
 	call_if_ne r119_BrendanExitSouth
+	return
 
 r119_BrendanExitNorth::
 	applymovement 16, r119_RivalExitStepsNorth
