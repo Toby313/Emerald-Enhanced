@@ -2834,7 +2834,8 @@
             {
                 if(!(GetBoxMonDataAt(i, k, MON_DATA_SPECIES) == SPECIES_NONE))
                 {
-                    if (GetSetPokedexFlag(GetBoxMonDataAt(i, k, MON_DATA_SPECIES), FLAG_GET_CAUGHT) == FALSE)
+                    if ((GetSetPokedexFlag(GetBoxMonDataAt(i, k, MON_DATA_SPECIES), FLAG_GET_CAUGHT) == FALSE) ||
+                       (GetSetPokedexFlag(GetBoxMonDataAt(i, k, MON_DATA_SPECIES), FLAG_GET_SEEN) == FALSE))
                     {
                         count++;
                         GetSetPokedexFlag(GetBoxMonDataAt(i, k, MON_DATA_SPECIES), FLAG_SET_CAUGHT);
