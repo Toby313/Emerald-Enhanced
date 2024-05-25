@@ -1391,6 +1391,7 @@
         u8 level = 5;
         u8 fixedIV = 32;
         u8 egg = TRUE;
+        u16 givenId = 0;
 
         if (slot == 6)
         {
@@ -1422,11 +1423,14 @@
                 rnd2 = ((Random() %6) + 39);
                 rnd3 = ((Random() %6) + 39);
             }while (((rnd1 != rnd2) && (rnd2 != rnd3) && (rnd3 != rnd1)) == FALSE);
-            CreateMon(&gPlayerParty[slot], RyuChooseRandomGhostId(), level, fixedIV, 0, 0, OT_ID_PLAYER_ID, 0);
+            givenId = RyuChooseRandomGhostId();
+            CreateMon(&gPlayerParty[slot], givenId, level, fixedIV, 0, 0, OT_ID_PLAYER_ID, 0);
             SetMonData(&gPlayerParty[slot], rnd1, &iv);
             SetMonData(&gPlayerParty[slot], rnd2, &iv);
             SetMonData(&gPlayerParty[slot], rnd3, &iv);
             SetMonData(&gPlayerParty[slot], MON_DATA_FRIENDSHIP, &gBaseStats[species].eggCycles);
+            GetSetPokedexFlag(givenId, FLAG_SET_CAUGHT);
+            GetSetPokedexFlag(givenId, FLAG_SET_SEEN);
             return 3;
         }
         SetMonData(&gPlayerParty[slot], MON_DATA_IS_EGG, &egg);

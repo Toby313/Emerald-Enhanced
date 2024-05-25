@@ -298,7 +298,9 @@ static void UpdatePerMinute(struct Time *localTime)
     minutes = 24 * 60 * difference.days + 60 * difference.hours + difference.minutes;
     if (minutes != 0)
     {
-        TryCheckAutosave(minutes);
+        if (gSaveBlock1Ptr->autosaveEnabled == TRUE)
+            TryCheckAutosave(minutes);
+            
         if (minutes >= 0)
         {
             BerryTreeTimeUpdate(minutes);
