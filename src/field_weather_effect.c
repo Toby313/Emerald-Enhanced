@@ -257,6 +257,7 @@ void Drought_InitAll(void)
     while (gWeatherPtr->weatherGfxLoaded == FALSE)
         Drought_Main();
 }
+extern int RyuGetTimeOfDay();
 
 void Drought_Main(void)
 {
@@ -275,19 +276,19 @@ void Drought_Main(void)
             gWeatherPtr->initStep++;
         break;
     case 3:
-        sub_80ABFF0();
+        DroughtStateInit();
         gWeatherPtr->initStep++;
         break;
     case 4:
-        sub_80AC01C();
-        if (gWeatherPtr->unknown_73C == 6)
+        DroughtStateRun();
+        if (gWeatherPtr->droughtBrightnessStage == 6)
         {
             gWeatherPtr->weatherGfxLoaded = TRUE;
             gWeatherPtr->initStep++;
         }
         break;
     default:
-        sub_80AC01C();
+        DroughtStateRun();
         break;
     }
 }
@@ -1089,7 +1090,7 @@ void Thunderstorm_Main(void)
         gWeatherPtr->initStep++;
         // fall through
     case 8:
-        sub_80ABC48(19);
+        ApplyWeatherColorMapIfIdle(19);
         if (gWeatherPtr->unknown_6EB == 0 && gWeatherPtr->unknown_6EC == 1)
             SetThunderCounter(20);
 
@@ -1099,7 +1100,7 @@ void Thunderstorm_Main(void)
     case 9:
         if (--gWeatherPtr->unknown_6E6 == 0)
         {
-            sub_80ABC48(3);
+            ApplyWeatherColorMapIfIdle(3);
             gWeatherPtr->unknown_6EA = 1;
             if (--gWeatherPtr->unknown_6EC != 0)
             {
@@ -1128,7 +1129,7 @@ void Thunderstorm_Main(void)
         if (--gWeatherPtr->unknown_6E6 == 0)
         {
             SetThunderCounter(100);
-            sub_80ABC48(19);
+            ApplyWeatherColorMapIfIdle(19);
             gWeatherPtr->unknown_6E6 = (Random() & 0xF) + 30;
             gWeatherPtr->initStep++;
         }

@@ -1144,8 +1144,7 @@ RyuCheckForWellTravelledAch::
 `
 
 script RyuDebug_Utility1 {
-	setvar(VAR_RYU_AUTOSAVE_MINUTES, 4)
-	callnative(readoutAutosaveData)
+	setvar(VAR_RYU_SEASONAL_WEATHER, 12)
     release
     end
 }
