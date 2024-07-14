@@ -242,22 +242,38 @@ static void UpdateCloudSprite(struct Sprite *sprite)
 //------------------------------------------------------------------------------
 
 static void UpdateDroughtBlend(u8);
+extern int RyuGetTimeOfDay();
+extern void ApplyGammaShift(u8 startPalIndex, u8 numPalettes, s8 gammaIndex);
+
+void SetDroughtGamma()
+{
+    switch (RyuGetTimeOfDay()){
+        case RTC_TIME_NIGHT:
+            ApplyGammaShift(6, 32, 5);
+        break;
+        case RTC_TIME_MORNING:
+            ApplyGammaShift(-2, 32, 4);
+        break;
+        case RTC_TIME_DAY:
+            ApplyGammaShift(-6, 32, 1);
+        break;
+        case RTC_TIME_EVENING:
+            ApplyGammaShift(-1, 32, -2);
+        break;
+    }
+}
 
 void Drought_InitVars(void)
 {
-    gWeatherPtr->initStep = 0;
-    gWeatherPtr->weatherGfxLoaded = FALSE;
+    gWeatherPtr->initStep = 3;
     gWeatherPtr->gammaTargetIndex = 0;
-    gWeatherPtr->gammaStepDelay = 0;
+    //SetDroughtGamma();
 }
 
 void Drought_InitAll(void)
 {
     Drought_InitVars();
-    while (gWeatherPtr->weatherGfxLoaded == FALSE)
-        Drought_Main();
 }
-extern int RyuGetTimeOfDay();
 
 void Drought_Main(void)
 {
@@ -268,11 +284,9 @@ void Drought_Main(void)
             gWeatherPtr->initStep++;
         break;
     case 1:
-        ResetDroughtWeatherPaletteLoading();
         gWeatherPtr->initStep++;
         break;
     case 2:
-        if (LoadDroughtWeatherPalettes() == FALSE)
             gWeatherPtr->initStep++;
         break;
     case 3:
@@ -281,11 +295,6 @@ void Drought_Main(void)
         break;
     case 4:
         DroughtStateRun();
-        if (gWeatherPtr->droughtBrightnessStage == 6)
-        {
-            gWeatherPtr->weatherGfxLoaded = TRUE;
-            gWeatherPtr->initStep++;
-        }
         break;
     default:
         DroughtStateRun();

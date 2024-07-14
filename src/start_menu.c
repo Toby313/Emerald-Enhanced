@@ -54,6 +54,7 @@
 #include "overworld_notif.h"
 #include "wild_encounter.h"
 #include "start_menu_helper.h"
+#include "time_events.h"
 
 extern u8 RDB_StartMenuBetaOptionBootstrap[];
 extern u8 RyuDebugMenuBootstrap[];

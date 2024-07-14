@@ -58,6 +58,7 @@
 #include "ach_atlas.h"
 #include "overworld_notif.h"
 #include "ryu_challenge_modifiers.h"
+#include "time_events.h"
 
 extern struct MusicPlayerInfo gMPlayInfo_BGM;
 extern bool8 gHasAmuletEffectActive;

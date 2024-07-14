@@ -51,6 +51,7 @@
 #include "constants/item_config.h"
 #include "ach_atlas.h"
 #include "ryu_challenge_modifiers.h"
+#include "time_events.h"
 
 struct SpeciesItem
 {

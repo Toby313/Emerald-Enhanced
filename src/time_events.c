@@ -111,3 +111,22 @@ void UpdateBirchState(u16 days)
     *state += days;
     *state %= 7;
 }
+
+    int RyuGetTimeOfDay(void)
+    {
+        u8 hour;
+        RtcCalcLocalTime();
+        hour = gLocalTime.hours;
+
+        if (hour >= 6 && hour < 10) //6am to 9:59am
+            return RTC_TIME_MORNING;
+
+        if (hour >= 10 && hour < 18) // 10am to 5:59pm
+            return RTC_TIME_DAY;
+
+        if (hour >= 18 && hour <= 20) // 6pm to 8:59pm
+            return RTC_TIME_EVENING;
+
+        //between 9pm and 5:59am
+        return RTC_TIME_NIGHT;
+    }
