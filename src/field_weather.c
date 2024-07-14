@@ -899,6 +899,8 @@ void DroughtStateInit(void)
     
 }
 
+extern int RyuGetTimeOfDay();
+
 void DroughtStateRun(void)
 {
     switch (gWeatherPtr->droughtState)
@@ -917,10 +919,30 @@ void DroughtStateRun(void)
         }
         break;
     case 1:
-        gWeatherPtr->droughtTimer = (gWeatherPtr->droughtTimer + 3) & 0x7F;
+        gWeatherPtr->droughtTimer = 0;//(gWeatherPtr->droughtTimer + 3) & 0x7F;
         gWeatherPtr->droughtBrightnessStage = ((gSineTable[gWeatherPtr->droughtTimer] - 1) >> 6) + 2;
-        if (gWeatherPtr->droughtBrightnessStage != gWeatherPtr->droughtLastBrightnessStage)
-            SetDroughtColorMap(gWeatherPtr->droughtBrightnessStage);
+        switch (RyuGetTimeOfDay()){
+            case RTC_TIME_NIGHT:
+                gWeatherPtr->droughtLastBrightnessStage = 4;
+                gWeatherPtr->droughtBrightnessStage = 3;
+                ApplyGammaShift(0, 32, 3);
+            break;
+            case RTC_TIME_MORNING:
+                gWeatherPtr->droughtLastBrightnessStage = 4;
+                gWeatherPtr->droughtBrightnessStage = 3;
+                ApplyGammaShift(0, 32, 2);
+            break;
+            case RTC_TIME_DAY:
+                gWeatherPtr->droughtLastBrightnessStage = 4;
+                gWeatherPtr->droughtBrightnessStage = 3;
+                ApplyGammaShift(0, 32, -1);
+            break;
+            case RTC_TIME_EVENING:
+                gWeatherPtr->droughtLastBrightnessStage = 4;
+                gWeatherPtr->droughtBrightnessStage = 3;
+                ApplyGammaShift(0, 32, -2);
+            break;
+        }
         gWeatherPtr->droughtLastBrightnessStage = gWeatherPtr->droughtBrightnessStage;
         break;
     case 2:
