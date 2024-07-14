@@ -1555,15 +1555,15 @@ text H23_6 {
 }
 
 script RyuScript_GiveHolidayGiftMon{
-	//lock
-	//faceplayer
-	//msgbox("Why are you here?")
-	//closemessage
-	//setflag(FLAG_RYU_HOLIDAY_EVENT)
-	//setflag(FLAG_RYU_HIDE_HOLIDAY_NPC)
-	//removeobject(12)
-	//release
-	//end
+	lock
+	faceplayer
+	msgbox("Why are you here?")
+	closemessage
+	setflag(FLAG_RYU_HOLIDAY_EVENT)
+	setflag(FLAG_RYU_HIDE_HOLIDAY_NPC)
+	removeobject(12)
+	release
+	end
 	//below code is never reached
 	msgbox(format("{COLOR LIGHT_RED}{SHADOW RED}Uhm... Hi! I'm here to... uh, give you this."))
 	closemessage
