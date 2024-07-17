@@ -267,7 +267,6 @@ void Drought_InitVars(void)
 {
     gWeatherPtr->initStep = 3;
     gWeatherPtr->gammaTargetIndex = 0;
-    //SetDroughtGamma();
 }
 
 void Drought_InitAll(void)
@@ -309,7 +308,7 @@ bool8 Drought_Finish(void)
 
 void StartDroughtWeatherBlend(void)
 {
-    CreateTask(UpdateDroughtBlend, 0x50);
+    return;
 }
 
 #define tState      data[0]

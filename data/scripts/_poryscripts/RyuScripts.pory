@@ -1144,7 +1144,7 @@ RyuCheckForWellTravelledAch::
 `
 
 script RyuDebug_Utility1 {
-	setvar(VAR_RYU_SEASONAL_WEATHER, 12)
+	additem(ITEM_FORECASTER)
     release
     end
 }

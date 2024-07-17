@@ -923,8 +923,8 @@ void DroughtStateRun(void)
     switch (gWeatherPtr->droughtState)
     {
     case 0://set initial drought color.
-        SetDroughtGamma();
-        gWeatherPtr->droughtState = 1;
+        //SetDroughtGamma();
+        //gWeatherPtr->droughtState = 1;
         break;
     case 1://do nothing.
     break;
