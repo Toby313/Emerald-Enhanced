@@ -307,7 +307,7 @@ static const u8 sGenWunnerHint [] = _("{COLOR LIGHT_RED}{SHADOW RED} Locked.  {C
 static const u8 sGenWunnerDesc [] = _("You think that older is better.\nAnd you proved it.");
 
 static const u8 sPatientLabel[] = _("Patience");
-static const u8 sPatientHint [] = _("{COLOR LIGHT_RED}{SHADOW RED} Locked.  {COLOR DARK_GREY}{SHADOW LIGHT_GREY}Complete the game with Late Bloomer.");
+static const u8 sPatientHint [] = _("{COLOR LIGHT_RED}{SHADOW RED} Locked.  {COLOR DARK_GREY}{SHADOW LIGHT_GREY}Complete the game with\nLate Bloomer.");
 static const u8 sPatientDesc [] = _("Patience is a virtue and you have it.");
 
 static const u8 sFerroMagneticLabel[] = _("Ferro Magnetic");
@@ -323,8 +323,20 @@ static const u8 sNaturalSelectionHint [] = _("{COLOR LIGHT_RED}{SHADOW RED} Lock
 static const u8 sNaturalSelectionDesc [] = _("You're just differently abled.\nThat didn't stop you from winning\nthe game!");
 
 static const u8 sCreationistLabel[] = _("Creatonism");
-static const u8 sCreationistHint [] = _("{COLOR LIGHT_RED}{SHADOW RED} Locked.  {COLOR DARK_GREY}{SHADOW LIGHT_GREY}Complete the game with anti-darwinism.");
+static const u8 sCreationistHint [] = _("{COLOR LIGHT_RED}{SHADOW RED} Locked.  {COLOR DARK_GREY}{SHADOW LIGHT_GREY}Complete the game with\nanti-darwinism.");
 static const u8 sCreationistDesc [] = _("Hmm... maybe Darwin was on to something?");
+
+static const u8 sRoughAndToughLabel[] = _("Rough and Tough.");
+static const u8 sRoughAndToughHint [] = _("{COLOR LIGHT_RED}{SHADOW RED} Locked.  {COLOR DARK_GREY}{SHADOW LIGHT_GREY}Complete the game with\nGreedy Trainers");
+static const u8 sRoughAndToughDesc [] = _("You survived a darker version of Hoenn where\ntrainers mug you for all you got.");
+
+static const u8 sTechnicalLabel[] = _("Technical!");
+static const u8 sTechnicalHint [] = _("{COLOR LIGHT_RED}{SHADOW RED} Locked.  {COLOR DARK_GREY}{SHADOW LIGHT_GREY}Complete the game with\nTechnician Mode");
+static const u8 sTechnicalDesc [] = _("Less is definitely more.");
+
+static const u8 sDystopiaLabel[] = _("Dystopia?!");
+static const u8 sDystopiaHint [] = _("{COLOR LIGHT_RED}{SHADOW RED} Locked.  {COLOR DARK_GREY}{SHADOW LIGHT_GREY}Complete the game with\nEconomy Mode.");
+static const u8 sDystopiaDesc [] = _("Team Aether wasn't going to price you out\nof the life of your dreams!");
 
 static const struct AtlasAchPointData sAchAtlasData[] =
 {
@@ -394,7 +406,7 @@ static const struct AtlasAchPointData sAchAtlasData[] =
     [ACH_THE_PHOENIX] = {12, 51, CATEGORY_EXPLORATION | CATEGORY_FLAG_GOLD, ACH_MARKED_FOR_DEATH, sThePhoenixLabel, sThePhoenixDesc, sThePhoenixHint}, //defeat the four horsemen and arceus
     [ACH_ULTRAKILL] = {28, 31, CATEGORY_BATTLE | CATEGORY_FLAG_GOLD, ACH_ULTRAKILL, sUltraKillLabel, sUltraKillDesc, sUltraKillHint}, //faint 50x
     [ACH_ULTIMATE_END] = {57, 29, CATEGORY_COMPANIONS | CATEGORY_FLAG_GOLD, ACH_ULTIMATE_END, sUltimateEndLabel, sUltimateEndDesc, sUltimateEndHint}, //Complete advanced harem end
-    [ACH_TRULY_BAD_ENDING] = {55, 29, CATEGORY_COMPANIONS, ACH_TRULY_BAD_ENDING, sTrulyBadEndingLabel, sTrulyBadEndingDesc, sTrulyBadEndingHint}, //Unlock Mom as follower
+    [ACH_TRULY_BAD_ENDING] = {55, 29, CATEGORY_COMPANIONS | CATEGORY_FLAG_GOLD, ACH_TRULY_BAD_ENDING, sTrulyBadEndingLabel, sTrulyBadEndingDesc, sTrulyBadEndingHint}, //Unlock Mom as follower
     [ACH_SERPENTINE] = {55, 33, CATEGORY_COMPANIONS, ACH_SERPENTINE, sSerpentineLabel, sSerpentineDesc, sSerpentineHint}, //Unlock Lucy as follower
     [ACH_NUZLOCKE_MASTER] = {39, 43, CATEGORY_EXPLORATION, ACH_NUZLOCKE_MASTER, sNuzlockeMasterLabel, sNuzlockeMasterDesc, sNuzlockeMasterHint}, //Complete the game with nuzlocke mod active
     [ACH_MONOCHROME] = {41, 43, CATEGORY_EXPLORATION, ACH_MONOCHROME, sMonochromeLabel, sMonochromeDesc, sMonochromeHint}, //Complete the game with Monotype mod
@@ -406,8 +418,11 @@ static const struct AtlasAchPointData sAchAtlasData[] =
     [ACH_OMEN] = {41, 45, CATEGORY_EXPLORATION | CATEGORY_FLAG_GOLD, ACH_OMEN, sOmenLabel, sOmenDesc, sOmenHint}, //Complete the game with all four horsemen effects
     [ACH_GENWUNNER] = {43, 45, CATEGORY_EXPLORATION, ACH_GENWUNNER, sGenWunnerLabel, sGenWunnerDesc, sGenWunnerHint}, //Complete the game with the Gen 1 mod active
     [ACH_PATIENT] = {45, 45, CATEGORY_EXPLORATION, ACH_PATIENT, sPatientLabel, sPatientDesc, sPatientHint}, //Complete the game with the late bloomer mod active
-    [ACH_FERROMAGNETIC] = {45, 47, CATEGORY_EXPLORATION, ACH_FERROMAGNETIC, sFerroMagneticLabel, sFerroMagneticDesc, sFerroMagneticHint}, //Complete the game with the Magnetosphere mod active
+    [ACH_FERROMAGNETIC] = {45, 47, CATEGORY_EXPLORATION | CATEGORY_FLAG_GOLD, ACH_FERROMAGNETIC, sFerroMagneticLabel, sFerroMagneticDesc, sFerroMagneticHint}, //Complete the game with the Magnetosphere mod active
     [ACH_UNMOTIVATED] = {43, 47, CATEGORY_EXPLORATION, ACH_UNMOTIVATED, sUnmotivatedLabel, sUnmotivatedDesc, sUnmotivatedHint}, //Complete the game with the Lazy mod active
     [ACH_NATURAL_SELECTION] = {41, 47, CATEGORY_EXPLORATION, ACH_NATURAL_SELECTION, sNaturalSelectionLabel, sNaturalSelectionDesc, sNaturalSelectionHint}, //Complete the game with the Sickly mod active
     [ACH_CREATIONIST] = {39, 47, CATEGORY_EXPLORATION, ACH_CREATIONIST, sCreationistLabel, sCreationistDesc, sCreationistHint}, //Complete the game with the anti-darwinism mod active
-};
+    [ACH_ROUGH_AND_TOUGH] = {44, 49, CATEGORY_EXPLORATION, ACH_ROUGH_AND_TOUGH, sRoughAndToughLabel, sRoughAndToughDesc, sRoughAndToughHint}, //Complete the game with greedy trainers
+    [ACH_TECHNICAL] = {40, 49, CATEGORY_EXPLORATION, ACH_TECHNICAL, sTechnicalLabel, sTechnicalDesc, sTechnicalHint}, //Complete the game with the technician mod active
+    [ACH_DYSTOPIA] = {42, 49, CATEGORY_EXPLORATION, ACH_DYSTOPIA, sDystopiaLabel, sDystopiaDesc, sDystopiaHint}, //Complete the game with economy mode active
+}; 

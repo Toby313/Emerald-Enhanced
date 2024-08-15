@@ -928,7 +928,6 @@ int GetTotalMoneyOwned(void){
     int bnk = GetGameStat(GAME_STAT_FRONTIERBANK_BALANCE);
     int ttmn = pkt + bnk;
     mgba_open();
-    mgba_printf(LOGINFO, "totalmoney is %d", ttmn);
     return ttmn;
 }
 

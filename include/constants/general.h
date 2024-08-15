@@ -129,9 +129,9 @@
 #define ACH_UNMOTIVATED  79
 #define ACH_NATURAL_SELECTION  80
 #define ACH_CREATIONIST  81
-#define ACH_UNUSED_83  82
-#define ACH_UNUSED_84  83
-#define ACH_UNUSED_85  84
+#define ACH_ROUGH_AND_TOUGH  82
+#define ACH_TECHNICAL  83
+#define ACH_DYSTOPIA  84
 #define ACH_UNUSED_86  85
 #define ACH_UNUSED_87  86
 #define ACH_UNUSED_88  87
@@ -611,7 +611,7 @@
 //uncomment to punish save states. Otherwise detections are just logged.
 //#define RYU_PUNISH_SAVE_STATE 1
 
-#define EE_GAME_VERSION 10200
+#define EE_GAME_VERSION 10201
 
 //uncomment to allow dev switch to be accessed.
 //#define DEV_BUILD 69
