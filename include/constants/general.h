@@ -600,7 +600,10 @@
 #define LAZY_MOD 11
 #define SICKLY_MOD 12
 #define ANTI_DARWINISM_MOD 13
-#define TOTAL_MODS 14
+#define GREEDY_TRAINERS_MOD 14
+#define TECHNICIAN_MOD 15
+#define ECONOMY_MODE 16
+#define TOTAL_MODS 15
 
 //Affection configuration
 #define AFFECTION_BASE_CHANCE RyuGetAffectionChance()

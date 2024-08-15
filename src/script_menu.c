@@ -1006,6 +1006,9 @@ static const u8 sDifficultyModMagnetosphere[] = _("Magnetosphere");
 static const u8 sDifficultyModLazy[] = _("Lazy");
 static const u8 sDifficultyModSickly[] = _("Sickly");
 static const u8 sDifficultyModAntiDarwinism[] = _("Anti-Darwinism");
+static const u8 sDifficultyModGreedyTrainers[] = _("Greedy Trainers");
+static const u8 sDifficultyModTechnician[] = _("Technician");
+static const u8 sDifficultyModEconomyMode[] = _("Economy Mode");
 static const u8 sDifficultyModNone[] = _("End Selection");
 
 static const struct ListMenuItem sBotanyConsumablesSet[] =
@@ -1154,7 +1157,10 @@ static const struct ListMenuItem sDifficultyModifierSet[] =
     {sDifficultyModLazy, 11},
     {sDifficultyModSickly, 12},
     {sDifficultyModAntiDarwinism, 13},
-    {sDifficultyModNone, 14},
+    {sDifficultyModGreedyTrainers, 14},
+    {sDifficultyModTechnician, 15},
+    {sDifficultyModEconomyMode, 16},
+    {sDifficultyModNone, 17},
 };
 
 

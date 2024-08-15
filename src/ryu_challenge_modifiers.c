@@ -95,7 +95,7 @@ void TryRevelationModPenalties(void)
     u8 partySlot = (Random() % CalculatePlayerPartyCount());
     u16 deathcount = 1;
     u8 ppcount = 4;
-    u8 plaguestatus = randomStatuses[Random() % sizeof(randomStatuses)];
+    u8 plaguestatus = randomStatuses[Random() % ARRAY_COUNT(randomStatuses)];
 
     if ((GetModFlag(PLAGUE_MOD)) || (GetModFlag(REVELATION_MOD)))
     {
@@ -140,7 +140,7 @@ void TryRevelationModPenalties(void)
 
 ////////////////////////General list for mod names/////////////////////////////////////////////
 
-const u8 gRyuChallengeModifierNames[14][16] = {
+const u8 gRyuChallengeModifierNames[17][16] = {
     _("Nuzlocke"),
     _("Monotype"),
     _("Adv.Mono"),
@@ -154,5 +154,8 @@ const u8 gRyuChallengeModifierNames[14][16] = {
     _("Magneto"),
     _("Lazy"),
     _("Sickly"),
+    _("Greedy Trainers"),
+    _("Technician"),
+    _("Economy Mode"),
     _("No Evolve")
 };

@@ -519,6 +519,10 @@ void ReturnToFieldOpenStartMenu(void)
     FadeInFromBlack();
     CreateTask(Task_WaitForFadeShowStartMenu, 0x50);
     ScriptContext2_Enable();
+    FlagClear(FLAG_RYU_DISPLAY_BOTANY_INGREDIENTS);
+    FlagClear(FLAG_RYU_DISPLAY_ALCHEMY_INGREDIENTS);
+    FlagClear(FLAG_RYU_BETA_MENU_OPEN);
+    FlagClear(FLAG_RYU_SHOW_DIFFICULTY_MOD_MENU);
 }
 
 bool8 FieldCB_ReturnToFieldOpenStartMenu(void)

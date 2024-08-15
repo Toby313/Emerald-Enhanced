@@ -411,6 +411,13 @@ void SetWarpDestinationToUnderworld(void) //face death
         SetWarpDestination(33, 4, 255, 5, 10);
 }
 
+void getMuggedEffect (void){
+    ClearItemSlots(gBagPockets[ITEMS_POCKET].itemSlots, gBagPockets[ITEMS_POCKET].capacity);
+    ClearItemSlots(gBagPockets[BALLS_POCKET].itemSlots, gBagPockets[BALLS_POCKET].capacity);
+    ClearItemSlots(gBagPockets[BERRIES_POCKET].itemSlots, gBagPockets[BERRIES_POCKET].capacity);
+    ClearItemSlots(gBagPockets[MEDICINE_POCKET].itemSlots, gBagPockets[MEDICINE_POCKET].capacity);
+    ClearItemSlots(gBagPockets[COLLECTIBLES_POCKET].itemSlots, gBagPockets[COLLECTIBLES_POCKET].capacity);
+}
 
 // code
 void DoWhiteOut(void)
@@ -457,8 +464,16 @@ void DoWhiteOut(void)
         GiveAchievement(ACH_YOU_DIED);
 
     FlagClear(FLAG_RYU_WAYSTONE_DISABLED);
-    SetMoney(&gSaveBlock1Ptr->money, ((GetMoney(&gSaveBlock1Ptr->money) / 5) * 4));
-    HealPlayerParty();
+    if (GetModFlag(GREEDY_TRAINERS_MOD) == TRUE){
+        SetMoney(&gSaveBlock1Ptr->money, ((GetMoney(&gSaveBlock1Ptr->money) / 10) * 1));
+        getMuggedEffect();
+        QueueNotification(((const u8[])_("Your bag and wallet feel lighter...")), NOTIFY_GENERAL, 90);
+        HealPlayerPartyEconomy();
+    }
+    else{
+        SetMoney(&gSaveBlock1Ptr->money, ((GetMoney(&gSaveBlock1Ptr->money) / 10) * 7));
+        HealPlayerParty();
+    }
     IncrementGameStat(GAME_STAT_BATTLES_LOST);
     Overworld_ResetStateAfterWhiteOut();
 	FlagClear(FLAG_RYU_TC_ENTERED);

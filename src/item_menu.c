@@ -2401,7 +2401,7 @@ static void DisplaySellItemPriceAndConfirm(u8 taskId)
 {
     s16* data = gTasks[taskId].data;
     u16 price = ItemId_GetPrice(gSpecialVar_ItemId);
-    if (FlagGet(FLAG_RYU_SELLING_TO_FENCE) == TRUE)
+    if ((FlagGet(FLAG_RYU_SELLING_TO_FENCE) == TRUE) && (price > 2))
         price /= 2;
     ConvertIntToDecimalStringN(gStringVar1, (price / 2) * tItemCount, STR_CONV_MODE_LEFT_ALIGN, 6);
     StringExpandPlaceholders(gStringVar4, gText_ICanPayVar1);

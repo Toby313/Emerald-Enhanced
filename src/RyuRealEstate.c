@@ -88,6 +88,7 @@ const u8 gRyuDamageTypeNamesTable[NUM_DAMAGE_TYPES][26] = { //will be buffered w
 };
 
 u8 const gRyuInterestNotifyString[] = _("You earned ¥{STR_VAR_1} in interest.");
+u8 const gRyuFeesNotifyString[] = _("You paid ¥{STR_VAR_1} in bank fees.");
 
 bool32 RyuCheckIfFollowerCanStay (void)
 {
@@ -118,12 +119,22 @@ void DoDailyRealEstateTasks(void)
             u32 interest = balance / 98; // 1% interest rate
             if (interest + balance < balance) // happens if balance is close to the integer limit and the interest causes it to overflow and wrap to 0
                 return;
-            SetGameStat(GAME_STAT_INTEREST_RECEIVED, interest); // saves the last earned interest amount, potentially could be more than 65k, so use 32bit number.
-            SetGameStat(GAME_STAT_FRONTIERBANK_BALANCE, balance + interest);
-            VarSet(VAR_RYU_DAYS_INTEREST_GAINED, (VarGet(VAR_RYU_DAYS_INTEREST_GAINED) + 1));
-            FlagSet(FLAG_RYU_INTEREST_ACCRUED);
-            ConvertUIntToDecimalStringN(gStringVar1, GetGameStat(GAME_STAT_INTEREST_RECEIVED), STR_CONV_MODE_LEFT_ALIGN, 10);
-            QueueNotification(gRyuInterestNotifyString, NOTIFY_INTEREST, 120);
+            if (GetModFlag(ECONOMY_MODE) == TRUE){//economy mode has a bank FEE instead of interest.
+                SetGameStat(GAME_STAT_INTEREST_RECEIVED, interest);
+                SetGameStat(GAME_STAT_FRONTIERBANK_BALANCE, balance - interest);
+                VarSet(VAR_RYU_DAYS_INTEREST_GAINED, (VarGet(VAR_RYU_DAYS_INTEREST_GAINED) + 1));
+                FlagSet(FLAG_RYU_INTEREST_ACCRUED);
+                ConvertUIntToDecimalStringN(gStringVar1, GetGameStat(GAME_STAT_INTEREST_RECEIVED), STR_CONV_MODE_LEFT_ALIGN, 10);
+                QueueNotification(gRyuFeesNotifyString, NOTIFY_INTEREST, 120);
+            }
+            else{
+                SetGameStat(GAME_STAT_INTEREST_RECEIVED, interest); // saves the last earned interest amount, potentially could be more than 65k, so use 32bit number.
+                SetGameStat(GAME_STAT_FRONTIERBANK_BALANCE, balance + interest);
+                VarSet(VAR_RYU_DAYS_INTEREST_GAINED, (VarGet(VAR_RYU_DAYS_INTEREST_GAINED) + 1));
+                FlagSet(FLAG_RYU_INTEREST_ACCRUED);
+                ConvertUIntToDecimalStringN(gStringVar1, GetGameStat(GAME_STAT_INTEREST_RECEIVED), STR_CONV_MODE_LEFT_ALIGN, 10);
+                QueueNotification(gRyuInterestNotifyString, NOTIFY_INTEREST, 120);
+            }
         }
     }
 

@@ -59,6 +59,9 @@ EventScript_AccessPC:: @ 8271DBC
 
 EventScript_AccessPlayersPC:: @ 8271DF9
 	playse SE_PC_LOGIN
+	modflag GET ECONOMY_MODE
+	compare VAR_RESULT, TRUE
+	call_if_eq RyuEconomyModeItemStorage
 	msgbox gText_AccessedPlayersPC, MSGBOX_DEFAULT
 	special PlayerPC
 	waitstate
@@ -66,6 +69,9 @@ EventScript_AccessPlayersPC:: @ 8271DF9
 	end
 
 EventScript_AccessPokemonStorage:: @ 8271E0E
+	modflag GET ECONOMY_MODE
+	compare VAR_RESULT, TRUE
+	call_if_eq RyuEconomyModePokemonStorage
 	getpartysize
 	compare VAR_RESULT, 0
 	goto_if_eq EventscriptPC_NoMons

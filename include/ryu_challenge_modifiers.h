@@ -12,4 +12,4 @@ extern void   ResetModFlags(void);
 extern void   ToggleModFlag(u32 id);
 extern void TryRevelationModPenalties(void);
 
-extern const u8 gRyuChallengeModifierNames[14][16];
+extern const u8 gRyuChallengeModifierNames[17][16];

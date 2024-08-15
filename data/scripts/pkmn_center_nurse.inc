@@ -146,6 +146,9 @@ PCN_AudiniteExplain:
     .string "would be happy to help you!$"
 
 Ryu_CheckHealPermissions::
+    modflag GET ECONOMY_MODE
+    compare VAR_RESULT, TRUE
+    goto_if_eq Ryu_EconomyModePokecenter
     goto_if_set FLAG_RYU_HARDCORE_MODE, Ryu_NoPcUsesHardcore
     goto_if_set FLAG_RYU_NO_MERCY_MODE, Ryu_NoPcUsesHardcore
     return

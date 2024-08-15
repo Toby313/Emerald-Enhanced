@@ -1144,7 +1144,7 @@ RyuCheckForWellTravelledAch::
 `
 
 script RyuDebug_Utility1 {
-	additem(ITEM_FORECASTER)
+	setflag(FLAG_RYU_POKEFANS_FINAL_QUEST_DONE)
     release
     end
 }
@@ -1904,4 +1904,127 @@ script RyuAutosaveScript{
 	closemessage
 	release
 	end
+}
+
+script RyuScript_EconGymDoorBlockers{
+	modflag(GET, ECONOMY_MODE)
+	if (var(VAR_RESULT) == FALSE){
+		setflag(FLAG_RYU_HIDE_ECON_BOUNCERS)
+		msgbox("Sorry kid, I was just checking\nthe place out. Head on in.")
+		fadescreen(FADE_TO_BLACK)
+		removeobject(VAR_LAST_TALKED)
+		delay(20)
+		fadescreen(FADE_FROM_BLACK)
+		release
+		end
+	}
+	setvar(VAR_0x8000, 5)
+	setvar(VAR_0x8001, 2000)
+	callnative(ryuCalculatePercentileMoneyCost)
+	msgbox("If you want to challenge this gym, it will\ncost you ¥{STR_VAR_1}.")
+	closemessage
+	msgbox("Challenge the gym?", MSGBOX_YESNO)
+	if (var(VAR_RESULT) == NO){
+		msgbox("The Aether foundation graciously\nbailed the Pokémon League out of\ldebt.\pTherefore, we are collecting dues\nfrom every trainer.\pGet used to it.")
+		closemessage
+		release
+		end
+	}
+	if (var(VAR_0x8002) == FALSE){
+		msgbox("Tough break kid, you can't afford\nto challenge this gym.\pCome back later with more money.")
+		closemessage
+		release
+		end
+	}
+	callnative(ryuTakeReservedMoney)
+	applymovement(VAR_LAST_TALKED, Common_Movement_StepLeft)
+	waitmovement(VAR_LAST_TALKED)
+	applymovement(VAR_LAST_TALKED, Common_Movement_StepDown)
+	waitmovement(VAR_LAST_TALKED)
+
+}
+
+script Ryu_EconomyModePokecenter {
+	if(flag(FLAG_RYU_POKEFANS_FINAL_QUEST_DONE) == TRUE){
+		msgbox("The Pokéfans offer comprehensive\nmedical coverage for all members!\pYou will be treated for free here!")
+		goto(PCN_HealMons)
+	}
+	setvar(0x8000, 11)
+	setvar(0x8001, 1151)
+	callnative(ryuCalculatePercentileMoneyCost)
+	msgbox("The current rate for a full heal is\n¥{STR_VAR_1}.\pWould you like to use our\nmedical services?", MSGBOX_YESNO)
+	if (var(VAR_RESULT) == TRUE){
+		if (var(VAR_0x8002) == TRUE){
+			callnative(ryuTakeReservedMoney)
+			goto(PCN_HealMons)
+		}
+		else{
+			msgbox("I'm sorry, but Aether's corporate\npolicy won't allow us to heal Pokémon\lfor free anymore.\pthey demand a cut.\nI'll have to decline your request...")
+			closemessage
+			release
+			end
+		}
+	}
+	else{
+		msgbox("If the cost is too high, might I\nrecommend acquiring some insurance?")
+		closemessage
+		release
+		end
+	}
+
+
+}
+
+script RyuEconomyModePokemonStorage {
+	setvar(0x8000, 15)
+	setvar(0x8001, 6969)
+	callnative(ryuCalculatePercentileMoneyCost)
+	msgbox("{COLOR LIGHT_GREEN}{SHADOW GREEN}The PC seems to require a payment\nbefore you can use it.")
+	closemessage
+	msgbox("{COLOR LIGHT_RED}{SHADOW GREEN}Payment of ¥{STR_VAR_1} required to\naccess this terminal.\pAccept charges?", MSGBOX_YESNO)
+	if (var(VAR_RESULT) == NO){
+		msgbox("You decide not to pay the machine.")
+		release
+		end
+	}
+	if(var(VAR_0x8002) == FALSE){
+		msgbox("{COLOR LIGHT_RED}{SHADOW GREEN}PAYMENT DECLINED.")
+		closemessage
+		release
+		end
+	}
+	callnative(ryuTakeReservedMoney)
+	return
+}
+
+script RyuEconomyModeItemStorage {
+	setvar(0x8000, 10)
+	setvar(0x8001, 4150)
+	callnative(ryuCalculatePercentileMoneyCost)
+	msgbox("{COLOR LIGHT_GREEN}{SHADOW GREEN}Welcome to Adrasti Warehouse,\nCyber division!\pPlease enter payment info or\nmembership number!")
+	goto_if_set(FLAG_RYU_PROF_SPECIAL_QUEST_AVAILABLE, RyuEconomyModeItemStorage_Member)
+	closemessage
+	msgbox("{COLOR LIGHT_RED}{SHADOW GREEN}Payment of ¥{STR_VAR_1} required to\naccess remote storage.\pAccept charges?", MSGBOX_YESNO)
+	if (var(VAR_RESULT) == NO){
+		msgbox("You decide not to pay the machine.")
+		release
+		end
+	}
+	if(var(VAR_0x8002) == FALSE){
+		msgbox("{COLOR LIGHT_RED}{SHADOW GREEN}PAYMENT DECLINED.")
+		closemessage
+		release
+		end
+	}
+	callnative(ryuTakeReservedMoney)
+	return
+}
+
+script RyuEconomyModeItemStorage_Member {
+	msgbox("{PLAYER} swiped the Adrasti membership card...")
+	playse(SE_PC_LOGIN)
+	callnative(RyuBufferTrainerId)
+	msgbox("Welcome back, employee number {STR_VAR_2}!\pYour membership grants unlimited\naccess to the storage system.")
+	closemessage
+	return
 }

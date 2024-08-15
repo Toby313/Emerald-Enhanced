@@ -1036,7 +1036,7 @@ const u8 RyuBetaMenuHelpStrings[13][75] =
     _("Exit the menu.")
 };
 
-const u8 RyuDifficultyModDescs[15][75] = 
+const u8 RyuDifficultyModDescs[18][75] = 
 {
     _("Capture one mon per route,\nDefeated mons die."),
     _("Select and use only Pokémon of the\nselected type."),
@@ -1052,6 +1052,9 @@ const u8 RyuDifficultyModDescs[15][75] =
     _("Player's pokemon always move last."),
     _("Wild Pokemon caught with 0 IV.\nIncoming status chance is 100%"),
     _("Player's Pokemon don't evolve."),
+    _("Trainers steal your items and most of your money when you pass out."),
+    _("You can't use or learn moves greater than 60BP"),
+    _("Everything costs money.\nYou won't get free medical treatment."),
     _("Close Mod Selection."),
 };
 

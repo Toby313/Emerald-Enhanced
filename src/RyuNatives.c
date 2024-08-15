@@ -94,6 +94,7 @@
     #include "StatAssist.h"
     #include "ryu_challenge_modifiers.h"
     #include "theme_color_factory.h"
+    #include "new_game.h"
 
     extern u8 GetObjectEventIdByLocalId(u8 id);
 
@@ -3302,3 +3303,41 @@
     void readoutAutosaveData(void)
     {
     }
+
+    void getMoneyPctScale(void)
+    {
+        int currentmoney = GetMoney(&gSaveBlock1Ptr->money);
+        int scalepct = gSpecialVar_0x8000;
+        currentmoney = ((currentmoney * scalepct) / 100);
+        ConvertIntToDecimalStringN(gStringVar1, currentmoney, 0, 6);
+        gSpecialVar_0x8001 = currentmoney;
+    }
+
+    void ryuCalculatePercentileMoneyCost(void)
+    {
+        int badges = CountBadges();
+        int scale = gSpecialVar_0x8000;
+        int cost = 0;
+        int basecost = gSpecialVar_0x8001;
+        int curmoney = GetMoney(&gSaveBlock1Ptr->money); 
+        int curbankmoney = GetGameStat(GAME_STAT_FRONTIERBANK_BALANCE);
+        curmoney += curbankmoney;
+        cost = basecost + ((scale * curmoney) / 100);
+        if (curmoney >= cost){
+            gSpecialVar_0x8002 = TRUE;
+            SetGameStat(GAME_STAT_TEMP32BITSTORAGE, cost);
+        }
+        ConvertIntToDecimalStringN(gStringVar1, cost, 0, 7);
+    }
+
+    void ryuTakeReservedMoney(void)
+    {
+        RemoveMoney(&gSaveBlock1Ptr->money, GetGameStat(GAME_STAT_TEMP32BITSTORAGE));
+    }
+
+
+    void RyuBufferTrainerId(void)
+    {
+        ConvertIntToDecimalStringN(gStringVar2, (u16)GetTrainerId(gSaveBlock2Ptr->playerTrainerId), 0, 5);
+    }
+

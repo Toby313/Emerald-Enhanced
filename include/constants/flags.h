@@ -1408,6 +1408,7 @@
 #define FLAG_RYU_NOTIFY_NO_MERCY_FAIL                             0x534
 #define FLAG_RYU_NOTIFY_HARDCORE_FAIL                             0x535
 #define FLAG_RYU_SKIPPED_AUTOSAVE                                 0x536
+#define FLAG_RYU_HIDE_ECON_BOUNCERS                               0x536
 
 //tutorial system flags
 #define FLAG_RYU_FACTION_TUTORIAL_UNLOCKED                        0x5FB

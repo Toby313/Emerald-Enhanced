@@ -616,6 +616,9 @@ LRT_Mom_8badges::
 LRT_Mom_base::
 	goto_if_set FLAG_RYU_HARDCORE_MODE, LRT_MOM_Restricted
 	call_if_set FLAG_RYU_DS_MOM_AVAILABLE, LRT_FollowerMom
+	modflag GET, ECONOMY_MODE
+	compare VAR_RESULT, TRUE
+	goto_if_eq LRT_mom_economy
 	msgbox Momwouldyouliketoheal, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq LRT_Mom_Heal
@@ -673,6 +676,27 @@ MomGoGetThem:
 Mom_IBelieveInYou:
 	.string "Mom: Keep at it!$"
 `
+
+script LRT_mom_economy{
+	setvar(VAR_0x8000, 10)
+	callnative(getMoneyPctScale)
+	msgbox("I can let you stay here for ¥{STR_VAR_1}.\pWould you like to rent your old\nroom for ¥{STR_VAR_1}?", MSGBOX_YESNO)
+	if (var(VAR_RESULT) == TRUE){
+		checkmoney(VAR_0x8001)
+		if (var(VAR_RESULT) == FALSE){
+			msgbox("Sorry... I can't allow you to stay here\nfor free. \pBest of luck!")
+			release
+			end
+		}
+		removemoney(VAR_0x8001)
+		goto(LRT_Mom_Heal)
+	}
+	else{
+		msgbox("Sorry, {PLAYER}, but the economy is tough\nthese days...")
+		release
+		end
+	}
+}
 
 text SL_1 {
 	"Littleroot"
@@ -812,6 +836,15 @@ script RyuDifficultyModScript{
 			call(DMSMENU_SELECTIONCONFIRM)
 		case ANTI_DARWINISM_MOD:
 			msgbox(format("Pokemon you own will never evolve."))
+			call(DMSMENU_SELECTIONCONFIRM)
+		case GREEDY_TRAINERS_MOD:
+			msgbox(format("Trainers will steal your items when you lose."))
+			call(DMSMENU_SELECTIONCONFIRM)
+		case TECHNICIAN_MOD:
+			msgbox(format("You will be unable to learn or use moves with a BP over 60."))
+			call(DMSMENU_SELECTIONCONFIRM)
+		case ECONOMY_MODE:
+			msgbox(format("Everything costs money."))
 			call(DMSMENU_SELECTIONCONFIRM)
 		case TOTAL_MODS:
 		case 127:
