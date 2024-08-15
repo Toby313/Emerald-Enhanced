@@ -6440,6 +6440,12 @@ u8 IsMonDisobedient(void)
     {
         return 0;
     }
+    if (GetModFlag(TECHNICIAN_MOD) == TRUE){
+        if (gBattleMoves[gCurrentMove].power > 60){
+            gBattlescriptCurrInstr = BattleScript_TechnicianModPrevented;
+                return 1;
+        }
+    }
     if (GetModFlag(MONOTYPE_MOD) == TRUE)
     {
         StringCopy(gStringVar3, gTypeNames[gSaveBlock1Ptr->monotypeChallengeChoice]);
@@ -6998,8 +7004,16 @@ static u32 CalcMoveBasePowerAfterModifiers(u16 move, u8 battlerAtk, u8 battlerDe
     switch (GetBattlerAbility(battlerAtk))
     {
     case ABILITY_TECHNICIAN:
-        if (basePower <= 65)
-           MulModifier(&modifier, UQ_4_12(1.5));
+        if (basePower <= 65){
+            if (GetModFlag(TECHNICIAN_MOD) == TRUE){
+                if (basePower <= 30){
+                    MulModifier(&modifier, UQ_4_12(2.0));
+                }
+            }
+            else{
+                MulModifier(&modifier, UQ_4_12(1.5));
+            }
+        }
         break;
     case ABILITY_FLARE_BOOST:
         if (gBattleMons[battlerAtk].status1 & STATUS1_BURN && IS_MOVE_SPECIAL(move))

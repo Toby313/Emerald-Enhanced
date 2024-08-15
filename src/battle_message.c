@@ -780,6 +780,7 @@ static const u8 sText_NuzlockeModeAlreadyCaught[] = _("You already captured a Po
 static const u8 sText_MonotypeDoesntMatch[] = _("You can only capture {STR_VAR_3}\ntypes!");
 static const u8 sText_MonotypeDoesntMatchMon[] = _("You can only use {STR_VAR_3}\ntype Pokémon!");
 static const u8 sText_MonotypeDoesntMatchMove[] = _("You can only use {STR_VAR_3}\nor normal type moves!");
+static const u8 sText_TechnicianModPrevented[] = _("The Technician challenge prevented\nthe move!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1418,6 +1419,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_BALLBLOCKEDMONOTYPE- 12] = sText_MonotypeDoesntMatch,
     [STRINGID_NONMONOTYPEMOVE- 12] = sText_MonotypeDoesntMatchMove,
     [STRINGID_NONMONOTYPEMON- 12] = sText_MonotypeDoesntMatchMon,
+    [STRINGID_TECHNICIANPREVENTED- 12] = sText_TechnicianModPrevented,
 };
 
 const u16 gTerrainStringIds[] =

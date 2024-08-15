@@ -7803,6 +7803,12 @@ BattleScript_CantUseNonMonotypeMove::
 	moveendto MOVEEND_NEXT_TARGET
 	end	
 
+BattleScript_TechnicianModPrevented::
+	printstring STRINGID_TECHNICIANPREVENTED
+	waitmessage 0x40
+	moveendto MOVEEND_NEXT_TARGET
+	end	
+
 BattleScript_IgnoresAndUsesRandomMove::
 	printstring STRINGID_PKMNIGNOREDORDERS
 	waitmessage 0x40

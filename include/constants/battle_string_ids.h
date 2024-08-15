@@ -651,8 +651,9 @@
 #define STRINGID_BALLBLOCKEDMONOTYPE                  647
 #define STRINGID_NONMONOTYPEMON                       648
 #define STRINGID_NONMONOTYPEMOVE                      649
+#define STRINGID_TECHNICIANPREVENTED                  650
 
-#define BATTLESTRINGS_COUNT                           650
+#define BATTLESTRINGS_COUNT                           651
 
 
 #endif // GUARD_CONSTANTS_BATTLE_STRING_IDS_H

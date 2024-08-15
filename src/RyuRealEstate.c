@@ -11,7 +11,7 @@
 #include "ach_atlas.h"
 #include "overworld_notif.h"
 #include "constants/event_objects.h"
-
+#include "ryu_challenge_modifiers.h"
 
 
 

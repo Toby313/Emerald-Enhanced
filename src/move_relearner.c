@@ -24,6 +24,7 @@
 #include "task.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "ryu_challenge_modifiers.h"
 
 /*
  * Move relearner state machine
@@ -807,13 +808,26 @@ static void HandleInput(bool8 showContest)
         MoveRelearnerPrintText(gStringVar4);
         break;
     default:
-        PlaySE(SE_SELECT);
-        RemoveScrollArrows();
-        sMoveRelearnerStruct->state = MENU_STATE_PRINT_TEACH_MOVE_PROMPT;
-        StringCopy(gStringVar2, gMoveNames[itemId]);
-        StringExpandPlaceholders(gStringVar4, gText_MoveRelearnerTeachMoveConfirm);
-        MoveRelearnerPrintText(gStringVar4);
-        break;
+        if (GetModFlag(TECHNICIAN_MOD) == TRUE){
+            if (gBattleMoves[itemId].power < 60){
+                PlaySE(SE_SELECT);
+                RemoveScrollArrows();
+                sMoveRelearnerStruct->state = MENU_STATE_PRINT_TEACH_MOVE_PROMPT;
+                StringCopy(gStringVar2, gMoveNames[itemId]);
+                StringExpandPlaceholders(gStringVar4, gText_MoveRelearnerTeachMoveConfirm);
+                MoveRelearnerPrintText(gStringVar4);
+                break;
+            }
+        }
+        else{
+            PlaySE(SE_SELECT);
+            RemoveScrollArrows();
+            sMoveRelearnerStruct->state = MENU_STATE_PRINT_TEACH_MOVE_PROMPT;
+            StringCopy(gStringVar2, gMoveNames[itemId]);
+            StringExpandPlaceholders(gStringVar4, gText_MoveRelearnerTeachMoveConfirm);
+            MoveRelearnerPrintText(gStringVar4);
+            break;
+        }
     }
 }
 
