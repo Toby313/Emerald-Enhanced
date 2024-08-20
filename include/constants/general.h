@@ -42,7 +42,7 @@
 #define TOTAL_AP_COUNT 15
 
 //the total number of achievements that can be owned, this is what will be used for the ap percentage check.
-#define TOTAL_OBTAINABLE_ACHIEVEMENTS 67
+#define TOTAL_OBTAINABLE_ACHIEVEMENTS 85
 
 //Achievement related. Achievements are stored in Save Block 2, 256 total.
 #define ACH_FLAGS_START 0x0
@@ -611,9 +611,9 @@
 //uncomment to punish save states. Otherwise detections are just logged.
 //#define RYU_PUNISH_SAVE_STATE 1
 
-#define EE_GAME_VERSION 10201
+#define EE_GAME_VERSION 10202
 
 //uncomment to allow dev switch to be accessed.
-//#define DEV_BUILD 69
+#define DEV_BUILD 69
 
 #endif 
