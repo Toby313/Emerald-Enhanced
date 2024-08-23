@@ -2111,7 +2111,7 @@ static u8 CanMonLearnTMTutor(struct Pokemon *mon, u16 item, u8 tutor)
     {
         if (CanMonLearnTMHM(mon, item - ITEM_TM01_FOCUS_PUNCH))
             move = ItemIdToBattleMoveId(item);
-            if (gBattleMoves[move].power > 60){
+            if ((GetModFlag(TECHNICIAN_MOD) == TRUE) && (gBattleMoves[move].power > 60)){
                 return CANNOT_LEARN_MOVE;
             }
         else
