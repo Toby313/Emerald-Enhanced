@@ -279,24 +279,21 @@ void Drought_Main(void)
     switch (gWeatherPtr->initStep)
     {
     case 0:
-        if (gWeatherPtr->palProcessingState != WEATHER_PAL_STATE_CHANGING_WEATHER)
-            gWeatherPtr->initStep++;
+        gWeatherPtr->initStep++;
         break;
     case 1:
         gWeatherPtr->initStep++;
         break;
     case 2:
-            gWeatherPtr->initStep++;
+        gWeatherPtr->initStep++;
         break;
     case 3:
-        DroughtStateInit();
         gWeatherPtr->initStep++;
         break;
     case 4:
-        DroughtStateRun();
+        gWeatherPtr->initStep++;
         break;
     default:
-        DroughtStateRun();
         break;
     }
 }
@@ -323,40 +320,15 @@ static void UpdateDroughtBlend(u8 taskId)
     switch (task->tState)
     {
     case 0:
-        task->tBlendY = 0;
-        task->tBlendDelay = 0;
-        task->tWinRange = REG_WININ;
-        SetGpuReg(REG_OFFSET_WININ, WIN_RANGE(63, 63));
-        SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT1_BG1 | BLDCNT_TGT1_BG2 | BLDCNT_TGT1_BG3 | BLDCNT_TGT1_OBJ | BLDCNT_EFFECT_LIGHTEN);
-        SetGpuReg(REG_OFFSET_BLDY, 0);
         task->tState++;
         // fall through
     case 1:
-        task->tBlendY += 3;
-        if (task->tBlendY > 16)
-            task->tBlendY = 16;
-        SetGpuReg(REG_OFFSET_BLDY, task->tBlendY);
-        if (task->tBlendY >= 16)
-            task->tState++;
+        task->tState++;
         break;
     case 2:
-        task->tBlendDelay++;
-        if (task->tBlendDelay > 9)
-        {
-            task->tBlendDelay = 0;
-            task->tBlendY--;
-            if (task->tBlendY <= 0)
-            {
-                task->tBlendY = 0;
-                task->tState++;
-            }
-            SetGpuReg(REG_OFFSET_BLDY, task->tBlendY);
-        }
+        task->tState++;
         break;
     case 3:
-        SetGpuReg(REG_OFFSET_BLDCNT, 0);
-        SetGpuReg(REG_OFFSET_BLDY, 0);
-        SetGpuReg(REG_OFFSET_WININ, task->tWinRange);
         task->tState++;
         break;
     case 4:
