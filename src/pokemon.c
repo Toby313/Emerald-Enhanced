@@ -3219,11 +3219,6 @@ u16 MonTryLearningNewMove(struct Pokemon *mon, bool8 firstMove)
     {
         gMoveToLearn = gLevelUpLearnsets[species][sLearningMoveTableID].move;
         sLearningMoveTableID++;
-        if (GetModFlag(TECHNICIAN_MOD) == TRUE){
-            if (gBattleMoves[gMoveToLearn].power > 60){
-                return 0;
-            }
-        }
         retVal = GiveMoveToMon(mon, gMoveToLearn);
     }
 
@@ -6375,14 +6370,7 @@ u8 GetLevelUpMovesBySpecies(u16 species, u16 *moves)
     int i;
 
     for (i = 0; i < 127 && gLevelUpLearnsets[species][i].move != LEVEL_UP_END; i++){
-        if (GetModFlag(TECHNICIAN_MOD) == TRUE){
-            if(gBattleMoves[gLevelUpLearnsets[species][i].move].power < 60){
-                moves[numMoves++] = gLevelUpLearnsets[species][i].move;
-            }
-        }
-        else{
-            moves[numMoves++] = gLevelUpLearnsets[species][i].move;
-        }
+        moves[numMoves++] = gLevelUpLearnsets[species][i].move;
     }
 
      return numMoves;

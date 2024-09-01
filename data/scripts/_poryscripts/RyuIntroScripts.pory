@@ -841,7 +841,7 @@ script RyuDifficultyModScript{
 			msgbox(format("Trainers will steal your items when you lose."))
 			call(DMSMENU_SELECTIONCONFIRM)
 		case TECHNICIAN_MOD:
-			msgbox(format("You will be unable to learn or use moves with a BP over 60."))
+			msgbox(format("You will be unable to use moves with a BP over 60."))
 			call(DMSMENU_SELECTIONCONFIRM)
 		case ECONOMY_MODE:
 			msgbox(format("Everything costs money."))

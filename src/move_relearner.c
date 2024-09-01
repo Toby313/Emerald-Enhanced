@@ -808,18 +808,6 @@ static void HandleInput(bool8 showContest)
         MoveRelearnerPrintText(gStringVar4);
         break;
     default:
-        if (GetModFlag(TECHNICIAN_MOD) == TRUE){
-            if (gBattleMoves[itemId].power < 60){
-                PlaySE(SE_SELECT);
-                RemoveScrollArrows();
-                sMoveRelearnerStruct->state = MENU_STATE_PRINT_TEACH_MOVE_PROMPT;
-                StringCopy(gStringVar2, gMoveNames[itemId]);
-                StringExpandPlaceholders(gStringVar4, gText_MoveRelearnerTeachMoveConfirm);
-                MoveRelearnerPrintText(gStringVar4);
-                break;
-            }
-        }
-        else{
             PlaySE(SE_SELECT);
             RemoveScrollArrows();
             sMoveRelearnerStruct->state = MENU_STATE_PRINT_TEACH_MOVE_PROMPT;
@@ -827,7 +815,6 @@ static void HandleInput(bool8 showContest)
             StringExpandPlaceholders(gStringVar4, gText_MoveRelearnerTeachMoveConfirm);
             MoveRelearnerPrintText(gStringVar4);
             break;
-        }
     }
 }
 
