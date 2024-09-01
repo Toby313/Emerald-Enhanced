@@ -6369,9 +6369,8 @@ u8 GetLevelUpMovesBySpecies(u16 species, u16 *moves)
     u8 numMoves = 0;
     int i;
 
-    for (i = 0; i < 127 && gLevelUpLearnsets[species][i].move != LEVEL_UP_END; i++){
-        moves[numMoves++] = gLevelUpLearnsets[species][i].move;
-    }
+    for (i = 0; i < 127 && gLevelUpLearnsets[species][i].move != LEVEL_UP_END; i++)
+         moves[numMoves++] = gLevelUpLearnsets[species][i].move;
 
      return numMoves;
 }
