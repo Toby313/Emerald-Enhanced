@@ -1355,13 +1355,22 @@ u8 TrySetCantSelectMoveBattleScript(void)
     u32 move = gBattleMons[gActiveBattler].moves[moveId];
     u32 holdEffect = GetBattlerHoldEffect(gActiveBattler, TRUE);
     u16 *choicedMove = &gBattleStruct->choicedMove[gActiveBattler];
- 
-    if ((gBattleWeather == WEATHER_ECLIPSE_ANY) &&
-        (GetBattlerAbility(gActiveBattler) == ABILITY_LUNATIC) &&
-        (gBattleMoves[move].split == SPLIT_STATUS))
-    {
-        gSelectionBattleScripts[gActiveBattler] = BattleScript_RyuLunaticDisableStatusMessage;
-        limitations++;
+    u16 weather = gBattleWeather;
+    u16 ability = GetBattlerAbility(gActiveBattler);
+    u8 split = gBattleMoves[move].split;
+
+
+    if ((ability == ABILITY_LUNATIC) && (weather == WEATHER_ECLIPSE_ANY) && (split == SPLIT_STATUS)){
+        gCurrentMove = move;
+        if (gBattleTypeFlags & BATTLE_TYPE_PALACE)
+        {
+            gProtectStructs[gActiveBattler].palaceUnableToUseMove = 1;
+        }
+        else
+        {
+            gSelectionBattleScripts[gActiveBattler] = BattleScript_RyuLunaticDisableStatusMessage;
+            limitations++;
+        }
     }
 
     if (gDisableStructs[gActiveBattler].disabledMove == move && move != MOVE_NONE)
@@ -1562,7 +1571,7 @@ u8 CheckMoveLimitations(u8 battlerId, u8 unusableMoves, u8 check)
             unusableMoves |= gBitTable[i];
         else if (holdEffect == HOLD_EFFECT_ASSAULT_VEST && gBattleMoves[gBattleMons[battlerId].moves[i]].power == 0)
             unusableMoves |= gBitTable[i];
-        else if ((gBattleMoves[gBattleMons[battlerId].moves[i]].power == 0) && (gBattleMons[battlerId].ability == ABILITY_LUNATIC) && (gBattleWeather == WEATHER_ECLIPSE_ANY))
+        else if (gBattleMoves[gBattleMons[battlerId].moves[i]].split == SPLIT_SPECIAL && gBattleMons[battlerId].ability == ABILITY_LUNATIC && gBattleWeather == WEATHER_ECLIPSE_ANY)
             unusableMoves |= gBitTable[i];
         else if (IsGravityPreventingMove(gBattleMons[battlerId].moves[i]))
             unusableMoves |= gBitTable[i];
