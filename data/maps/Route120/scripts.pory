@@ -12,6 +12,31 @@ Route120_OnResume: @ 81F53FC
 	
 @=============================================LEAF EVENTS
 
+r120_MidToMain::
+	lock
+	applymovement PLAYER, r120_DDL
+	waitmovement PLAYER
+	goto r120_LeafEvent
+
+r120_TopToMain::
+	lock
+	applymovement PLAYER, r120_DDDL
+	waitmovement PLAYER
+	goto r120_LeafEvent
+
+r120_DDL:
+	walk_down
+	walk_left
+	face_up
+	step_end
+
+r120_DDDL:
+	walk_down
+	walk_down
+	walk_left
+	face_up
+	step_end
+
 r120_SetupLeafHiker::
 	lock
 	clearflag FLAG_RYU_HIDE_R120_LEAF_AND_HIKER
@@ -29,13 +54,13 @@ r120_LeafEvent::
 	applymovement 45, Common_Movement_ExclamationMark
 	msgbox r120_Story1 MSGBOX_DEFAULT
 	closemessage
-	applymovement 45, r120_PushHiker
-	applymovement 46 r120_PushedRight
-	waitmovement 45
-	removeobject 45
+	applymovement 44, r120_PushHiker
+	applymovement 45 r120_PushedRight
+	waitmovement 44
+	removeobject 44
 	msgbox r120_HikerMiffed MSGBOX_DEFAULT
 	closemessage
-	applymovement 46, Common_Movement_FaceLeft
+	applymovement 45, Common_Movement_FaceLeft
 	applymovement CAMERA, r120_ReturnCamera
 	waitmovement CAMERA
 	special RemoveCameraObject
@@ -59,15 +84,13 @@ r120_HikerMiffed:
 	
 r120_HikerRequest:
     .string "Hmph. The nerve of young people\n"
-    .string "these days. Are you going to\l"
-    .string "waltz past me too?\p"
+    .string "these days.\p"
     .string "{COLOR LIGHT_BLUE}{SHADOW BLUE} Yeah, sorry about that.\n"
     .string "She's going through some stuff,\p"
     .string "and I'm trying to help her work\n"
     .string "through it.\p"
-    .string "{COLOR DARK_GREY}{SHADOW LIGHT_GREY}I'm sorry to hear that, but that's\n"
-    .string "no reason to disrespect her elders\l"
-    .string "like that.\p"
+    .string "{COLOR DARK_GREY}{SHADOW LIGHT_GREY}I'm sorry, but that's not my\n"
+    .string "problem.\p"
     .string "{COLOR LIGHT_BLUE}{SHADOW BLUE} Yeah... sorry again.$"
 	
 r120_stepDown:

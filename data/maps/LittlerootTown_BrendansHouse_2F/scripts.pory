@@ -4,8 +4,8 @@ LittlerootTown_BrendansHouse_2F_MapScripts:: @ 81F83E3
 	.byte 0
 	
 GameIntroSequenceCheck::
-	map_script_2 VAR_TEMP_E, 0, LRT_CheckGameOver
 	map_script_2 VAR_RYU_QUEST_LEAF, 75, LRT_LeafEvent
+	map_script_2 VAR_TEMP_E, 0, LRT_CheckGameOver
 	map_script_2 VAR_TEMP_D, 0, LRT_BeginHaremSequence
 	map_script_2 VAR_TEMP_9, 0, LRT_CheckAntiharemEnd
 	.2byte 0
@@ -389,17 +389,16 @@ LRT_BH_Unchanged:
 	.string "{COLOR LIGHT_RED}{SHADOW RED}Well it looks happy enough, but\nwhen are you going to train it?$"
 	
 @========================================================Leaf Events
-	
+
 LRT_LeafEvent::
 	lock
-	clearflag FLAG_RYU_RANDOMBATTLE
 	setvar VAR_RYU_QUEST_LEAF, 76
 	msgbox LRT_Story1 MSGBOX_DEFAULT
 	closemessage
 	applymovement PLAYER, Common_Movement_FaceDown
 	waitmovement PLAYER
 	applymovement PLAYER, Common_Movement_ExclamationMark
-	msgbox LRT_Story2 MSGBOX_DEFAULT
+	msgbox LRT_Story2 MSGBOX_DEFAULT @game crashes exactly here
 	closemessage
 	applymovement PLAYER, Common_Movement_FaceLeft
 	waitmovement PLAYER
