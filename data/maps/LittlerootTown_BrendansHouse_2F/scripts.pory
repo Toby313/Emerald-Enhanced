@@ -404,6 +404,12 @@ LRT_LeafEvent::
 	waitmovement PLAYER
 	msgbox LRT_Story3 MSGBOX_DEFAULT
 	closemessage
+	msgbox LRT_story3a MSGBOX_DEFAULT
+	closemessage
+	msgbox LRT_Story3b
+	closemessage
+	msgbox LRT_Story3c
+	closemessage
 	msgbox LRT_PlayerKiss MSGBOX_DEFAULT
 	applymovement 3, Common_Movement_ExclamationMark
 	applymovement PLAYER, Common_Movement_HeartEmote
@@ -444,7 +450,7 @@ LRT_Story1:
 	.string "{COLOR LIGHT_BLUE}{SHADOW BLUE}Ugh...\nWhere...am I?$"
 	
 LRT_Story2:
-	.string "{COLOR LIGHT_BLUE}{SHADOW BLUE}Huh? How'd I...?$"
+	.string "{COLOR LIGHT_BLUE}{SHADOW BLUE}Huh? How did I...?$"
 
 LRT_Story3:
 	.string "{COLOR LIGHT_BLUE}{SHADOW BLUE}Leaf...you brought me here?\p"
@@ -455,7 +461,9 @@ LRT_Story3:
 	.string " {COLOR LIGHT_GREEN}{SHADOW GREEN}(Seeing her struggling to speak,\n"
 	.string " {PLAYER} places his hand on hers.)\p"
 	.string "{COLOR LIGHT_BLUE}{SHADOW BLUE}Please Leaf, you can talk to me. I\n"
-	.string "want to understand you.\p"
+	.string "want to understand you.$"
+
+LRT_story3a:
 	.string "{COLOR LIGHT_RED}{SHADOW RED}Still...? Even after everything\n"
 	.string "I've done? Why...?\p"
 	.string "{COLOR LIGHT_BLUE}{SHADOW BLUE}Simple...to me, you're no nobody.\p"
@@ -469,7 +477,9 @@ LRT_Story3:
 	.string "To actually be someone...\p"
 	.string "I was raised in Kanto...grew up\n"
 	.string "alongside a boy the same age as\l"
-	.string "me.\p"
+	.string "me.$"
+
+LRT_Story3b:
 	.string "We used to be close, until one day\n"
 	.string "we just...fell apart...the one\l"
 	.string "person I spoke to and liked the\p"
@@ -483,7 +493,9 @@ LRT_Story3:
 	.string "would see hatred in his eyes...\p"
 	.string "I couldn't believe it...the one\n"
 	.string "who was most important to me...\p"
-	.string "despised my very existence!\p"
+	.string "despised my very existence!$"
+
+LRT_Story3c:
 	.string "I never felt such anger and hate!\p"
 	.string "It plagued my mind, and I was\n"
 	.string "unable to cope or comprehend it.\p"
