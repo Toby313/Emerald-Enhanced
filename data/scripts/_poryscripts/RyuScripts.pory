@@ -1144,8 +1144,6 @@ RyuCheckForWellTravelledAch::
 `
 
 script RyuDebug_Utility1 {
-	setvar(VAR_RYU_PARTNER_COUNT, 5)
-	clearflag(FLAG_RYU_HAREM_EVENT_COMPLETED)
     end
 }
 
