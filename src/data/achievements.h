@@ -300,7 +300,7 @@ static const u8 sWarlordDesc [] = _("Guan Yu himself would praise your ambition!
 
 static const u8 sOmenLabel[] = _("Omens");
 static const u8 sOmenHint [] = _("{COLOR LIGHT_RED}{SHADOW RED} Locked.  {COLOR DARK_GREY}{SHADOW LIGHT_GREY}Triumph over the Apocalypse.");
-static const u8 sOmenDesc [] = _("You lived through the Apocolypse.\nYou thrived in it.(Completed all four horsemen challenges at once.)");
+static const u8 sOmenDesc [] = _("You lived through the Apocolypse.\nYou thrived in it.\n(Completed all four horsemen challenges at once.)");
 
 static const u8 sGenWunnerLabel[] = _("Gen-Wunner");
 static const u8 sGenWunnerHint [] = _("{COLOR LIGHT_RED}{SHADOW RED} Locked.  {COLOR DARK_GREY}{SHADOW LIGHT_GREY}Run with classic conventions.");
@@ -312,7 +312,7 @@ static const u8 sPatientDesc [] = _("Patience is a virtue and you have it.");
 
 static const u8 sFerroMagneticLabel[] = _("Ferro Magnetic");
 static const u8 sFerroMagneticHint [] = _("{COLOR LIGHT_RED}{SHADOW RED} Locked.  {COLOR DARK_GREY}{SHADOW LIGHT_GREY}Become Magnetised.");
-static const u8 sFerroMagneticDesc [] = _("The magnetosphere's omnipresence has permanently magnetised\nyou. Better avoid airports and computers!");
+static const u8 sFerroMagneticDesc [] = _("The magnetosphere's omnipresence has\npermanently magnetised you.\nBetter avoid airports and computers!");
 
 static const u8 sUnmotivatedLabel[] = _("Unmotivated");
 static const u8 sUnmotivatedHint [] = _("{COLOR LIGHT_RED}{SHADOW RED} Locked.  {COLOR DARK_GREY}{SHADOW LIGHT_GREY}Complete the game with Lazy mod.");

@@ -56,6 +56,7 @@ LH_Afterstory::
 	setflag FLAG_RECEIVED_MYSTIC_TICKET
 	msgbox LH_GIFT_GIVEN
 	setvar VAR_RYU_QUEST_LEAF, 1000
+	ach give ACH_SILENT_STRONG_TYPE
 	release
 	end
 	
