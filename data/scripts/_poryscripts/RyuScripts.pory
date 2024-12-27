@@ -1529,15 +1529,15 @@ script RyuScript_NoEventNPCScript{
 }
 
 text H23_1 {
-	"Kyurem Black"
+	"Xerneas"
 }
 
 text H23_2 {
-	"Kyurem White"
+	"Yveltal"
 }
 
 text H23_3 {
-	"Landorus"
+	"Tapu Lele"
 }
 
 text H23_4 {
@@ -1545,25 +1545,26 @@ text H23_4 {
 }
 
 text H23_5 {
-	"Dialga"
+	"Tapu Bulu"
 }
 
 text H23_6 {
-	"Blacefalon"
+	"Tapu Fini"
 }
 
 script RyuScript_GiveHolidayGiftMon{
-	lock
-	faceplayer
-	msgbox("Why are you here?")
-	closemessage
-	setflag(FLAG_RYU_HOLIDAY_EVENT)
-	setflag(FLAG_RYU_HIDE_HOLIDAY_NPC)
-	removeobject(12)
-	release
-	end
+	//lock
+	//faceplayer
+	//msgbox("Why are you here?")
+	//closemessage
+	//setflag(FLAG_RYU_HOLIDAY_EVENT)
+	//setflag(FLAG_RYU_HIDE_HOLIDAY_NPC)
+	//removeobject(12)
+	//release
+	//end
 	//below code is never reached
-	msgbox(format("{COLOR LIGHT_RED}{SHADOW RED}Uhm... Hi! I'm here to... uh, give you this."))
+	faceplayer
+	msgbox(format("{COLOR LIGHT_RED}{SHADOW RED}Uhm... Hi! I'm here to... uh, let you choose a gift..."))
 	closemessage
 	getpartysize
 	copyvar(VAR_0x8002, VAR_RESULT)
@@ -1572,12 +1573,12 @@ script RyuScript_GiveHolidayGiftMon{
 		release
 		end
 	}
-	msgbox("{COLOR LIGHT_GREEN}{SHADOW GREEN}She hands you a Pokéball.")
+	msgbox("Choose which one?")
+	bufferdynamicmulti(H23_1, H23_2, H23_3, H23_4, H23_5, H23_6)
 	setflag(FLAG_RYU_FORCE_EVENT_OTID)
 	callnative(RyuGiveHolidayModdedMon)
 	clearflag(FLAG_RYU_FORCE_EVENT_OTID)
-	closemessage
-	msgbox(format("This is a very special Braviary. It has a special move that you will find no where else. Use it wisely!"))
+	multichoicedefault(0, 0, MULTI_DYNAMIC_6, 0, 1)
 	closemessage
 	msgbox(format("{COLOR LIGHT_RED}{SHADOW RED}Umm... Lord Ryu thanks you for your continued interest in Emerald Enhanced!"))
 	closemessage

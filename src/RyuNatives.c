@@ -2377,21 +2377,38 @@
         ConvertIntToDecimalStringN(gStringVar1, Amt, STR_CONV_MODE_LEFT_ALIGN, 9);
     }
 
+
+
     void RyuGiveHolidayModdedMon(void)
     {   u16 slot = gSpecialVar_0x8002;
-        u16 species = SPECIES_BRAVIARY;//gSpecialVar_0x8005;
+        u16 species = 0;//gSpecialVar_0x8005;
         u16 level = 50;
         u16 fixedIv = 31;
         u16 g69 = 69;
-        u16 nature = NATURE_ADAMANT;//gSpecialVar_0x8001;
+        u16 nature = (Random() % 24);//gSpecialVar_0x8001;
         u16 loc = MAPSEC_AETHER_PARADISE;
-        u16 itm = ITEM_BRIGHT_POWDER;
         u16 tru = TRUE;
-        u16 move1 = MOVE_J4_EXPLOSION;
-        u16 move2 = MOVE_HAPPY_HOUR;
-        u16 move3 = MOVE_FLY;
-        u16 move4 = MOVE_SPARK;
         bool16 isBoss = TRUE;
+        switch(gSpecialVar_Result){
+            case 0:
+                species = SPECIES_XERNEAS;
+            break;
+            case 1:
+                species = SPECIES_YVELTAL;
+            break;
+            case 2:
+                species = SPECIES_TAPU_LELE;
+            break;
+            case 3:
+                species = SPECIES_TAPU_KOKO;
+            break;
+            case 4:
+                species = SPECIES_TAPU_BULU;
+            break;
+            case 5:
+                species = SPECIES_TAPU_FINI;
+            break;
+        }
         CreateMonWithNature(&gPlayerParty[slot], species, level, fixedIv, nature);
         SetMonData(&gPlayerParty[slot], MON_DATA_BOSS_STATUS, &isBoss);
         SetMonData(&gPlayerParty[slot], MON_DATA_FRIENDSHIP, &gBaseStats[species].eggCycles);
@@ -2399,12 +2416,7 @@
         SetMonData(&gPlayerParty[slot], MON_DATA_OT_GENDER, MALE);
         SetMonData(&gPlayerParty[slot], MON_DATA_MET_LEVEL, &g69);
         SetMonData(&gPlayerParty[slot], MON_DATA_MET_LOCATION, &loc);
-        SetMonData(&gPlayerParty[slot], MON_DATA_HELD_ITEM, &itm);
         SetMonData(&gPlayerParty[slot], MON_DATA_FATEFUL_ENCOUNTER, &tru);
-        SetMonData(&gPlayerParty[slot], MON_DATA_MOVE1, &move1);
-        SetMonData(&gPlayerParty[slot], MON_DATA_MOVE2, &move2);
-        SetMonData(&gPlayerParty[slot], MON_DATA_MOVE3, &move3);
-        SetMonData(&gPlayerParty[slot], MON_DATA_MOVE4, &move4);
         CalculateMonStats(&gPlayerParty[slot]);
     }
 
