@@ -2389,7 +2389,7 @@
         u16 loc = MAPSEC_AETHER_PARADISE;
         u16 tru = TRUE;
         bool16 isBoss = TRUE;
-        switch(gSpecialVar_Result){
+        switch(gSpecialVar_0x8005){
             case 0:
                 species = SPECIES_XERNEAS;
             break;

@@ -1575,10 +1575,11 @@ script RyuScript_GiveHolidayGiftMon{
 	}
 	msgbox("Choose which one?")
 	bufferdynamicmulti(H23_1, H23_2, H23_3, H23_4, H23_5, H23_6)
+	multichoicedefault(0, 0, MULTI_DYNAMIC_6, 0, 1)
+	copyvar(VAR_0x8005, VAR_RESULT)
 	setflag(FLAG_RYU_FORCE_EVENT_OTID)
 	callnative(RyuGiveHolidayModdedMon)
 	clearflag(FLAG_RYU_FORCE_EVENT_OTID)
-	multichoicedefault(0, 0, MULTI_DYNAMIC_6, 0, 1)
 	closemessage
 	msgbox(format("{COLOR LIGHT_RED}{SHADOW RED}Umm... Lord Ryu thanks you for your continued interest in Emerald Enhanced!"))
 	closemessage
