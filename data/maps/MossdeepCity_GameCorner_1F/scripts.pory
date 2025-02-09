@@ -15,7 +15,6 @@ script MDC_GamblingHall_OldMan{
 	multichoicedefault(0, 0, MULTI_LOOTBOX_MENU, 0, 1)
 	switch(var(VAR_RESULT)){
 		case 0:
-			EXCHANGECASINOCREDITS:
 			msgbox("You have {RYU_STR_1} Casino Credits.\nHow many capsules would you like?")
 			numberentry(0, 8, 3)
 			copyvar(VAR_0x8004, VAR_RESULT)
@@ -27,10 +26,9 @@ script MDC_GamblingHall_OldMan{
 			}
 			else{
 				msgbox("You can't afford that many capsules!")
-				goto(EXCHANGECASINOCREDITS)
+				goto(MDC_GamblingHall_OldMan)
 			}
 		case 1:
-			EXCHANGEBPCREDITS:
 			msgbox("You have {RYU_STR_2} Battle Points.\nHow many capsules would you like?")
 			numberentry(0, 8, 3)
 			copyvar(VAR_0x8004, VAR_RESULT)
@@ -42,10 +40,9 @@ script MDC_GamblingHall_OldMan{
 			}
 			else{
 				msgbox("You can't afford that many capsules!")
-				goto(EXCHANGEBPCREDITS)
+				goto(MDC_GamblingHall_OldMan)
 			}
 		case 2:
-			EXCHANGEPREMIUMCREDITS:
 			msgbox("You have {RYU_STR_3} Premium Credits.\nHow many capsules would you like?")
 			numberentry(0, 8, 3)
 			copyvar(VAR_0x8004, VAR_RESULT)
@@ -57,8 +54,12 @@ script MDC_GamblingHall_OldMan{
 			}
 			else{
 				msgbox("You can't afford that many capsules!")
-				goto(EXCHANGEPREMIUMCREDITS)
+				goto(MDC_GamblingHall_OldMan)
 			}
+		case 3:
+			msgbox("Come back if you'd like to\nperform more exchanges!")
+			release
+			end
 	}
 }
 

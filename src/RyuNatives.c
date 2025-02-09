@@ -3361,6 +3361,7 @@
         curSilver -= amt;
         curPrem += amt / 10;
         VarSet(VAR_RYU_SILVER_CREDITS, curSilver);
+        VarSet(VAR_RYU_PREMIUM_CREDITS, curPrem);
     }
 
     void RyuExchangeCopperForPremium(void)
@@ -3371,6 +3372,7 @@
         curCopper -= amt;
         curPrem += amt / 100;
         VarSet(VAR_RYU_COPPER_CREDITS, curCopper);
+        VarSet(VAR_RYU_PREMIUM_CREDITS, curPrem);
     }
 
     const u16 PremiumBannerStandardRoll[] = {  
