@@ -3507,9 +3507,9 @@ void BufferBattlePoints(void){
 void CheckCasinoCapsuleExchange(void){
     u16 amt = gSpecialVar_0x8004;
     u16 casCred = VarGet(VAR_RYU_CASINO_CREDITS);
-    if (casCred > (amt * 40)){
+    if (casCred > (amt * 15)){
         gSpecialVar_Result = TRUE;
-        casCred -= (amt * 40);
+        casCred -= (amt * 15);
         VarSet(VAR_RYU_CASINO_CREDITS, casCred);
         AddBagItem(ITEM_LOOT_CAPSULE, amt);
         gSpecialVar_Result = TRUE;
