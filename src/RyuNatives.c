@@ -3348,9 +3348,9 @@
     {   
         u32 curMoney = GetMoney(&gSaveBlock1Ptr->money);
         u32 toExc = gSpecialVar_0x8001;
-        curMoney -= (toExc * 1000);
+        curMoney -= (toExc * 2000);
         SetMoney(&gSaveBlock1Ptr->money, curMoney);
-        VarSet(VAR_RYU_CASINO_CREDITS, toExc);
+        VarSet(VAR_RYU_CASINO_CREDITS, (VarGet(VAR_RYU_CASINO_CREDITS) + toExc));
     }
 
     void RyuExchangeSilverForPremium(void)
@@ -3435,9 +3435,13 @@ const u8 sLootBoxColors[5][36] = {
             if (rdm2 <= 49){// won the 50-50
                 monReward = PremiumBannerRotation[VarGet(VAR_RYU_DAY_COUNTER)][rdm3];
                 rewRar = 4;
+                VarSet(VAR_RYU_SILVER_CREDITS, (VarGet(VAR_RYU_SILVER_CREDITS) + 50));
+                VarSet(VAR_RYU_COPPER_CREDITS, (VarGet(VAR_RYU_COPPER_CREDITS) + 100));
             }
             else{
                 monReward = PremiumBannerStandardRoll[rdmlegend];
+                VarSet(VAR_RYU_SILVER_CREDITS, (VarGet(VAR_RYU_SILVER_CREDITS) + 25));
+                VarSet(VAR_RYU_COPPER_CREDITS, (VarGet(VAR_RYU_COPPER_CREDITS) + 50));
                 rewRar = 3;
             }
             StringCopy(gStringVar1, sLootBoxColors[rewRar]);
@@ -3456,6 +3460,8 @@ const u8 sLootBoxColors[5][36] = {
                 RyuGiveFrontierMon();
                 FlagClear(FLAG_RYU_ROLLING_LOOT_CAPSULE);
                 rewRar = 2;
+                VarSet(VAR_RYU_SILVER_CREDITS, (VarGet(VAR_RYU_SILVER_CREDITS) + 15));
+                VarSet(VAR_RYU_COPPER_CREDITS, (VarGet(VAR_RYU_COPPER_CREDITS) + 50));
             }
             else{
                 FlagSet(FLAG_RYU_ROLLING_LOOT_CAPSULE);
@@ -3463,6 +3469,8 @@ const u8 sLootBoxColors[5][36] = {
                 RyuGiveFrontierMon();
                 FlagClear(FLAG_RYU_ROLLING_LOOT_CAPSULE);
                 rewRar = 1;
+                VarSet(VAR_RYU_SILVER_CREDITS, (VarGet(VAR_RYU_SILVER_CREDITS) + 10));
+                VarSet(VAR_RYU_COPPER_CREDITS, (VarGet(VAR_RYU_COPPER_CREDITS) + 50));
             }
             StringCopy(gStringVar1, sLootBoxColors[rewRar]);
             GetSpeciesName(gStringVar2, gBattleFrontierMons[gSpecialVar_0x8009].species);
@@ -3483,6 +3491,8 @@ const u8 sLootBoxColors[5][36] = {
             StringAppend(gRyuStringVar1, gStringVar2);
             VarSet(VAR_RYU_LOOTCAPSULE_REWARD_TYPE, LC_TYPE_ITEM);
             VarSet(VAR_RYU_LOOTCAPSULE_ITEM_REWARD, itemReward);
+            VarSet(VAR_RYU_SILVER_CREDITS, (VarGet(VAR_RYU_SILVER_CREDITS) + 1));
+            VarSet(VAR_RYU_COPPER_CREDITS, (VarGet(VAR_RYU_COPPER_CREDITS) + 20));
             return;
         }
     }

@@ -12,7 +12,7 @@ script MDC_GamblingHall_OldMan{
 	buffernumberstring(3, VAR_RYU_CASINO_CREDITS)
 	callnative(BufferBattlePoints)
 	buffernumberstring(5, VAR_RYU_PREMIUM_CREDITS)
-	multichoicedefault(0, 0, MULTI_CURRENCY_EXCHANGE, 0, 1)
+	multichoicedefault(0, 0, MULTI_LOOTBOX_MENU, 0, 1)
 	switch(var(VAR_RESULT)){
 		case 0:
 			EXCHANGECASINOCREDITS:
@@ -80,7 +80,7 @@ script MDC_GamblingHall_YoungMan{
 	multichoicedefault(0, 0, MULTI_CURRENCY_EXCHANGE, 0, 1)
 	switch(var(VAR_RESULT)){
 		case 0:
-			msgbox("The current exchange rate is ¥1000\nper casino credit.\pHow many would you like to buy?")
+			msgbox("The current exchange rate is ¥2000\nper casino credit.\pHow many would you like to buy?")
 			numberentry(0, 6, 4)
 			copyvar(VAR_0x8001, VAR_RESULT)
 			callnative(RyuCheckCanAffordCredits)

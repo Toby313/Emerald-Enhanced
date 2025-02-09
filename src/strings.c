@@ -2275,8 +2275,8 @@ const u8 sText_ExchangeForCopper[] = _("Copper Credits {COLOR LIGHT_RED}{SHADOW 
 const u8 sText_ExchangeNone[] = _("Don't Exchange"); 
 
 const u8 sText_ExchangeForCC[] = _("40 Casino Credits {COLOR LIGHT_RED}{SHADOW RED}({RYU_STR_1})");
-const u8 sText_ExchangeForBP[] = _("25 Battle Points {COLOR LIGHT_RED}{SHADOW RED}({RYU_STR_1})");
-const u8 sText_ExchangeForPC[] = _("1 Premium Credit {COLOR LIGHT_RED}{SHADOW RED}({RYU_STR_1})");
+const u8 sText_ExchangeForBP[] = _("25 Battle Points {COLOR LIGHT_RED}{SHADOW RED}({RYU_STR_2})");
+const u8 sText_ExchangeForPC[] = _("1 Premium Credit {COLOR LIGHT_RED}{SHADOW RED}({RYU_STR_3})");
 
 const u8 gText_RyuREMoveIn[] = _("Move In");
 const u8 gText_RyuRELeaseProperty[] = _("Lease Out");

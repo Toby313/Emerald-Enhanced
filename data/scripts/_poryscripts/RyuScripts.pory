@@ -1954,7 +1954,7 @@ script Ryu_LootCapsule {
 	getpartysize
 	if (var(VAR_RESULT) < 6){
 		callnative(RollLootCapsule)
-		msgbox("A(n) {RYU_STR_1} came out of the capsule!")
+		msgbox("{RYU_STR_1} came out of the capsule!")
 		removeitem(ITEM_LOOT_CAPSULE)
 		setvar(VAR_RYU_LOOTCAPSULE_ITEM_REWARD, ITEM_NONE)
 		setvar(VAR_RYU_LOOTCAPSULE_REWARD_TYPE, LC_TYPE_NONE)
