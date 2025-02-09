@@ -1193,6 +1193,12 @@ static const u8 sClothDesc[] = _(
     "low thread-count\n"
     "piece of cloth.");
 
+static const u8 sLootCapsuleDesc[] = _(
+    "A capsule that may\n"
+    "contain something\n"
+    "really rare."
+);
+
 static const u8 sRazorClawDesc[] = _(
     "Helps a certain\n"
     "Pokémon to evolve.\n"

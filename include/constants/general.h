@@ -605,15 +605,19 @@
 #define ECONOMY_MODE 16
 #define TOTAL_MODS 15
 
+#define LC_TYPE_POKEMON 0
+#define LC_TYPE_ITEM 1
+#define LC_TYPE_NONE 2
+
 //Affection configuration
 #define AFFECTION_BASE_CHANCE RyuGetAffectionChance()
 
 //uncomment to punish save states. Otherwise detections are just logged.
 //#define RYU_PUNISH_SAVE_STATE 1
 
-#define EE_GAME_VERSION 10220
+#define EE_GAME_VERSION 10240
 
 //uncomment to allow dev switch to be accessed.//
-//#define DEV_BUILD 69
+#define DEV_BUILD 69
 
 #endif 

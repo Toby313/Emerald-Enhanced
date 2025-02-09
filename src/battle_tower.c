@@ -3206,6 +3206,10 @@ void RyuGiveFrontierMon(void)
             StringCopy(gRyuStringVar3, gSpeciesNames[mon->species]);
             level = MAX_LEVEL;
         }
+        if (FlagGet(FLAG_RYU_ROLLING_LOOT_CAPSULE) == TRUE){
+            mon = &gBattleFrontierMons[(VarGet(VAR_0x8009))];
+            level = 50;
+        }
     } 
 
     temp = mon->evSpread;

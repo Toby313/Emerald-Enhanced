@@ -2379,7 +2379,7 @@
 
 
 
-    void RyuGiveHolidayModdedMon(void)
+    void RyuGiveCapsuleMon(void)
     {   u16 slot = gSpecialVar_0x8002;
         u16 species = 0;//gSpecialVar_0x8005;
         u16 level = 50;
@@ -2389,26 +2389,6 @@
         u16 loc = MAPSEC_AETHER_PARADISE;
         u16 tru = TRUE;
         bool16 isBoss = TRUE;
-        switch(gSpecialVar_0x8005){
-            case 0:
-                species = SPECIES_XERNEAS;
-            break;
-            case 1:
-                species = SPECIES_YVELTAL;
-            break;
-            case 2:
-                species = SPECIES_TAPU_LELE;
-            break;
-            case 3:
-                species = SPECIES_TAPU_KOKO;
-            break;
-            case 4:
-                species = SPECIES_TAPU_BULU;
-            break;
-            case 5:
-                species = SPECIES_TAPU_FINI;
-            break;
-        }
         CreateMonWithNature(&gPlayerParty[slot], species, level, fixedIv, nature);
         SetMonData(&gPlayerParty[slot], MON_DATA_BOSS_STATUS, &isBoss);
         SetMonData(&gPlayerParty[slot], MON_DATA_FRIENDSHIP, &gBaseStats[species].eggCycles);
@@ -3352,4 +3332,219 @@
     {
         ConvertIntToDecimalStringN(gStringVar2, (u16)GetTrainerId(gSaveBlock2Ptr->playerTrainerId), 0, 5);
     }
+
+    void RyuCheckCanAffordCredits(void)
+    {
+        u32 requested = gSpecialVar_Result;
+        u32 amount = (requested * 1000);
+        if (amount > GetMoney(&gSaveBlock1Ptr->money))
+            gSpecialVar_0x8002 = FALSE;
+        else
+            gSpecialVar_0x8002 = TRUE;
+
+    }
+
+    void RyuExchangeMoneyForCredits(void)
+    {   
+        u32 curMoney = GetMoney(&gSaveBlock1Ptr->money);
+        u32 toExc = gSpecialVar_0x8001;
+        curMoney -= (toExc * 1000);
+        SetMoney(&gSaveBlock1Ptr->money, curMoney);
+        VarSet(VAR_RYU_CASINO_CREDITS, toExc);
+    }
+
+    void RyuExchangeSilverForPremium(void)
+    {
+        u16 curSilver = VarGet(VAR_RYU_SILVER_CREDITS);
+        u16 curPrem = VarGet(VAR_RYU_PREMIUM_CREDITS);
+        u16 amt = gSpecialVar_Result;
+        curSilver -= amt;
+        curPrem += amt / 10;
+        VarSet(VAR_RYU_SILVER_CREDITS, curSilver);
+    }
+
+    void RyuExchangeCopperForPremium(void)
+    {
+        u16 curCopper = VarGet(VAR_RYU_COPPER_CREDITS);
+        u16 curPrem = VarGet(VAR_RYU_PREMIUM_CREDITS);
+        u16 amt = gSpecialVar_Result;
+        curCopper -= amt;
+        curPrem += amt / 100;
+        VarSet(VAR_RYU_COPPER_CREDITS, curCopper);
+    }
+
+    const u16 PremiumBannerStandardRoll[] = {  
+        SPECIES_MANAPHY,    
+        SPECIES_KELDEO,  
+        SPECIES_MELOETTA,  
+        SPECIES_GENESECT,  
+        SPECIES_DIANCIE,  
+        SPECIES_HOOPA,  
+        SPECIES_VOLCANION,  
+        SPECIES_MAGEARNA,  
+        SPECIES_MARSHADOW,  
+        SPECIES_ZERAORA,  
+        SPECIES_MELTAN,  
+        SPECIES_MELMETAL,  
+        SPECIES_NIHILEGO,  
+        SPECIES_BUZZWOLE,  
+        SPECIES_PHEROMOSA,  
+        SPECIES_XURKITREE,  
+        SPECIES_CELESTEELA,  
+        SPECIES_KARTANA,  
+        SPECIES_GUZZLORD,  
+        SPECIES_POIPOLE,  
+        SPECIES_NAGANADEL,  
+        SPECIES_STAKATAKA,  
+        SPECIES_BLACEPHALON  
+    };
+
+    const u16 PremiumBannerRotation[7][8] = {
+        [0] =  {SPECIES_MEWTWO, SPECIES_MEW, SPECIES_MEWTWO, SPECIES_MEW, SPECIES_MEWTWO, SPECIES_MEW, SPECIES_MEWTWO, SPECIES_MEW},
+        [1] =  {SPECIES_LUGIA, SPECIES_HO_OH, SPECIES_CELEBI, SPECIES_LUGIA, SPECIES_HO_OH, SPECIES_CELEBI, SPECIES_CRYSTAL_ONIX, SPECIES_CRYSTAL_ONIX},
+        [2] =  {SPECIES_GROUDON, SPECIES_KYOGRE, SPECIES_RAYQUAZA, SPECIES_PRIMAL_GROUDON, SPECIES_PRIMAL_KYOGRE, SPECIES_MEGA_RAYQUAZA, SPECIES_JIRACHI, SPECIES_DEOXYS},
+        [3] =  {SPECIES_PALKIA, SPECIES_DIALGA, SPECIES_ARCEUS, SPECIES_SHAYMIN_SKY, SPECIES_CRESSELIA, SPECIES_GIRATINA, SPECIES_DARKRAI, SPECIES_SHAYMIN_SKY},
+        [4] =  {SPECIES_THUNDURUS, SPECIES_TORNADUS, SPECIES_LANDORUS, SPECIES_ZEKROM, SPECIES_RESHIRAM, SPECIES_KYUREM, SPECIES_MEGA_AERODACTYL, SPECIES_MEGA_AGGRON},
+        [5] =  {SPECIES_XERNEAS, SPECIES_YVELTAL, SPECIES_MARSHADOW, SPECIES_KYUREM_BLACK, SPECIES_KYUREM_WHITE, SPECIES_VICTINI, SPECIES_ALOLAN_EXEGGUTOR, SPECIES_ALOLAN_GOLEM},
+        [6] =  {SPECIES_TAPU_KOKO, SPECIES_TAPU_LELE, SPECIES_TAPU_BULU, SPECIES_TAPU_FINI, SPECIES_COSMOEM, SPECIES_COSMOG, SPECIES_SOLGALEO, SPECIES_LUNALA}
+    };
+
+const u8 sLootBoxColors[5][36] = {
+    _("{COLOR DARK_GREY}{SHADOW LIGHT_GREY}"),
+    _("{COLOR DARK_GREY}{SHADOW BLUE}"),
+    _("{COLOR DARK_GREY}{SHADOW RED}"),
+    _("{COLOR BLUE}{SHADOW LIGHT_RED}"),
+    _("{COLOR LIGHT_RED}{SHADOW LIGHT_BLUE}"),
+};
+
+    extern void RyuGiveFrontierMon(void);
+
+    void RollLootCapsule(void){
+        u16 rdm = Random() % 100;
+        u16 rdm2 = Random() % 100;
+        u16 rdm3 = Random() % 8;
+        u16 rdmlegend = Random() % 23;
+        u16 rdmrare0 = Random() % 80;//roll 79 or lower
+        u16 rdmrare1 = ((Random() % 752) + 80); //roll between 79 and 832
+        u16 rdmcommon = Random() % 18;
+        u8 rewRar = 0;
+        u8 slot = CalculatePlayerPartyCount();
+        u16 monReward = SPECIES_NONE;
+        u16 itemReward = ITEM_NONE;
+        if (rdm <= 1){ //legendary roll
+            if (rdm2 <= 49){// won the 50-50
+                monReward = PremiumBannerRotation[VarGet(VAR_RYU_DAY_COUNTER)][rdm3];
+                rewRar = 4;
+            }
+            else{
+                monReward = PremiumBannerStandardRoll[rdmlegend];
+                rewRar = 3;
+            }
+            StringCopy(gStringVar1, sLootBoxColors[rewRar]);
+            GetSpeciesName(gStringVar2, monReward);
+            StringCopy(gRyuStringVar1, gStringVar1);
+            StringAppend(gRyuStringVar1, gStringVar2);
+            CreateMon(&gPlayerParty[slot], monReward, 50, 32, FALSE, 0, OT_ID_PLAYER_ID, 0);
+            VarSet(VAR_RYU_LOOTCAPSULE_REWARD_TYPE, LC_TYPE_POKEMON);
+            VarSet(VAR_RYU_LOOTCAPSULE_MON_REWARD, monReward);
+            return;
+        }
+        else if (rdm <= 10){//rare roll
+            if (rdm2 <= 49){//won 50-50 on rare roll
+                FlagSet(FLAG_RYU_ROLLING_LOOT_CAPSULE);
+                gSpecialVar_0x8009 = rdmrare1;
+                RyuGiveFrontierMon();
+                FlagClear(FLAG_RYU_ROLLING_LOOT_CAPSULE);
+                rewRar = 2;
+            }
+            else{
+                FlagSet(FLAG_RYU_ROLLING_LOOT_CAPSULE);
+                gSpecialVar_0x8009 = rdmrare0;
+                RyuGiveFrontierMon();
+                FlagClear(FLAG_RYU_ROLLING_LOOT_CAPSULE);
+                rewRar = 1;
+            }
+            StringCopy(gStringVar1, sLootBoxColors[rewRar]);
+            GetSpeciesName(gStringVar2, gBattleFrontierMons[gSpecialVar_0x8009].species);
+            StringCopy(gRyuStringVar1, gStringVar1);
+            StringAppend(gRyuStringVar1, gStringVar2);
+            gSpecialVar_0x8009 = SPECIES_NONE;
+            VarSet(VAR_RYU_LOOTCAPSULE_REWARD_TYPE, LC_TYPE_POKEMON);
+            VarSet(VAR_RYU_LOOTCAPSULE_MON_REWARD, monReward);
+            return;
+        }
+        else{//common reward
+            u16 itemReward = gRyuMaxPickupTable[rdmcommon];
+            AddBagItem(itemReward, 1);
+            CopyItemName(itemReward, gStringVar1);
+            StringCopy(gStringVar1, sLootBoxColors[rewRar]);
+            CopyItemName(itemReward, gStringVar2);
+            StringCopy(gRyuStringVar1, gStringVar1);
+            StringAppend(gRyuStringVar1, gStringVar2);
+            VarSet(VAR_RYU_LOOTCAPSULE_REWARD_TYPE, LC_TYPE_ITEM);
+            VarSet(VAR_RYU_LOOTCAPSULE_ITEM_REWARD, itemReward);
+            return;
+        }
+    }
+
+void BufferBattlePoints(void){
+    ConvertIntToDecimalStringN(gStringVar1, gSaveBlock2Ptr->frontier.battlePoints, STR_CONV_MODE_RIGHT_ALIGN, 4);
+    StringCopy(gRyuStringVar2, gStringVar1);
+}
+
+void CheckCasinoCapsuleExchange(void){
+    u16 amt = gSpecialVar_0x8004;
+    u16 casCred = VarGet(VAR_RYU_CASINO_CREDITS);
+    if (casCred > (amt * 40)){
+        gSpecialVar_Result = TRUE;
+        casCred -= (amt * 40);
+        VarSet(VAR_RYU_CASINO_CREDITS, casCred);
+        AddBagItem(ITEM_LOOT_CAPSULE, amt);
+        gSpecialVar_Result = TRUE;
+    }
+    else{
+        gSpecialVar_Result = FALSE;
+    }
+}
+
+void CheckCasinoBPExchange(void){
+    u16 amt = gSpecialVar_0x8004;
+    u16 bp = gSaveBlock2Ptr->frontier.battlePoints;
+    if (bp > (amt * 25)){
+        gSpecialVar_Result = TRUE;
+        bp -= (amt * 25);
+        gSaveBlock2Ptr->frontier.battlePoints = bp;
+        AddBagItem(ITEM_LOOT_CAPSULE, amt);
+        gSpecialVar_Result = TRUE;
+    }
+    else{
+        gSpecialVar_Result = FALSE;
+    }
+}
+
+void CheckCasinoPremiumExchange(void){
+    u16 amt = gSpecialVar_0x8004;
+    u16 premCred = VarGet(VAR_RYU_PREMIUM_CREDITS);
+    if (premCred > amt){
+        gSpecialVar_Result = TRUE;
+        premCred -= amt;
+        VarSet(VAR_RYU_PREMIUM_CREDITS, premCred);
+        AddBagItem(ITEM_LOOT_CAPSULE, amt);
+        gSpecialVar_Result = TRUE;
+    }
+    else{
+        gSpecialVar_Result = FALSE;
+    }
+}
+
+extern void AddBagItemIconSprite(u16 itemId, u8 id);
+extern void RemoveBagItemIconSprite(u8 id);
+
+void RyuDrawRewardSprite(void){
+    AddBagItemIconSprite(VarGet(VAR_RYU_LOOTCAPSULE_ITEM_REWARD), 0);
+}
+
+void RyuClearRewardSprite(void){
+    RemoveBagItemIconSprite(0);
+}
 

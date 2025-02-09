@@ -1367,6 +1367,22 @@ static const struct MenuAction MultichoiceList_MonoTypesList[] =
     {sText_SelectNone}
 };
 
+static const struct MenuAction MultichoiceList_CurrencyExchange[] = 
+{
+    {sText_ExchangeForCasino},
+    {sText_ExchangeForSilver},
+    {sText_ExchangeForCopper},
+    {sText_ExchangeNone}
+};
+
+static const struct MenuAction MultichoiceList_LootboxMenu[] = 
+{
+    {sText_ExchangeForCC},
+    {sText_ExchangeForBP},
+    {sText_ExchangeForPC},
+    {sText_ExchangeNone}
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -1553,6 +1569,8 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_DEV_GIVE_MON_GENDER]        = MULTICHOICE(MultichoiceList_DevMonGiveGenderMenu),
     [MULTI_DEV_GIVE_MON_SHINY]         = MULTICHOICE(MultichoiceList_DevMonGiveShinyMenu),
     [MULTI_MONOTYPE_MENU]              = MULTICHOICE(MultichoiceList_MonoTypesList),
+    [MULTI_CURRENCY_EXCHANGE]          = MULTICHOICE(MultichoiceList_CurrencyExchange),
+    [MULTI_LOOTBOX_MENU]               = MULTICHOICE(MultichoiceList_LootboxMenu),
 };
 
 const u8 *const gStdStrings[] =

@@ -3301,6 +3301,18 @@ const struct Item gItems[] =
         .secondaryId = 0,
     },
 
+    [ITEM_LOOT_CAPSULE] = 
+    {
+        .name = _("Loot Capsule"),
+        .itemId = ITEM_LOOT_CAPSULE,
+        .price = 10000,
+        .description = sLootCapsuleDesc,
+        .pocket = POCKET_COLLECTIBLES,
+        .type = 4,
+        .fieldUseFunc = ItemUseOutOfBattle_LootCapsule,
+        .secondaryId = 0,
+    },
+
     [ITEM_RAZOR_CLAW] =
     {
         .name = _("Razor Claw"),

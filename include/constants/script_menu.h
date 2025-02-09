@@ -181,6 +181,8 @@
 #define MULTI_DEV_GIVE_MON_GENDER          170
 #define MULTI_DEV_GIVE_MON_SHINY           171
 #define MULTI_MONOTYPE_MENU                172
+#define MULTI_CURRENCY_EXCHANGE            173
+#define MULTI_LOOTBOX_MENU                 174
 
 
 // Lilycove SS Tidal Multichoice Selections

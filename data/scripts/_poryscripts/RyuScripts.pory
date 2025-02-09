@@ -1504,97 +1504,9 @@ text NGMO3 {
 	"Safe: More consistent, less potential."
 }
 
-raw `
-@===================================================================================================Holiday 2020
-
-
-RS_EventOver:
-	.string "Event is over.\nWhat are you doing here?$"
-
-RyuScript_NoRoomForHolidayMon::
-	msgbox RS_HolidayNoSpace
-	release
-	end
-
-RS_HolidayNoSpace::
-	.string "{COLOR LIGHT_RED}{SHADOW RED}You don't have space for\nthe gift. Please make space in\lyour party and return.$"
-
-`
-
 script RyuScript_NoEventNPCScript{
 	msgbox("There's no event going on.\nWhy are you here?")
 	closemessage
-	release
-	end
-}
-
-text H23_1 {
-	"Xerneas"
-}
-
-text H23_2 {
-	"Yveltal"
-}
-
-text H23_3 {
-	"Tapu Lele"
-}
-
-text H23_4 {
-	"Tapu Koko"
-}
-
-text H23_5 {
-	"Tapu Bulu"
-}
-
-text H23_6 {
-	"Tapu Fini"
-}
-
-script RyuScript_GiveHolidayGiftMon{
-	//lock
-	//faceplayer
-	//msgbox("Why are you here?")
-	//closemessage
-	//setflag(FLAG_RYU_HOLIDAY_EVENT)
-	//setflag(FLAG_RYU_HIDE_HOLIDAY_NPC)
-	//removeobject(12)
-	//release
-	//end
-	//below code is never reached
-	faceplayer
-	msgbox(format("{COLOR LIGHT_RED}{SHADOW RED}Uhm... Hi! I'm here to... uh, let you choose a gift..."))
-	closemessage
-	getpartysize
-	copyvar(VAR_0x8002, VAR_RESULT)
-	if (var(VAR_RESULT) > 5){
-		msgbox(RS_HolidayNoSpace)
-		release
-		end
-	}
-	msgbox("Choose which one?")
-	bufferdynamicmulti(H23_1, H23_2, H23_3, H23_4, H23_5, H23_6)
-	multichoicedefault(0, 0, MULTI_DYNAMIC_6, 0, 1)
-	copyvar(VAR_0x8005, VAR_RESULT)
-	setflag(FLAG_RYU_FORCE_EVENT_OTID)
-	callnative(RyuGiveHolidayModdedMon)
-	clearflag(FLAG_RYU_FORCE_EVENT_OTID)
-	closemessage
-	msgbox(format("{COLOR LIGHT_RED}{SHADOW RED}Umm... Lord Ryu thanks you for your continued interest in Emerald Enhanced!"))
-	closemessage
-	applymovement(PLAYER, Common_Movement_StepDown)
-	applymovement(FOLLOWER, Common_Movement_StepDown)
-	waitmovement(FOLLOWER)
-	turnobject(PLAYER, DIR_NORTH)
-	turnobject(FOLLOWER, DIR_NORTH)
-	applymovement(12, HExit)
-	waitmovement(12)
-	applymovement(12, HExit2)
-	waitmovement(12)
-	setflag(FLAG_RYU_HOLIDAY_EVENT)
-	setflag(FLAG_RYU_HIDE_HOLIDAY_NPC)
-	removeobject(12)
 	release
 	end
 }
@@ -2027,4 +1939,41 @@ script RyuEconomyModeItemStorage_Member {
 	msgbox("Welcome back, employee number {STR_VAR_2}!\pYour membership grants unlimited\naccess to the storage system.")
 	closemessage
 	return
+}
+
+//============================================================================================================ Loot Boxes
+
+script Ryu_LootCapsuleGone{
+	msgbox("No capsules left...")
+	release
+	end
+}
+
+
+script Ryu_LootCapsule {
+	getpartysize
+	if (var(VAR_RESULT) < 6){
+		callnative(RollLootCapsule)
+		msgbox("A(n) {RYU_STR_1} came out of the capsule!")
+		removeitem(ITEM_LOOT_CAPSULE)
+		setvar(VAR_RYU_LOOTCAPSULE_ITEM_REWARD, ITEM_NONE)
+		setvar(VAR_RYU_LOOTCAPSULE_REWARD_TYPE, LC_TYPE_NONE)
+		setvar(VAR_RYU_LOOTCAPSULE_MON_REWARD, SPECIES_NONE)
+		msgbox("Use another capsule?", MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES){
+			checkitem(ITEM_LOOT_CAPSULE, 1)
+			goto_if_ne(Ryu_LootCapsuleGone)
+			goto(Ryu_LootCapsule)
+		}
+		else{
+			release
+			end
+		}
+	}
+	else{
+		msgbox("You don't have space for potential\nrewards.\pClear the party and try again.")
+		closemessage
+		release
+		end
+	}
 }

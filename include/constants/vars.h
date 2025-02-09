@@ -305,6 +305,13 @@
 
 
 //for EE seasonal changes
+#define VAR_RYU_LOOTCAPSULE_ITEM_REWARD      0x4175 //lootcapsule item reward
+#define VAR_RYU_LOOTCAPSULE_MON_REWARD       0x4176 //lootcapsule reward pokemon
+#define VAR_RYU_LOOTCAPSULE_REWARD_TYPE      0x4177 //lootcapsule reward type
+#define VAR_RYU_CASINO_CREDITS               0x4178 //Exchanged for from pokedollar
+#define VAR_RYU_COPPER_CREDITS               0x4179 //premium currency obtained from every lootbox
+#define VAR_RYU_SILVER_CREDITS               0x417A //premium currency obtained from lootboxes
+#define VAR_RYU_PREMIUM_CREDITS              0x417B //premium credits for loot boxes
 #define VAR_RYU_SEASONAL_WEATHER             0x417C //what's the current seasonal weather
 #define VAR_RYU_WEEK_COUNTER                 0x417D // modulo 4 of VAR_RYU_DAY_COUNTER
 #define VAR_RYU_DAY_COUNTER                  0x417E // increments daily1

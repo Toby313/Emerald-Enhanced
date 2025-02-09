@@ -3340,6 +3340,15 @@ extern const u8 sText_SelectDark[];
 extern const u8 sText_SelectFairy[];
 extern const u8 sText_SelectNone[];
 
+extern const u8 sText_ExchangeForCasino[];
+extern const u8 sText_ExchangeForSilver[];
+extern const u8 sText_ExchangeForCopper[];
+extern const u8 sText_ExchangeNone[]; 
+
+extern const u8 sText_ExchangeForCC[];
+extern const u8 sText_ExchangeForBP[];
+extern const u8 sText_ExchangeForPC[];
+
 extern const u8 gText_RyuAttendantNameLanette[];
 extern const u8 gText_RyuAttendantNameMinnie[];
 extern const u8 gText_RyuAttendantNameDawn[];
