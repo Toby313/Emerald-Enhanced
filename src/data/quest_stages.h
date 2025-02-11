@@ -147,6 +147,7 @@ const u8 sLanaQuestStage505Desc[] = _("You found Leaf at Mt. Pyre.\nShe seemed r
 const u8 sLanaQuestStage515Desc[] = _("You tracked Leaf down to the Pokemon Day Care.\nThe PC search suggests she's going to Fallarbor\nTo meet Lanette.");
 const u8 sLanaQuestStage525Desc[] = _("You found Leaf at Lanette's house, once again\ntrying to get rid of her Pokemon.\nShe left a magazine behind for the\nDepartment Store. Go there.");
 const u8 sLanaQuestStage666Desc[] = _("You have done some event which caused Leaf\nto return overseas to Kanto. Bad End.");
+const u8 sLanaQuestStage954Desc[] = _("You caught up with Leaf on the Dpt. Store\nrooftop and saved her. Go to lilycove lighthouse to finish.");
 const u8 sLanaQuestStage955Desc[] = _("You helped Leaf overcome her anxiety and\ndepression, saving her life.\nYou've finished the quest, meet her at her house\nto finalize your relationship.");
 const u8 sLanaQuestStage1000Desc[] = _("You have finished Leaf's questline, unlocked\n her as a follower, and received her gifts.\nGood End.");
 
@@ -902,6 +903,10 @@ const static struct QuestStageDesc gLanaQuestStages[] = { //only visible after t
   {
     .description = sLanaQuestStage525Desc,
     .questStage = 525,
+  },
+  {
+    .description = sLanaQuestStage954Desc,
+    .questStage = 954,
   },
   {
     .description = sLanaQuestStage955Desc,

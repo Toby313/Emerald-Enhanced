@@ -1400,7 +1400,16 @@
 #define FLAG_RYU_HIDE_SL_SUMAC_2                                  0x52C
 #define FLAG_HIDE_JOY_QUARTERS_GUARD                              0x52D
 #define FLAG_RYU_BETA_MENU_OPEN                                   0x52E
-
+#define FLAG_RYU_TEMP_AB_LOCKOUT                                  0x52F
+#define FLAG_RYU_NO_MERCY_MODE                                    0x530
+#define FLAG_RYU_FAILED_NO_MERCY                                  0x531
+#define FLAG_RYU_SHOW_DIFFICULTY_MOD_MENU                         0x532
+#define FLAG_RYU_NOTIFY_NUZLOCKE_FAIL                             0x533
+#define FLAG_RYU_NOTIFY_NO_MERCY_FAIL                             0x534
+#define FLAG_RYU_NOTIFY_HARDCORE_FAIL                             0x535
+#define FLAG_RYU_SKIPPED_AUTOSAVE                                 0x536
+#define FLAG_RYU_HIDE_ECON_BOUNCERS                               0x537
+#define FLAG_RYU_ROLLING_LOOT_CAPSULE                             0x538
 
 //tutorial system flags
 #define FLAG_RYU_FACTION_TUTORIAL_UNLOCKED                        0x5FB

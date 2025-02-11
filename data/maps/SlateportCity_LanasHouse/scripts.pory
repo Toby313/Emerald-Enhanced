@@ -56,6 +56,7 @@ LH_Afterstory::
 	setflag FLAG_RECEIVED_MYSTIC_TICKET
 	msgbox LH_GIFT_GIVEN
 	setvar VAR_RYU_QUEST_LEAF, 1000
+	ach give ACH_SILENT_STRONG_TYPE
 	release
 	end
 	
@@ -138,19 +139,26 @@ LH_LeafNight:
 	delay 10
 	fadescreen 1
 	msgbox LH_LeafNightSceneMsg MSGBOX_DEFAULT
-	applymovement 2, LH_LeafToTable
-	waitmovement 2
-	delay 40
-	closemessage
 	fadedefaultbgm
+	delay 20
 	fadescreen 0
 	msgbox LH_LeafNightSceneMsg2 MSGBOX_DEFAULT
-	addvar VAR_RYU_TIMES_STAYED_WITH_COMPANION, 1
 	closemessage
+	applymovement 2, LH_LeafToTable
+	delay 15
+	applymovement PLAYER, LH_LeafToTable
+	waitmovement PLAYER
+	@special SpawnCameraObject
+	@applymovement CAMERA, LH_Cm
+	@waitmovement CAMERA
+	@special RemoveCameraObject
 	applymovement 2, Common_Movement_HeartEmote
 	waitmovement 2
-	applymovement PLAYER, LH_RelSceneEnd
-	waitmovement PLAYER
+	applymovement 2, LF_LTT2
+	waitmovement 2
+	delay 20
+	addvar VAR_RYU_TIMES_STAYED_WITH_COMPANION, 1
+	closemessage
 	call_if_set FLAG_RYU_DS_COURTNEY_LOVERS, LH_CourtneyCaughtPlayer
 	setflag FLAG_RYU_DS_LEAF_PARTNERS
 	release
@@ -163,8 +171,8 @@ LH_CourtneyCaughtPlayer::
 	addobject 3
 	playse SE_PIN
 	applymovement PLAYER, Common_Movement_ExclamationMark
-	applymovement 1, Common_Movement_ExclamationMark
-	waitmovement 1
+	applymovement 2, Common_Movement_ExclamationMark
+	waitmovement 2
 	applymovement PLAYER, Common_Movement_FaceLeft
 	waitmovement PLAYER
 	applymovement 3, LH_CourtneyToPlayer
@@ -197,6 +205,10 @@ LH_PlayerExitHouse:
 	walk_fast_left
 	walk_fast_down
 	step_end
+
+LH_Cm:
+	walk_fast_left
+	step_end
 	
 LH_CourtneyToPlayer:
 	walk_up
@@ -221,14 +233,18 @@ LH_CourtneyLeave:
 	step_end
 
 LH_LeafToTable:
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+LF_LTT2::
+	walk_down
+	face_right
 	step_end
 
 LH_CourtneyCaughtMsg:
@@ -252,9 +268,7 @@ LH_LeafNightMsg1:
 LH_LeafNightSceneMsg:
     .string " {COLOR LIGHT_GREEN}{SHADOW GREEN}(Leaf and {PLAYER} climb into the\n"
 	.string " together and hold one another\l"
-	.string " in their arms.)\p"
-	.string " (Leaf holds you tightly and\l"
-	.string " kisses you on the forehead.)$"
+	.string " in their arms.)$"
 
 LH_LeafNightSceneMsg2:
     .string "{COLOR LIGHT_RED}{SHADOW RED}You're so warm and cuddly...\n"
@@ -335,17 +349,7 @@ LH_LanaLeaves:
 	walk_fast_left
 	walk_in_place_down
 	step_end
-	
-LH_RelSceneEnd:
-	walk_left
-	walk_left
-	walk_left
-	walk_in_place_right
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	step_end
+
 	
 LH_read:
 	face_right

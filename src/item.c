@@ -15,6 +15,9 @@
 #include "constants/items.h"
 #include "constants/hold_effects.h"
 #include "constants/tv.h"
+#include "money.h"
+#include "ryu_challenge_modifiers.h"
+#include "overworld.h"
 
 extern u16 gUnknown_0203CF30[];
 
@@ -920,6 +923,14 @@ u16 ItemId_GetId(u16 itemId)
     return gItems[SanitizeItemId(itemId)].itemId;
 }
 
+int GetTotalMoneyOwned(void){
+    int pkt = GetMoney(&gSaveBlock1Ptr->money);
+    int bnk = GetGameStat(GAME_STAT_FRONTIERBANK_BALANCE);
+    int ttmn = pkt + bnk;
+    mgba_open();
+    return ttmn;
+}
+
 u32 ItemId_GetPrice(u32 itemId)
 {
     u32 priceModifier = (VarGet(VAR_RYU_PRICE_MULTIPLIER));
@@ -935,6 +946,23 @@ u32 ItemId_GetPrice(u32 itemId)
     }
 
     oldprice = (oldprice * priceModifier / 1000);
+    if (GetModFlag(ECONOMY_MODE) == TRUE){
+        u16 type = ItemId_GetPocket(itemId);
+        switch (type){
+            case ITEMS_POCKET:
+                oldprice = (oldprice * 23) + ((GetTotalMoneyOwned() / 1000) * 45);
+            break;
+            case COLLECTIBLES_POCKET:
+                oldprice = (oldprice * 25) + ((GetTotalMoneyOwned() / 1000) * 85);
+            break;
+            case MEDICINE_POCKET:
+                oldprice = (oldprice * 31) + ((GetTotalMoneyOwned() / 1000) * 12);
+            break;
+            case POCKET_POKE_BALLS:
+                oldprice = (oldprice * 15) + ((GetTotalMoneyOwned() / 1000) * 33);
+            break;
+        }
+    }
     return oldprice;
 }
 

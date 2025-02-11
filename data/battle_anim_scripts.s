@@ -707,6 +707,7 @@ gBattleAnims_Moves::
 	.4byte Move_VOID_BURST
 	.4byte Move_SHADOW_SLAM
 	.4byte Move_OVERLOAD
+	.4byte Move_J4_EXPLOSION
 @@@@@@@@@@@@ GEN 8 @@@@@@@@@@@@
 	.4byte Move_DYNAMAX_CANNON
 	.4byte Move_SNIPE_SHOT
@@ -15457,6 +15458,7 @@ RisingWaterHitEffect:
 	createsprite gSmallDriftingBubblesSpriteTemplate, ANIM_ATTACKER, 4, 0, -20
 	return
 
+Move_J4_EXPLOSION:
 Move_EXPLOSION:
 	loadspritegfx ANIM_TAG_EXPLOSION
 	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 8, 9, RGB(26, 8, 8), 8, 0, 8

@@ -153,6 +153,7 @@ script SZ_LucyStart{
 	    removeobject(10)
 	    setflag(FLAG_RYU_HIDE_SZ_LUCY)
 		clearflag(FLAG_RYU_HIDE_SZ_AETHER)
+		clearflag(FLAG_RYU_HIDE_SZ_AETHER_WICKE)
 	    release
 	    end
 	}

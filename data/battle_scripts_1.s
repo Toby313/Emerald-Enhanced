@@ -6612,9 +6612,7 @@ BattleScript_SwitchedDrive::
 	end2
 
 BattleScript_RyuLunaticDisableStatusMessage::
-	showabilitypopup BS_ABILITY_BATTLER
 	printstring STRINGID_RYULUNATICDISABLEDSTATUSMOVE
-	waitmessage 0x40
 	endselectionscript
 
 BattleScript_IllusionistActivates::
@@ -7790,6 +7788,24 @@ BattleScript_IgnoresWhileAsleep::
 	waitmessage 0x40
 	moveendto MOVEEND_NEXT_TARGET
 	end
+
+BattleScript_MonIsntMonotype::
+	printstring STRINGID_NONMONOTYPEMON
+	waitmessage 0x40
+	moveendto MOVEEND_NEXT_TARGET
+	end
+
+BattleScript_CantUseNonMonotypeMove::
+	printstring STRINGID_NONMONOTYPEMOVE
+	waitmessage 0x40
+	moveendto MOVEEND_NEXT_TARGET
+	end	
+
+BattleScript_TechnicianModPrevented::
+	printstring STRINGID_TECHNICIANPREVENTED
+	waitmessage 0x40
+	moveendto MOVEEND_NEXT_TARGET
+	end	
 
 BattleScript_IgnoresAndUsesRandomMove::
 	printstring STRINGID_PKMNIGNOREDORDERS

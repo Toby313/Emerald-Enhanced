@@ -145,6 +145,9 @@
 #define NUM_ACH_PWR_BYTES (ROUND_BITS_TO_BYTES(AP_FLAGS_COUNT))
 #define NUM_NPC_FACTIONS 8
 
+#define NUM_NUZLOCKE_MAPSEC_BYTES 32 //(thus number * 8 is how many flags for nuzlocke locations there are.)
+#define NUM_CHALLENGE_FLAG_BYTES 8 //(thus number * 8 is how many flags for challenges there are.)
+
 #define MAX_DYNAMIC_OBJECTS 4
 
 struct Coords8
@@ -455,7 +458,7 @@ struct SaveBlock2
               u8 alchemyEffect; //Which alchemy effect is currently active.
               u8 alchemyCharges; //how many charges, if any, are left for the currently active alchemy effect.
               u8 hasAlchemyEffectActive:1; //is alchemy effect active
-              u8 unused:1; //does the GCMS have a boss in it
+              u8 autobattle:1; //is the player using autobattle
               u8 playerIsRealtor:1; //has the player unlocked property management
               u8 userPresetThemeSelectionChoice:5; //theme preset options
              u8 propertyFlags[NUM_PROPERTY_BYTES];
@@ -880,6 +883,19 @@ struct SaveBlock1
                struct Pokemon GCMS;
                struct DynamicMapObjects DynamicObjects[MAX_DYNAMIC_OBJECTS];
                u8 dynamicDeliveryIds[4];
+               //challenge modifier flags (8 bytes)
+               u8 challengeFlags[NUM_CHALLENGE_FLAG_BYTES];
+               //nuzlocke records (32 bytes)
+               u8 nuzlockeMapsecs[NUM_NUZLOCKE_MAPSEC_BYTES];
+               //challenge data (16 bytes)
+               u32 monotypeChallengeChoice:5;//chosen monotype (max value 31)
+               u32 unusedChallengeBitsBlock1:27;
+               u32 unusedChallengeBitsBlock2:32;
+               u32 unusedChallengeBitsBlock3:32;
+               u32 unusedChallengeBitsBlock4:32;
+               //total 56
+               u8 autosaveEnabled:1;
+               u8 autosaveInterval:7;
 };
 
 extern struct SaveBlock1* gSaveBlock1Ptr;

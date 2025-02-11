@@ -254,7 +254,7 @@ LCC_LeafEvent::
 	compare VAR_RYU_FOLLOWER_ID, FOLLOWER_COURTNEY
 	goto_if_eq ryu_end
 	call_if_set FLAG_RYU_HAS_FOLLOWER, RyuForceCancelFollowerForQuest
-	compare VAR_RYU_QUEST_LEAF, 505
+	compare VAR_RYU_QUEST_LEAF, 525
 	goto_if_ne ryu_end
 	lock
 	special SpawnCameraObject
@@ -306,11 +306,12 @@ LCC_LeafEvent::
 	closemessage
 	savebgm MUS_THANKFOR
 	delay 5
-	setvar VAR_RYU_QUEST_LEAF, 1
+	setvar VAR_RYU_QUEST_LEAF, 954
 	setflag FLAG_RYU_ON_DATE
 	applymovement 5, LCC_PullRight
 	waitmovement 5
 	delay 10
+	setflag FLAG_RYU_ON_DATE
 	warpsilent MAP_LILYCOVE_CITY, 255, 62, 37
 	release
 	end
@@ -384,8 +385,10 @@ LCL_Story4:
 	.string "happened...that it was my fault it\n"
 	.string "came to be this way.\p"
 	.string "It tore me up inside...\p"
-	.string "'Shut up.'\p"
-	.string "That one phrase kept popping into\n"
+	.string "'Shut up.'$"
+
+LCL_Story4a:
+	.string "{COLOR LIGHT_RED}{SHADOW RED}That one phrase kept popping into\n"
 	.string "my head...to the point where I\l"
 	.string "just decided not to speak...to him\p"
 	.string "or to anyone else.\p"
@@ -399,8 +402,10 @@ LCL_Story4:
 	.string "It really scared me, but I\n"
 	.string "continued to chase after him...\p"
 	.string "all the way to the Indigo Plateau.\p"
-	.string "... ... ... ...\p"
-	.string "I desperately wanted him to see\n"
+	.string "... ... ... ...$"
+
+LCL_Story4b:
+	.string "{COLOR LIGHT_RED}{SHADOW RED}I desperately wanted him to see\n"
 	.string "me...to acknowledge me as the\l"
 	.string "person closest to him...once I\p"
 	.string "showed my strength to him by\n"
@@ -416,8 +421,10 @@ LCL_Story4:
 	.string "anyone cares about a complete\l"
 	.string "nuisance like you...always getting\p"
 	.string "in my way of trying to be the\n"
-	.string "best...I won't accept this...\p"
-	.string "especially from a nobody like you!\p"
+	.string "best...I won't accept this...$"
+
+LCL_Story4c:
+	.string "{COLOR LIGHT_RED}{SHADOW RED}especially from a nobody like you!\p"
 	.string "I was speechless...I couldn't say\n"
 	.string "anything in response to him.\p"
 	.string "I couldn't believe it...the one\n"
@@ -443,12 +450,15 @@ LCL_Story4_5:
 	.string "our initial encounter, and yet,\l"
 	.string "you kept searching for me...you\p"
 	.string "never grew tired of me or thought\n"
-	.string "that I was a nuisance. I was\l"
-	.string "conflicted...the emotions I felt\p"
+	.string "that I was a nuisance. $"
+
+LCL_Story4_6:
+	.string "{COLOR LIGHT_RED}{SHADOW RED}I was conflicted...\n"
+	.string "the emotions I felt\p"
 	.string "from you betrayed how I felt\n"
 	.string "about myself...but I wanted it to\l"
 	.string "continue...I wanted to make sure\p"
-	.string "you'd never view me as a nobody.\p"@<-----Main line deviates here
+	.string "you'd never view me as a nobody.\p"
 	.string "... ... ... ...\p"
 	.string "And yet...everywhere I turned...\n"
 	.string "those memories kept coming back...\p"
@@ -481,8 +491,6 @@ LCL_Story6:
 	.string "reads for a living can accomplish.$"
 	
 LCL_Story7:
-	.string "{COLOR LIGHT_RED}{SHADOW RED}But first, let's head back to the\n"
-	.string "Trickmaster's House.\p"
 	.string "{COLOR LIGHT_BLUE}{SHADOW BLUE}You're such a tease.$"
 
 

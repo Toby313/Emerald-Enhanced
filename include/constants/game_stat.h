@@ -61,8 +61,9 @@
 #define GAME_STAT_STEPS_FOLLOWER            57
 #define GAME_STAT_PLAYER_BOUNTY             58
 #define GAME_STAT_CHALLENGE_TIME_SECONDS    59
+#define GAME_STAT_TEMP32BITSTORAGE          60
 
-#define NUM_USED_GAME_STATS                 60
+#define NUM_USED_GAME_STATS                 61
 #define NUM_GAME_STATS                      80
 
 #endif // GUARD_CONSTANTS_GAME_STAT_H

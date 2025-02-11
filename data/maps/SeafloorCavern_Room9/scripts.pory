@@ -282,7 +282,7 @@ SeafloorCavern_Room9_Movement_KyogreApproach: @ 8235040
 	step_end
 	
 SCME_BlueOrbEffect::
-	setweather WEATHER_NONE
+	setweather WEATHER_SUNNY_CLOUDS
 	doweather
 	msgbox SFC_BlueOrbShines, MSGBOX_DEFAULT
 	special WaitWeather

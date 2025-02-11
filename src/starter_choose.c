@@ -127,13 +127,13 @@ static const u8 sStarterLabelCoords[STARTER_MON_COUNT][2] =
 
 static const u16 sStarterMon[STARTER_MON_COUNT] =
 {
-    SPECIES_SANDILE,
-    SPECIES_GOOMY,
-    SPECIES_DEWPIDER,
-    SPECIES_RUFFLET,
-    SPECIES_SLOWPOKE,
-    SPECIES_NIDORAN_F,
-    SPECIES_NIDORAN_M
+    SPECIES_JOLTIK,//
+    SPECIES_RIOLU,//
+    SPECIES_ROCKRUFF, //
+    SPECIES_SHELLDER,//
+    SPECIES_VULPIX,//
+    SPECIES_PETILIL,
+    SPECIES_BAGON//
 };
 
 static const struct BgTemplate sBgTemplates[3] =

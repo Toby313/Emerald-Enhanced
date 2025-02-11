@@ -2,8 +2,13 @@ raw `
 LilycoveCity_MapScripts:: @ 81E2B3C
 	map_script ON_TRANSITION, LilycoveCity_OnTransition
 	map_script ON_LOAD , LilycoveCity_OnLoad
+	map_script ON_FRAME, lcc_OnFrameScripts
 	.byte 0
 	
+lcc_OnFrameScripts::
+	map_script_2 VAR_RYU_QUEST_LEAF, 954, LeafSceneResume
+	.2byte 0
+
 LCC_SetUpMagma::
 	setvar VAR_TEMP_A, 100
 	compare VAR_RYU_QUEST_MAGMA, 165
@@ -91,8 +96,6 @@ LeafSceneResume::
 	fadenewbgm MUS_THANKFOR
 	msgbox LCL_Story1 MSGBOX_DEFAULT
 	closemessage
-	applymovement 23, Common_Movement_FaceRight
-	waitmovement 23
 	msgbox LCL_Story2 MSGBOX_DEFAULT
 	closemessage
 	applymovement PLAYER, Common_Movement_FaceLeft
@@ -102,6 +105,14 @@ LeafSceneResume::
 	applymovement 23, Common_Movement_FaceDown
 	waitmovement 23
 	msgbox LCL_Story4 MSGBOX_DEFAULT
+	closemessage
+	applymovement 23, Common_Movement_FaceRight
+	waitmovement 23
+	msgbox LCL_Story4a MSGBOX_DEFAULT
+	closemessage
+	msgbox LCL_Story4b MSGBOX_DEFAULT
+	closemessage
+	msgbox LCL_Story4c MSGBOX_DEFAULT
 	closemessage
 	applymovement 23, Common_Movement_FaceRight
 	waitmovement 23

@@ -54,7 +54,7 @@ MC_ArchieOrders::
 
 ArchieOrdersMsg:
 	.string "Archie: {PLAYER}! You have your orders.\l"
-	.string "Get IT Done!$"
+	.string "Get it done!$"
 	
 MC_ArchieIntroMsg:
 	.string "Archie: {PLAYER}! I'm glad you're here...\p"

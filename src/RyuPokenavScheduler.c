@@ -8,6 +8,7 @@
 const u8 sText_PokenavCallLanetteGenesectPokecenter[] = _("Hello? {PLAYER}?\pI heard that you found a\nmysterious drive.\pHow did I get your number?\pDon't worry about that.\pMore importantly, come find me at\nFallarbor Pokecenter!\pWe have something to discuss!");
 const u8 sText_PokenavCallLanetteGenesectLanetteHome[] = _("Hello? {PLAYER}?\pI heard that you found a\nmysterious drive.\pHow did I get your number?\pDon't worry about that.\pMore importantly, come find me at\nmy house on Route 114!\pWe have something to discuss!");
 const u8 sText_DuskullAfterlife[] = _("Hello. This is the Duskull afterlife\nservice calling.\pThis call is to notify you that\nyou will be escorted to the\lafterlife shortly.");
+const u8 sText_DuskullAfterlifeNoMercy[] = _("Hello. This is the Duskull afterlife\nservice calling.\pOur sources say that you have failed\nthe NO MERCY challenge.\pYour game is over. See you soon!");
 const u8 sText_FailedRyuChallenge[] =  _("You have failed Ryu's Challenge.\nYou can try again in another\lNew Game Plus.\pWe look forward to you trying\nagain!");
 const u8 sText_CompletedRyuChallenge[] = _("You have completed\nRyu's Challenge.");
 const u8 sText_NavCallDexNav[] = _("Hello Trainer!\pThe DexNav has been added to your\nStart Menu.\pPlease enjoy it!");
@@ -18,6 +19,8 @@ const u8 sText_AquaStage55[] = _("Admin Shelly speaking.\pI'm sending you to Met
 const u8 sText_AquaStage80[] = _("This is an urgent message from Admin\nMatt!\pCalling all members to mobilize at\nthe peak of Mt. Pyre!\pI repeat: the peak of Mt. Pyre!");
 const u8 sText_AquaStage91[] = _("{COLOR LIGHT_RED}{SHADOW RED}{PLAYER}, this is Shelly.\pWe've discovered what Magma is\nscheming, and it's far from good.\pWe were able to weaken their forces\nat Mt. Chimney, so now they're\ldesperate.\pIt's time to hit them while they're\nstill down!\pMeet me at their hideout located in\nJagged Pass.");
 const u8 sText_AquaStage123[] = _("{COLOR LIGHT_RED}{SHADOW RED}{PLAYER}, it's time...meet us in the\nmain Team Aqua Headquarters.\pWe'll be waiting by the dock.");
+const u8 sText_NuzlockeOver[] = _("Hello!\nDuskull Afterlife service calling!\pIt appears that you have lost your\nNuzlocke Challenge!\pHow unfortunate for you!\nYou will be escorted to the afterlife\lshortly!");
+const u8 sText_Autosaving[] = _("One moment, Autosaving...");
 
 
 const u8 * const RyuPokenavCallMessages[] = 
@@ -35,6 +38,9 @@ const u8 * const RyuPokenavCallMessages[] =
     [NAVCALL_AQUASTAGE80] = sText_AquaStage80,
     [NAVCALL_AQUASTAGE91] = sText_AquaStage91,
     [NAVCALL_AQUASTAGE123] = sText_AquaStage123,
+    [NAVCALL_NOMERCYOVER] = sText_DuskullAfterlifeNoMercy,
+    [NAVCALL_NUZLOCKEOVER] = sText_NuzlockeOver,
+    [NAVCALL_AUTOSAVING] = sText_Autosaving,
 };
 
 int RyuTryGetScheduledPokenavCall(void)

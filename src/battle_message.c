@@ -357,9 +357,9 @@ static const u8 sText_RainStopped[] = _("The rain stopped.");
 static const u8 sText_SandstormBrewed[] = _("A sandstorm brewed!");
 static const u8 sText_SandstormRages[] = _("The sandstorm rages.");
 static const u8 sText_SandstormSubsided[] = _("The sandstorm subsided.");
-static const u8 sText_SunlightGotBright[] = _("The sunlight got bright!");
-static const u8 sText_SunlightStrong[] = _("The sunlight is strong.");
-static const u8 sText_SunlightFaded[] = _("The sunlight faded.");
+static const u8 sText_SunlightGotBright[] = _("A solar storm started!");
+static const u8 sText_SunlightStrong[] = _("The sun's heat continues to flare...");
+static const u8 sText_SunlightFaded[] = _("The solar storm calmed down.");
 static const u8 sText_StartedHail[] = _("It started to hail!");
 static const u8 sText_HailContinues[] = _("Hail continues to fall.");
 static const u8 sText_HailStopped[] = _("The hail stopped.");
@@ -776,6 +776,11 @@ static const u8 sText_IllusionistEnhanced[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}
 static const u8 sText_IllusionistBase[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} erects a psychic barrier!");
 static const u8 sText_GenesectSwitchedDrive[] = _("Genesect switched it's equipped drive!");
 static const u8 sText_GenesectBlockedBall[] = _("Genesect shoots the pokéball down!");
+static const u8 sText_NuzlockeModeAlreadyCaught[] = _("You already captured a Pokémon\nfrom this location!");
+static const u8 sText_MonotypeDoesntMatch[] = _("You can only capture {STR_VAR_3}\ntypes!");
+static const u8 sText_MonotypeDoesntMatchMon[] = _("You can only use {STR_VAR_3}\ntype Pokémon!");
+static const u8 sText_MonotypeDoesntMatchMove[] = _("You can only use {STR_VAR_3}\nor normal type moves!");
+static const u8 sText_TechnicianModPrevented[] = _("The Technician challenge prevented\nthe move!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1410,6 +1415,11 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_GENESECTSWITCHEDDRIVE- 12] = sText_GenesectSwitchedDrive,
     [STRINGID_BALLBLOCKEDGENESECT- 12] = sText_GenesectBlockedBall,
     [STRINGID_ILLUSIONISTBASE- 12] = sText_IllusionistBase,
+    [STRINGID_BALLBLOCKEDNUZLOCKE- 12] = sText_NuzlockeModeAlreadyCaught,
+    [STRINGID_BALLBLOCKEDMONOTYPE- 12] = sText_MonotypeDoesntMatch,
+    [STRINGID_NONMONOTYPEMOVE- 12] = sText_MonotypeDoesntMatchMove,
+    [STRINGID_NONMONOTYPEMON- 12] = sText_MonotypeDoesntMatchMon,
+    [STRINGID_TECHNICIANPREVENTED- 12] = sText_TechnicianModPrevented,
 };
 
 const u16 gTerrainStringIds[] =

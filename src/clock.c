@@ -19,7 +19,11 @@
 #include "task.h"
 #include "constants/weather.h"
 #include "random.h"
+#include "ryu_challenge_modifiers.h"
+#include "RyuPokenavScheduler.h"
+#include "RyuFieldNotificationSystem.h"
 
+extern u8 RyuAutosaveScript[];
 static void UpdatePerDay(struct Time *localTime);
 void UpdatePerHour(struct Time *localTime);
 static void UpdatePerMinute(struct Time *localTime);
@@ -273,6 +277,17 @@ static void UpdatePerDay(struct Time *localTime)
 }
 extern void Task_MapNamePopUpWindow(u8 taskId);
 extern void RyuDoNotifyTasks(void);
+extern u8 autosaveWithMessage(void);
+extern u8 sSaveDialogCallback;
+
+void TryCheckAutosave(u32 mins)
+{
+    VarSet(VAR_RYU_AUTOSAVE_MINUTES, (VarGet(VAR_RYU_AUTOSAVE_MINUTES)) + 1);
+    if (VarGet(VAR_RYU_AUTOSAVE_MINUTES) >= gSaveBlock1Ptr->autosaveInterval){
+        VarSet(VAR_RYU_AUTOSAVE_MINUTES, 0);
+        ScriptContext1_SetupScript(RyuAutosaveScript);
+    }
+}
 
 static void UpdatePerMinute(struct Time *localTime)
 {
@@ -283,12 +298,16 @@ static void UpdatePerMinute(struct Time *localTime)
     minutes = 24 * 60 * difference.days + 60 * difference.hours + difference.minutes;
     if (minutes != 0)
     {
+        if (gSaveBlock1Ptr->autosaveEnabled == TRUE)
+            TryCheckAutosave(minutes);
+            
         if (minutes >= 0)
         {
             BerryTreeTimeUpdate(minutes);
             gSaveBlock2Ptr->lastBerryTreeUpdate = *localTime;
             TryMoveRivalIdleLocation();
             TryMoveBirchLocationPostMay();
+            TryRevelationModPenalties();
             if (gSaveBlock2Ptr->DeliveryTimer.active == TRUE)
             {
                 gSaveBlock2Ptr->DeliveryTimer.Timer -= 1;

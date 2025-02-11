@@ -641,6 +641,7 @@ script Ryu_AttendantLucy {
             msgbox("{COLOR LIGHT_RED}{SHADOW RED}I can hear whispers of\ndaring trainers calling me back.\pShould I leave?", MSGBOX_YESNO)
             if (var(VAR_RESULT) == YES) {
                 msgbox("{COLOR LIGHT_RED}{SHADOW RED}Alright, I'll head back to the Pike.")
+                clearflag(FLAG_RYU_DISABLE_PIKE)
                 goto(RyuDismissAttendant)
             }
         case 1:
@@ -710,6 +711,9 @@ script RyuDismissAttendant {
 	    case FOLLOWER_MAY:
             setvar(VAR_RYU_ATTENDANT_ID, 0xFFFF)
             call(Ryu_ReturnMayToHome)
+        case FOLLOWER_LUCY:
+            setvar(VAR_RYU_ATTENDANT_ID, 0xFFFF)
+            call(Ryu_RestoreLucy)
     }
     return
 }

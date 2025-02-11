@@ -91,12 +91,6 @@ const struct APInfo gAP_Info[4] =
     {gAP_InfoCopper, AP_TIER_COPPER, AP_COPPER_COUNT, 15}
 };
 
-void APDebugInfo(void)
-{
-    VarSet(VAR_TEMP_1, (GetPlayerAPMax()));
-    VarSet(VAR_TEMP_2, (GetCurrentAPUsed()));
-}
-
 int GetCurrentAPUsed(void)//gets player's currently used AP's
 {
     u32 i, j;

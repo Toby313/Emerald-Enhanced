@@ -46,6 +46,7 @@
 #include "RyuRealEstate.h"
 #include "RyuDynDeliveries.h"
 #include "DynamicObjects.h"
+#include "ryu_challenge_modifiers.h"
 
 extern const u8 EventScript_ResetAllMapFlags[];
 
@@ -226,6 +227,9 @@ void NewGameInitData(void)
     gSaveBlock2Ptr->CompanionParty[0].speciesId = SPECIES_BIDOOF;
     gSaveBlock2Ptr->CompanionParty[1].speciesId = SPECIES_BIDOOF;
     gSaveBlock2Ptr->CompanionParty[2].speciesId = SPECIES_BIDOOF;
+    ResetNuzlockeFlags();
+    ResetModFlags();
+    
 
     //flags
     FlagClear(FLAG_HIDE_LITTLEROOT_TOWN_FAT_MAN);
@@ -324,6 +328,8 @@ void NewGameInitData(void)
     FlagSet(FLAG_RYU_MAUVILLE_PC_BARD);
     FlagSet(FLAG_RYU_DFT_BARD_GENESECT);
     FlagSet(FLAG_RYU_HIDE_SL_SUMAC_2);
+    FlagSet(FLAG_RYU_HIDE_SZ_AETHER_WICKE);
+    FlagSet(FLAG_RYU_HIDE_ECON_BOUNCERS);
     //vars
     VarSet(VAR_RYU_GCMS_SPECIES, 0);
     VarSet(VAR_RYU_GCMS_VALUE, 0);
@@ -376,9 +382,12 @@ void NewGameInitData(void)
     VarSet(VAR_RYU_POKEFANS_OBJID, OBJ_EVENT_GFX_BRENDAN_NORMAL);
     VarSet(VAR_RYU_PLAYER_STAMINA, 100);
     VarSet(VAR_RYU_DEV_EXP_MULT, 1);
+    VarSet(VAR_RYU_AUTOSAVE_MINUTES, 0);
 
     memset(gSaveBlock1Ptr->dexNavSearchLevels, 0, sizeof(gSaveBlock1Ptr->dexNavSearchLevels));
     gSaveBlock1Ptr->dexNavChain = 0;
+    gSaveBlock1Ptr->autosaveEnabled = FALSE;
+    gSaveBlock1Ptr->autosaveInterval = 127;
     RyuClearAlchemyEffect();
 }
 

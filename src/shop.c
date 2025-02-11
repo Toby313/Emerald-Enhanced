@@ -41,6 +41,7 @@
 #include "constants/songs.h"
 #include "constants/tv.h"
 #include "event_data.h"
+#include "ryu_challenge_modifiers.h"
 
 EWRAM_DATA struct MartInfo gMartInfo = {0};
 EWRAM_DATA struct ShopData *gShopDataPtr = NULL;
@@ -456,7 +457,7 @@ static u8 CreateShopMenu(u8 martType)
         struct WindowTemplate winTemplate;
         winTemplate = sShopMenuWindowTemplates[0];
 
-        if ((FlagGet(FLAG_RYU_BANNED_FROM_MARTS) == 1) && (FlagGet(FLAG_RYU_SELLING_TO_FENCE) == 0))
+        if (((FlagGet(FLAG_RYU_BANNED_FROM_MARTS) == 1) && (FlagGet(FLAG_RYU_SELLING_TO_FENCE) == 0)) || (VarGet(VAR_RYU_DIFFICULTY) == DIFF_NOMERCY))
         {
             winTemplate.width = GetMaxWidthInMenuTable(sShopMenuActions_BuyQuit, ARRAY_COUNT(sShopMenuActions_BuyQuit));
             gMartInfo.windowId = AddWindow(&winTemplate);
@@ -753,7 +754,7 @@ static void BuyMenuPrintPriceInList(u8 windowId, s32 item, u8 y)
                 gStringVar1,
                 ItemId_GetPrice(item),
                 STR_CONV_MODE_LEFT_ALIGN,
-                5);
+                7);
         }
         else
         {
@@ -761,11 +762,11 @@ static void BuyMenuPrintPriceInList(u8 windowId, s32 item, u8 y)
                 gStringVar1,
                 gDecorations[item].price,
                 STR_CONV_MODE_LEFT_ALIGN,
-                5);
+                7);
         }
 
         StringExpandPlaceholders(gStringVar4, gText_PokedollarVar1);
-        x = GetStringRightAlignXOffset(7, gStringVar4, 0x78);
+        x = GetStringRightAlignXOffset(7, gStringVar4, 120);
         AddTextPrinterParameterized4(windowId, 7, x, y, 0, 0, sShopBuyMenuTextColors[1], -1, gStringVar4);
     }
 }
@@ -1367,7 +1368,12 @@ static void BuyMenuReturnToItemList(u8 taskId)
     PutWindowTilemap(2);
     ScheduleBgCopyTilemapToVram(0);
     BuyMenuAddScrollIndicatorArrows();
-    gTasks[taskId].func = Task_BuyMenu;
+    if (GetModFlag(ECONOMY_MODE) == TRUE){
+        ExitBuyMenu(taskId);
+    }
+    else{
+        gTasks[taskId].func = Task_BuyMenu;
+    }
 }
 
 static void BuyMenuPrintItemQuantityAndPrice(u8 taskId)

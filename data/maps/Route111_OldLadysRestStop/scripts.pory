@@ -11,6 +11,10 @@ Route111_OldLadysRestStop_EventScript_OldLady:: @ 822A920
 	lock
 	faceplayer
 	goto_if_set FLAG_RYU_HARDCORE_MODE, OLRS_Hardcore
+	goto_if_set FLAG_RYU_NO_MERCY_MODE, OLRS_Hardcore
+	modflag GET ECONOMY_MODE
+	compare VAR_RESULT, TRUE
+	goto_if_eq OLRS_Economy
 	msgbox Route111_OldLadysRestStop_Text_RestUpHere, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq Route111_OldLadysRestStop_EventScript_Rest
@@ -71,3 +75,23 @@ Route111_OldLadysRestStop_Text_DontNeedToBeShy: @ 822AA8F
 	.string "You don't need to be shy about it.$"
 
 `
+script OLRS_Economy{
+	msgbox("I'd love to let you stay, dear,\nbut I can barely afford to feed\lmyself...\pIf you would like to pay a little\nwe can board you for the night.")
+	setvar(0x8000, 5)
+	setvar(0x8001, 1561)
+	callnative(ryuCalculatePercentileMoneyCost)
+	msgbox("Does {STR_VAR_1} sound fair?\nIt's the lowest I can go...", MSGBOX_YESNO)
+	if (var(VAR_RESULT) == NO){
+		msgbox("Sorry dear, these are tough times...")
+		release
+		end
+	}
+	if(var(VAR_0x8002) == FALSE){
+		msgbox("{COLOR LIGHT_RED}{SHADOW GREEN}My child, I can't pay bills\nwith hopes and dreams....")
+		closemessage
+		release
+		end
+	}
+	callnative(ryuTakeReservedMoney)
+	goto(Route111_OldLadysRestStop_EventScript_Rest)
+}

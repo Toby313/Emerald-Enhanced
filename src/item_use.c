@@ -57,6 +57,7 @@ extern u8 RyuAP_PDA[];
 extern u8 RyuAP_StatAssist[];
 extern u8 Ryu_ReagentPouchScript[];
 extern u8 Ryu_RefineMetalDust[];
+extern u8 Ryu_LootCapsule[];
 
 static void SetUpItemUseCallback(u8 taskId);
 static void FieldCB_UseItemOnField(void);
@@ -719,6 +720,13 @@ void ItemUseOutOfBattle_Berry(u8 taskId)
     {
         ItemId_GetFieldFunc(gSpecialVar_ItemId)(taskId);
     }
+}
+
+void ItemUseOutOfBattle_LootCapsule(u8 taskId)
+{
+    SetMainCallback2(CB2_ReturnToField);
+    ScriptContext2_Enable();
+    ScriptContext1_SetupScript(Ryu_LootCapsule);
 }
 
 static void ItemUseOnFieldCB_Berry(u8 taskId)

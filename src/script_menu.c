@@ -889,7 +889,7 @@ static const u8 sText_DebugUtilityItem7[] = _("Heal Party");
 static const u8 sText_DebugUtilityItem8[] = _("Saveblock Size");
 static const u8 sText_DebugUtilityItem9[] = _("Complete Dex");
 static const u8 sText_DebugUtilityItem10[] = _("Give/Take Achievements");
-static const u8 sText_DebugUtilityItem11[] = _("Check AP Usage");
+static const u8 sText_DebugUtilityItem11[] = _("Open Mods Menu");
 static const u8 sText_DebugUtilityItem12[] = _("Enable Dexnav");
 static const u8 sText_DebugUtilityItem13[] = _("Alchemy Info");
 static const u8 sText_DebugUtilityItem14[] = _("Toggle Level Cap");
@@ -990,6 +990,26 @@ static const u8 sBetaMenuRetroDex[] = _ ("Fill Dex from Boxes");
 static const u8 sBetaMenuExit[] = _ ("Exit Menu");
 static const u8 sBetaMenuFixFollowers[] = _("Restore Followers");
 static const u8 sBetaMenuShowTutorials[] = _("View Tutorials");
+static const u8 sBetaMenuViewEffects[] = _("View Active Effects");
+
+static const u8 sDifficultyModNuzlocke[] = _("Nuzlocke");
+static const u8 sDifficultyModMonotype[] = _("Monotype");
+static const u8 sDifficultyModAdvMonotype[] = _("Advanced Monotype");
+static const u8 sDifficultyModPlague[] = _("Plague");
+static const u8 sDifficultyModFamine[] = _("Famine");
+static const u8 sDifficultyModDeath[] = _("Death");
+static const u8 sDifficultyModWar[] = _("War");
+static const u8 sDifficultyModRevelation[] = _("Revelation Mode");
+static const u8 sDifficultyModGen1[] = _("Gen1 Mode");
+static const u8 sDifficultyModLateBloomer[] = _("Late Bloomer");
+static const u8 sDifficultyModMagnetosphere[] = _("Magnetosphere");
+static const u8 sDifficultyModLazy[] = _("Lazy");
+static const u8 sDifficultyModSickly[] = _("Sickly");
+static const u8 sDifficultyModAntiDarwinism[] = _("Anti-Darwinism");
+static const u8 sDifficultyModGreedyTrainers[] = _("Greedy Trainers");
+static const u8 sDifficultyModTechnician[] = _("Technician");
+static const u8 sDifficultyModEconomyMode[] = _("Economy Mode");
+static const u8 sDifficultyModNone[] = _("End Selection");
 
 static const struct ListMenuItem sBotanyConsumablesSet[] =
     {
@@ -1117,7 +1137,30 @@ static const struct ListMenuItem sRyuBetaMenuSet[] =
     {sBetaMenuRetroDex, 8},
     {sBetaMenuFixFollowers, 9},
     {sBetaMenuShowTutorials, 10},
+    {sBetaMenuViewEffects, 11},
     {sBetaMenuExit, 11}
+};
+
+static const struct ListMenuItem sDifficultyModifierSet[] =
+    {
+    {sDifficultyModNuzlocke, 0},
+    {sDifficultyModMonotype, 1},
+    {sDifficultyModAdvMonotype, 2},
+    {sDifficultyModPlague, 3},
+    {sDifficultyModFamine, 4},
+    {sDifficultyModDeath, 5},
+    {sDifficultyModWar, 6},
+    {sDifficultyModRevelation, 7},
+    {sDifficultyModGen1, 8},
+    {sDifficultyModLateBloomer, 9},
+    {sDifficultyModMagnetosphere, 10},
+    {sDifficultyModLazy, 11},
+    {sDifficultyModSickly, 12},
+    {sDifficultyModAntiDarwinism, 13},
+    {sDifficultyModGreedyTrainers, 14},
+    {sDifficultyModTechnician, 15},
+    {sDifficultyModEconomyMode, 16},
+    {sDifficultyModNone, 17},
 };
 
 
@@ -1134,6 +1177,7 @@ struct
         {sAlchemyMenu, ARRAY_COUNT(sAlchemyMenu)},
         {sRyuFollowerDebugSet, ARRAY_COUNT(sRyuFollowerDebugSet)},
         {sRyuBetaMenuSet, ARRAY_COUNT(sRyuBetaMenuSet)},
+        {sDifficultyModifierSet, ARRAY_COUNT(sDifficultyModifierSet)}
 };
 
 static void Task_ScrollingMultichoiceInput(u8 taskId);

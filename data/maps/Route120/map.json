@@ -796,38 +796,11 @@
     {
       "type": "trigger",
       "x": 7,
-      "y": 53,
-      "elevation": 3,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 7,
-      "y": 53,
-      "elevation": 3,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 7,
       "y": 57,
       "elevation": 3,
       "var": "VAR_TEMP_B",
       "var_value": "0",
       "script": "r120_AT_SECOND_VISIT_SETUP"
-    },
-    {
-      "type": "trigger",
-      "x": 7,
-      "y": 53,
-      "elevation": 3,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
     },
     {
       "type": "trigger",
@@ -846,6 +819,24 @@
       "var": "VAR_RYU_QUEST_LEAF",
       "var_value": "65",
       "script": "r120_SetupLeafHiker"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 57,
+      "elevation": 0,
+      "var": "VAR_RYU_QUEST_LEAF",
+      "var_value": "66",
+      "script": "r120_MidToMain"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 56,
+      "elevation": 0,
+      "var": "VAR_RYU_QUEST_LEAF",
+      "var_value": "66",
+      "script": "r120_TopToMain"
     }
   ],
   "bg_events": [

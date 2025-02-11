@@ -1144,26 +1144,7 @@ RyuCheckForWellTravelledAch::
 `
 
 script RyuDebug_Utility1 {
-    release
     end
-}
-
-script RyuDebug_Utility1ResetSeason {
-	setvar(VAR_RYU_WEEK_COUNTER, 0)
-	release
-	end
-}
-
-text devopt1 {
-	"Spring/Summer"
-}
-
-text devopt2 {
-	"Fall"
-}
-
-text devopt3 {
-	"Winter"
 }
 
 text utilityText {
@@ -1192,13 +1173,20 @@ script RyuScript_EndChallengeMode{
     setflag(FLAG_RYU_LIMBO)
     lockall
     setflag(FLAG_RYU_WAYSTONE_DISABLED)
-    msgbox(format("Welcome to Limbo. You have failed your Hardcore challenge and have died. You can use this time to reflect on your decisions, or organize your item storage for a New Game Plus if your prestige is higher than zero."))
+    msgbox(format("Welcome to Limbo. You have failed your Hardcore or no mercy challenge and have died. You can use this time to reflect on your decisions, or organize your item storage for a New Game Plus if your prestige is higher than zero. If you failed a No Mercy challenge, you will be required to start a new game."))
     closemessage
     msgbox(format("Please wait while we check some things, this might take a few seconds."))
 	if (var(VAR_RYU_NGPLUS_COUNT) > 0) {	
 		setflag(FLAG_SYS_GAME_CLEAR)
 	} else {
 		clearflag(FLAG_SYS_GAME_CLEAR)
+	}
+	
+	if (var(VAR_RYU_DIFFICULTY) == DIFF_NOMERCY){
+		setvar(VAR_RYU_NGPLUS_COUNT, 1)
+		clearflag(FLAG_RYU_ISNGPLUS)
+		clearflag(FLAG_SYS_GAME_CLEAR)
+		setflag(FLAG_RYU_FAILED_NO_MERCY)
 	}
     callnative(RyuForceSaveTheGame)
     closemessage
@@ -1370,9 +1358,9 @@ text PlayersHouse_1F_Text_TheresAMovieOnTV {
 //There are 1440 minutes in a day.
 
 script(global) RyuDebug_InitTimeSlide {//ngl, this may be the lewdest script i have ever made.
-	setvar(VAR_TEMP_3, 1440) //number of steps to loop in minutes.
-	setvar(VAR_TEMP_1, 4) //hour to start at
-	setvar(VAR_TEMP_2, 45) //minute to start at
+	setvar(VAR_TEMP_3, 1080) //number of steps to loop in minutes.
+	setvar(VAR_TEMP_1, 16) //hour to start at
+	setvar(VAR_TEMP_2, 0) //minute to start at
 	goto(RyuDoTImeSlide)
 }
 
@@ -1516,116 +1504,9 @@ text NGMO3 {
 	"Safe: More consistent, less potential."
 }
 
-raw `
-@===================================================================================================Holiday 2020
-
-
-RS_EventOver:
-	.string "Event is over.\nWhat are you doing here?$"
-
-RyuScript_NoRoomForHolidayMon::
-	msgbox RS_HolidayNoSpace
-	release
-	end
-
-RS_HolidayNoSpace::
-	.string "{COLOR LIGHT_RED}{SHADOW RED}You don't have space for\nthe gift. Please make space in\lyour party and return.$"
-
-`
-
 script RyuScript_NoEventNPCScript{
 	msgbox("There's no event going on.\nWhy are you here?")
 	closemessage
-	release
-	end
-}
-
-text H23_1 {
-	"Kyurem Black"
-}
-
-text H23_2 {
-	"Kyurem White"
-}
-
-text H23_3 {
-	"Landorus"
-}
-
-text H23_4 {
-	"Tapu Koko"
-}
-
-text H23_5 {
-	"Dialga"
-}
-
-text H23_6 {
-	"Blacefalon"
-}
-
-script RyuScript_GiveHolidayGiftMon{
-	lock
-	faceplayer
-	msgbox("Why are you here?")
-	closemessage
-	setflag(FLAG_RYU_HOLIDAY_EVENT)
-	setflag(FLAG_RYU_HIDE_HOLIDAY_NPC)
-	removeobject(12)
-	release
-	end
-	//below code is never reached
-	msgbox(format("{COLOR LIGHT_RED}{SHADOW RED}Uhm... Hi! I'm here to... uh, let you choose one of these pokeballs. Please choose one!"))
-	closemessage
-	getpartysize
-	copyvar(VAR_0x8002, VAR_RESULT)
-	if (var(VAR_RESULT) > 5){
-		msgbox(RS_HolidayNoSpace)
-		release
-		end
-	}
-	msgbox("Select a Pokémon!")
-	bufferdynamicmulti(H23_1, H23_2, H23_3, H23_4, H23_5, H23_6)
-	multichoice(0, 0, MULTI_DYNAMIC_6, 1)
-	switch(var(VAR_RESULT)){
-		case 0:
-			setvar(VAR_0x8005, SPECIES_KYUREM_BLACK)
-			setvar(VAR_0x8001, NATURE_ADAMANT)
-		case 1:
-			setvar(VAR_0x8005, SPECIES_KYUREM_WHITE)
-			setvar(VAR_0x8001, NATURE_MODEST)
-		case 2:
-			setvar(VAR_0x8005, SPECIES_LANDORUS)
-			setvar(VAR_0x8001, NATURE_ADAMANT)
-		case 3:
-			setvar(VAR_0x8005, SPECIES_TAPU_KOKO)
-			setvar(VAR_0x8001, NATURE_ADAMANT)
-		case 4:
-			setvar(VAR_0x8005, SPECIES_DIALGA)
-			setvar(VAR_0x8001, NATURE_MODEST)
-		case 5:
-			setvar(VAR_0x8005, SPECIES_BLACEPHALON)
-			setvar(VAR_0x8001, NATURE_ADAMANT)
-	}
-	msgbox("{COLOR LIGHT_GREEN}{SHADOW GREEN}She hands you a Pokéball.")
-	setflag(FLAG_RYU_FORCE_EVENT_OTID)
-	callnative(RyuGiveHolidayModdedMon)
-	clearflag(FLAG_RYU_FORCE_EVENT_OTID)
-	closemessage
-	msgbox(format("{COLOR LIGHT_RED}{SHADOW RED}Umm... Lord Ryu thanks you for your continued interest in Emerald Enhanced!"))
-	closemessage
-	applymovement(PLAYER, Common_Movement_StepDown)
-	applymovement(FOLLOWER, Common_Movement_StepDown)
-	waitmovement(FOLLOWER)
-	turnobject(PLAYER, DIR_NORTH)
-	turnobject(FOLLOWER, DIR_NORTH)
-	applymovement(12, HExit)
-	waitmovement(12)
-	applymovement(12, HExit2)
-	waitmovement(12)
-	setflag(FLAG_RYU_HOLIDAY_EVENT)
-	setflag(FLAG_RYU_HIDE_HOLIDAY_NPC)
-	removeobject(12)
 	release
 	end
 }
@@ -1926,4 +1807,173 @@ script RyuCheckEligibleSwimFollower {
 		goto(ryu_end)
 	}
 	return
+}
+
+script RyuAutosaveScript{
+	lock
+	msgbox("Autosaving game data...", MSGBOX_AUTOCLOSE)
+	callnative(RyuForceSaveTheGame)
+	closemessage
+	release
+	end
+}
+
+script RyuScript_EconGymDoorBlockers{
+	modflag(GET, ECONOMY_MODE)
+	if (var(VAR_RESULT) == FALSE){
+		setflag(FLAG_RYU_HIDE_ECON_BOUNCERS)
+		msgbox("Sorry kid, I was just checking\nthe place out. Head on in.")
+		fadescreen(FADE_TO_BLACK)
+		removeobject(VAR_LAST_TALKED)
+		delay(20)
+		fadescreen(FADE_FROM_BLACK)
+		release
+		end
+	}
+	setvar(VAR_0x8000, 5)
+	setvar(VAR_0x8001, 2000)
+	callnative(ryuCalculatePercentileMoneyCost)
+	msgbox("If you want to challenge this gym, it will\ncost you ¥{STR_VAR_1}.")
+	closemessage
+	msgbox("Challenge the gym?", MSGBOX_YESNO)
+	if (var(VAR_RESULT) == NO){
+		msgbox("The Aether foundation graciously\nbailed the Pokémon League out of\ldebt.\pTherefore, we are collecting dues\nfrom every trainer.\pGet used to it.")
+		closemessage
+		release
+		end
+	}
+	if (var(VAR_0x8002) == FALSE){
+		msgbox("Tough break kid, you can't afford\nto challenge this gym.\pCome back later with more money.")
+		closemessage
+		release
+		end
+	}
+	callnative(ryuTakeReservedMoney)
+	applymovement(VAR_LAST_TALKED, Common_Movement_StepLeft)
+	waitmovement(VAR_LAST_TALKED)
+	applymovement(VAR_LAST_TALKED, Common_Movement_StepDown)
+	waitmovement(VAR_LAST_TALKED)
+
+}
+
+script Ryu_EconomyModePokecenter {
+	if(flag(FLAG_RYU_POKEFANS_FINAL_QUEST_DONE) == TRUE){
+		msgbox("The Pokéfans offer comprehensive\nmedical coverage for all members!\pYou will be treated for free here!")
+		goto(PCN_HealMons)
+	}
+	setvar(0x8000, 11)
+	setvar(0x8001, 1151)
+	callnative(ryuCalculatePercentileMoneyCost)
+	msgbox("The current rate for a full heal is\n¥{STR_VAR_1}.\pWould you like to use our\nmedical services?", MSGBOX_YESNO)
+	if (var(VAR_RESULT) == TRUE){
+		if (var(VAR_0x8002) == TRUE){
+			callnative(ryuTakeReservedMoney)
+			goto(PCN_HealMons)
+		}
+		else{
+			msgbox("I'm sorry, but Aether's corporate\npolicy won't allow us to heal Pokémon\lfor free anymore.\pthey demand a cut.\nI'll have to decline your request...")
+			closemessage
+			release
+			end
+		}
+	}
+	else{
+		msgbox("If the cost is too high, might I\nrecommend acquiring some insurance?")
+		closemessage
+		release
+		end
+	}
+
+
+}
+
+script RyuEconomyModePokemonStorage {
+	setvar(0x8000, 15)
+	setvar(0x8001, 6969)
+	callnative(ryuCalculatePercentileMoneyCost)
+	msgbox("{COLOR LIGHT_GREEN}{SHADOW GREEN}The PC seems to require a payment\nbefore you can use it.")
+	closemessage
+	msgbox("{COLOR LIGHT_RED}{SHADOW GREEN}Payment of ¥{STR_VAR_1} required to\naccess this terminal.\pAccept charges?", MSGBOX_YESNO)
+	if (var(VAR_RESULT) == NO){
+		msgbox("You decide not to pay the machine.")
+		release
+		end
+	}
+	if(var(VAR_0x8002) == FALSE){
+		msgbox("{COLOR LIGHT_RED}{SHADOW GREEN}PAYMENT DECLINED.")
+		closemessage
+		release
+		end
+	}
+	callnative(ryuTakeReservedMoney)
+	return
+}
+
+script RyuEconomyModeItemStorage {
+	setvar(0x8000, 10)
+	setvar(0x8001, 4150)
+	callnative(ryuCalculatePercentileMoneyCost)
+	msgbox("{COLOR LIGHT_GREEN}{SHADOW GREEN}Welcome to Adrasti Warehouse,\nCyber division!\pPlease enter payment info or\nmembership number!")
+	goto_if_set(FLAG_RYU_PROF_SPECIAL_QUEST_AVAILABLE, RyuEconomyModeItemStorage_Member)
+	closemessage
+	msgbox("{COLOR LIGHT_RED}{SHADOW GREEN}Payment of ¥{STR_VAR_1} required to\naccess remote storage.\pAccept charges?", MSGBOX_YESNO)
+	if (var(VAR_RESULT) == NO){
+		msgbox("You decide not to pay the machine.")
+		release
+		end
+	}
+	if(var(VAR_0x8002) == FALSE){
+		msgbox("{COLOR LIGHT_RED}{SHADOW GREEN}PAYMENT DECLINED.")
+		closemessage
+		release
+		end
+	}
+	callnative(ryuTakeReservedMoney)
+	return
+}
+
+script RyuEconomyModeItemStorage_Member {
+	msgbox("{PLAYER} swiped the Adrasti membership card...")
+	playse(SE_PC_LOGIN)
+	callnative(RyuBufferTrainerId)
+	msgbox("Welcome back, employee number {STR_VAR_2}!\pYour membership grants unlimited\naccess to the storage system.")
+	closemessage
+	return
+}
+
+//============================================================================================================ Loot Boxes
+
+script Ryu_LootCapsuleGone{
+	msgbox("No capsules left...")
+	release
+	end
+}
+
+
+script Ryu_LootCapsule {
+	getpartysize
+	if (var(VAR_RESULT) < 6){
+		callnative(RollLootCapsule)
+		msgbox("{RYU_STR_1} came out of the capsule!")
+		removeitem(ITEM_LOOT_CAPSULE)
+		setvar(VAR_RYU_LOOTCAPSULE_ITEM_REWARD, ITEM_NONE)
+		setvar(VAR_RYU_LOOTCAPSULE_REWARD_TYPE, LC_TYPE_NONE)
+		setvar(VAR_RYU_LOOTCAPSULE_MON_REWARD, SPECIES_NONE)
+		msgbox("Use another capsule?", MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES){
+			checkitem(ITEM_LOOT_CAPSULE, 1)
+			goto_if_ne(Ryu_LootCapsuleGone)
+			goto(Ryu_LootCapsule)
+		}
+		else{
+			release
+			end
+		}
+	}
+	else{
+		msgbox("You don't have space for potential\nrewards.\pClear the party and try again.")
+		closemessage
+		release
+		end
+	}
 }

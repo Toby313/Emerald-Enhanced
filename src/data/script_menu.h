@@ -999,7 +999,7 @@ static const struct MenuAction MultichoiceList_133[]=
     {gText_RyuBetaMenuResetBadges},
     {gText_RyuBetaMenuResetGCMS},
     {gText_RyuBetaMenuGoHome},
-    {gText_RyuBetaMenuViewEffects},
+    {gText_RyuBetaMenuResetRTC},
     {gText_RyuBetaMenuExit},
 };
 
@@ -1345,6 +1345,44 @@ static const struct MenuAction MultichoiceList_SelectDay[] =
     {sText_SelectDaySun}
 };
 
+static const struct MenuAction MultichoiceList_MonoTypesList[] =
+{
+    {sText_SelectFighting},
+    {sText_SelectFlying},
+    {sText_SelectPoison},
+    {sText_SelectGround},
+    {sText_SelectRock},
+    {sText_SelectBug},
+    {sText_SelectGhost},
+    {sText_SelectSteel},
+    {sText_SelectFire},
+    {sText_SelectWater},
+    {sText_SelectGrass},
+    {sText_SelectElectric},
+    {sText_SelectPsychic},
+    {sText_SelectIce},
+    {sText_SelectDragon},
+    {sText_SelectDark},
+    {sText_SelectFairy},
+    {sText_SelectNone}
+};
+
+static const struct MenuAction MultichoiceList_CurrencyExchange[] = 
+{
+    {sText_ExchangeForCasino},
+    {sText_ExchangeForSilver},
+    {sText_ExchangeForCopper},
+    {sText_ExchangeNone}
+};
+
+static const struct MenuAction MultichoiceList_LootboxMenu[] = 
+{
+    {sText_ExchangeForCC},
+    {sText_ExchangeForBP},
+    {sText_ExchangeForPC},
+    {sText_ExchangeNone}
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -1530,6 +1568,9 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_DYNAMIC_2]                  = MULTICHOICE(MultichoiceList_2BufferedOptions),
     [MULTI_DEV_GIVE_MON_GENDER]        = MULTICHOICE(MultichoiceList_DevMonGiveGenderMenu),
     [MULTI_DEV_GIVE_MON_SHINY]         = MULTICHOICE(MultichoiceList_DevMonGiveShinyMenu),
+    [MULTI_MONOTYPE_MENU]              = MULTICHOICE(MultichoiceList_MonoTypesList),
+    [MULTI_CURRENCY_EXCHANGE]          = MULTICHOICE(MultichoiceList_CurrencyExchange),
+    [MULTI_LOOTBOX_MENU]               = MULTICHOICE(MultichoiceList_LootboxMenu),
 };
 
 const u8 *const gStdStrings[] =

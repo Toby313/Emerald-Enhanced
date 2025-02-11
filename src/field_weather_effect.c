@@ -242,20 +242,36 @@ static void UpdateCloudSprite(struct Sprite *sprite)
 //------------------------------------------------------------------------------
 
 static void UpdateDroughtBlend(u8);
+extern int RyuGetTimeOfDay();
+extern void ApplyGammaShift(u8 startPalIndex, u8 numPalettes, s8 gammaIndex);
+
+void SetDroughtGamma()
+{
+    switch (RyuGetTimeOfDay()){
+        case RTC_TIME_NIGHT:
+            ApplyGammaShift(6, 32, 5);
+        break;
+        case RTC_TIME_MORNING:
+            ApplyGammaShift(-2, 32, 4);
+        break;
+        case RTC_TIME_DAY:
+            ApplyGammaShift(-6, 32, 1);
+        break;
+        case RTC_TIME_EVENING:
+            ApplyGammaShift(-1, 32, -2);
+        break;
+    }
+}
 
 void Drought_InitVars(void)
 {
-    gWeatherPtr->initStep = 0;
-    gWeatherPtr->weatherGfxLoaded = FALSE;
+    gWeatherPtr->initStep = 3;
     gWeatherPtr->gammaTargetIndex = 0;
-    gWeatherPtr->gammaStepDelay = 0;
 }
 
 void Drought_InitAll(void)
 {
     Drought_InitVars();
-    while (gWeatherPtr->weatherGfxLoaded == FALSE)
-        Drought_Main();
 }
 
 void Drought_Main(void)
@@ -263,31 +279,21 @@ void Drought_Main(void)
     switch (gWeatherPtr->initStep)
     {
     case 0:
-        if (gWeatherPtr->palProcessingState != WEATHER_PAL_STATE_CHANGING_WEATHER)
-            gWeatherPtr->initStep++;
+        gWeatherPtr->initStep++;
         break;
     case 1:
-        ResetDroughtWeatherPaletteLoading();
         gWeatherPtr->initStep++;
         break;
     case 2:
-        if (LoadDroughtWeatherPalettes() == FALSE)
-            gWeatherPtr->initStep++;
+        gWeatherPtr->initStep++;
         break;
     case 3:
-        sub_80ABFF0();
         gWeatherPtr->initStep++;
         break;
     case 4:
-        sub_80AC01C();
-        if (gWeatherPtr->unknown_73C == 6)
-        {
-            gWeatherPtr->weatherGfxLoaded = TRUE;
-            gWeatherPtr->initStep++;
-        }
+        gWeatherPtr->initStep++;
         break;
     default:
-        sub_80AC01C();
         break;
     }
 }
@@ -299,7 +305,7 @@ bool8 Drought_Finish(void)
 
 void StartDroughtWeatherBlend(void)
 {
-    CreateTask(UpdateDroughtBlend, 0x50);
+    return;
 }
 
 #define tState      data[0]
@@ -314,40 +320,15 @@ static void UpdateDroughtBlend(u8 taskId)
     switch (task->tState)
     {
     case 0:
-        task->tBlendY = 0;
-        task->tBlendDelay = 0;
-        task->tWinRange = REG_WININ;
-        SetGpuReg(REG_OFFSET_WININ, WIN_RANGE(63, 63));
-        SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT1_BG1 | BLDCNT_TGT1_BG2 | BLDCNT_TGT1_BG3 | BLDCNT_TGT1_OBJ | BLDCNT_EFFECT_LIGHTEN);
-        SetGpuReg(REG_OFFSET_BLDY, 0);
         task->tState++;
         // fall through
     case 1:
-        task->tBlendY += 3;
-        if (task->tBlendY > 16)
-            task->tBlendY = 16;
-        SetGpuReg(REG_OFFSET_BLDY, task->tBlendY);
-        if (task->tBlendY >= 16)
-            task->tState++;
+        task->tState++;
         break;
     case 2:
-        task->tBlendDelay++;
-        if (task->tBlendDelay > 9)
-        {
-            task->tBlendDelay = 0;
-            task->tBlendY--;
-            if (task->tBlendY <= 0)
-            {
-                task->tBlendY = 0;
-                task->tState++;
-            }
-            SetGpuReg(REG_OFFSET_BLDY, task->tBlendY);
-        }
+        task->tState++;
         break;
     case 3:
-        SetGpuReg(REG_OFFSET_BLDCNT, 0);
-        SetGpuReg(REG_OFFSET_BLDY, 0);
-        SetGpuReg(REG_OFFSET_WININ, task->tWinRange);
         task->tState++;
         break;
     case 4:
@@ -1089,7 +1070,7 @@ void Thunderstorm_Main(void)
         gWeatherPtr->initStep++;
         // fall through
     case 8:
-        sub_80ABC48(19);
+        ApplyWeatherColorMapIfIdle(19);
         if (gWeatherPtr->unknown_6EB == 0 && gWeatherPtr->unknown_6EC == 1)
             SetThunderCounter(20);
 
@@ -1099,7 +1080,7 @@ void Thunderstorm_Main(void)
     case 9:
         if (--gWeatherPtr->unknown_6E6 == 0)
         {
-            sub_80ABC48(3);
+            ApplyWeatherColorMapIfIdle(3);
             gWeatherPtr->unknown_6EA = 1;
             if (--gWeatherPtr->unknown_6EC != 0)
             {
@@ -1128,7 +1109,7 @@ void Thunderstorm_Main(void)
         if (--gWeatherPtr->unknown_6E6 == 0)
         {
             SetThunderCounter(100);
-            sub_80ABC48(19);
+            ApplyWeatherColorMapIfIdle(19);
             gWeatherPtr->unknown_6E6 = (Random() & 0xF) + 30;
             gWeatherPtr->initStep++;
         }

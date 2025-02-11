@@ -51,6 +51,7 @@
 #include "overworld_notif.h"
 #include "constants/rgb.h"
 #include "theme_ui_manager.h"
+#include "ryu_challenge_modifiers.h"
 
 enum
 {
@@ -2217,7 +2218,10 @@ void ItemMenu_Register(u8 taskId)
 void ItemMenu_Give(u8 taskId)
 {
     BagMenu_RemoveSomeWindow();
-    if (!itemid_80BF6D8_mail_related(gSpecialVar_ItemId))
+    if (GetModFlag(GEN1_MOD) == TRUE){
+        BagMenu_PrintItemCantBeHeld(taskId);
+    }
+    else if (!itemid_80BF6D8_mail_related(gSpecialVar_ItemId))
     {
         DisplayItemMessage(taskId, 1, gText_CantWriteMail, sub_81AD350);
     }
@@ -2245,7 +2249,13 @@ void BagMenu_PrintThereIsNoPokemon(u8 taskId)
 static void BagMenu_PrintItemCantBeHeld(u8 taskId)
 {
     CopyItemName(gSpecialVar_ItemId, gStringVar1);
-    StringExpandPlaceholders(gStringVar4, gText_Var1CantBeHeld);
+    if (GetModFlag(GEN1_MOD) == TRUE)
+    {
+        StringExpandPlaceholders(gStringVar4, gText_Var1CantBeHeld2);
+    }
+    else{
+        StringExpandPlaceholders(gStringVar4, gText_Var1CantBeHeld);
+    }
     DisplayItemMessage(taskId, 1, gStringVar4, sub_81AD350);
 }
 
@@ -2295,6 +2305,11 @@ void Task_ItemContext_FieldGive(u8 taskId)
     if (!itemid_80BF6D8_mail_related(gSpecialVar_ItemId))
     {
         DisplayItemMessage(taskId, 1, gText_CantWriteMail, sub_81AD350);
+    }
+    else if (GetModFlag(GEN1_MOD) == TRUE){
+        CopyItemName(gSpecialVar_ItemId, gStringVar1);
+        StringExpandPlaceholders(gStringVar4, gText_Var1CantBeHeld2);
+        DisplayItemMessage(taskId, 1, gStringVar4, sub_81AD350);
     }
     else if (!sub_8122148(gSpecialVar_ItemId))
     {
@@ -2386,7 +2401,7 @@ static void DisplaySellItemPriceAndConfirm(u8 taskId)
 {
     s16* data = gTasks[taskId].data;
     u16 price = ItemId_GetPrice(gSpecialVar_ItemId);
-    if (FlagGet(FLAG_RYU_SELLING_TO_FENCE) == TRUE)
+    if ((FlagGet(FLAG_RYU_SELLING_TO_FENCE) == TRUE) && (price > 2))
         price /= 2;
     ConvertIntToDecimalStringN(gStringVar1, (price / 2) * tItemCount, STR_CONV_MODE_LEFT_ALIGN, 6);
     StringExpandPlaceholders(gStringVar4, gText_ICanPayVar1);

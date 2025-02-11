@@ -4,5 +4,6 @@
 void UpdateMirageRnd(u16);
 u8 IsMirageIslandPresent(void);
 void UpdateBirchState(u16);
+int RyuGetTimeOfDay(void);
 
 #endif // GUARD_TIME_EVENTS_H

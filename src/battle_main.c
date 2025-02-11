@@ -70,6 +70,7 @@
 #include "factions.h"
 #include "lifeskill.h"
 #include "overworld_notif.h"
+#include "ryu_challenge_modifiers.h"
 
 extern struct MusicPlayerInfo gMPlayInfo_SE1;
 extern struct MusicPlayerInfo gMPlayInfo_SE2;
@@ -3534,7 +3535,7 @@ static void DoBattleIntro(void)
         break;
     }
 }
-
+extern void UpdateNickInHealthbox();
 static void TryDoEventsBeforeFirstTurn(void)
 {
     s32 i, j;
@@ -3665,11 +3666,15 @@ static void HandleEndTurn_ContinueBattle(void)
             }
     }
 }
-
+extern void UpdateNickInHealthbox();
 void BattleTurnPassed(void)
 {
     s32 i;
-
+    if (gSaveBlock2Ptr->autobattle == TRUE && JOY_HELD(B_BUTTON)){
+        FlagClear(FLAG_RYU_TEMP_AB_LOCKOUT);
+        gSaveBlock2Ptr->autobattle = FALSE;
+        UpdateNickInHealthbox(0, &gPlayerParty[0]);
+    }
     TurnValuesCleanUp(TRUE);
     if (gBattleOutcome == 0)
     {
@@ -3769,7 +3774,7 @@ u8 IsRunningFromBattleImpossible(void)
         return 2;
     }
 
-    if (FlagGet(FLAG_RYU_ENABLE_FABA_MAGNETO_FIELD) == TRUE)
+    if ((FlagGet(FLAG_RYU_ENABLE_FABA_MAGNETO_FIELD) == TRUE) || (GetModFlag(MAGNETOSPHERE_MOD) == TRUE))
     {
         gBattleScripting.battler = i - 1;
         gLastUsedAbility = gBattleMons[i - 1].ability;
@@ -4507,6 +4512,16 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
     {
         strikesFirst = 0; // battler1's move has greater priority
     }
+
+    if (GetModFlag(LAZY_MOD) == TRUE){
+        if (GetBattlerSide(speedBattler1) == B_SIDE_OPPONENT && GetBattlerSide(speedBattler2) == B_SIDE_PLAYER){
+            strikesFirst = 0;
+        }
+        else {
+            strikesFirst = 1;
+        }
+    }
+
 
     return strikesFirst;
 }

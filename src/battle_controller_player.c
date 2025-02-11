@@ -236,15 +236,26 @@ static void CompleteOnBankSpritePosX_0(void)
     if (gSprites[gBattlerSpriteIds[gActiveBattler]].pos2.x == 0)
         PlayerBufferExecCompleted();
 }
-
+extern void UpdateNickInHealthbox();
 static void HandleInputChooseAction(void)
 {
+    bool8 lockout = FALSE;
     u16 itemId = gBattleResources->bufferA[gActiveBattler][2] | (gBattleResources->bufferA[gActiveBattler][3] << 8);
 
     DoBounceEffect(gActiveBattler, BOUNCE_HEALTHBOX, 7, 1);
     DoBounceEffect(gActiveBattler, BOUNCE_MON, 7, 1);
 
     gPlayerDpadHoldFrames = 0;
+    if (gSaveBlock2Ptr->autobattle == TRUE){
+        BtlController_EmitTwoReturnValues(1, B_ACTION_USE_MOVE, 0);
+        PlayerBufferExecCompleted();
+    }
+
+    if (JOY_HELD(R_BUTTON) && JOY_HELD(L_BUTTON) && FlagGet(FLAG_RYU_TEMP_AB_LOCKOUT) == FALSE){
+        gSaveBlock2Ptr->autobattle = !gSaveBlock2Ptr->autobattle;
+        UpdateNickInHealthbox(0, &gPlayerParty[0]);
+        FlagSet(FLAG_RYU_TEMP_AB_LOCKOUT);
+    }
 
     if (JOY_NEW(A_BUTTON))
     {
@@ -535,8 +546,37 @@ static void HandleInputChooseMove(void)
     u8 moveTarget;
     u32 canSelectTarget = 0;
     struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct*)(&gBattleResources->bufferA[gActiveBattler][4]);
+    if (gSaveBlock2Ptr->autobattle == TRUE && (gBattleTypeFlags & BATTLE_TYPE_TRAINER)){
+        gSaveBlock2Ptr->autobattle = FALSE;
+        FlagClear(FLAG_RYU_TEMP_AB_LOCKOUT);
+    }
 
     gPlayerDpadHoldFrames = 0;
+
+    if (gSaveBlock2Ptr->autobattle == TRUE){
+        int i;
+        u16 rand = (Random() % 4);
+        u8 attempts = 0;
+        u8 validMoves[4] = {FALSE, FALSE, FALSE, FALSE};
+        for (i = 0;i < 4;i++){
+            if (gBattleMoves[gBattleMons[0].moves[i]].power > 0){
+                validMoves[i] = TRUE;
+            }
+        }
+        do {
+            rand = (Random() % 4);
+            attempts++;
+        }
+        while(validMoves[rand] == FALSE && attempts < 5);
+        attempts = 0;
+
+        if (gBattleStruct->mega.playerSelect)
+            BtlController_EmitTwoReturnValues(1, 10, rand | RET_MEGA_EVOLUTION | (gMultiUsePlayerCursor << 8));
+        else
+            BtlController_EmitTwoReturnValues(1, 10, rand | (gMultiUsePlayerCursor << 8));
+        HideMegaTriggerSprite();
+        PlayerBufferExecCompleted();
+    }
 
     if (gMain.newKeys & A_BUTTON)
     {

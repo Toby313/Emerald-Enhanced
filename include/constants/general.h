@@ -42,7 +42,7 @@
 #define TOTAL_AP_COUNT 15
 
 //the total number of achievements that can be owned, this is what will be used for the ap percentage check.
-#define TOTAL_OBTAINABLE_ACHIEVEMENTS 67
+#define TOTAL_OBTAINABLE_ACHIEVEMENTS 85
 
 //Achievement related. Achievements are stored in Save Block 2, 256 total.
 #define ACH_FLAGS_START 0x0
@@ -115,23 +115,23 @@
 #define ACH_ULTIMATE_END  65 //Get the Advanced Harem end
 #define ACH_TRULY_BAD_ENDING  66 //Get the Antiharem end
 #define ACH_SERPENTINE  67
-#define ACH_UNUSED_69  68
-#define ACH_UNUSED_70  69
-#define ACH_UNUSED_71  70
-#define ACH_UNUSED_72  71
-#define ACH_UNUSED_73  72
-#define ACH_UNUSED_74  73
-#define ACH_UNUSED_75  74
-#define ACH_UNUSED_76  75
-#define ACH_UNUSED_77  76
-#define ACH_UNUSED_78  77
-#define ACH_UNUSED_79  78
-#define ACH_UNUSED_80  79
-#define ACH_UNUSED_81  80
-#define ACH_UNUSED_82  81
-#define ACH_UNUSED_83  82
-#define ACH_UNUSED_84  83
-#define ACH_UNUSED_85  84
+#define ACH_NUZLOCKE_MASTER 68
+#define ACH_MONOCHROME  69
+#define ACH_BRAND_LOYALTY  70
+#define ACH_PATIENT_ZERO  71
+#define ACH_DIETICIAN  72
+#define ACH_IMMORTAL  73
+#define ACH_WARLORD  74
+#define ACH_OMEN  75
+#define ACH_GENWUNNER  76
+#define ACH_PATIENT  77
+#define ACH_FERROMAGNETIC  78
+#define ACH_UNMOTIVATED  79
+#define ACH_NATURAL_SELECTION  80
+#define ACH_CREATIONIST  81
+#define ACH_ROUGH_AND_TOUGH  82
+#define ACH_TECHNICAL  83
+#define ACH_DYSTOPIA  84
 #define ACH_UNUSED_86  85
 #define ACH_UNUSED_87  86
 #define ACH_UNUSED_88  87
@@ -394,6 +394,7 @@
 #define SCENEBGOPENWORLDTUTORIAL1 32
 #define SCENEBGOPENWORLDTUTORIAL2 33
 #define SCENEBGOPENWORLDTUTORIAL3 34
+#define SCENEBGBLANK 35
 
 
 //seasons
@@ -469,6 +470,12 @@
 #define give 0
 #define take 1
 #define query 2
+
+//hack to make the modflag script command multi-use
+#define CLR 0
+#define SET 1
+#define GET 2
+#define TGL 3
 
 //factions related
 #define FACTION_NATURALISTS 0 //Trainers who like to be in nature, surrounded by nature, simple existence. Campers, picknickers, rangers.          Opposed: Richkids(x1) "Pokemon are fine as they are!"
@@ -566,13 +573,41 @@
 #define NAVCALL_AQUASTAGE80 10
 #define NAVCALL_AQUASTAGE91 11
 #define NAVCALL_AQUASTAGE123 12
+#define NAVCALL_NOMERCYOVER 13
+#define NAVCALL_NUZLOCKEOVER 14
+#define NAVCALL_AUTOSAVING 15
 
 //difficulty setting
 #define DIFF_EASY 0
 #define DIFF_NORMAL 1
 #define DIFF_HARD 2
 #define DIFF_HARDCORE 3
+#define DIFF_NOMERCY 5
 #define DIFF_FRONTIER 10
+
+//challenge modifiers
+#define NUZLOCKE_MOD 0
+#define MONOTYPE_MOD 1
+#define ADV_MONOTYPE_MOD 2
+#define PLAGUE_MOD 3
+#define FAMINE_MOD 4
+#define DEATH_MOD 5
+#define WAR_MOD 6
+#define REVELATION_MOD 7
+#define GEN1_MOD 8
+#define LATE_BLOOMER_MOD 9
+#define MAGNETOSPHERE_MOD 10
+#define LAZY_MOD 11
+#define SICKLY_MOD 12
+#define ANTI_DARWINISM_MOD 13
+#define GREEDY_TRAINERS_MOD 14
+#define TECHNICIAN_MOD 15
+#define ECONOMY_MODE 16
+#define TOTAL_MODS 15
+
+#define LC_TYPE_POKEMON 0
+#define LC_TYPE_ITEM 1
+#define LC_TYPE_NONE 2
 
 //Affection configuration
 #define AFFECTION_BASE_CHANCE RyuGetAffectionChance()
@@ -580,6 +615,9 @@
 //uncomment to punish save states. Otherwise detections are just logged.
 //#define RYU_PUNISH_SAVE_STATE 1
 
-#define EE_GAME_VERSION 10008
+#define EE_GAME_VERSION 10240
+
+//uncomment to allow dev switch to be accessed.//
+#define DEV_BUILD 69
 
 #endif 

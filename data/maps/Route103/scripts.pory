@@ -81,6 +81,7 @@ Route103_EventScript_AfterMayBattle:: @ 81EC4EE
 	goto Route103_EventScript_RivalExit
 	setflag FLAG_RYU_RIVAL_103_BATTLE
 	closemessage
+	release
 	end
 
 Route103_EventScript_RivalExit:: @ 81EC50A

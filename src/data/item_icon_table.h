@@ -279,6 +279,7 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_ARTEFACT_1] = {gItemIcon_Gem, gItemIconPalette_Sapphire},
     [ITEM_ARTEFACT_2] = {gItemIcon_LustrousOrb, gItemIconPalette_LustrousOrb},
     [ITEM_ARTEFACT_3] = {gItemIcon_AdamantOrb, gItemIconPalette_AdamantOrb},
+    [ITEM_LOOT_CAPSULE] = {gItemIcon_AbilityCapsule, gItemIconPalette_MegaBracelet},
     // TMs / HMs
     [ITEM_TM01] = {gItemIcon_TM, gItemIconPalette_FightingTMHM},
     [ITEM_TM02] = {gItemIcon_TM, gItemIconPalette_DragonTMHM},

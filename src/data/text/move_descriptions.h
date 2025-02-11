@@ -2836,6 +2836,10 @@ static const u8 sOVERLOADDescription[] = _(
     "Inflicts severe damage but\n"
     "makes the user faint.");
 
+static const u8 sJ4_EXPLOSIONDescription[] = _(
+    "Sets off a firework. Hits a\n"
+    "random target.");
+
 static const u8 sNotDoneYetDescription[] = _(
     "Not done yet.");
 
@@ -3530,6 +3534,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_VOID_BURST - 1] = sVOIDBURSTDescription,
     [MOVE_SHADOW_SLAM - 1] = sSHADOWSLAMDescription,
     [MOVE_OVERLOAD - 1] = sOVERLOADDescription,
+    [MOVE_J4_EXPLOSION - 1] = sJ4_EXPLOSIONDescription,
     //GEN 8
     [MOVE_DYNAMAX_CANNON - 1] = sDYNAMAX_CANNONDescription,
     [MOVE_SNIPE_SHOT - 1] = sSNIPE_SHOTDescription,

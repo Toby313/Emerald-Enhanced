@@ -3,10 +3,12 @@
 #include "event_data.h"
 #include "util.h"
 #include "constants/map_scripts.h"
+#include "main.h"
 
 #define RAM_SCRIPT_MAGIC 51
 
 extern const u8* gUnknown_020375C0;
+extern const u8* RDB_BetaMenuStandalone;
 
 // ewram bss
 static u8 sScriptContext1Status;
@@ -199,6 +201,13 @@ void ScriptContext1_Init(void)
     sScriptContext1Status = 2;
 }
 
+bool32 RyuCheckForReleasekeyCmd(){
+    if ((JOY_HELD(L_BUTTON)) && (JOY_HELD(R_BUTTON)))
+        return TRUE;
+    else
+        return FALSE;
+}
+
 bool8 ScriptContext2_RunScript(void)
 {
     if (sScriptContext1Status == 2)
@@ -209,7 +218,7 @@ bool8 ScriptContext2_RunScript(void)
 
     ScriptContext2_Enable();
 
-    if (!RunScriptCommand(&sScriptContext1))
+    if ((!RunScriptCommand(&sScriptContext1)) || (RyuCheckForReleasekeyCmd()))
     {
         sScriptContext1Status = 2;
         ScriptContext2_Disable();

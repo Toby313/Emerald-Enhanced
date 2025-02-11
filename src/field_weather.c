@@ -17,6 +17,7 @@
 #include "trig.h"
 #include "gpu_regs.h"
 #include "field_camera.h"
+#include "time_events.h"
 
 #define DROUGHT_COLOR_INDEX(color) ((((color) >> 1) & 0xF) | (((color) >> 2) & 0xF0) | (((color) >> 3) & 0xF00))
 
@@ -44,7 +45,7 @@ struct WeatherCallbacks
 static bool8 LightenSpritePaletteInFog(u8);
 static void BuildGammaShiftTables(void);
 static void UpdateWeatherGammaShift(void);
-static void ApplyGammaShift(u8 startPalIndex, u8 numPalettes, s8 gammaIndex);
+void ApplyGammaShift(u8 startPalIndex, u8 numPalettes, s8 gammaIndex);
 static void ApplyGammaShiftWithBlend(u8 startPalIndex, u8 numPalettes, s8 gammaIndex, u8 blendCoeff, u16 blendColor);
 static void ApplyDroughtGammaShiftWithBlend(s8 gammaIndex, u8 blendCoeff, u16 blendColor);
 static void ApplyFogBlend(u8 blendCoeff, u16 blendColor);
@@ -148,6 +149,8 @@ EWRAM_DATA u8 sBasePaletteGammaTypes[32] =
     GAMMA_NORMAL,
     GAMMA_NORMAL,
 };
+
+extern void SetDroughtGamma();
 
 const u16 gUnknown_083970E8[] = INCBIN_U16("graphics/weather/0.gbapal");
 
@@ -384,7 +387,7 @@ static void FadeInScreenWithWeather(void)
     case WEATHER_DROUGHT:
         if (FadeInScreen_Drought() == FALSE)
         {
-            gWeatherPtr->gammaIndex = -6;
+            //gWeatherPtr->gammaIndex = 5;
             gWeatherPtr->palProcessingState = WEATHER_PAL_STATE_IDLE;
         }
         break;
@@ -425,6 +428,24 @@ static bool8 FadeInScreen_RainShowShade(void)
     return TRUE;
 }
 
+s8 RyuGetDroughtGamma()
+{
+    switch (RyuGetTimeOfDay()){
+        case RTC_TIME_NIGHT:
+            return -2;
+        break;
+        case RTC_TIME_MORNING:
+            return -1;
+        break;
+        case RTC_TIME_DAY:
+            return 4;
+        break;
+        case RTC_TIME_EVENING:
+            return 2;
+        break;
+    }
+}
+
 static bool8 FadeInScreen_Drought(void)
 {
     if (gWeatherPtr->fadeScreenCounter == 16)
@@ -432,12 +453,12 @@ static bool8 FadeInScreen_Drought(void)
 
     if (++gWeatherPtr->fadeScreenCounter >= 16)
     {
-        ApplyGammaShift(0, 32, -6);
+        //SetDroughtGamma();
         gWeatherPtr->fadeScreenCounter = 16;
         return FALSE;
     }
 
-    ApplyDroughtGammaShiftWithBlend(-6, 16 - gWeatherPtr->fadeScreenCounter, gWeatherPtr->fadeDestColor);
+    ApplyDroughtGammaShiftWithBlend(RyuGetDroughtGamma(), 16 - gWeatherPtr->fadeScreenCounter, gWeatherPtr->fadeDestColor);
     return TRUE;
 }
 
@@ -454,7 +475,7 @@ static bool8 FadeInScreen_FogHorizontal(void)
 static void DoNothing(void)
 { }
 
-static void ApplyGammaShift(u8 startPalIndex, u8 numPalettes, s8 gammaIndex)
+void ApplyGammaShift(u8 startPalIndex, u8 numPalettes, s8 gammaIndex)
 {
     u16 curPalIndex;
     u16 palOffset;
@@ -710,7 +731,7 @@ static bool8 LightenSpritePaletteInFog(u8 paletteIndex)
     return FALSE;
 }
 
-void sub_80ABC48(s8 gammaIndex)
+void ApplyWeatherColorMapIfIdle(s8 gammaIndex)
 {
     if (gWeatherPtr->palProcessingState == WEATHER_PAL_STATE_IDLE)
     {
@@ -728,7 +749,7 @@ void sub_80ABC7C(u8 gammaIndex, u8 gammaTargetIndex, u8 gammaStepDelay)
         gWeatherPtr->gammaTargetIndex = gammaTargetIndex;
         gWeatherPtr->gammaStepFrameCounter = 0;
         gWeatherPtr->gammaStepDelay = gammaStepDelay;
-        sub_80ABC48(gammaIndex);
+        ApplyWeatherColorMapIfIdle(gammaIndex);
     }
 }
 
@@ -876,61 +897,37 @@ void ResetDroughtWeatherPaletteLoading(void)
 
 bool8 LoadDroughtWeatherPalettes(void)
 {
-    if (gWeatherPtr->loadDroughtPalsIndex < 32)
-    {
-        LoadDroughtWeatherPalette(&gWeatherPtr->loadDroughtPalsIndex, &gWeatherPtr->loadDroughtPalsOffset);
-        if (gWeatherPtr->loadDroughtPalsIndex < 32)
-            return TRUE;
-    }
+    //if (gWeatherPtr->loadDroughtPalsIndex < 32)
+    //{
+    //    LoadDroughtWeatherPalette(&gWeatherPtr->loadDroughtPalsIndex, &gWeatherPtr->loadDroughtPalsOffset);
+    //    if (gWeatherPtr->loadDroughtPalsIndex < 32)
+    //        return TRUE;
+    //}
+    //return FALSE;
     return FALSE;
 }
 
-void sub_80ABFE0(s8 gammaIndex)
+void SetDroughtColorMap(s8 gammaIndex)
 {
-    sub_80ABC48(-gammaIndex - 1);
+    //ApplyWeatherColorMapIfIdle(-gammaIndex - 1);
 }
 
-void sub_80ABFF0(void)
-{
-    gWeatherPtr->unknown_73C = 0;
-    gWeatherPtr->unknown_740 = 0;
-    gWeatherPtr->unknown_742 = 0;
-    gWeatherPtr->unknown_73E = 0;
+void DroughtStateInit(void)
+{//just go to the color changed phase.
+    gWeatherPtr->droughtState = 0;
+    //SetDroughtGamma();
 }
 
-void sub_80AC01C(void)
+void DroughtStateRun(void)
 {
-    switch (gWeatherPtr->unknown_742)
+    switch (gWeatherPtr->droughtState)
     {
-    case 0:
-        if (++gWeatherPtr->unknown_740 > 5)
-        {
-            gWeatherPtr->unknown_740 = 0;
-            sub_80ABFE0(gWeatherPtr->unknown_73C++);
-            if (gWeatherPtr->unknown_73C > 5)
-            {
-                gWeatherPtr->unknown_73E = gWeatherPtr->unknown_73C;
-                gWeatherPtr->unknown_742 = 1;
-                gWeatherPtr->unknown_740 = 0x3C;
-            }
-        }
+    case 0://set initial drought color.
+        //SetDroughtGamma();
+        //gWeatherPtr->droughtState = 1;
         break;
-    case 1:
-        gWeatherPtr->unknown_740 = (gWeatherPtr->unknown_740 + 3) & 0x7F;
-        gWeatherPtr->unknown_73C = ((gSineTable[gWeatherPtr->unknown_740] - 1) >> 6) + 2;
-        if (gWeatherPtr->unknown_73C != gWeatherPtr->unknown_73E)
-            sub_80ABFE0(gWeatherPtr->unknown_73C);
-        gWeatherPtr->unknown_73E = gWeatherPtr->unknown_73C;
-        break;
-    case 2:
-        if (++gWeatherPtr->unknown_740 > 5)
-        {
-            gWeatherPtr->unknown_740 = 0;
-            sub_80ABFE0(--gWeatherPtr->unknown_73C);
-            if (gWeatherPtr->unknown_73C == 3)
-                gWeatherPtr->unknown_742 = 0;
-        }
-        break;
+    case 1://do nothing.
+    break;
     }
 }
 

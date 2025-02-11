@@ -54,9 +54,11 @@
 #include "overworld_notif.h"
 #include "wild_encounter.h"
 #include "start_menu_helper.h"
+#include "time_events.h"
 
 extern u8 RDB_StartMenuBetaOptionBootstrap[];
 extern u8 RyuDebugMenuBootstrap[];
+extern u8 RyuBetaMenuBootstrap[];
 
 extern const u8 gText_RyuVersion[];
 
@@ -101,7 +103,7 @@ EWRAM_DATA static u8 sCurrentStartMenuActions[16] = {0};
 EWRAM_DATA static u8 sInitStartMenuData[2] = {0};
 EWRAM_DATA static u8 sStartMenuActionSpriteIds[16] = {0};
 
-EWRAM_DATA static u8 (*sSaveDialogCallback)(void) = NULL;
+EWRAM_DATA u8 (*sSaveDialogCallback)(void) = NULL;
 EWRAM_DATA static u8 sSaveDialogTimer = 0;
 EWRAM_DATA static bool8 sSavingComplete = FALSE;
 EWRAM_DATA static u8 sSaveInfoWindowId = 0;
@@ -271,8 +273,8 @@ static const struct StartMenuAction sStartMenuItems[] =
         {gStartMenuButtonImages_Journal, gText_MenuJournal, {.u8_void = StartMenuJournalCallback}},
         {gStartMenuButtonImages_Save, gText_MenuSave, {.u8_void = StartMenuSaveCallback}},
         {gStartMenuButtonImages_Options, gText_MenuOption, {.u8_void = StartMenuOptionCallback}},
-        {gStartMenuButtonImages_Beta, gText_BetaMenu, {.u8_void = StartMenuBetaMenuCallback}},
-        {gStartMenuButtonImages_Dev, gText_DevMenu, {.u8_void = StartMenuDevMenuCallback}},
+        {gStartMenuButtonImages_Beta, gText_BetaMenu, {.u8_void = StartMenuBetaMenuCallback}},//ignored
+        {gStartMenuButtonImages_Dev, gText_DevMenu, {.u8_void = StartMenuDevMenuCallback}},//ignored
         {gStartMenuButtonImages_Empty, gText_MenuExit, {.u8_void = StartMenuExitCallback}},
         {gStartMenuButtonImages_Empty, gText_MenuPlayer, {.u8_void = StartMenuLinkModePlayerNameCallback}},
         {gStartMenuButtonImages_Empty, gText_MenuRest, {.u8_void = StartMenuSaveCallback}},
@@ -404,12 +406,13 @@ static void BuildNormalStartMenu(void)
     }
 
     AddStartMenuAction(MENU_ACTION_PLAYER);
-    AddStartMenuAction(MENU_ACTION_SAVE);
     AddStartMenuAction(MENU_ACTION_OPTION);
     if (FlagGet(FLAG_RYU_DEV_MODE) == 1)
         AddStartMenuAction(MENU_ACTION_DEV_MENU);
     else
         AddStartMenuAction(MENU_ACTION_BETA_MENU);
+    if (VarGet(VAR_RYU_DIFFICULTY) != DIFF_NOMERCY)
+        AddStartMenuAction(MENU_ACTION_SAVE);
 }
 
 static void BuildDexnavStartMenu(void)
@@ -436,7 +439,6 @@ static void BuildDexnavStartMenu(void)
     }
 
     AddStartMenuAction(MENU_ACTION_PLAYER);
-    AddStartMenuAction(MENU_ACTION_SAVE);
     AddStartMenuAction(MENU_ACTION_OPTION);
     if (FlagGet(FLAG_RYU_DEV_MODE) == 1)
         {
@@ -446,6 +448,8 @@ static void BuildDexnavStartMenu(void)
     {
         AddStartMenuAction(MENU_ACTION_BETA_MENU);
     }
+    if (VarGet(VAR_RYU_DIFFICULTY) != DIFF_NOMERCY)
+        AddStartMenuAction(MENU_ACTION_SAVE);
 }
 
 static void BuildLinkModeStartMenu(void)
@@ -614,6 +618,9 @@ void PrintStartMenuInfoData(void)
         case DIFF_HARDCORE:
             StringCopy(gRyuStringVar1, (const u8[])_(" / {COLOR LIGHT_RED}{SHADOW LIGHT_GREY}HARDCORE"));
             break;
+        case DIFF_NOMERCY:
+            StringCopy(gRyuStringVar1, (const u8[])_(" / {COLOR RED}{SHADOW LIGHT_GREY}NO MERCY"));
+            break;
         case DIFF_FRONTIER:
             StringCopy(gRyuStringVar1, (const u8[])_(" / {COLOR LIGHT_GREEN}{SHADOW GREEN}Frontier"));
             break;
@@ -625,6 +632,9 @@ void PrintStartMenuInfoData(void)
     StringAppend(gRyuStringVar1, gText_RyuVersion);
     ConvertIntToDecimalStringN(gStringVar4, VarGet(VAR_LAST_KNOWN_GAME_VERSION), STR_CONV_MODE_LEFT_ALIGN, 5);
     StringAppend(gRyuStringVar1, gStringVar4);
+    #ifdef DEV_BUILD
+    StringAppend(gRyuStringVar1, ((const u8[])_("-dev")));
+    #endif
     StringAppend(gStringVar1, gRyuStringVar1);
     //print local time
     RtcCalcLocalTime();
@@ -1406,6 +1416,16 @@ static bool8 HandleStartMenuInput(void)
             ScriptContext1_SetupScript(RyuDebugMenuBootstrap);
             return TRUE;
         }
+        else
+        {
+            RemoveExtraStartMenuWindows();
+
+            HideStartMenu();
+            HideFieldMessageBox();
+            ScriptContext2_Enable();
+            ScriptContext1_SetupScript(RyuBetaMenuBootstrap);
+            return TRUE;
+        }
     }
 
     if (JOY_NEW(DPAD_LEFT))
@@ -1436,6 +1456,31 @@ static bool8 HandleStartMenuInput(void)
             if (GetNationalPokedexCount(FLAG_GET_SEEN) == 0)
                 return FALSE;
         }
+
+        //if selecting beta or dev menu, bypass callback to prevent softlocks.
+        if ((sStartMenuItems[sCurrentStartMenuActions[sStartMenuCursorPos]].func.u8_void == StartMenuDevMenuCallback) ||
+        (sStartMenuItems[sCurrentStartMenuActions[sStartMenuCursorPos]].func.u8_void == StartMenuBetaMenuCallback))
+        {
+            if (FlagGet(FLAG_RYU_DEV_MODE) == 1)
+            {
+                RemoveExtraStartMenuWindows();
+                HideStartMenu();
+                HideFieldMessageBox();
+                ScriptContext2_Enable();
+                ScriptContext1_SetupScript(RyuDebugMenuBootstrap);
+                return TRUE;
+            }
+            else
+            {
+                RemoveExtraStartMenuWindows();
+                HideStartMenu();
+                HideFieldMessageBox();
+                ScriptContext2_Enable();
+                ScriptContext1_SetupScript(RyuBetaMenuBootstrap);
+                return TRUE;
+            }
+        }
+
 
         gMenuCallback = sStartMenuItems[sCurrentStartMenuActions[sStartMenuCursorPos]].func.u8_void;
 
@@ -1600,27 +1645,9 @@ static bool8 StartMenuOptionCallback(void)
     return FALSE;
 }
 
-static bool8 StartMenuBetaMenuCallback(void)
-{
-    RemoveExtraStartMenuWindows();
-    HideStartMenu();
-    if (!gPaletteFade.active)
-    {
-        ScriptContext1_SetupScript(RDB_StartMenuBetaOptionBootstrap);
-        return TRUE;
-    }
-}
+static bool8 StartMenuBetaMenuCallback(void){}
 
-static bool8 StartMenuDevMenuCallback(void)
-{
-    RemoveExtraStartMenuWindows();
-    HideStartMenu();
-    if (!gPaletteFade.active)
-    {
-        ScriptContext1_SetupScript(RyuDebugMenuBootstrap);
-        return TRUE;
-    }
-}
+static bool8 StartMenuDevMenuCallback(void){}
 
 static bool8 StartMenuExitCallback(void)
 {
@@ -1952,6 +1979,12 @@ static u8 SaveOverwriteInputCallback(void)
 static u8 SaveSavingMessageCallback(void)
 {
     ShowSaveMessage(gText_SavingDontTurnOff, SaveDoSaveCallback);
+    return SAVE_IN_PROGRESS;
+}
+
+u8 autosaveWithMessage(void)
+{
+    ShowSaveMessage(gText_AutoSaving, SaveDoSaveCallback);
     return SAVE_IN_PROGRESS;
 }
 

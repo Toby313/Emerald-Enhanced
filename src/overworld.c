@@ -77,6 +77,7 @@
 #include "ach_atlas.h"
 #include "RyuRealEstate.h"
 #include "overworld_notif.h"
+#include "ryu_challenge_modifiers.h"
 
 #define PLAYER_TRADING_STATE_IDLE 0x80
 #define PLAYER_TRADING_STATE_BUSY 0x81
@@ -410,6 +411,13 @@ void SetWarpDestinationToUnderworld(void) //face death
         SetWarpDestination(33, 4, 255, 5, 10);
 }
 
+void getMuggedEffect (void){
+    ClearItemSlots(gBagPockets[ITEMS_POCKET].itemSlots, gBagPockets[ITEMS_POCKET].capacity);
+    ClearItemSlots(gBagPockets[BALLS_POCKET].itemSlots, gBagPockets[BALLS_POCKET].capacity);
+    ClearItemSlots(gBagPockets[BERRIES_POCKET].itemSlots, gBagPockets[BERRIES_POCKET].capacity);
+    ClearItemSlots(gBagPockets[MEDICINE_POCKET].itemSlots, gBagPockets[MEDICINE_POCKET].capacity);
+    ClearItemSlots(gBagPockets[COLLECTIBLES_POCKET].itemSlots, gBagPockets[COLLECTIBLES_POCKET].capacity);
+}
 
 // code
 void DoWhiteOut(void)
@@ -429,6 +437,10 @@ void DoWhiteOut(void)
 
     if (FlagGet(FLAG_RYU_HARDCORE_MODE) == 1)
         RyuWipeParty();
+    if (FlagGet(FLAG_RYU_NO_MERCY_MODE) == 1)
+        RyuWipeParty();
+    if (GetModFlag(NUZLOCKE_MOD) == TRUE)
+        RyuWipeParty();
 
     if (FlagGet(FLAG_RYU_UNDERWORLD) == FALSE)
         FlagSet(FLAG_RYU_PREMATURE_DEATH);
@@ -436,7 +448,7 @@ void DoWhiteOut(void)
     FlagClear(FLAG_RYU_PERSISTENT_WEATHER);
     FlagClear(FLAG_RYU_FACING_GENESECT);
 
-    if ((CalculatePlayerPartyCount() == 0) && (FlagGet(FLAG_RYU_CHALLENGEFAILED) == 1))
+    if ((CalculatePlayerPartyCount() == 0) && (((FlagGet(FLAG_RYU_CHALLENGEFAILED) == 1)) || (GetModFlag(NUZLOCKE_MOD) == TRUE)))
     {
         if (VarGet(VAR_RYU_NGPLUS_COUNT) > 1)
         {
@@ -452,8 +464,16 @@ void DoWhiteOut(void)
         GiveAchievement(ACH_YOU_DIED);
 
     FlagClear(FLAG_RYU_WAYSTONE_DISABLED);
-    SetMoney(&gSaveBlock1Ptr->money, ((GetMoney(&gSaveBlock1Ptr->money) / 5) * 4));
-    HealPlayerParty();
+    if (GetModFlag(GREEDY_TRAINERS_MOD) == TRUE){
+        SetMoney(&gSaveBlock1Ptr->money, ((GetMoney(&gSaveBlock1Ptr->money) / 10) * 1));
+        getMuggedEffect();
+        QueueNotification(((const u8[])_("Your bag and wallet feel lighter...")), NOTIFY_GENERAL, 90);
+        HealPlayerPartyEconomy();
+    }
+    else{
+        SetMoney(&gSaveBlock1Ptr->money, ((GetMoney(&gSaveBlock1Ptr->money) / 10) * 7));
+        HealPlayerParty();
+    }
     IncrementGameStat(GAME_STAT_BATTLES_LOST);
     Overworld_ResetStateAfterWhiteOut();
 	FlagClear(FLAG_RYU_TC_ENTERED);
@@ -476,6 +496,9 @@ void DoPartnerWhiteOut(void)
     }
 
     if (FlagGet(FLAG_RYU_HARDCORE_MODE) == 1)
+        RyuWipeParty();
+
+    if (FlagGet(FLAG_RYU_NO_MERCY_MODE) == 1)
         RyuWipeParty();
 
     if (CheckAchievement(ACH_YOU_DIED) == FALSE)
@@ -1806,6 +1829,10 @@ void CB2_ReturnToFieldLocal(void)
 
     if (FlagGet(FLAG_RYU_HARDCORE_MODE) == 1)
         RyuKillMon();
+    if (FlagGet(FLAG_RYU_NO_MERCY_MODE) == 1)
+        RyuKillMon();
+    if (GetModFlag(NUZLOCKE_MOD) == TRUE)
+        RyuKillMon();
 } 
 
 void CB2_ReturnToField(void)
@@ -2143,6 +2170,10 @@ static bool32 LoadMapInStepsLocal(u8 *state, bool32 a2)
 static bool32 ReturnToFieldLocal(u8 *state)
 {
     if (FlagGet(FLAG_RYU_HARDCORE_MODE) == 1)
+        RyuKillMon();
+    if (FlagGet(FLAG_RYU_NO_MERCY_MODE) == 1)
+        RyuKillMon();
+    if (GetModFlag(NUZLOCKE_MOD) == 1)
         RyuKillMon();
 
     switch (*state)

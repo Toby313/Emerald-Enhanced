@@ -711,8 +711,9 @@
 #define MOVE_VOID_BURST 686
 #define MOVE_SHADOW_SLAM 687
 #define MOVE_OVERLOAD 688
+#define MOVE_J4_EXPLOSION 689
 
-#define MOVES_COUNT_GEN7 689
+#define MOVES_COUNT_GEN7 690
 
 
 // Gen 8 moves.

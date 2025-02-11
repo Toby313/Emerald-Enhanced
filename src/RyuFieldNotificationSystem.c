@@ -21,6 +21,7 @@
 #include "cutscene.h"
 #include "DynamicObjects.h"
 #include "RyuPokenavScheduler.h"
+#include "ryu_challenge_modifiers.h"
 
 extern const u8 RyuGlobal_CancelDailyQuest[];
 extern void GetPlayerPosition(struct MapPosition *);
@@ -311,7 +312,6 @@ extern bool32 checkEscortMission(void);
 
 void RyuDoNotifyTasks(void)
 {
-
     if (FlagGet(FLAG_RYU_ENTERING_OWNED_HOME) == FALSE)
         FlagSet(FLAG_RYU_HIDE_HOME_ATTENDANT);
 
@@ -319,12 +319,29 @@ void RyuDoNotifyTasks(void)
     {
         if (FlagGet(FLAG_RYU_LIMBO) == FALSE)
         {
-            if (FlagGet(FLAG_RYU_HARDCORE_MODE) == TRUE)
-                {
-                    SchedulePokenavCallInternal(NAVCALL_DUSKULLAFTERLIFE, 0);
-                    SetWarpDestination(MAP_GROUP(LIMBO), MAP_NUM(LIMBO), 255, 3, 3);
-                    CreateTask(RyuDelayTimerTask, 255);
-                }
+            if ((FlagGet(FLAG_RYU_HARDCORE_MODE) == TRUE) && (FlagGet(FLAG_RYU_NOTIFY_HARDCORE_FAIL) == FALSE))
+            {
+                SchedulePokenavCallInternal(NAVCALL_DUSKULLAFTERLIFE, 0);
+                SetWarpDestination(MAP_GROUP(LIMBO), MAP_NUM(LIMBO), 255, 3, 3);
+                CreateTask(RyuDelayTimerTask, 255);
+                FlagSet(FLAG_RYU_NOTIFY_HARDCORE_FAIL);
+            }
+
+            if ((FlagGet(FLAG_RYU_NO_MERCY_MODE) == TRUE) && (FlagGet(FLAG_RYU_NOTIFY_NO_MERCY_FAIL) == FALSE))
+            {
+                SchedulePokenavCallInternal(NAVCALL_NOMERCYOVER, 0);
+                SetWarpDestination(MAP_GROUP(LIMBO), MAP_NUM(LIMBO), 255, 3, 3);
+                CreateTask(RyuDelayTimerTask, 255);
+                FlagSet(FLAG_RYU_NOTIFY_NO_MERCY_FAIL);
+            }
+
+            if ((GetModFlag(NUZLOCKE_MOD) == TRUE) && (FlagGet(FLAG_RYU_NOTIFY_NUZLOCKE_FAIL) == FALSE))
+            {
+                SchedulePokenavCallInternal(NAVCALL_NUZLOCKEOVER, 0);
+                SetWarpDestination(MAP_GROUP(LIMBO), MAP_NUM(LIMBO), 255, 3, 3);
+                FlagSet(FLAG_RYU_NOTIFY_NUZLOCKE_FAIL);
+                CreateTask(RyuDelayTimerTask, 255);
+            }
         }
     }
 

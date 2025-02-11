@@ -46,6 +46,7 @@
 #include "constants/trainers.h"
 #include "constants/weather.h"
 #include "constants/event_objects.h"
+#include "ryu_challenge_modifiers.h"
 
 /*
 NOTE: The data and functions in this file up until (but not including) sSoundMovesTable
@@ -1354,13 +1355,22 @@ u8 TrySetCantSelectMoveBattleScript(void)
     u32 move = gBattleMons[gActiveBattler].moves[moveId];
     u32 holdEffect = GetBattlerHoldEffect(gActiveBattler, TRUE);
     u16 *choicedMove = &gBattleStruct->choicedMove[gActiveBattler];
- 
-    if ((gBattleWeather == WEATHER_ECLIPSE_ANY) &&
-        (GetBattlerAbility(gActiveBattler) == ABILITY_LUNATIC) &&
-        (gBattleMoves[move].split == SPLIT_STATUS))
-    {
-        gSelectionBattleScripts[gActiveBattler] = BattleScript_RyuLunaticDisableStatusMessage;
-        limitations++;
+    u16 weather = gBattleWeather;
+    u16 ability = GetBattlerAbility(gActiveBattler);
+    u8 split = gBattleMoves[move].split;
+
+
+    if ((ability == ABILITY_LUNATIC) && (weather == WEATHER_ECLIPSE_ANY) && (split == SPLIT_STATUS)){
+        gCurrentMove = move;
+        if (gBattleTypeFlags & BATTLE_TYPE_PALACE)
+        {
+            gProtectStructs[gActiveBattler].palaceUnableToUseMove = 1;
+        }
+        else
+        {
+            gSelectionBattleScripts[gActiveBattler] = BattleScript_RyuLunaticDisableStatusMessage;
+            limitations++;
+        }
     }
 
     if (gDisableStructs[gActiveBattler].disabledMove == move && move != MOVE_NONE)
@@ -1561,7 +1571,7 @@ u8 CheckMoveLimitations(u8 battlerId, u8 unusableMoves, u8 check)
             unusableMoves |= gBitTable[i];
         else if (holdEffect == HOLD_EFFECT_ASSAULT_VEST && gBattleMoves[gBattleMons[battlerId].moves[i]].power == 0)
             unusableMoves |= gBitTable[i];
-        else if ((gBattleMoves[gBattleMons[battlerId].moves[i]].power == 0) && (gBattleMons[battlerId].ability == ABILITY_LUNATIC) && (gBattleWeather == WEATHER_ECLIPSE_ANY))
+        else if (gBattleMoves[gBattleMons[battlerId].moves[i]].split == SPLIT_SPECIAL && gBattleMons[battlerId].ability == ABILITY_LUNATIC && gBattleWeather == WEATHER_ECLIPSE_ANY)
             unusableMoves |= gBitTable[i];
         else if (IsGravityPreventingMove(gBattleMons[battlerId].moves[i]))
             unusableMoves |= gBitTable[i];
@@ -2751,9 +2761,10 @@ u8 DoBattlerEndTurnEffects(void)
         }
         case ENDTURN_MAGNETOSPHERE:
         {
-            if (FlagGet(FLAG_RYU_ENABLE_FABA_MAGNETO_FIELD) == TRUE
+            if (((FlagGet(FLAG_RYU_ENABLE_FABA_MAGNETO_FIELD) == TRUE 
+                || (GetModFlag(MAGNETOSPHERE_MOD) == TRUE))
                 && gBattleMons[gActiveBattler].hp != 0
-                && GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
+                && GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER))
             {
                 gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 3;
                 if (gBattleMoveDamage == 0)
@@ -5343,7 +5354,7 @@ u32 IsAbilityPreventingEscape(u32 battlerId)
 
 bool32 CanBattlerEscape(u32 battlerId) // no ability check
 {
-    if (FlagGet(FLAG_RYU_ENABLE_FABA_MAGNETO_FIELD) == TRUE)
+    if ((FlagGet(FLAG_RYU_ENABLE_FABA_MAGNETO_FIELD) == TRUE) || (GetModFlag(MAGNETOSPHERE_MOD) == TRUE))
         return FALSE;
     return (GetBattlerHoldEffect(battlerId, TRUE) == HOLD_EFFECT_SHED_SHELL
             || !((gBattleMons[battlerId].status2 & (STATUS2_ESCAPE_PREVENTION | STATUS2_WRAPPED))
@@ -6433,6 +6444,40 @@ static bool32 HasObedientBitSet(u8 battlerId)
 
 u8 IsMonDisobedient(void)
 {
+    //Mon will fail to attack if it is not the monotype, or advanced monotype is active and the mon's move is not the monotype or normal type.
+    if (GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT)
+    {
+        return 0;
+    }
+    if (GetModFlag(TECHNICIAN_MOD) == TRUE){
+        if (gBattleMoves[gCurrentMove].power > 60){
+            gBattlescriptCurrInstr = BattleScript_TechnicianModPrevented;
+                return 1;
+        }
+    }
+    if (GetModFlag(MONOTYPE_MOD) == TRUE)
+    {
+        StringCopy(gStringVar3, gTypeNames[gSaveBlock1Ptr->monotypeChallengeChoice]);
+        if (gBattleMons[gBattlerAttacker].type1 != gSaveBlock1Ptr->monotypeChallengeChoice)
+        {
+            if (gBattleMons[gBattlerAttacker].type2 != gSaveBlock1Ptr->monotypeChallengeChoice)
+            {
+                gBattlescriptCurrInstr = BattleScript_MonIsntMonotype;
+                return 1;
+            }
+        }
+        if (GetModFlag(ADV_MONOTYPE_MOD) == TRUE)
+        {
+            if (gBattleMoves[gCurrentMove].type != gSaveBlock1Ptr->monotypeChallengeChoice)
+            {
+                if (gBattleMoves[gCurrentMove].type != TYPE_NORMAL)
+                {
+                    gBattlescriptCurrInstr = BattleScript_CantUseNonMonotypeMove;
+                    return 1;
+                }
+            }
+        }
+    }
     return 0;
 }
 
@@ -6968,8 +7013,16 @@ static u32 CalcMoveBasePowerAfterModifiers(u16 move, u8 battlerAtk, u8 battlerDe
     switch (GetBattlerAbility(battlerAtk))
     {
     case ABILITY_TECHNICIAN:
-        if (basePower <= 65)
-           MulModifier(&modifier, UQ_4_12(1.5));
+        if (basePower <= 65){
+            if (GetModFlag(TECHNICIAN_MOD) == TRUE){
+                if (basePower <= 30){
+                    MulModifier(&modifier, UQ_4_12(2.0));
+                }
+            }
+            else{
+                MulModifier(&modifier, UQ_4_12(1.5));
+            }
+        }
         break;
     case ABILITY_FLARE_BOOST:
         if (gBattleMons[battlerAtk].status1 & STATUS1_BURN && IS_MOVE_SPECIAL(move))
@@ -7435,7 +7488,9 @@ static u32 CalcAttackStat(u16 move, u8 battlerAtk, u8 battlerDef, u8 moveType, b
 static bool32 CanEvolve(u32 species)
 {
     u32 i;
-
+    if (GetModFlag(ANTI_DARWINISM_MOD) == TRUE){
+        return FALSE;
+    }
     for (i = 0; i < EVOS_PER_MON; i++)
     {
         if (gEvolutionTable[species][i].method && gEvolutionTable[species][i].method != EVO_MEGA_EVOLUTION)
@@ -8218,7 +8273,9 @@ static bool32 IsPartnerMonFromSameTrainer(u8 battlerId)
 u16 GetMegaEvolutionSpecies(u16 preEvoSpecies, u16 heldItemId)
 {
     u32 i;
-
+    if (GetModFlag(ANTI_DARWINISM_MOD) == TRUE){
+        return SPECIES_NONE;
+    }
     for (i = 0; i < EVOS_PER_MON; i++)
     {
         if (gEvolutionTable[preEvoSpecies][i].method == EVO_MEGA_EVOLUTION
@@ -8231,7 +8288,9 @@ u16 GetMegaEvolutionSpecies(u16 preEvoSpecies, u16 heldItemId)
 u16 GetWishMegaEvolutionSpecies(u16 preEvoSpecies, u16 moveId1, u16 moveId2, u16 moveId3, u16 moveId4)
 {
     u32 i, par;
-
+    if (GetModFlag(ANTI_DARWINISM_MOD) == TRUE){
+        return SPECIES_NONE;
+    }
     for (i = 0; i < EVOS_PER_MON; i++)
     {
         if (gEvolutionTable[preEvoSpecies][i].method == EVO_MOVE_MEGA_EVOLUTION)

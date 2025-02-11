@@ -50,6 +50,8 @@
 #include "constants/weather.h"
 #include "constants/item_config.h"
 #include "ach_atlas.h"
+#include "ryu_challenge_modifiers.h"
+#include "time_events.h"
 
 struct SpeciesItem
 {
@@ -3081,7 +3083,7 @@ inline u8 GetCurrentMaxLevel()
 
 inline u8 RyuGetAffectionChance()
 {
-    if ((FlagGet(FLAG_RYU_DOING_RYU_CHALLENGE) == TRUE) || FlagGet(FLAG_RYU_HARDCORE_MODE))
+    if ((FlagGet(FLAG_RYU_DOING_RYU_CHALLENGE) == TRUE) || FlagGet(FLAG_RYU_HARDCORE_MODE) || FlagGet(FLAG_RYU_NO_MERCY_MODE))
         return 7;
     else
         return 10;
@@ -5375,6 +5377,9 @@ u8 *UseStatIncreaseItem(u16 itemId)
 
 u8 GetNature(struct Pokemon *mon)
 {
+    if (GetModFlag(GEN1_MOD) == TRUE){
+        return NATURE_SERIOUS;
+    }
     if (GetMonData(mon, MON_DATA_HAS_CUSTOM_NATURE, NULL) == FALSE)
     {
         return GetMonData(mon, MON_DATA_PERSONALITY, 0) % NUM_NATURES;
@@ -5463,43 +5468,110 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem, u
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_LEVEL:
-                if (gEvolutionTable[species][i].param <= level)
-                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                if (GetModFlag(LATE_BLOOMER_MOD) == TRUE)
+                {
+                    if (gEvolutionTable[species][i].param + 10 <= level)
+                        targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                }
+                else
+                {
+                    if (gEvolutionTable[species][i].param <= level)
+                        targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                }
                 break;
             case EVO_LEVEL_FEMALE:
-                if (gEvolutionTable[species][i].param <= level && GetMonGender(mon) == MON_FEMALE)
-                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                if (GetModFlag(LATE_BLOOMER_MOD) == TRUE)
+                {
+                    if (gEvolutionTable[species][i].param + 10 <= level && GetMonGender(mon) == MON_FEMALE)
+                        targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                }
+                else {
+                    if (gEvolutionTable[species][i].param <= level && GetMonGender(mon) == MON_FEMALE)
+                        targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                }
                 break;
             case EVO_LEVEL_MALE:
-                if (gEvolutionTable[species][i].param <= level && GetMonGender(mon) == MON_MALE)
-                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                if (GetModFlag(LATE_BLOOMER_MOD) == TRUE)
+                {
+                    if (gEvolutionTable[species][i].param + 10 <= level && GetMonGender(mon) == MON_MALE)
+                        targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                }
+                else {
+                    if (gEvolutionTable[species][i].param <= level && GetMonGender(mon) == MON_MALE)
+                        targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                }
                 break;
             case EVO_LEVEL_ATK_GT_DEF:
-                if (gEvolutionTable[species][i].param <= level)
-                    if (GetMonData(mon, MON_DATA_ATK, 0) > GetMonData(mon, MON_DATA_DEF, 0))
-                        targetSpecies = gEvolutionTable[species][i].targetSpecies;
+              if (GetModFlag(LATE_BLOOMER_MOD) == TRUE)
+                {
+                    if (gEvolutionTable[species][i].param + 10 <= level)
+                        if (GetMonData(mon, MON_DATA_ATK, 0) > GetMonData(mon, MON_DATA_DEF, 0))
+                            targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                }
+                else {
+                    if (gEvolutionTable[species][i].param <= level)
+                        if (GetMonData(mon, MON_DATA_ATK, 0) > GetMonData(mon, MON_DATA_DEF, 0))
+                            targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                }
                 break;
             case EVO_LEVEL_ATK_EQ_DEF:
-                if (gEvolutionTable[species][i].param <= level)
-                    if (GetMonData(mon, MON_DATA_ATK, 0) == GetMonData(mon, MON_DATA_DEF, 0))
-                        targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                if (GetModFlag(LATE_BLOOMER_MOD) == TRUE)
+                {
+                    if (gEvolutionTable[species][i].param + 10 <= level)
+                        if (GetMonData(mon, MON_DATA_ATK, 0) == GetMonData(mon, MON_DATA_DEF, 0))
+                            targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                }
+                else {
+                    if (gEvolutionTable[species][i].param <= level)
+                        if (GetMonData(mon, MON_DATA_ATK, 0) == GetMonData(mon, MON_DATA_DEF, 0))
+                            targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                }
                 break;
             case EVO_LEVEL_ATK_LT_DEF:
-                if (gEvolutionTable[species][i].param <= level)
-                    if (GetMonData(mon, MON_DATA_ATK, 0) < GetMonData(mon, MON_DATA_DEF, 0))
-                        targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                if (GetModFlag(LATE_BLOOMER_MOD) == TRUE)
+                {
+                    if (gEvolutionTable[species][i].param + 10 <= level)
+                        if (GetMonData(mon, MON_DATA_ATK, 0) < GetMonData(mon, MON_DATA_DEF, 0))
+                            targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                }
+                else {
+                    if (gEvolutionTable[species][i].param <= level)
+                        if (GetMonData(mon, MON_DATA_ATK, 0) < GetMonData(mon, MON_DATA_DEF, 0))
+                            targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                }
                 break;
             case EVO_LEVEL_SILCOON:
-                if (gEvolutionTable[species][i].param <= level && (upperPersonality % 10) <= 4)
-                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                if (GetModFlag(LATE_BLOOMER_MOD) == TRUE)
+                {
+                    if (gEvolutionTable[species][i].param + 10 <= level && (upperPersonality % 10) <= 4)
+                        targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                }
+                else {
+                    if (gEvolutionTable[species][i].param <= level && (upperPersonality % 10) <= 4)
+                        targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                }
                 break;
             case EVO_LEVEL_CASCOON:
-                if (gEvolutionTable[species][i].param <= level && (upperPersonality % 10) > 4)
-                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                if (GetModFlag(LATE_BLOOMER_MOD) == TRUE)
+                {
+                    if (gEvolutionTable[species][i].param + 10 <= level && (upperPersonality % 10) > 4)
+                        targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                }
+                else {
+                    if (gEvolutionTable[species][i].param <= level && (upperPersonality % 10) > 4)
+                        targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                }
                 break;
             case EVO_LEVEL_NINJASK:
-                if (gEvolutionTable[species][i].param <= level)
-                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                if (GetModFlag(LATE_BLOOMER_MOD) == TRUE)
+                {
+                    if (gEvolutionTable[species][i].param + 10 <= level)
+                        targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                }
+                else{ 
+                    if (gEvolutionTable[species][i].param <= level)
+                        targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                }
                 break;
             case EVO_BEAUTY:
                 if (gEvolutionTable[species][i].param <= beauty)

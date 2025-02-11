@@ -41,6 +41,8 @@ script RDB_BetaMenuStandalone{
         case 10:
             goto(RDBM_ViewTutorials)
         case 11:
+            goto(RDBM_DisplayModsEnabled)
+        case 12:
             goto(RDBM_ExitResetMenu)
     }
     goto(RDBM_ExitResetMenu)
@@ -124,6 +126,22 @@ text RDBM_Tut5Lbl {
 
 text RDBM_Tut6Lbl {
     "Exit"
+}
+
+script RDBM_DisplayModsEnabled{
+    drawfullscreenimage(SCENEBGBLANK)
+    callnative(RyuDrawActiveEffectsUiBox)
+    waitbuttonpress
+    callnative(RyuDestroyUIBox)
+    clearfullscreenimage
+    delay(10)
+    drawfullscreenimage(SCENEBGBLANK)
+    callnative(RyuDrawAutoscaleInfoUiBox)
+    waitbuttonpress
+    callnative(RyuDestroyUIBox)
+    clearfullscreenimage
+    release
+    end
 }
 
 script RDBM_ViewSaveVersion{
@@ -217,6 +235,8 @@ script RDBM_ResetTemporaryBattleFlags{
 	clearflag(FLAG_RYU_BOSS_WILD)
 	clearflag(FLAG_RYU_RANDOMBATTLE)
     clearflag(FLAG_RYU_ENABLE_FABA_MAGNETO_FIELD)
+    clearflag(FLAG_RYU_TEMP_AB_LOCKOUT)
+    callnative(RyuDisableAutobattle)
 	msgbox(RDBM_ResetTempFlagsMsg)
 	release
 	end

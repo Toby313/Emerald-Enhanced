@@ -57,6 +57,8 @@
 #include "constants/event_objects.h"
 #include "ach_atlas.h"
 #include "overworld_notif.h"
+#include "ryu_challenge_modifiers.h"
+#include "time_events.h"
 
 extern struct MusicPlayerInfo gMPlayInfo_BGM;
 extern bool8 gHasAmuletEffectActive;
@@ -2661,6 +2663,12 @@ static void Cmd_waitmessage(void)
         }
         else
         {
+            if (gSaveBlock2Ptr->autobattle == TRUE)
+            {
+                gPauseCounterBattle = 0;
+                gBattlescriptCurrInstr += 3;
+                gBattleCommunication[MSG_DISPLAY] = 0;
+            }
             if ((gMain.newKeys & (A_BUTTON | B_BUTTON)) || ++gPauseCounterBattle >= T2_READ_16(gBattlescriptCurrInstr + 1))
             {
                 gPauseCounterBattle = 0;
@@ -3670,6 +3678,9 @@ static void Cmd_seteffectwithchance(void)
 
     if (GetBattlerAbility(gBattlerAttacker) == ABILITY_SERENE_GRACE)
         percentChance = gBattleMoves[gCurrentMove].secondaryEffectChance * 2;
+    else if (GetModFlag(SICKLY_MOD) == TRUE){
+        percentChance = 100;
+    }
     else
         percentChance = gBattleMoves[gCurrentMove].secondaryEffectChance;
 
@@ -4123,6 +4134,9 @@ static void Cmd_getexp(void)
             break;
         case DIFF_HARDCORE: //flat 2x
             multiplier = 2000;
+            break;
+        case DIFF_NOMERCY: //flat 1.5x
+            multiplier = 1500;
             break;
     }
 
@@ -6758,6 +6772,11 @@ static void Cmd_getmoneyreward(void)
     {
         moneyReward /= 20;
         moneyReward *= 3;
+    }
+
+    if (FlagGet(FLAG_RYU_NO_MERCY_MODE) == TRUE)
+    {
+        moneyReward = 0;
     }
 
     if (FlagGet(FLAG_RYU_DOING_RYU_CHALLENGE) == TRUE)
@@ -12482,6 +12501,21 @@ static void Cmd_handleballthrow(void)
         MarkBattlerForControllerExec(gActiveBattler);
         gBattlescriptCurrInstr = BattleScript_BallBlockedGenesect;
     }
+    else if ((GetModFlag(NUZLOCKE_MOD) == TRUE) && (GetNuzlockeFlag(gMapHeader.regionMapSectionId) == TRUE))
+    {
+        BtlController_EmitBallThrowAnim(0, BALL_TRAINER_BLOCK);
+        MarkBattlerForControllerExec(gActiveBattler);
+        gBattlescriptCurrInstr = BattleScript_BallBlockedNuzlocke;
+    }
+    else if ((GetModFlag(MONOTYPE_MOD) == TRUE) && 
+            (gBattleMons[gBattlerTarget].type1 != gSaveBlock1Ptr->monotypeChallengeChoice) &&
+            (gBattleMons[gBattlerTarget].type2 != gSaveBlock1Ptr->monotypeChallengeChoice))
+    {
+            StringCopy(gStringVar3, gTypeNames[gSaveBlock1Ptr->monotypeChallengeChoice]);
+            BtlController_EmitBallThrowAnim(0, BALL_TRAINER_BLOCK); 
+            MarkBattlerForControllerExec(gActiveBattler);
+            gBattlescriptCurrInstr = BattleScript_BallBlockedMonotype;
+     }
     else
     {
         u32 odds, i;
@@ -12690,6 +12724,9 @@ static void Cmd_handleballthrow(void)
         {
             if (IsCriticalCapture())
                 GiveAchievement(ACH_CRITCAP);
+            if (GetModFlag(NUZLOCKE_MOD) == TRUE){
+                SetNuzlockeFlag(gMapHeader.regionMapSectionId);
+            }
             BtlController_EmitBallThrowAnim(0, BALL_3_SHAKES_SUCCESS);
             MarkBattlerForControllerExec(gActiveBattler);
             gBattlescriptCurrInstr = BattleScript_SuccessBallThrow;
@@ -12753,6 +12790,10 @@ static void Cmd_handleballthrow(void)
                 else
                     gBattleCommunication[MULTISTRING_CHOOSER] = 1;
 
+                if (GetModFlag(NUZLOCKE_MOD) == TRUE)
+                {
+                    SetNuzlockeFlag(gMapHeader.regionMapSectionId);
+                }
             }
             else // not caught
             {

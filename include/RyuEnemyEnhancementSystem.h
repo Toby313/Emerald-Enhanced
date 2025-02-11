@@ -10,7 +10,7 @@ extern u8 RyuChoosePartyCount(u16 trainer);
 extern u8 RyuChooseAutoscaleEv(void);
 
 extern const u16 gRyuProceduralTrainerMonLists[72][20];
-extern const u16 sWildRange[9][2];
+extern const u16 sRange[9][2];
 extern const u16 sGymRange[9][2];
 extern const u16 sWildRange[9][2];
 extern int CountBadges(void);

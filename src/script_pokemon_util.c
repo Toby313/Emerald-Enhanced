@@ -66,6 +66,27 @@ void HealPlayerParty(void)
     IncrementGameStat(GAME_STAT_RESTED_AT_HOME);
 }
 
+void HealPlayerPartyEconomy(void) //in economy mode, triage only provides the base necessities. 1hp, 1pp. No status removal.
+{
+    u8 i, j;
+    // restore HP.
+    for(i = 0; i < gPlayerPartyCount; i++)
+    {
+        u16 econrest = 1;
+        SetMonData(&gPlayerParty[i], MON_DATA_HP, &econrest);
+
+        // restore PP.
+        for(j = 0; j < MAX_MON_MOVES; j++)
+        {
+            SetMonData(&gPlayerParty[i], MON_DATA_PP1 + j, &econrest);
+        }
+
+        if (CheckAchievement(ACH_FITNESS_GURU) == FALSE)
+            TryGiveFitnessGuruAch();
+    }
+    IncrementGameStat(GAME_STAT_RESTED_AT_HOME);
+}
+
 u8 ScriptGiveMon(u16 species, u8 level, u16 item)
 {
     u16 nationalDexNum;
