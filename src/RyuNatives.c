@@ -3500,7 +3500,7 @@ const u8 sLootBoxColors[5][36] = {
     }
 
 void BufferBattlePoints(void){
-    ConvertIntToDecimalStringN(gStringVar1, gSaveBlock2Ptr->frontier.battlePoints, STR_CONV_MODE_RIGHT_ALIGN, 4);
+    ConvertIntToDecimalStringN(gStringVar1, gSaveBlock2Ptr->frontier.battlePoints, 0, 4);
     StringCopy(gRyuStringVar2, gStringVar1);
 }
 
