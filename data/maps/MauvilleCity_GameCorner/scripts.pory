@@ -800,3 +800,218 @@ gambler:
 	.string "beautiful Primarina, to pay off\n"
 	.string "debts. I can't help myself...$"
 `
+
+script MC_GH_Addict {
+	lock
+	faceplayer
+	msgbox("Ugh, I lost it all...\pHey... could you spot me a little\ncash? I'm good for it, I swear...")
+	closemessage
+	release
+	end
+}
+
+script MH_GH_LoanShark {
+	lock
+	faceplayer
+	msgbox(format("Hey there, a little down on your luck? Do you need a little boost? I offer reasonable interest loans..."))
+	closemessage
+	release
+	end
+}
+
+script MDC_GamblingHall_Dealer{
+	lock
+	msgbox("Minimum buyin is ¥120000.\pOh, you're not here for cards.\nOn with you then!\pI'm busy")
+	closemessage
+	release
+	end
+}
+
+script MDC_GH_Patron1{
+	lock
+	msgbox("All of my friends passed away...\pSo I come here to play cards.\pNot like I can take my money\nwith me!")
+	closemessage
+	release
+	end
+}
+
+script MDC_GH_Patron2{
+	lock
+	msgbox("Scram, kid! You're gonna distract me.\nI'll have to take my losses out\lof your behind!")
+	closemessage
+	release
+	end
+}
+
+script MDC_GH_Patron3{
+	lock
+	msgbox("I'm on a streak right now, Get lost!")
+	closemessage
+	release
+	end
+}
+
+script MDC_GH_Patron4{
+	lock
+	msgbox("Deal me in again!\nI'll definitely get it this time!")
+	closemessage
+	release
+	end
+}
+
+script MDC_GH_Patron5{
+	lock
+	msgbox(format("I save myself problems later by coming here with a set amount of money and no way to access any more! It helps me keep it under control!"))
+	closemessage
+	release
+	end
+}
+
+script MDC_GH_Patron6{
+	lock
+	msgbox(format("Ugh... If i don't turn it around soon, the loan shark is gonna take and sell off my kids!"))
+	closemessage
+	release
+	end
+}
+
+script MDC_GamblingHall_OldMan{
+	lock
+	checkitemspace(ITEM_LOOT_CAPSULE, 1)
+	if (var(VAR_RESULT) == FALSE){
+		msgbox("You can't hold any more capsules.\nMake space and return!")
+		closemessage
+		release
+		end
+	}
+	msgbox("Are you here to acquire capsules?\nChoose a currency to exchange!")
+	buffernumberstring(3, VAR_RYU_CASINO_CREDITS)
+	callnative(BufferBattlePoints)
+	buffernumberstring(5, VAR_RYU_PREMIUM_CREDITS)
+	multichoicedefault(0, 0, MULTI_LOOTBOX_MENU, 0, 1)
+	switch(var(VAR_RESULT)){
+		case 0:
+			msgbox("You have {RYU_STR_1} Casino Credits.\nHow many capsules would you like?")
+			numberentry(0, 8, 3)
+			copyvar(VAR_0x8004, VAR_RESULT)
+			callnative(CheckCasinoCapsuleExchange)
+			if (var(VAR_RESULT) == TRUE){
+				msgbox("Done! Enjoy your capsules!")
+				release
+				end
+			}
+			else{
+				msgbox("You can't afford that many capsules!")
+				goto(MDC_GamblingHall_OldMan)
+			}
+		case 1:
+			msgbox("You have {RYU_STR_2} Battle Points.\nHow many capsules would you like?")
+			numberentry(0, 8, 3)
+			copyvar(VAR_0x8004, VAR_RESULT)
+			callnative(CheckCasinoBPExchange)
+			if (var(VAR_RESULT) == TRUE){
+				msgbox("Done! Enjoy your capsules!")
+				release
+				end
+			}
+			else{
+				msgbox("You can't afford that many capsules!")
+				goto(MDC_GamblingHall_OldMan)
+			}
+		case 2:
+			msgbox("You have {RYU_STR_3} Premium Credits.\nHow many capsules would you like?")
+			numberentry(0, 8, 3)
+			copyvar(VAR_0x8004, VAR_RESULT)
+			callnative(CheckCasinoPremiumExchange)
+			if (var(VAR_RESULT) == TRUE){
+				msgbox("Done! Enjoy your capsules!")
+				release
+				end
+			}
+			else{
+				msgbox("You can't afford that many capsules!")
+				goto(MDC_GamblingHall_OldMan)
+			}
+		case 3:
+			msgbox("Come back if you'd like to\nperform more exchanges!")
+			release
+			end
+	}
+}
+
+text MDC_BC{
+	"Buy Capsules"
+}
+
+script MDC_NotEnough{
+	msgbox("You can't afford this exchange.\nPlease try again.")
+	release
+	end
+}
+
+script MDC_GamblingHall_YoungMan{
+	lock
+	msgbox("Welcome to the Mossdeep Casino.\nWould you like to perform an exchange?")
+	buffernumberstring(3, VAR_RYU_CASINO_CREDITS)
+	buffernumberstring(4, VAR_RYU_SILVER_CREDITS)
+	buffernumberstring(5, VAR_RYU_COPPER_CREDITS)
+	multichoicedefault(0, 0, MULTI_CURRENCY_EXCHANGE, 0, 1)
+	switch(var(VAR_RESULT)){
+		case 0:
+			msgbox("The current exchange rate is ¥2000\nper casino credit.\pHow many would you like to buy?")
+			numberentry(0, 6, 4)
+			copyvar(VAR_0x8001, VAR_RESULT)
+			callnative(RyuCheckCanAffordCredits)
+			if (var(VAR_RESULT) == FALSE){
+				msgbox("You can't afford that exchange.\nPlease try again.")
+				goto(MDC_GamblingHall_YoungMan)
+			}
+			callnative(RyuExchangeMoneyForCredits)
+			msgbox("Exchange Successful!")
+			goto(MDC_GamblingHall_YoungMan)
+		case 1:
+			buffernumberstring(0, VAR_RYU_SILVER_CREDITS)
+			msgbox("You currently have {STR_VAR_1} Silver Credits. \nRate is 10 silver to 1 Premium Credit.")
+			numberentry(5, 0, 2)
+			compare_var_to_var(VAR_RYU_SILVER_CREDITS, VAR_RESULT)
+			goto_if_lt(MDC_NotEnough)
+			callnative(RyuExchangeSilverForPremium)
+			msgbox("Exchange Successful!")
+			goto(MDC_GamblingHall_YoungMan)
+		case 2:
+			buffernumberstring(0, VAR_RYU_SILVER_CREDITS)
+			msgbox("You currently have {STR_VAR_1} Copper Credits. \nRate is 100 copper to 1 Premium Credit.")
+			numberentry(5, 0, 2)
+			compare_var_to_var(VAR_RYU_COPPER_CREDITS, VAR_RESULT)
+			goto_if_lt(MDC_NotEnough)
+			callnative(RyuExchangeCopperForPremium)
+			msgbox("Exchange Successful!")
+			goto(MDC_GamblingHall_YoungMan)
+		case 3:
+			msgbox("Please come again!")
+			release
+			end
+	}
+}
+
+script MDC_GamblingHall_Bouncer{
+	lock
+	msgbox("Only adults or Champions may enter.")
+	goto_if_unset(FLAG_SYS_GAME_CLEAR, MDC_BouncePlayer)
+	msgbox("Oh, pardon me. I didn't recognize you.\pPlease, go on in!")
+	applymovement(18, Common_Movement_StepLeft)
+	waitmovement(18)
+	turnobject(18, DIR_SOUTH)
+	applymovement(PLAYER, Common_Movement_StepUp)
+	waitmovement(PLAYER) 
+	applymovement(FOLLOWER, Common_Movement_StepUp)
+	waitmovement(FOLLOWER)
+	warp(MAP_MOSSDEEP_CITY_GAME_CORNER_1F, 0, 5, 9)
+	waitstate
+}
+
+script MDC_BouncePlayer{
+	msgbox("You're not permitted to enter.\nPlease leave.")
+	release
+	end
+}
