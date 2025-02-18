@@ -795,12 +795,13 @@ static void Task_MainMenuCheckBattery(u8 taskId)
             CreateMainMenuErrorWindow(gText_BatteryRunDry);
             gTasks[taskId].func = Task_WaitForBatteryDryErrorWindow;
         }
-        else if ((EE_GAME_VERSION - VarGet(VAR_LAST_KNOWN_GAME_VERSION)) > 20)
-        {
-            IsUpdateMessageShown = 1;
-            CreateMainMenuErrorWindow(gText_UpdateDetected);
-            gTasks[taskId].func = Task_WaitForUpdateNotification;
-        }
+        //commented the following out because the game will no longer check save versions.
+        //else if ((EE_GAME_VERSION - VarGet(VAR_LAST_KNOWN_GAME_VERSION)) > 20)
+        //{
+        //    IsUpdateMessageShown = 1;
+        //    CreateMainMenuErrorWindow(gText_UpdateDetected);
+        //    gTasks[taskId].func = Task_WaitForUpdateNotification;
+        //}
         else if (FlagGet(FLAG_RYU_FAILED_NO_MERCY) == TRUE){
             IsUpdateMessageShown = 1;
             CreateMainMenuErrorWindow(gText_FaileNoMercy);
