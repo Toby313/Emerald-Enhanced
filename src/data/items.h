@@ -3317,8 +3317,8 @@ const struct Item gItems[] =
     {
         .name = _("Razor Claw"),
         .itemId = ITEM_RAZOR_CLAW,
-        .price = 2000,
-        .holdEffect = HOLD_EFFECT_NONE, // Placeholder.
+        .price = 10000,
+        .holdEffect = HOLD_EFFECT_SCOPE_LENS,
         .description = sRazorClawDesc,
         .pocket = POCKET_ITEMS,
         .type = 4,
@@ -3330,9 +3330,9 @@ const struct Item gItems[] =
     {
         .name = _("Razor Fang"),
         .itemId = ITEM_RAZOR_FANG,
-        .price = 2000,
-        .holdEffect = HOLD_EFFECT_FLINCH,
-        .holdEffectParam = 10,
+        .price = 10000,
+        .holdEffect = HOLD_EFFECT_RAZOR_FANG,
+        .holdEffectParam = 20,
         .description = sRazorFangDesc,
         .pocket = POCKET_ITEMS,
         .type = 4,

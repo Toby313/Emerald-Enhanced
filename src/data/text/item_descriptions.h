@@ -1200,14 +1200,14 @@ static const u8 sLootCapsuleDesc[] = _(
 );
 
 static const u8 sRazorClawDesc[] = _(
-    "Helps a certain\n"
-    "Pokémon to evolve.\n"
-    "It's a sharp claw.");
+    "A honed claw that\n"
+    "improves the\n"
+    "critical-hit rate.");
 
 static const u8 sRazorFangDesc[] = _(
-    "Helps a certain\n"
-    "Pokémon to evolve.\n"
-    "It's a sharp fang.");
+    "A honed fang that\n"
+    "boosts the power of\n"
+    "biting moves.");
 
 static const u8 sPrismScaleDesc[] = _(
     "A mysterious scale.\n"
