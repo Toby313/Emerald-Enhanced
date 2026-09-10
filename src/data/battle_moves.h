@@ -4279,7 +4279,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .type = TYPE_POISON,
         .accuracy = 100,
         .pp = 15,
-        .secondaryEffectChance = 50,
+        .secondaryEffectChance = 30,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_SHEER_FORCE_BOOST | FLAG_STRONG_JAW_BOOST | FLAG_IS_BITE_MOVE,
@@ -5916,7 +5916,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_THUNDER_FANG] =
     {
-        .effect = EFFECT_FLINCH_HIT,
+        .effect = EFFECT_FLINCH_STATUS,
         .power = 80,
         .type = TYPE_ELECTRIC,
         .accuracy = 95,
@@ -5926,11 +5926,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_SHEER_FORCE_BOOST | FLAG_STRONG_JAW_BOOST | FLAG_IS_BITE_MOVE,
         .split = SPLIT_PHYSICAL,
+        .argument = STATUS1_PARALYSIS,
     },
 
     [MOVE_ICE_FANG] =
     {
-        .effect = EFFECT_FLINCH_HIT,
+        .effect = EFFECT_FLINCH_STATUS,
         .power = 80,
         .type = TYPE_ICE,
         .accuracy = 95,
@@ -5940,11 +5941,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_SHEER_FORCE_BOOST | FLAG_STRONG_JAW_BOOST | FLAG_IS_BITE_MOVE,
         .split = SPLIT_PHYSICAL,
+        .argument = STATUS1_FREEZE,
     },
 
     [MOVE_FIRE_FANG] =
     {
-        .effect = EFFECT_FLINCH_HIT,
+        .effect = EFFECT_FLINCH_STATUS,
         .power = 80,
         .type = TYPE_FIRE,
         .accuracy = 95,
@@ -5954,6 +5956,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_SHEER_FORCE_BOOST | FLAG_STRONG_JAW_BOOST | FLAG_IS_BITE_MOVE,
         .split = SPLIT_PHYSICAL,
+        .argument = STATUS1_BURN,
     },
 
     [MOVE_SHADOW_SNEAK] =
