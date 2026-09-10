@@ -1104,9 +1104,9 @@ static const u8 sCleanseTagDesc[] = _(
     "Pokémon.");
 
 static const u8 sSoulDewDesc[] = _(
-    "Hold item: raises\n"
-    "Sp. Atk & Sp. Def of\n"
-    "Latios & Latias.");
+    "Boosts the power of\n"
+    "Lati's Dragon and\n"
+    "Psychic-type moves.");
 
 static const u8 sDeepSeaToothDesc[] = _(
     "A hold item that\n"
