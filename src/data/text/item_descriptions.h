@@ -2170,8 +2170,8 @@ static const u8 sToxicOrbDesc[] = _(
 
 static const u8 sFlameOrbDesc[] = _(
     "A bizarre orb that\n"
-    "inflicts a burn on\n"
-    "holder in battle.");
+    "inflicts a burn and\n"
+    "halves burn damage.");
 
 static const u8 sQuickPowderDesc[] = _(
     "An item to be held\n"

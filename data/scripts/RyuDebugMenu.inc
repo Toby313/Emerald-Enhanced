@@ -786,15 +786,15 @@ RyuDebug_DevMonQuickStart::
 	@@
 	@@
 	setvar VAR_TEMP_A, NATURE_ADAMANT
-	setvar VAR_TEMP_B, SPECIES_MEGA_ABSOL
+	setvar VAR_TEMP_B, SPECIES_ZERAORA
 	setvar VAR_TEMP_C, 0
-	setvar VAR_TEMP_D, MON_FEMALE
-	setvar VAR_TEMP_E, ITEM_SCOPE_LENS
-	setvar VAR_TEMP_1, MOVE_SLASH
-	setvar VAR_TEMP_2, MOVE_NIGHT_SLASH
-	setvar VAR_TEMP_3, MOVE_PSYCHO_CUT
-	setvar VAR_TEMP_4, MOVE_STONE_EDGE
-	givepokedexflag SPECIES_ABSOL, TRUE @@see above pokedex comment
+	setvar VAR_TEMP_D, MON_MALE
+	setvar VAR_TEMP_E, ITEM_SHELL_BELL
+	setvar VAR_TEMP_1, MOVE_PLASMA_FISTS
+	setvar VAR_TEMP_2, MOVE_CLOSE_COMBAT
+	setvar VAR_TEMP_3, MOVE_LEAF_BLADE
+	setvar VAR_TEMP_4, MOVE_BEAK_BLAST
+	givepokedexflag SPECIES_ZERAORA, TRUE @@see above pokedex comment
 	callnative RyuGiveDevMon
 	special HealPlayerParty
 	goto RyuDebug_QuickItemFlagStart

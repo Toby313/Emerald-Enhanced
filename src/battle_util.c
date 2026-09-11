@@ -2364,6 +2364,8 @@ u8 DoBattlerEndTurnEffects(void)
                 MAGIC_GAURD_CHECK;
 
                 gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / (B_BURN_DAMAGE >= GEN_7 ? 16 : 8);
+                if (GetBattlerHoldEffect(gActiveBattler, TRUE) == HOLD_EFFECT_FLAME_ORB)
+                    gBattleMoveDamage /= 2;
                 if (gBattleMoveDamage == 0)
                     gBattleMoveDamage = 1;
                 BattleScriptExecute(BattleScript_BurnTurnDmg);
