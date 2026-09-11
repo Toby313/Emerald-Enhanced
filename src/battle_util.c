@@ -7258,6 +7258,10 @@ static u32 CalcMoveBasePowerAfterModifiers(u16 move, u8 battlerAtk, u8 battlerDe
             }
         }
         break;
+    case HOLD_EFFECT_DRIVE:
+        if (moveType == ItemId_GetSecondaryId(gBattleMons[battlerAtk].item)) // Check if the move's type matches the drive's secondaryId type
+            MulModifier(&modifier, holdEffectModifier);// Apply the same boost that other type-boosting items get
+        break;
     }
 
     // move effect
