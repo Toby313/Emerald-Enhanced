@@ -2673,6 +2673,15 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .ivs = 31,
         .ability = 0
     },
+    [FRONTIER_MON_SIGILYPH_1] = { // Sigilyph-CM
+        .species = SPECIES_SIGILYPH,
+        .moves = {MOVE_AIR_SLASH, MOVE_PSYCHO_SHIFT, MOVE_CALM_MIND, MOVE_ROOST},
+        .heldItem = ITEM_FLAME_ORB,
+        .evSpread = F_EV_SPREAD_SPEED | F_EV_SPREAD_HP,
+        .nature = NATURE_TIMID,
+        .ivs = 31,
+        .ability = 0
+    },
     [FRONTIER_MON_MISDREAVUS_1] = { // Misdreavus-BulkyCM (ID: 297)
         .species = SPECIES_MISDREAVUS,
         .moves = {MOVE_SHADOW_BALL, MOVE_DAZZLING_GLEAM, MOVE_CALM_MIND, MOVE_MOONLIGHT},
@@ -4506,6 +4515,15 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .heldItem = ITEM_COLBUR_BERRY,
         .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_HP,
         .nature = NATURE_QUIET,
+        .ivs = 31,
+        .ability = 0
+    },
+    [FRONTIER_MON_SIGILYPH_2] = { // Sigilyph-Offensive
+        .species = SPECIES_SIGILYPH,
+        .moves = {MOVE_PSYCHIC, MOVE_AIR_SLASH, MOVE_DAZZLING_GLEAM, MOVE_ROOST},
+        .heldItem = ITEM_LIFE_ORB,
+        .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
+        .nature = NATURE_TIMID,
         .ivs = 31,
         .ability = 0
     },
