@@ -2213,6 +2213,14 @@ if (ability == ABILITY_MAGIC_GUARD) \
             break;\
 }
 
+#define TOXIC_BOOST_CHECK \
+if (ability == ABILITY_TOXIC_BOOST) \
+{\
+    RecordAbilityBattle(gActiveBattler, ability);\
+    gBattleStruct->turnEffectsTracker++;\
+            break;\
+}
+
 u8 DoBattlerEndTurnEffects(void)
 {
     u32 ability, i, effect = 0;
@@ -2301,6 +2309,7 @@ u8 DoBattlerEndTurnEffects(void)
                     gBattleMons[gBattlerAttacker].status1 &= ~STATUS1_POISON;
                     gUnusedBattleGlobal = 59;
                 }
+                TOXIC_BOOST_CHECK;
                 MAGIC_GAURD_CHECK;
                 if (ability == ABILITY_POISON_HEAL)
                 {
@@ -2329,6 +2338,7 @@ u8 DoBattlerEndTurnEffects(void)
             if ((gBattleMons[gActiveBattler].status1 & STATUS1_TOXIC_POISON)
                 && gBattleMons[gActiveBattler].hp != 0)
             {
+                TOXIC_BOOST_CHECK;
                 MAGIC_GAURD_CHECK;
 
                 if (ability == ABILITY_POISON_HEAL)
