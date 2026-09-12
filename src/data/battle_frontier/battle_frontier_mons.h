@@ -3314,7 +3314,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     },
     [FRONTIER_MON_FLYGON_1] = { // Flygon-DD (ID: 367)
         .species = SPECIES_FLYGON,
-        .moves = {MOVE_LEECH_LIFE, MOVE_DRAGON_CLAW, MOVE_DRAGON_DANCE, MOVE_ROOST},
+        .moves = {MOVE_LEECH_LIFE, MOVE_DRAGON_RUSH, MOVE_DRAGON_DANCE, MOVE_ROOST},
         .heldItem = ITEM_LIFE_ORB,
         .evSpread = F_EV_SPREAD_SPEED | F_EV_SPREAD_ATTACK,
         .nature = NATURE_ADAMANT,
