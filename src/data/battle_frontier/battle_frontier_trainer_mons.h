@@ -718,6 +718,7 @@
     FRONTIER_MON_ABSOL_1,               \
     FRONTIER_MON_SWALOT_1,              \
     FRONTIER_MON_CRAWDAUNT_1,           \
+    FRONTIER_MON_COFAGRIGUS_1,          \
     -1 
 
 #define FRONTIER_MONS_EXPERT_1C         \
@@ -754,6 +755,7 @@
     FRONTIER_MON_PHIONE_1,              \
     FRONTIER_MON_GLIGAR_1,              \
     FRONTIER_MON_VIGOROTH_1,            \
+    FRONTIER_MON_BARBARACLE_1,          \
     -1 
 
 #define FRONTIER_MONS_PSYCHIC_1 \
@@ -787,6 +789,8 @@
     FRONTIER_MON_CACTURNE_2,            \
     FRONTIER_MON_GOREBYSS_2,            \
     FRONTIER_MON_POLITOED_2,            \
+    FRONTIER_MON_ORANGURU_1,            \
+    FRONTIER_MON_SIGILYPH_1,            \
     -1 
 
 #define FRONTIER_MONS_HEX_MANIAC_1 \
@@ -869,6 +873,7 @@
     FRONTIER_MON_QWILFISH_1,            \
     FRONTIER_MON_PELIPPER_1,            \
     FRONTIER_MON_SWELLOW_1,             \
+    FRONTIER_MON_ORANGURU_1,            \
     -1 
 
 #define FRONTIER_MONS_GENTLEMAN_1B \
@@ -951,6 +956,8 @@
     FRONTIER_MON_RELICANTH_2,           \
     FRONTIER_MON_OMASTAR_2,             \
     FRONTIER_MON_KABUTOPS_2,            \
+    FRONTIER_MON_BARBARACLE_1,          \
+    FRONTIER_MON_SIGILYPH_1,            \
     -1 
 
 #define FRONTIER_MONS_COLLECTOR_1 \
@@ -987,6 +994,7 @@
     FRONTIER_MON_PHIONE_1,              \
     FRONTIER_MON_GLIGAR_1,              \
     FRONTIER_MON_VIGOROTH_1,            \
+    FRONTIER_MON_COFAGRIGUS_1,          \
     -1 
 
 #define FRONTIER_MONS_PARASOL_LADY_2 \
@@ -1127,6 +1135,7 @@
     FRONTIER_MON_ARCHEOPS_1,            \
     FRONTIER_MON_PORYGON2_1,            \
     FRONTIER_MON_SERPERIOR_1,           \
+    FRONTIER_MON_PASSIMIAN_1,           \
     -1 
 
 #define FRONTIER_MONS_COOLTRAINER_1C \
@@ -1290,6 +1299,7 @@
     FRONTIER_MON_GARCHOMP_1,            \
     FRONTIER_MON_METAGROSS_1,           \
     FRONTIER_MON_REGIGIGAS_1,           \
+    FRONTIER_MON_PASSIMIAN_1,           \
     FRONTIER_MON_DITTO,                 \
     FRONTIER_MON_SMEARGLE,              \
     -1 
@@ -1635,6 +1645,7 @@
     FRONTIER_MON_AGGRON_2,              \
     FRONTIER_MON_SWAMPERT_2,            \
     FRONTIER_MON_METAGROSS_2,           \
+    FRONTIER_MON_SIGILYPH_2,            \
     -1 
 
 #define FRONTIER_MONS_COLLECTOR_2       \
@@ -1723,6 +1734,7 @@
     FRONTIER_MON_STARAPTOR_1,           \
     FRONTIER_MON_XATU_1,                \
     FRONTIER_MON_CROBAT_1,              \
+    FRONTIER_MON_SIGILYPH_1,            \
     FRONTIER_MON_TALONFLAME_2,          \
     FRONTIER_MON_TOUCANNON_2,           \
     FRONTIER_MON_HONCHKROW_2,           \
@@ -1851,6 +1863,8 @@
     FRONTIER_MON_GARCHOMP_2,            \
     FRONTIER_MON_METAGROSS_2,           \
     FRONTIER_MON_REGIGIGAS_2,           \
+    FRONTIER_MON_COFAGRIGUS_2,          \
+    FRONTIER_MON_ORANGURU_2,            \
     -1 
 
 #define FRONTIER_MONS_YOUNGSTER_LASS_3  \
@@ -2177,6 +2191,7 @@
     FRONTIER_MON_VENUSAUR_2,            \
     FRONTIER_MON_SEISMITOAD_2,          \
     FRONTIER_MON_JOLTEON_2,             \
+    FRONTIER_MON_PASSIMIAN_2,           \
     -1
 
 #define FRONTIER_MONS_COOLTRAINER_M_2B \
@@ -2677,6 +2692,8 @@
     FRONTIER_MON_ARMALDO_2,             \
     FRONTIER_MON_CLAWITZER_2,           \
     FRONTIER_MON_RAPIDASH_2,            \
+    FRONTIER_MON_ORANGURU_2,            \
+    FRONTIER_MON_SIGILYPH_2,            \
     -1
 
 // Used by Pkmn Ranger M, Gentleman, Running Triathlete, and Cycling Triathlete
@@ -2882,6 +2899,7 @@
     FRONTIER_MON_GARCHOMP_2,            \
     FRONTIER_MON_METAGROSS_2,           \
     FRONTIER_MON_REGIGIGAS_2,           \
+    FRONTIER_MON_PASSIMIAN_2,           \
     -1
 
 // Similar to FRONTIER_MONS_GENERAL_A/B but _2
@@ -3218,6 +3236,7 @@
     FRONTIER_MON_AERODACTYL_1,          \
     FRONTIER_MON_TYRANTRUM_1,           \
     FRONTIER_MON_INCINEROAR_1,          \
+    FRONTIER_MON_BARBARACLE_1,          \
     FRONTIER_MON_HAWLUCHA_2,            \
     FRONTIER_MON_BRELOOM_2,             \
     FRONTIER_MON_HARIYAMA_2,            \
@@ -3278,6 +3297,7 @@
     FRONTIER_MON_TYPE_NULL_1,           \
     FRONTIER_MON_STEELIX_1,             \
     FRONTIER_MON_INCINEROAR_1,          \
+    FRONTIER_MON_PASSIMIAN_1,           \
     FRONTIER_MON_HAWLUCHA_2,            \
     FRONTIER_MON_BRELOOM_2,             \
     FRONTIER_MON_RAMPARDOS_2,           \
@@ -3368,6 +3388,7 @@
     FRONTIER_MON_INFERNAPE_2,           \
     FRONTIER_MON_TYPHLOSION_2,          \
     FRONTIER_MON_ROTOM_HEAT_2,          \
+    FRONTIER_MON_PASSIMIAN_2,           \
     FRONTIER_MON_MACHAMP_3,             \
     FRONTIER_MON_CONKELDURR_3,          \
     FRONTIER_MON_MACHAMP_4,             \
@@ -3424,6 +3445,7 @@
     FRONTIER_MON_STEELIX_2,             \
     FRONTIER_MON_TYRANTRUM_2,           \
     FRONTIER_MON_INCINEROAR_2,          \
+    FRONTIER_MON_BARBARACLE_2,          \
     FRONTIER_MON_KOMMO_O_2,             \
     FRONTIER_MON_MACHAMP_3,             \
     FRONTIER_MON_CONKELDURR_3,          \
@@ -3713,6 +3735,7 @@
     FRONTIER_MON_TOGEKISS_2,            \
     FRONTIER_MON_TOXAPEX_2,             \
     FRONTIER_MON_MILOTIC_2,             \
+    FRONTIER_MON_COFAGRIGUS_2,          \
     FRONTIER_MON_REGIROCK_1,            \
     FRONTIER_MON_REGICE_1,              \
     FRONTIER_MON_REGISTEEL_1,           \
@@ -3897,6 +3920,7 @@
     FRONTIER_MON_GENGAR_1,              \
     FRONTIER_MON_LYCANROC_MIDNIGHT_1,   \
     FRONTIER_MON_UMBREON_1,             \
+    FRONTIER_MON_COFAGRIGUS_1,          \
     FRONTIER_MON_MISDREAVUS_2,          \
     FRONTIER_MON_MISMAGIUS_2,           \
     FRONTIER_MON_DUSKNOIR_2,            \
@@ -3968,6 +3992,7 @@
     FRONTIER_MON_JELLICENT_2,           \
     FRONTIER_MON_VENUSAUR_2,            \
     FRONTIER_MON_CROBAT_2,              \
+    FRONTIER_MON_COFAGRIGUS_2,          \
     FRONTIER_MON_GENGAR_3,              \
     FRONTIER_MON_CHANDELURE_3,          \
     FRONTIER_MON_GENGAR_4,              \
@@ -4104,6 +4129,7 @@
     FRONTIER_MON_GYARADOS_1,            \
     FRONTIER_MON_TOGEKISS_1,            \
     FRONTIER_MON_TOXAPEX_1,             \
+    FRONTIER_MON_ORANGURU_1,            \
     FRONTIER_MON_SALAMENCE_1,           \
     FRONTIER_MON_KOMMO_O_1,             \
     FRONTIER_MON_SLAKING_1,             \
@@ -4195,6 +4221,7 @@
     FRONTIER_MON_GYARADOS_2,            \
     FRONTIER_MON_TOGEKISS_2,            \
     FRONTIER_MON_TOXAPEX_2,             \
+    FRONTIER_MON_ORANGURU_2,            \
     FRONTIER_MON_SALAMENCE_2,           \
     FRONTIER_MON_KOMMO_O_2,             \
     FRONTIER_MON_SLAKING_2,             \
@@ -4782,6 +4809,7 @@
     FRONTIER_MON_AERODACTYL_1,          \
     FRONTIER_MON_TYRANTRUM_1,           \
     FRONTIER_MON_KOMMO_O_1,             \
+    FRONTIER_MON_BARBARACLE_2,          \
     FRONTIER_MON_VIKAVOLT_2,            \
     FRONTIER_MON_SKARMORY_2,            \
     FRONTIER_MON_GOLEM_2,               \
@@ -5017,6 +5045,7 @@
     FRONTIER_MON_CROBAT_2,              \
     FRONTIER_MON_GYARADOS_2,            \
     FRONTIER_MON_SALAMENCE_2,           \
+    FRONTIER_MON_SIGILYPH_2,            \
     FRONTIER_MON_COBALION_1,            \
     FRONTIER_MON_TERRAKION_1,           \
     FRONTIER_MON_VIRIZION_1,            \
@@ -5189,6 +5218,7 @@
     FRONTIER_MON_HAXORUS_2,             \
     FRONTIER_MON_TYRANTRUM_2,           \
     FRONTIER_MON_KOMMO_O_2,             \
+    FRONTIER_MON_BARBARACLE_2,          \
     FRONTIER_MON_METAGROSS_3,           \
     FRONTIER_MON_KOMMO_O_3,             \
     FRONTIER_MON_METAGROSS_4,           \
