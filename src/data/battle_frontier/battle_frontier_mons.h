@@ -4023,10 +4023,10 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .ivs = 31,
         .ability = 2
     },
-    [FRONTIER_MON_GOLISOPOD_1] = { // Golisopod-LifeOrb (ID: 344)
+    [FRONTIER_MON_GOLISOPOD_1] = { // Golisopod-Band (ID: 344)
         .species = SPECIES_GOLISOPOD,
         .moves = {MOVE_FIRST_IMPRESSION, MOVE_LIQUIDATION, MOVE_LEECH_LIFE, MOVE_AQUA_JET},
-        .heldItem = ITEM_LIFE_ORB,
+        .heldItem = ITEM_CHOICE_BAND,
         .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_HP,
         .nature = NATURE_ADAMANT,
         .ivs = 31,
