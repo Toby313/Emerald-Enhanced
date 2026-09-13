@@ -5674,7 +5674,10 @@ static void Cmd_moveend(void)
         case MOVEEND_EMERGENCY_EXIT: // Special case, because moves hitting multiple opponents stop after switching out
             for (i = 0; i < gBattlersCount; i++)
             {
-                if (gBattleResources->flags->flags[i] & RESOURCE_FLAG_EMERGENCY_EXIT)
+                if ((gBattleResources->flags->flags[i] & RESOURCE_FLAG_EMERGENCY_EXIT)
+                    && gCurrentTurnActionNumber < gBattlersCount
+                    && (gBattlerByTurnOrder[gCurrentTurnActionNumber] == i
+                        || GetBattlerTurnOrderNum(i) < gCurrentTurnActionNumber))
                 {
                     gBattleResources->flags->flags[i] &= ~(RESOURCE_FLAG_EMERGENCY_EXIT);
                     gBattlerTarget = gBattlerAbility = i;
