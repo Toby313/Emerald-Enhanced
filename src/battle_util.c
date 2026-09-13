@@ -7453,6 +7453,14 @@ static u32 CalcAttackStat(u16 move, u8 battlerAtk, u8 battlerDef, u8 moveType, b
                 RecordAbilityBattle(battlerDef, ABILITY_THICK_FAT);
         }
         break;
+    case ABILITY_WATER_COMPACTION:
+        if (moveType == TYPE_WATER)
+        {
+            MulModifier(&modifier, UQ_4_12(0.5));
+            if (updateFlags)
+                RecordAbilityBattle(battlerDef, ABILITY_WATER_COMPACTION);
+        }
+        break;
     }
 
     // ally's abilities
