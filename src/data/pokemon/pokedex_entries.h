@@ -7572,7 +7572,7 @@ const struct PokedexEntry gPokedexEntries[] =
 		.trainerOffset = 0,
 	},*/
 
-	/*[NATIONAL_DEX_HEATMOR] =
+	[NATIONAL_DEX_HEATMOR] =
 	{
 		.categoryName = _("Anteater"),
 		.height = 14,
@@ -7582,7 +7582,7 @@ const struct PokedexEntry gPokedexEntries[] =
 		.pokemonOffset = 17,
 		.trainerScale = 256,
 		.trainerOffset = 0,
-	},*/
+	},
 
 	[NATIONAL_DEX_DURANT] =
 	{
