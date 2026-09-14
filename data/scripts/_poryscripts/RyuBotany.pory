@@ -488,7 +488,8 @@ script RyuAlchemy_HarvestChangeFailed{
 }
 
 script RyuAlchemy_HarvestChangeFailed2{
-    msgbox(format("Zero is not a valid harvest level. Choose another level."))
+    msgbox(format("No change has been made."))
     closemessage
-    goto(RyuAlchemy_ChangeHarvestLevel)
+    release
+    end
 }
