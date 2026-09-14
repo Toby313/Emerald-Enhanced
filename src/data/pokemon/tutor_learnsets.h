@@ -3220,7 +3220,8 @@ static const u32 sTutorLearnsets[] =
     [SPECIES_SEVIPER]       = TUTOR_LEARNSET(TUTOR(MOVE_BODY_SLAM)
 											| TUTOR(MOVE_DOUBLE_EDGE)
 											| TUTOR(MOVE_METRONOME)
-											| TUTOR(MOVE_ENDURE)),
+											| TUTOR(MOVE_ENDURE)
+											| TUTOR(MOVE_GUNK_SHOT)),
 
     [SPECIES_LUNATONE]      = TUTOR_LEARNSET(TUTOR(MOVE_PAIN_SPLIT)
 											| TUTOR(MOVE_RECYCLE)

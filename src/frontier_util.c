@@ -478,12 +478,12 @@ static const struct FrontierBrainMon sFrontierBrainsMons[][2][MAX_FRONTIER_PARTY
         {
             {
                 .species = SPECIES_SEVIPER,
-                .heldItem = ITEM_EXPERT_BELT,
+                .heldItem = ITEM_SHELL_BELL,
                 .fixedIV = 31,
-                .nature = NATURE_MODEST,
-                .evs = {252, 0, 0, 6, 0, 252},
+                .nature = NATURE_QUIET,
+                .evs = {252, 0, 6, 0, 252, 0},
                 .ability = 0,
-                .moves = {MOVE_SLUDGE_BOMB, MOVE_DARK_PULSE, MOVE_FLAMETHROWER, MOVE_GIGA_DRAIN},
+                .moves = {MOVE_POISON_TAIL, MOVE_VENOSHOCK, MOVE_FLAMETHROWER, MOVE_KNOCK_OFF},
             },
             {
                 .species = SPECIES_SALAZZLE,
@@ -508,12 +508,12 @@ static const struct FrontierBrainMon sFrontierBrainsMons[][2][MAX_FRONTIER_PARTY
         {
             {
                 .species = SPECIES_SEVIPER,
-                .heldItem = ITEM_EXPERT_BELT,
+                .heldItem = ITEM_ASSAULT_VEST,
                 .fixedIV = 31,
-                .nature = NATURE_MODEST,
-                .evs = {252, 0, 0, 6, 252, 0},
-                .ability = 0,
-                .moves = {MOVE_SLUDGE_BOMB, MOVE_DARK_PULSE, MOVE_FLAMETHROWER, MOVE_GIGA_DRAIN},
+                .nature = NATURE_ADAMANT,
+                .evs = {252, 252, 0, 6, 0, 0},
+                .ability = 1,
+                .moves = {MOVE_POISON_TAIL, MOVE_KNOCK_OFF, MOVE_SUCKER_PUNCH, MOVE_LEECH_LIFE},
             },
             {
                 .species = SPECIES_SALAZZLE,

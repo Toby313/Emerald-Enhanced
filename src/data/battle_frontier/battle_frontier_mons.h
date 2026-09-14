@@ -1359,14 +1359,14 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .ivs = 27,
         .ability = 1
     },
-    [FRONTIER_MON_SEVIPER_1] = { // Seviper-NP (ID: 151)
+    [FRONTIER_MON_SEVIPER_1] = { // Seviper-Venoshock (ID: 151)
         .species = SPECIES_SEVIPER,
-        .moves = {MOVE_SLUDGE_BOMB, MOVE_DARK_PULSE, MOVE_NASTY_PLOT, MOVE_REST},
+        .moves = {MOVE_POISON_TAIL, MOVE_VENOSHOCK, MOVE_FLAMETHROWER, MOVE_REST},
         .heldItem = ITEM_LEFTOVERS,
         .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_HP,
-        .nature = NATURE_MODEST,
+        .nature = NATURE_QUIET,
         .ivs = 31,
-        .ability = 0
+        .ability = 1
     },
     [FRONTIER_MON_ZANGOOSE_1] = { // Zangoose-QuickAttack (ID: 152)
         .species = SPECIES_ZANGOOSE,
@@ -2241,14 +2241,14 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .ivs = 27,
         .ability = 1
     },
-    [FRONTIER_MON_SEVIPER_2] = { // Seviper-ExBelt (ID: 249)
+    [FRONTIER_MON_SEVIPER_2] = { // Seviper-AV (ID: 249)
         .species = SPECIES_SEVIPER,
-        .moves = {MOVE_SLUDGE_WAVE, MOVE_DARK_PULSE, MOVE_FLAMETHROWER, MOVE_GIGA_DRAIN},
-        .heldItem = ITEM_EXPERT_BELT,
-        .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
-        .nature = NATURE_MODEST,
+        .moves = {MOVE_POISON_TAIL, MOVE_KNOCK_OFF, MOVE_SUCKER_PUNCH, MOVE_LEECH_LIFE},
+        .heldItem = ITEM_ASSAULT_VEST,
+        .evSpread = F_EV_SPREAD_ATTACK | F_EV_SPREAD_HP,
+        .nature = NATURE_ADAMANT,
         .ivs = 31,
-        .ability = 0
+        .ability = 1
     },
     [FRONTIER_MON_ZANGOOSE_2] = { // Zangoose-SwordsDance (ID: 250)
         .species = SPECIES_ZANGOOSE,

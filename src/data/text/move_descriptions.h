@@ -1366,8 +1366,8 @@ static const u8 sMudShotDescription[] = _(
     "reduces Speed.");
 
 static const u8 sPoisonTailDescription[] = _(
-    "Has a high critical-hit\n"
-    "ratio. May also poison.");
+    "A nasty swipe guaranteed\n"
+    "to poison the foe.");
 
 static const u8 sCovetDescription[] = _(
     "Cutely begs to obtain an\n"
