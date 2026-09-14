@@ -38,6 +38,8 @@ FallarborTown_MiningMasterHouse_Text_TheseRocks:
 FTCT_MiningMaster::@@This script goes on the mining master.
 	lock
 	faceplayer
+	compare VAR_RYU_PLAYER_MINING_SKILL, 0
+    goto_if_ne FTCT_MiningMasterStandard @@If the player already has the skill (in NG+), skip the badge check.
 	special checkbadgecount
 	compare VAR_RESULT, 4
 	goto_if_ge FTCT_MiningMasterStandard@@The mining master checks badges. If the count is greater than or equal to 4, go to the normal miningmaster script.
