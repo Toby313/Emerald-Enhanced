@@ -2210,8 +2210,8 @@ static const u8 sTOPSY_TURVYDescription[] = _(
     "affect the target.");
 
 static const u8 sDRAINING_KISSDescription[] = _(
-    "An attack that absorbs over\n"
-    "half the damage inflicted.");
+    "An attack that absorbs half\n"
+    "the damage inflicted.");
 
 static const u8 sCRAFTY_SHIELDDescription[] = _(
     "Evades status moves for\n"

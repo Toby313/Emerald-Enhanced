@@ -8107,8 +8107,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
-        .split = SPLIT_SPECIAL, // restores 75% HP instead of 50% HP
-        .argument = 75,
+        .split = SPLIT_SPECIAL,
     },
 
     [MOVE_CRAFTY_SHIELD] =
