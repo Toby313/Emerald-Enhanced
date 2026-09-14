@@ -120,6 +120,11 @@ movement Common_Movement_WalkUp4 {
 	step_end
 }
 
+movement Common_Movement_WalkUp2 {
+	walk_up * 2
+	step_end
+}
+
 movement Common_Movement_Delay32 {
 	delay_16
 	delay_16

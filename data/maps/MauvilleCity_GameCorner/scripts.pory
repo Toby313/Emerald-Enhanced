@@ -721,8 +721,8 @@ MauvilleCity_GameCorner_Text_CantWinJackpot: @ 82107FB
 MauvilleCity_GameCorner_Text_NeedCoinCaseGoNextDoor: @ 8210830
 	.string "Hey, kid, if you want to play here,\n"
 	.string "you need a coin case.\p"
-	.string "I think the young lady next door\n"
-	.string "had one. Go see her!$"
+	.string "I think the young lady near the\n"
+	.string "Mart had one. Go see her!$"
 
 MauvilleCity_GameCorner_Text_LuckOnlyLastSoLongremovecoins: @ 82108A0
 	.string "My luck can only last so long.\n"
@@ -821,7 +821,7 @@ script MH_GH_LoanShark {
 
 script MDC_GamblingHall_Dealer{
 	lock
-	msgbox("Minimum buyin is ¥120000.\pOh, you're not here for cards.\nOn with you then!\pI'm busy")
+	msgbox("Minimum buy-in is ¥120000.\pOh, you're not here for cards.\nOn with you then!")
 	closemessage
 	release
 	end
@@ -829,7 +829,7 @@ script MDC_GamblingHall_Dealer{
 
 script MDC_GH_Patron1{
 	lock
-	msgbox("All of my friends passed away...\pSo I come here to play cards.\pNot like I can take my money\nwith me!")
+	msgbox("All of my friends passed away...\pSo I come here to play cards.\pHa, not like I can take my\nmoney with me!")
 	closemessage
 	release
 	end
@@ -999,14 +999,14 @@ script MDC_GamblingHall_Bouncer{
 	msgbox("Only adults or Champions may enter.")
 	goto_if_unset(FLAG_SYS_GAME_CLEAR, MDC_BouncePlayer)
 	msgbox("Oh, pardon me. I didn't recognize you.\pPlease, go on in!")
-	applymovement(18, Common_Movement_StepLeft)
-	waitmovement(18)
-	turnobject(18, DIR_SOUTH)
-	applymovement(PLAYER, Common_Movement_StepUp)
+	applymovement(27, Common_Movement_StepLeft)
+	waitmovement(27)
+	turnobject(27, DIR_SOUTH)
+	applymovement(PLAYER, Common_Movement_WalkUp2)
 	waitmovement(PLAYER) 
-	applymovement(FOLLOWER, Common_Movement_StepUp)
+	applymovement(FOLLOWER, Common_Movement_WalkUp2)
 	waitmovement(FOLLOWER)
-	warp(MAP_MOSSDEEP_CITY_GAME_CORNER_1F, 0, 5, 9)
+	warp(MAP_MAUVILLE_CITY_GAME_CORNER, 3, 11, 17)
 	waitstate
 }
 
