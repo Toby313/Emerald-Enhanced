@@ -1152,7 +1152,7 @@ script Ryu_ExpShareMenu{
 }
 
 script RyuDebug_Utility1 {
-	clearflag(FLAG_RYU_LIMBO)
+	giveitem(ITEM_LOOT_CAPSULE, 10)
     end
 }
 
@@ -1986,7 +1986,6 @@ script Ryu_LootCapsule {
 		if (var(VAR_RESULT) == YES){
 			checkitem(ITEM_LOOT_CAPSULE, 1)
 			goto_if_ne(Ryu_LootCapsuleGone)
-			removeitem(ITEM_LOOT_CAPSULE)
 			goto(Ryu_LootCapsule)
 		}
 		else{
