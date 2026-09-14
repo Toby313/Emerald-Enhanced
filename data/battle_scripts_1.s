@@ -6612,7 +6612,7 @@ BattleScript_SwitchedDrive::
 	end2
 
 BattleScript_RyuLunaticDisableStatusMessage::
-	printstring STRINGID_RYULUNATICDISABLEDSTATUSMOVE
+	printselectionstring STRINGID_RYULUNATICDISABLEDSTATUSMOVE
 	endselectionscript
 
 BattleScript_IllusionistActivates::

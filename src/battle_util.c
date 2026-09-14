@@ -1360,7 +1360,7 @@ u8 TrySetCantSelectMoveBattleScript(void)
     u8 split = gBattleMoves[move].split;
 
 
-    if ((ability == ABILITY_LUNATIC) && (weather == WEATHER_ECLIPSE_ANY) && (split == SPLIT_STATUS)){
+    if ((ability == ABILITY_LUNATIC) && (weather == WEATHER_ECLIPSE_ANY) && gBattleMoves[move].power == 0){
         gCurrentMove = move;
         if (gBattleTypeFlags & BATTLE_TYPE_PALACE)
         {
@@ -1571,7 +1571,7 @@ u8 CheckMoveLimitations(u8 battlerId, u8 unusableMoves, u8 check)
             unusableMoves |= gBitTable[i];
         else if (holdEffect == HOLD_EFFECT_ASSAULT_VEST && gBattleMoves[gBattleMons[battlerId].moves[i]].power == 0)
             unusableMoves |= gBitTable[i];
-        else if (gBattleMoves[gBattleMons[battlerId].moves[i]].split == SPLIT_SPECIAL && gBattleMons[battlerId].ability == ABILITY_LUNATIC && gBattleWeather == WEATHER_ECLIPSE_ANY)
+        else if (gBattleMoves[gBattleMons[battlerId].moves[i]].split == SPLIT_STATUS && gBattleMons[battlerId].ability == ABILITY_LUNATIC && gBattleWeather == WEATHER_ECLIPSE_ANY)
             unusableMoves |= gBitTable[i];
         else if (IsGravityPreventingMove(gBattleMons[battlerId].moves[i]))
             unusableMoves |= gBitTable[i];
