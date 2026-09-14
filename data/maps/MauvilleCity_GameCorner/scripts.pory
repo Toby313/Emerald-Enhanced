@@ -971,8 +971,8 @@ script MDC_GamblingHall_YoungMan{
 			goto(MDC_GamblingHall_YoungMan)
 		case 1:
 			buffernumberstring(0, VAR_RYU_SILVER_CREDITS)
-			msgbox("You currently have {STR_VAR_1} Silver Credits. \nRate is 10 silver to 1 Premium Credit.")
-			numberentry(5, 0, 2)
+			msgbox("How much silver will you exchange?\nRate is 10 silver to 1 Premium Credit.")
+			numberentry(0, 6, 4)
 			compare_var_to_var(VAR_RYU_SILVER_CREDITS, VAR_RESULT)
 			goto_if_lt(MDC_NotEnough)
 			callnative(RyuExchangeSilverForPremium)
@@ -980,8 +980,8 @@ script MDC_GamblingHall_YoungMan{
 			goto(MDC_GamblingHall_YoungMan)
 		case 2:
 			buffernumberstring(0, VAR_RYU_SILVER_CREDITS)
-			msgbox("You currently have {STR_VAR_1} Copper Credits. \nRate is 100 copper to 1 Premium Credit.")
-			numberentry(5, 0, 2)
+			msgbox("How much copper will you exchange?\nRate is 100 copper to 1 Premium Credit.")
+			numberentry(0, 6, 4)
 			compare_var_to_var(VAR_RYU_COPPER_CREDITS, VAR_RESULT)
 			goto_if_lt(MDC_NotEnough)
 			callnative(RyuExchangeCopperForPremium)
