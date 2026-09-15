@@ -4619,7 +4619,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     },
     [FRONTIER_MON_MR_MIME_2] = { // Mr_Mime-NP (ID: 511)
         .species = SPECIES_MR_MIME,
-        .moves = {MOVE_PSYSBEAM, MOVE_DAZZLING_GLEAM, MOVE_HIDDEN_POWER, MOVE_NASTY_PLOT},
+        .moves = {MOVE_PSYBEAM, MOVE_DAZZLING_GLEAM, MOVE_HIDDEN_POWER, MOVE_NASTY_PLOT},
         .heldItem = ITEM_LIFE_ORB,
         .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
         .nature = NATURE_TIMID,
