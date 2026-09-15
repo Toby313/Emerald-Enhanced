@@ -581,6 +581,7 @@ RyuDebug_GiveItems::
 
 RyuDebug_DisableCollisionandencounters::
 	setflag FLAG_RYU_COLLISION_OFF
+	setflag FLAG_TOBY_TRAINER_SIGHT
 	setflag FLAG_RYU_DEV_DISENC
 	return
 
