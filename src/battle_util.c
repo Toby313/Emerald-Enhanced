@@ -5347,7 +5347,9 @@ u32 IsAbilityPreventingEscape(u32 battlerId)
 {
     u32 id;
 
-    if (B_GHOSTS_ESCAPE >= GEN_6 && IS_BATTLER_OF_TYPE(battlerId, TYPE_GHOST))
+    if (gBattleMons[battlerId].ability == ABILITY_RUN_AWAY)
+        return 0;
+    if (IS_BATTLER_OF_TYPE(battlerId, TYPE_GHOST))
         return 0;
 
     if ((id = IsAbilityOnOpposingSide(battlerId, ABILITY_SHADOW_TAG)) && gBattleMons[battlerId].ability != ABILITY_SHADOW_TAG)
@@ -5364,6 +5366,10 @@ bool32 CanBattlerEscape(u32 battlerId) // no ability check
 {
     if ((FlagGet(FLAG_RYU_ENABLE_FABA_MAGNETO_FIELD) == TRUE) || (GetModFlag(MAGNETOSPHERE_MOD) == TRUE))
         return FALSE;
+    if (gBattleMons[battlerId].ability == ABILITY_RUN_AWAY)
+        return TRUE;
+    if (IS_BATTLER_OF_TYPE(battlerId, TYPE_GHOST))
+        return TRUE;
     return (GetBattlerHoldEffect(battlerId, TRUE) == HOLD_EFFECT_SHED_SHELL
             || !((gBattleMons[battlerId].status2 & (STATUS2_ESCAPE_PREVENTION | STATUS2_WRAPPED))
                 || (gStatuses3[battlerId] & STATUS3_ROOTED)
