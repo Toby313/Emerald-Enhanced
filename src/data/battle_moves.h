@@ -8618,7 +8618,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_THOUSAND_ARROWS] =
     {
-        .effect = EFFECT_SMACK_DOWN,
+        .effect = EFFECT_SMACK_DOWN, // needs fix: doesn't hit air
         .power = 90,
         .type = TYPE_GROUND,
         .accuracy = 100,

@@ -2698,13 +2698,13 @@ GabbyAndTy_Text_GabbyPreFirstBattle: @ 0828AF05
 	.string "Gabby: Oh! We've just spotted a tough-\n"
 	.string "looking Trainer here of all places!\p"
 	.string "Okay, roll camera!\n"
-	.string "Let's get this interview.$"
+	.string "Let's get some footage!$"
 
 GabbyAndTy_Text_GabbyIntro: @ 0828AF7D
 	.string "Gabby: Oh! You're {PLAYER}! Hi!\n"
 	.string "Do you remember us from last time?\p"
 	.string "Can you show us how much stronger\n"
-	.string "you've become? Okay, cue interview!$"
+	.string "you've become? Okay, cue camera!$"
 
 GabbyAndTy_Text_GabbyDefeatFirstTime: @ 0828B000
 	.string "Gabby: My eyes didn't lie!\n"

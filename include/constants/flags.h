@@ -850,10 +850,10 @@
 #define FLAG_HIDE_EVER_GRANDE_POKEMON_CENTER_1F_SCOTT               0x319
 #define FLAG_HIDE_LITTLEROOT_TOWN_RIVAL                             0x31A
 #define FLAG_HIDE_LITTLEROOT_TOWN_BIRCH                             0x31B
-#define FLAG_HIDE_ROUTE_111_GABBY_AND_TY_1                          0x31C
-#define FLAG_HIDE_ROUTE_118_GABBY_AND_TY_1                          0x31D
-#define FLAG_HIDE_ROUTE_120_GABBY_AND_TY_1                          0x31E
-#define FLAG_HIDE_ROUTE_111_GABBY_AND_TY_3                          0x31F
+#define FLAG_TOBY_UNUSED_1                                          0x31C //formerly FLAG_HIDE_ROUTE_111_GABBY_AND_TY_1
+#define FLAG_TOBY_UNUSED_2                                          0x31D //formerly FLAG_HIDE_ROUTE_118_GABBY_AND_TY_1
+#define FLAG_TOBY_UNUSED_3                                          0x31E //formerly FLAG_HIDE_ROUTE_120_GABBY_AND_TY_1
+#define FLAG_TOBY_UNUSED_4                                          0x31F //formerly FLAG_HIDE_ROUTE_111_GABBY_AND_TY_3
 #define FLAG_HIDE_LUGIA                                             0x320
 #define FLAG_HIDE_HO_OH                                             0x321
 #define FLAG_HIDE_LILYCOVE_CONTEST_HALL_REPORTER                    0x322
@@ -955,10 +955,10 @@
 #define FLAG_HIDE_ROUTE_103_BIRCH                                   0x382
 #define FLAG_HIDE_TRICK_HOUSE_END_MAN                               0x383
 #define FLAG_HIDE_ROUTE_110_TEAM_AQUA                               0x384
-#define FLAG_HIDE_ROUTE_118_GABBY_AND_TY_2                          0x385
-#define FLAG_HIDE_ROUTE_120_GABBY_AND_TY_2                          0x386
-#define FLAG_HIDE_ROUTE_111_GABBY_AND_TY_2                          0x387
-#define FLAG_HIDE_ROUTE_118_GABBY_AND_TY_3                          0x388
+#define FLAG_TOBY_UNUSED_5                                          0x385 //formerly FLAG_HIDE_ROUTE_118_GABBY_AND_TY_2
+#define FLAG_TOBY_UNUSED_6                                          0x386 //formerly FLAG_HIDE_ROUTE_120_GABBY_AND_TY_2
+#define FLAG_TOBY_UNUSED_7                                          0x387 //formerly FLAG_HIDE_ROUTE_111_GABBY_AND_TY_2
+#define FLAG_TOBY_UNUSED_8                                          0x388 //formerly FLAG_HIDE_ROUTE_118_GABBY_AND_TY_3
 #define FLAG_HIDE_SLATEPORT_CITY_HARBOR_PATRONS                     0x389
 #define FLAG_HIDE_ROUTE_104_WHITE_HERB_FLORIST                      0x38A
 #define FLAG_HIDE_FALLARBOR_AZURILL                                 0x38B

@@ -19,7 +19,6 @@ Route111_OnTransition: @ 81F0D87
 	setvar VAR_TRAINER_HILL_IS_ACTIVE, 0
 	@special SetMirageTowerVisibility
 	call Route111_EventScript_CheckSetSandstorm
-	call GabbyAndTy_EventScript_UpdateLocation
 	checktrainerflag TRAINER_VICKY
 	goto_if_lt Route111_EventScript_SetWinstratesNotDefeated
 	call_if_set FLAG_RYU_HIDE_111_MAGMA_MEETING_TABITHA2, R111_FixTabitha
