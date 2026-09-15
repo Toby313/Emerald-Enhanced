@@ -20088,7 +20088,7 @@ const struct BaseStats gBaseStats[] =
     [SPECIES_ORANGURU] =
     {
         .baseHP        = 110,
-        .baseAttack    = 50,
+        .baseAttack    = 60,
         .baseDefense   = 80,
         .baseSpeed     = 50,
         .baseSpAttack  = 100,
@@ -20187,9 +20187,9 @@ const struct BaseStats gBaseStats[] =
 
     [SPECIES_SANDYGAST] =
     {
-        .baseHP        = 55,
+        .baseHP        = 65,
         .baseAttack    = 55,
-        .baseDefense   = 80,
+        .baseDefense   = 90,
         .baseSpeed     = 15,
         .baseSpAttack  = 70,
         .baseSpDefense = 45,
@@ -20214,7 +20214,7 @@ const struct BaseStats gBaseStats[] =
 
     [SPECIES_PALOSSAND] =
     {
-        .baseHP        = 85,
+        .baseHP        = 95,
         .baseAttack    = 75,
         .baseDefense   = 110,
         .baseSpeed     = 35,

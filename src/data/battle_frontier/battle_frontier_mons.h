@@ -2774,12 +2774,12 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     },
     [FRONTIER_MON_MR_MIME_1] = { // Mr_Mime-Scarf (ID: 307)
         .species = SPECIES_MR_MIME,
-        .moves = {MOVE_PSYCHIC, MOVE_DAZZLING_GLEAM, MOVE_FOCUS_BLAST, MOVE_SHADOW_BALL},
+        .moves = {MOVE_PSYBEAM, MOVE_DAZZLING_GLEAM, MOVE_HIDDEN_POWER, MOVE_TRICK},
         .heldItem = ITEM_CHOICE_SCARF,
         .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
         .nature = NATURE_MODEST,
-        .ivs = 31,
-        .ability = 1
+        .ivs = 27,
+        .ability = 2
     },
     [FRONTIER_MON_LANTURN_1] = { // Lanturn-Specs (ID: 410)
         .species = SPECIES_LANTURN,
@@ -3197,11 +3197,11 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     },
     [FRONTIER_MON_DONPHAN_1] = { // Donphan-ExBelt (ID: 456)
         .species = SPECIES_DONPHAN,
-        .moves = {MOVE_BULLDOZE, MOVE_ROCK_TOMB, MOVE_ICE_SHARD, MOVE_FLAME_WHEEL},
+        .moves = {MOVE_BULLDOZE, MOVE_ROCK_TOMB, MOVE_ICE_SHARD, MOVE_SECRET_POWER},
         .heldItem = ITEM_EXPERT_BELT,
         .evSpread = F_EV_SPREAD_SPEED | F_EV_SPREAD_ATTACK,
         .nature = NATURE_ADAMANT,
-        .ivs = 31,
+        .ivs = 22,
         .ability = 1
     },
     [FRONTIER_MON_CLAYDOL_1] = { // Claydol-Specs (ID: 355)
@@ -4122,9 +4122,9 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .ivs = 31,
         .ability = 1
     },
-    [FRONTIER_MON_PALOSSAND_1] = { // Palossand-1attack (ID: 457)
+    [FRONTIER_MON_PALOSSAND_1] = { // Palossand-Offensive (ID: 457)
         .species = SPECIES_PALOSSAND,
-        .moves = {MOVE_EARTH_POWER, MOVE_TOXIC, MOVE_SHORE_UP, MOVE_STEALTH_ROCK},
+        .moves = {MOVE_EARTH_POWER, MOVE_SHADOW_BALL, MOVE_SLUDGE_BOMB, MOVE_SHORE_UP},
         .heldItem = ITEM_LEFTOVERS,
         .evSpread = F_EV_SPREAD_DEFENSE | F_EV_SPREAD_HP,
         .nature = NATURE_BOLD,
@@ -4619,12 +4619,12 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     },
     [FRONTIER_MON_MR_MIME_2] = { // Mr_Mime-NP (ID: 511)
         .species = SPECIES_MR_MIME,
-        .moves = {MOVE_PSYSHOCK, MOVE_DAZZLING_GLEAM, MOVE_FOCUS_BLAST, MOVE_NASTY_PLOT},
+        .moves = {MOVE_PSYSBEAM, MOVE_DAZZLING_GLEAM, MOVE_HIDDEN_POWER, MOVE_NASTY_PLOT},
         .heldItem = ITEM_LIFE_ORB,
         .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
         .nature = NATURE_TIMID,
-        .ivs = 31,
-        .ability = 1
+        .ivs = 27,
+        .ability = 2
     },
     [FRONTIER_MON_LANTURN_2] = { // Lanturn-AV (ID: 614)
         .species = SPECIES_LANTURN,
@@ -5042,11 +5042,11 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     },
     [FRONTIER_MON_DONPHAN_2] = { // Donphan-AV (ID: 660)
         .species = SPECIES_DONPHAN,
-        .moves = {MOVE_BULLDOZE, MOVE_ROCK_TOMB, MOVE_ICE_SHARD, MOVE_FLAME_WHEEL},
+        .moves = {MOVE_BULLDOZE, MOVE_ROCK_TOMB, MOVE_ICE_SHARD, MOVE_SECRET_POWER},
         .heldItem = ITEM_ASSAULT_VEST,
         .evSpread = F_EV_SPREAD_SPEED | F_EV_SPREAD_ATTACK,
         .nature = NATURE_ADAMANT,
-        .ivs = 31,
+        .ivs = 22,
         .ability = 1
     },
     [FRONTIER_MON_CLAYDOL_2] = { // Claydol-WP (ID: 559)
@@ -5672,12 +5672,12 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     },
     [FRONTIER_MON_ROSERADE_2] = { // Roserade-Offensive (ID: 526)
         .species = SPECIES_ROSERADE,
-        .moves = {MOVE_SLUDGE_BOMB, MOVE_LEAF_STORM, MOVE_ACID, MOVE_TOXIC_SPIKES},
+        .moves = {MOVE_SLUDGE, MOVE_LEAF_STORM, MOVE_ACID, MOVE_TOXIC_SPIKES},
         .heldItem = ITEM_LIFE_ORB,
         .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
         .nature = NATURE_TIMID,
         .ivs = 31,
-        .ability = 0
+        .ability = 2
     },
     [FRONTIER_MON_ROTOM_MOW_2] = { // Rotom_Mow-Scarf (ID: 629)
         .species = SPECIES_ROTOM_MOW,
@@ -5967,9 +5967,9 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .ivs = 31,
         .ability = 1
     },
-    [FRONTIER_MON_PALOSSAND_2] = { // Palossand-2attack (ID: 661)
+    [FRONTIER_MON_PALOSSAND_2] = { // Palossand-Defensive (ID: 661)
         .species = SPECIES_PALOSSAND,
-        .moves = {MOVE_EARTH_POWER, MOVE_SHADOW_BALL, MOVE_SHORE_UP, MOVE_STEALTH_ROCK},
+        .moves = {MOVE_EARTH_POWER, MOVE_SHADOW_BALL, MOVE_WILL_O_WISP, MOVE_SHORE_UP},
         .heldItem = ITEM_LEFTOVERS,
         .evSpread = F_EV_SPREAD_DEFENSE | F_EV_SPREAD_HP,
         .nature = NATURE_BOLD,
