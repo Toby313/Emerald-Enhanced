@@ -417,7 +417,7 @@ const struct BaseStats gBaseStats[] =
 
     [SPECIES_PIDGEOTTO] =
     {
-        .baseHP        = 72,
+        .baseHP        = 63,
         .baseAttack    = 79,
         .baseDefense   = 65,
         .baseSpeed     = 71,
