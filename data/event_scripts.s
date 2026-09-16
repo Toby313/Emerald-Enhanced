@@ -1251,3 +1251,5 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/NewMauville_SumacLab/scripts.inc"
 
 	.include "data/maps/DewfordTown_Past/scripts.inc"
+
+	.include "data/maps/Route100/scripts.inc"

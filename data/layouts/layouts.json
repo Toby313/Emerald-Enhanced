@@ -5750,6 +5750,16 @@
       "secondary_tileset": "gTileset_Dewford",
       "border_filepath": "data/layouts/DewfordTown_Past/border.bin",
       "blockdata_filepath": "data/layouts/DewfordTown_Past/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE100",
+      "name": "Route100_Layout",
+      "width": 20,
+      "height": 54,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Route100/border.bin",
+      "blockdata_filepath": "data/layouts/Route100/map.bin"
     }
   ]
 }
