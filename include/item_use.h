@@ -2,6 +2,7 @@
 #define GUARD_ITEM_USE_H
 
 
+void ItemUseOutOfBattle_TobyHoennMap(u8);
 void ItemUseOutOfBattle_RyuEvItemUse(u8);
 void ItemUseOutOfBattle_RyuForecaster(u8);
 void ItemUseOutOfBattle_Teleport(u8);//done

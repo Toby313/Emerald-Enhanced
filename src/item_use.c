@@ -843,6 +843,13 @@ void ItemUseOutOfBattle_RyuForecaster(u8 taskId)
     ScriptContext1_SetupScript(Ryu_Forecaster);
 }
 
+void ItemUseOutOfBattle_TobyHoennMap(u8 taskId)
+{
+    SetMainCallback2(CB2_ReturnToField);
+    ScriptContext2_Enable();
+    ScriptContext1_SetupScript(Toby_HoennMap);
+}
+
 void ItemUseOutOfBattle_RyuEvItemUse(u8 taskId)
 {
     SetMainCallback2(CB2_ReturnToField);

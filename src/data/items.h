@@ -5582,26 +5582,25 @@ const struct Item gItems[] =
         .secondaryId = 0,
     },
 
-    [ITEM_BICYCLE] =
+    [ITEM_HOENN_MAP] =
     {
-        .name = _("Bicycle"),
-        .itemId = ITEM_BICYCLE,
+        .name = _("Hoenn Map"),
+        .itemId = ITEM_HOENN_MAP,
         .price = 0,
-        .description = sBicycleDesc,
+        .description = sHoennMapDesc,
         .importance = 1,
-        .unk19 = 1,
         .pocket = POCKET_KEY_ITEMS,
-        .type = 2,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .type = 4,
+        .fieldUseFunc = ItemUseOutOfBattle_TobyHoennMap,
         .secondaryId = 0,
     },
 
-    [ITEM_TOWN_MAP] =
+    [ITEM_TC_GUESTPASS] =
     {
         .name = _("TC GuestPass"),
-        .itemId = ITEM_TOWN_MAP,
+        .itemId = ITEM_TC_GUESTPASS,
         .price = 0,
-        .description = sTownMapDesc,
+        .description = StcGuestPassDesc,
         .importance = 1,
         .unk19 = 1,
         .pocket = POCKET_KEY_ITEMS,

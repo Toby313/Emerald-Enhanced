@@ -2041,12 +2041,12 @@ static const u8 sSilphScopeDesc[] = _(
     "makes unseeable\n"
     "Pokémon visible.");
 
-static const u8 sBicycleDesc[] = _(
+static const u8 sHoennMapDesc[] = _(
     "A folding bicycle\n"
     "that is faster than\n"
     "the Running Shoes.");
 
-static const u8 sTownMapDesc[] = _(
+static const u8 StcGuestPassDesc[] = _(
     "A pass that grants\n"
     "a discount at the\n"
     "Training Center.");

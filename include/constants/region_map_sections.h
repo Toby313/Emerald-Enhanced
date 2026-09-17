@@ -234,7 +234,7 @@
 #define MAPSEC_ROUTE_136                    0xE6
 #define MAPSEC_AETHER_PARADISE              0xE7
 #define MAPSEC_ROUTE_100                    0xE8
-#define MAPSEC_NONE                         0xE9
+#define MAPSEC_NONE                         0xE9 // Don't move this, it will mess with the map
 
 
 #define METLOC_SPECIAL_EGG                  0xFD
