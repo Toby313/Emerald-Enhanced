@@ -113,7 +113,7 @@ TC_DevModeMsg:
 TC_Entering::
 	lockall
 	call TC_BallCheck
-	checkitem ITEM_TC_GUESTPASS, 0
+	checkitem ITEM_TOWN_MAP, 0
 	compare VAR_RESULT, 1
 	goto_if_eq TC_Discount_entering
 	checkmoney 22500
