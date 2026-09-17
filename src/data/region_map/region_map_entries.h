@@ -213,6 +213,7 @@ static const u8 sMapName_FrostyGrotto[] = _("Frosty Grotto");
 static const u8 sMapName_CraggyCoastUnderwater[] = _("");
 static const u8 sMapName_AetherParadise[] = _("Aether Paradise");
 static const u8 sMapName_Route136[] = _("Route 136");
+static const u8 sMapName_Route100[] = _("Route 100");
 
 const struct RegionMapLocation gRegionMapEntries[] = {
     [MAPSEC_ABANDONED_SHIP]             = {6, 14, 1, 1, sMapName_AbandonedShip},
@@ -316,6 +317,7 @@ const struct RegionMapLocation gRegionMapEntries[] = {
     [MAPSEC_ROCK_TUNNEL]                = {0, 0, 1, 1, sMapName_RockTunnel},
     [MAPSEC_ROUTE_1]                    = {0, 0, 1, 1, sMapName_Route1},
     [MAPSEC_ROUTE_10]                   = {0, 0, 1, 1, sMapName_Route10_2},
+    [MAPSEC_ROUTE_100]                  = {4, 12, 1, 1, sMapName_Route100},
     [MAPSEC_ROUTE_101]                  = {4, 10, 1, 1, sMapName_Route101},
     [MAPSEC_ROUTE_102]                  = {2, 9, 2, 1, sMapName_Route102},
     [MAPSEC_ROUTE_103]                  = {4, 8, 4, 1, sMapName_Route103},
