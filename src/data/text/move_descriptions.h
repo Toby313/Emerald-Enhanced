@@ -1758,8 +1758,8 @@ static const u8 sCHARGE_BEAMDescription[] = _(
     "May raise Sp. Atk.");
 
 static const u8 sATTACK_ORDERDescription[] = _(
-    "Underlings pummel the foe.\n"
-    "High critical-hit ratio.");
+    "Sends the hive to attack\n"
+    "the foe with their stingers.");
 
 static const u8 sDEFEND_ORDERDescription[] = _(
     "Raises Defense and Sp. Def\n"

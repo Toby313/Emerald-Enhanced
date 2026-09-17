@@ -3921,6 +3921,7 @@ Move_AQUA_JET:
 	blendoff 
 	end
 	
+Status_AttackOrder::
 Move_ATTACK_ORDER:
 	loadspritegfx ANIM_TAG_ATTACK_ORDER 
 	loadspritegfx ANIM_TAG_IMPACT 
@@ -24240,6 +24241,7 @@ General_TurnTrap:
 	jumpargeq 0, TRAP_ANIM_CLING,     Status_Cling
 	jumpargeq 0, TRAP_ANIM_MAGMA_STORM, Status_MagmaStorm
 	jumpargeq 0, TRAP_ANIM_INFESTATION, Status_Infestation
+	jumpargeq 0, TRAP_ANIM_ATTACK_ORDER, Status_AttackOrder
 	goto Status_BindWrap
 Status_BindWrap:
 	loadspritegfx ANIM_TAG_TENDRILS

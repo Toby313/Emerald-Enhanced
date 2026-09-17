@@ -652,8 +652,10 @@
 #define STRINGID_NONMONOTYPEMON                       648
 #define STRINGID_NONMONOTYPEMOVE                      649
 #define STRINGID_TECHNICIANPREVENTED                  650
+#define STRINGID_SWARMEDBYTHEHIVE                     651
+#define STRINGID_DOTATTACKORDER                       652
 
-#define BATTLESTRINGS_COUNT                           651
+#define BATTLESTRINGS_COUNT                           653
 
 
 #endif // GUARD_CONSTANTS_BATTLE_STRING_IDS_H

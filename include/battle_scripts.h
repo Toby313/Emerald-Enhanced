@@ -404,5 +404,6 @@ extern const u8 BattleScript_SwitchedDrive[];
 extern const u8 BattleScript_MonIsntMonotype[];
 extern const u8 BattleScript_CantUseNonMonotypeMove[];
 extern const u8 BattleScript_TechnicianModPrevented[];
+extern const u8 BattleScript_HiveMindHeal[];
 
 #endif // GUARD_BATTLE_SCRIPTS_H

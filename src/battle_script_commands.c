@@ -2273,12 +2273,13 @@ static void Cmd_datahpupdate(void)
                         gSpecialStatuses[gActiveBattler].specialBattlerId = gBattlerTarget;
                     }
                 }
-                currentDmg = (gBattleMoveDamage - gHpDealt);
-                totaldamage = gBattleMoveDamage;
-                ConvertIntToDecimalStringN(gStringVar3, gHpDealt, STR_CONV_MODE_LEFT_ALIGN, 8);
-                ConvertIntToDecimalStringN(gStringVar2, currentDmg, STR_CONV_MODE_LEFT_ALIGN, 8);
-                ConvertIntToDecimalStringN(gStringVar1, totaldamage, STR_CONV_MODE_LEFT_ALIGN, 8);
             }
+            currentDmg = (gBattleMoveDamage - gHpDealt);
+            totaldamage = gBattleMoveDamage;
+            ConvertIntToDecimalStringN(gStringVar3, gHpDealt, STR_CONV_MODE_LEFT_ALIGN, 8);
+            ConvertIntToDecimalStringN(gStringVar2, currentDmg, STR_CONV_MODE_LEFT_ALIGN, 8);
+            ConvertIntToDecimalStringN(gStringVar1, totaldamage, STR_CONV_MODE_LEFT_ALIGN, 8);
+            
             gHitMarker &= ~(HITMARKER_x100000);
             BtlController_EmitSetMonData(0, REQUEST_HP_BATTLE, 0, 2, &gBattleMons[gActiveBattler].hp);
             MarkBattlerForControllerExec(gActiveBattler);

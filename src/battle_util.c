@@ -4291,6 +4291,36 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
             gBattlerAttacker = battler;
             switch (gLastUsedAbility)
             {
+            case ABILITY_HIVE_MIND:
+            {
+                bool8 hiveAttacking = FALSE;
+                for (i = 0; i < gBattlersCount; i++)
+                {
+                    if (GetBattlerSide(i) != GetBattlerSide(battler) && IsBattlerAlive(i)) // Don't heal if the hive is already attacking
+                    {
+                        if ((gBattleMons[i].status2 & STATUS2_WRAPPED) 
+                         && gBattleStruct->wrappedBy[i] == battler 
+                         && gBattleStruct->wrappedMove[i] == MOVE_ATTACK_ORDER)
+                        {
+                            hiveAttacking = TRUE;
+                            break;
+                        }
+                    }
+                }
+                if (!hiveAttacking && !BATTLER_MAX_HP(battler) && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK))
+                {
+                    gBattleScripting.battler = battler;
+                    gBattlerTarget = battler;
+                    gCurrentMove = MOVE_HEAL_ORDER;
+                    BattleScriptPushCursorAndCallback(BattleScript_HiveMindHeal);
+                    gBattleMoveDamage = gBattleMons[battler].maxHP / 8;
+                    if (gBattleMoveDamage == 0)
+                        gBattleMoveDamage = 1;
+                    gBattleMoveDamage *= -1;
+                    effect++;
+                }
+                break;
+            }
             case ABILITY_HARVEST:
                 if (gBattleMons[battler].item == ITEM_NONE
                  && gBattleStruct->changedItems[battler] == ITEM_NONE   // Will not inherit an item

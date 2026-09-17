@@ -8227,3 +8227,12 @@ BattleScript_RyuAffectionHealedConfuse::
 	printstring STRINGID_RYUAFFECTIONCONFUSEHEALED
 	playanimation BS_ATTACKER, B_ANIM_RYU_AFFECTION_ANIM, NULL
 	return
+
+BattleScript_HiveMindHeal::
+    attackanimation
+    waitanimation
+    healthbarupdate BS_ATTACKER
+    datahpupdate BS_ATTACKER
+    printstring STRINGID_PKMNREGAINEDHEALTH
+    waitmessage 0x40
+    end3

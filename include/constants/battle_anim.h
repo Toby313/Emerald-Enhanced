@@ -565,6 +565,7 @@
 #define TRAP_ANIM_CLING 5
 #define TRAP_ANIM_MAGMA_STORM 6
 #define TRAP_ANIM_INFESTATION 7
+#define TRAP_ANIM_ATTACK_ORDER 8
 
 // Weather defines for battle animation scripts.
 #define ANIM_WEATHER_NONE 0

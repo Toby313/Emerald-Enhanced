@@ -236,6 +236,7 @@ static const u8 sIceworkerDescription[] = _("Powers up Ice moves.");
 static const u8 sPlaguebearerDescription[] = _("Bite moves dmg + infest boost");
 static const u8 sLunaticDescription[] = _("Gets strong during Eclipse.");
 static const u8 sTwilightRushDescription[] = _("Doubles Speed in Eclipse.");
+static const u8 sHiveMindDescription[] = _("Controls The Hive.");
 
 const u8 gAbilityNames[ABILITIES_COUNT_GEN7][ABILITY_NAME_LENGTH + 1] =
 {
@@ -488,6 +489,7 @@ const u8 gAbilityNames[ABILITIES_COUNT_GEN7][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_PLAGUEBEARER] = _("Plaguebearer"),
     [ABILITY_LUNATIC] = _("Lunatic"),
     [ABILITY_TWILIGHT_RUSH] = _("TwilightRush"),
+    [ABILITY_HIVE_MIND] = _("Hive Mind"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT_GEN7] =
@@ -740,5 +742,6 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT_GEN7] =
     [ABILITY_ICEWORKER] = sIceworkerDescription,
     [ABILITY_PLAGUEBEARER] = sPlaguebearerDescription,
     [ABILITY_LUNATIC] = sLunaticDescription,
-    [ABILITY_TWILIGHT_RUSH] = sTwilightRushDescription
+    [ABILITY_TWILIGHT_RUSH] = sTwilightRushDescription,
+    [ABILITY_HIVE_MIND] = sHiveMindDescription
 };
