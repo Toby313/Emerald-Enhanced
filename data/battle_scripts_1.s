@@ -371,6 +371,7 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectSnap
 	.4byte BattleScript_EffectVoidBurst
 	.4byte BattleScript_EffectShadowSlam
+	.4byte BattleScript_EffectAttackOrder
 	.4byte BattleScript_BothCanNoLongerEscape
 
 BattleScript_EffectShadowSlam:
@@ -8236,3 +8237,11 @@ BattleScript_HiveMindHeal::
     printstring STRINGID_PKMNREGAINEDHEALTH
     waitmessage 0x40
     end3
+
+BattleScript_EffectAttackOrder::
+    attackcanceler
+    jumpifability BS_ATTACKER, ABILITY_HIVE_MIND, BattleScript_AttackOrderTrap
+    goto BattleScript_EffectHit
+BattleScript_AttackOrderTrap::
+    setmoveeffect MOVE_EFFECT_WRAP
+    goto BattleScript_EffectHit

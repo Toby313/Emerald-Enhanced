@@ -6367,7 +6367,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_ATTACK_ORDER] =
     {
-        .effect = EFFECT_TRAP,
+        .effect = EFFECT_ATTACK_ORDER,
         .power = 90,
         .type = TYPE_BUG,
         .accuracy = 100,
