@@ -233,7 +233,8 @@
 #define MAPSEC_CRAGGY_COAST_UNDERWATER      0xE5
 #define MAPSEC_ROUTE_136                    0xE6
 #define MAPSEC_AETHER_PARADISE              0xE7
-#define MAPSEC_NONE                         0xE8
+#define MAPSEC_ROUTE_100                    0xE8
+#define MAPSEC_NONE                         0xE9
 
 
 #define METLOC_SPECIAL_EGG                  0xFD

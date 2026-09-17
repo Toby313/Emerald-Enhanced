@@ -22,6 +22,11 @@
       "direction": "right",
       "offset": 0,
       "map": "MAP_ROUTE108"
+    },
+    {
+      "direction": "up",
+      "offset": 40,
+      "map": "MAP_ROUTE100"
     }
   ],
   "object_events": [
@@ -66,7 +71,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
-      "x": 50,
+      "x": 51,
       "y": 11,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_UP",
@@ -105,7 +110,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
-      "x": 50,
+      "x": 51,
       "y": 5,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
