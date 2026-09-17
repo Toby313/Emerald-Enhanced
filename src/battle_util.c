@@ -2421,7 +2421,10 @@ u8 DoBattlerEndTurnEffects(void)
         case ENDTURN_WRAP:  // wrap
             if ((gBattleMons[gActiveBattler].status2 & STATUS2_WRAPPED) && gBattleMons[gActiveBattler].hp != 0)
             {
-                if (--gDisableStructs[gActiveBattler].wrapTurns != 0)  // damaged by wrap
+                if (GetBattlerAbility(gBattleStruct->wrappedBy[gActiveBattler]) != ABILITY_HIVE_MIND) // Hive Mind swarm does not decrease
+                    --gDisableStructs[gActiveBattler].wrapTurns;
+
+                if (gDisableStructs[gActiveBattler].wrapTurns != 0)  // damaged by wrap
                 {
                     MAGIC_GAURD_CHECK;
 
