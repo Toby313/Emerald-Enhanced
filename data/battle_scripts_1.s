@@ -372,6 +372,7 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectVoidBurst
 	.4byte BattleScript_EffectShadowSlam
 	.4byte BattleScript_EffectAttackOrder
+	.4byte BattleScript_EffectHealOrder
 	.4byte BattleScript_BothCanNoLongerEscape
 
 BattleScript_EffectShadowSlam:
@@ -8245,3 +8246,17 @@ BattleScript_EffectAttackOrder::
 BattleScript_AttackOrderTrap::
     setmoveeffect MOVE_EFFECT_WRAP
     goto BattleScript_EffectHit
+
+BattleScript_EffectHealOrder::
+    attackcanceler
+    attackstring
+    ppreduce
+    tryhealhalfhealth BattleScript_AlreadyAtFullHp, BS_TARGET
+    attackanimation
+    waitanimation
+    orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+    healthbarupdate BS_TARGET
+    datahpupdate BS_TARGET
+    printstring STRINGID_PKMNREGAINEDHEALTH
+    waitmessage 0x40
+    goto BattleScript_MoveEnd

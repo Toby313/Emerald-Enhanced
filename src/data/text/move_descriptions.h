@@ -1766,8 +1766,8 @@ static const u8 sDEFEND_ORDERDescription[] = _(
     "protect its queen.");
 
 static const u8 sHEAL_ORDERDescription[] = _(
-    "The user's underlings show\n"
-    "up to heal half its max HP.");
+    "Commands the hive to heal\n"
+    "the queen or her ally.");
 
 static const u8 sHEAD_SMASHDescription[] = _(
     "A life-risking headbutt that\n"

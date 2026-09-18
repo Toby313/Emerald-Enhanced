@@ -6381,7 +6381,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_DEFEND_ORDER] =
     {
-        .effect = EFFECT_PROTECT,
+        .effect = EFFECT_PROTECT, // Special effect coded in battle_script_commands.c
         .power = 0,
         .type = TYPE_BUG,
         .accuracy = 0,
@@ -6395,13 +6395,13 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_HEAL_ORDER] =
     {
-        .effect = EFFECT_RESTORE_HP,
+        .effect = EFFECT_HEAL_ORDER,
         .power = 0,
         .type = TYPE_BUG,
         .accuracy = 0,
         .pp = 10,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_USER,
+        .target = MOVE_TARGET_USER | MOVE_TARGET_ALLY,
         .priority = 0,
         .flags = FLAG_SNATCH_AFFECTED,
         .split = SPLIT_STATUS,

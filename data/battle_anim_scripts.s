@@ -4038,7 +4038,7 @@ Move_HEAL_ORDER:
 	clearmonbg ANIM_ATK_PARTNER 
 	blendoff 
 	delay 1 
-	call HealingEffect 
+	call HealingEffect2 
 	waitforvisualfinish 
 	end
 	
