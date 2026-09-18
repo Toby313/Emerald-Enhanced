@@ -10856,7 +10856,10 @@ static void Cmd_settailwind(void)
     {
         gSideStatuses[side] |= SIDE_STATUS_TAILWIND;
         gSideTimers[side].tailwindBattlerId = gBattlerAttacker;
-        gSideTimers[side].tailwindTimer = 3;
+        if (gBattlersCount == 2) // Singles battle
+            gSideTimers[side].tailwindTimer = 5; // Extra turn in Singles
+        else // Doubles battle
+            gSideTimers[side].tailwindTimer = 4; // 4 turns in Doubles
         gBattlescriptCurrInstr += 5;
     }
     else

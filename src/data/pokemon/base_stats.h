@@ -854,8 +854,8 @@ const struct BaseStats gBaseStats[] =
 
     [SPECIES_NIDOKING] =
     {
-        .baseHP        = 92,
-        .baseAttack    = 110,
+        .baseHP        = 86,
+        .baseAttack    = 115,
         .baseDefense   = 77,
         .baseSpeed     = 95,
         .baseSpAttack  = 85,
