@@ -6381,15 +6381,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_DEFEND_ORDER] =
     {
-        .effect = EFFECT_COSMIC_POWER,
+        .effect = EFFECT_PROTECT,
         .power = 0,
         .type = TYPE_BUG,
         .accuracy = 0,
         .pp = 10,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_USER,
-        .priority = 0,
-        .flags = FLAG_SNATCH_AFFECTED,
+        .priority = 4,
+        .flags = FLAG_PROTECTION_MOVE,
         .split = SPLIT_STATUS,
     },
 

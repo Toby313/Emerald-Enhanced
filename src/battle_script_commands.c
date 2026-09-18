@@ -8965,6 +8965,7 @@ static void Cmd_setprotectlike(void)
 {
     bool32 fail = TRUE;
     bool32 notLastTurn = TRUE;
+    int i;
 
     if (!(gBattleMoves[gLastResultingMoves[gBattlerAttacker]].flags & FLAG_PROTECTION_MOVE))
         gDisableStructs[gBattlerAttacker].protectUses = 0;
@@ -9001,7 +9002,20 @@ static void Cmd_setprotectlike(void)
                 gProtectStructs[gBattlerAttacker].banefulBunkered = 1;
                 gBattleCommunication[MULTISTRING_CHOOSER] = 0;
             }
-
+            else if (gCurrentMove == MOVE_DEFEND_ORDER)
+            {
+                gProtectStructs[gBattlerAttacker].protected = 1;
+                gBattleCommunication[MULTISTRING_CHOOSER] = 0;
+                
+                for (i = 0; i < gBattlersCount; i++) // Recalls the hive: Frees any target trapped by the attacker
+                {
+                    if ((gBattleMons[i].status2 & STATUS2_WRAPPED) && gBattleStruct->wrappedBy[i] == gBattlerAttacker)
+                    {
+                        gBattleMons[i].status2 &= ~(STATUS2_WRAPPED);
+                        gDisableStructs[i].wrapTurns = 0;
+                    }
+                }
+            }
             gDisableStructs[gBattlerAttacker].protectUses++;
             fail = FALSE;
         }
