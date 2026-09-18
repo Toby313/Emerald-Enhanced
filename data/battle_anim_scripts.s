@@ -3972,9 +3972,12 @@ Move_DEFEND_ORDER:
 	loadspritegfx ANIM_TAG_ATTACK_ORDER 
 	loadspritegfx ANIM_TAG_IMPACT 
 	loadspritegfx ANIM_TAG_ROCKS 
+	loadspritegfx ANIM_TAG_PROTECT
 	monbg ANIM_DEF_PARTNER 
 	monbgprio_28 ANIM_TARGET  
-	playsewithpan SE_M_SWEET_SCENT, SOUND_PAN_TARGET 
+	playsewithpan SE_M_SWEET_SCENT, SOUND_PAN_TARGET
+	waitplaysewithpan SE_M_REFLECT, SOUND_PAN_ATTACKER, 16
+	createsprite gProtectSpriteTemplate, ANIM_ATTACKER, 2, 24, 0, 90
 	createsprite gAttackOrderParticleSpriteTemplate, 130, 5, 120, 70, 5, 70, 30  
 	delay 1 
 	createsprite gAttackOrderParticleSpriteTemplate, 130, 5, 115, 55, 6, 60, 25  
@@ -4001,8 +4004,6 @@ Move_DEFEND_ORDER:
 	clearmonbg ANIM_ATK_PARTNER 
 	blendoff 
 	delay 1 
-	call BideSetUp 
-	waitforvisualfinish 
 	end
 	
 Move_HEAL_ORDER:
