@@ -332,8 +332,8 @@
         return FALSE;
     }
 
-    extern const u16 gFrontierBannedSpecies[27];
-    extern const u16 gChallengeBannedSpecies[69];
+    extern const u16 gFrontierBannedSpecies[];
+    extern const u16 gChallengeBannedSpecies[];
 
     int CheckValidMonsForSpecialChallenge (void)
     {
