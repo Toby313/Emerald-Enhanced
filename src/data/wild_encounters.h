@@ -1460,7 +1460,7 @@ const struct WildPokemon gMeteorFalls_B1F_2R_LandMons[] =
 	{48, 48, SPECIES_JANGMO_O},
 	{50, 50, SPECIES_JANGMO_O},
 	{48, 48, SPECIES_LARVITAR},
-	{50, 50, SPECIES_SHUCKLE},
+	{50, 50, SPECIES_DRUDDIGON},
 };
 
 const struct WildPokemonInfo gMeteorFalls_B1F_2R_LandMonsInfo = {10, gMeteorFalls_B1F_2R_LandMons};

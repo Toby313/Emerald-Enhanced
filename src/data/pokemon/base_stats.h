@@ -16305,9 +16305,9 @@ const struct BaseStats gBaseStats[] =
 
     [SPECIES_DRUDDIGON] =
     {
-        .baseHP        = 77,
+        .baseHP        = 87,
         .baseAttack    = 120,
-        .baseDefense   = 90,
+        .baseDefense   = 127,
         .baseSpeed     = 48,
         .baseSpAttack  = 60,
         .baseSpDefense = 90,
