@@ -916,7 +916,7 @@ static const struct SpriteTemplate sSpriteTemplate_MonIconOnLvlUpBox =
     .callback = SpriteCB_MonIconOnLvlUpBox
 };
 
-static const u16 sProtectSuccessRates[] = {USHRT_MAX, USHRT_MAX / 2, USHRT_MAX / 4, USHRT_MAX / 8};
+static const u16 sProtectSuccessRates[] = {USHRT_MAX, USHRT_MAX / 3, USHRT_MAX / 9, USHRT_MAX / 27};
 
 #define FORBIDDEN_MIMIC         0x1
 #define FORBIDDEN_METRONOME     0x2
