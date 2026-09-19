@@ -11181,7 +11181,7 @@ static void Cmd_presentdamagecalculation(void)
     }
     else
     {
-        gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP * (-1);
+        gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP;
         if (gBattleMoveDamage == 0)
             gBattleMoveDamage = 1;
         gBattleMoveDamage *= -1;
