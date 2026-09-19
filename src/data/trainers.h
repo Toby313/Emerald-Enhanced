@@ -8434,7 +8434,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_DELTON] =
     {
-        .partyFlags = F_AUTOFILL_PARTY,
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVESET,
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER,
         .trainerFaction = FACTION_PROFESSIONALS,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
@@ -8445,7 +8445,7 @@ const struct Trainer gTrainers[] = {
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
         .partySize = ARRAY_COUNT(sParty_Delton),
-        .party = {.NoItemDefaultMoves = sParty_Delton},
+        .party = {.NoItemCustomMoves = sParty_Delton},
     },
 
     [TRAINER_MARCUS] =

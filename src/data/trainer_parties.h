@@ -9959,37 +9959,49 @@ static const struct TrainerMonItemCustomMoves sParty_Joyce[] = {
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_Delton[] = {
+static const struct TrainerMonNoItemCustomMoves sParty_Delton[] = {
     {
     .iv = 0,
     .lvl = 69,
     .species = SPECIES_DELIBIRD,
+    .ability = 0,
+    .moves = {MOVE_PRESENT, MOVE_SEED_BOMB, MOVE_DRILL_PECK, MOVE_BRICK_BREAK},
     },
     {
     .iv = 0,
     .lvl = 69,
     .species = SPECIES_DELIBIRD,
+    .ability = 0,
+    .moves = {MOVE_PRESENT, MOVE_SEED_BOMB, MOVE_AERIAL_ACE, MOVE_BRICK_BREAK},
     },
     {
     .iv = 0,
     .lvl = 69,
     .species = SPECIES_DELIBIRD,
+    .ability = 0,
+    .moves = {MOVE_PRESENT, MOVE_SEED_BOMB, MOVE_AERIAL_ACE, MOVE_BRICK_BREAK},
     },
     {
     .iv = 0,
     .lvl = 69,
     .species = SPECIES_DELIBIRD,
+    .ability = 0,
+    .moves = {MOVE_PRESENT, MOVE_SEED_BOMB, MOVE_AERIAL_ACE, MOVE_BRICK_BREAK},
     },
     {
     .iv = 0,
     .lvl = 69,
     .species = SPECIES_DELIBIRD,
+    .ability = 0,
+    .moves = {MOVE_PRESENT, MOVE_SEED_BOMB, MOVE_AERIAL_ACE, MOVE_BRICK_BREAK},
     },
     {
     .iv = 0,
     .lvl = 69,
     .species = SPECIES_DELIBIRD,
-    }
+    .ability = 0,
+    .moves = {MOVE_PRESENT, MOVE_SEED_BOMB, MOVE_AERIAL_ACE, MOVE_BRICK_BREAK},
+    },
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_Marcus[] = {

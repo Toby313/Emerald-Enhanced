@@ -1766,7 +1766,7 @@ static const u8 sDEFEND_ORDERDescription[] = _(
     "protect its Queen.");
 
 static const u8 sHEAL_ORDERDescription[] = _(
-    "Commands The Swarm to heal\n"
+    "Directs The Swarm to heal\n"
     "the Queen or her ally.");
 
 static const u8 sHEAD_SMASHDescription[] = _(

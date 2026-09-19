@@ -4825,17 +4825,17 @@ SnowyShore_Text_JoycePostBattle:
 	.string "trainers I happen to meet!$"
 
 SnowyShore_Text_DeltonIntro:
-	.string "I caught a lot of strong-looking\n"
-	.string "pokemon!$"
+	.string "An old fellow told me about a\n"
+	.string "legendary ice bird.\p"
+	.string "I caught a whole team of them!$"
 
 SnowyShore_Text_DeltonDefeated:
-	.string "I can't believe my legendary\n"
-	.string "pokemon lost!$"
+	.string "Impossible! I can't believe\n"
+	.string "my legendary pokemon lost!$"
 
 SnowyShore_Text_DeltonPostBattle:
-	.string "An old fellow told me about a\n"
-	.string "legendary Ice/Flying pokemon.\p"
-	.string "I caught a whole team of them!$"
+	.string "Maybe I need more legendaries\n"
+	.string "to win…$"
 
 SnowyShore_Text_MarcusIntro:
 	.string "My Piloswine takes it slow and\n"
