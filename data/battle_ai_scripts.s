@@ -186,7 +186,6 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_ATTRACT, AI_CBM_Attract
 	if_effect EFFECT_CAPTIVATE, AI_CBM_Captivate
 	if_effect EFFECT_RETURN, AI_CBM_HighRiskForDamage
-	if_effect EFFECT_PRESENT, AI_CBM_HighRiskForDamage
 	if_effect EFFECT_FRUSTRATION, AI_CBM_HighRiskForDamage
 	if_effect EFFECT_SAFEGUARD, AI_CBM_Safeguard
 	if_effect EFFECT_MAGNITUDE, AI_CBM_Magnitude
@@ -1199,7 +1198,18 @@ AI_CheckViability:
 	if_effect EFFECT_STICKY_WEB, AI_CV_Hazards
 	if_effect EFFECT_TOXIC_SPIKES, AI_CV_Hazards
 	if_effect EFFECT_PERISH_SONG, AI_CV_PerishSong
+    if_effect EFFECT_PRESENT, AI_CV_Present
 	end
+
+AI_CV_Present:
+    if_type_effectiveness AI_EFFECTIVENESS_x0, AI_CV_Present_End
+    if_type_effectiveness AI_EFFECTIVENESS_x0_25, AI_CV_Present_End
+    if_type_effectiveness AI_EFFECTIVENESS_x0_5, AI_CV_Present_End
+    get_ability AI_TARGET
+    if_equal ABILITY_WONDER_GUARD, AI_CV_Present_End
+    score +5
+AI_CV_Present_End:
+    end
 	
 AI_CV_PerishSong:
 	get_ability AI_USER
@@ -3655,7 +3665,6 @@ AI_Risky_EffectsToEncourage:
     .byte EFFECT_DESTINY_BOND
     .byte EFFECT_SWAGGER
     .byte EFFECT_ATTRACT
-    .byte EFFECT_PRESENT
     .byte EFFECT_ALL_STATS_UP_HIT
     .byte EFFECT_BELLY_DRUM
     .byte EFFECT_MIRROR_COAT
