@@ -1597,7 +1597,7 @@ const struct WildPokemon gRoute109_WaterMons[] =
 	{20, 25, SPECIES_WINGULL},
 	{15, 25, SPECIES_WINGULL},
 	{25, 30, SPECIES_PELIPPER},
-	{25, 30, SPECIES_PELIPPER},
+	{25, 30, SPECIES_WIMPOD},
 };
 
 const struct WildPokemonInfo gRoute109_WaterMonsInfo = {4, gRoute109_WaterMons};
