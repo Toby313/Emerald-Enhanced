@@ -39,7 +39,7 @@ SootopolisCity_EventScript_KiriGiveBerry:: @ 81E5F1B
 	goto_if_eq Common_EventScript_ShowBagIsFull
 	setflag FLAG_DAILY_SOOTOPOLIS_RECEIVED_BERRY
 	msgbox SootopolisCity_Text_GiveYouThisBerryToo, MSGBOX_DEFAULT
-	random 2
+	random 1
 	compare VAR_RESULT, 0
 	goto_if_eq SootopolisCity_EventScript_GiveFigyBerry
 	compare VAR_RESULT, 1

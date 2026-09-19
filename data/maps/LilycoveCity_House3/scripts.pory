@@ -4,7 +4,7 @@ LilycoveCity_House3_MapScripts:: @ 821EE3C
 	.byte 0
 
 LilycoveCity_House3_OnTransition: @ 821EE42
-	random 4
+	random 3
 	copyvar VAR_TEMP_1, VAR_RESULT
 	end
 

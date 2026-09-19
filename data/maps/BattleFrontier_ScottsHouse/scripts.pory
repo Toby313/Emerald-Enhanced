@@ -69,7 +69,7 @@ BattleFrontier_ScottsHouse_EventScript_GivenBerry:: @ 82637DA
 	end
 
 BattleFrontier_ScottsHouse_EventScript_RandomComment:: @ 82637E4
-	random 3
+	random 2
 	compare VAR_RESULT, 1
 	goto_if_eq BattleFrontier_ScottsHouse_EventScript_FrontierBrainComment
 	compare VAR_RESULT, 2

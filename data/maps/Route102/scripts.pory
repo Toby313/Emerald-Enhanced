@@ -77,7 +77,7 @@ r102_TianaStartsFollowing:
 
 r102_FollowerTianaScript:
 	goto_if_set FLAG_TEMP_D, r102_InitialTianaMsg
-	random 9
+	random 8
 	switch VAR_RESULT
 	case 0, r102_TianaMsg0
 	case 1, r102_TianaMsg1

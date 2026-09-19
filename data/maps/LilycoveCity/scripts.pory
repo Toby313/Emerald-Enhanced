@@ -201,7 +201,7 @@ LilycoveCity_EventScript_BerryGentleman:: @ 81E2BD8
 	dotimebasedevents
 	goto_if_set FLAG_DAILY_LILYCOVE_RECEIVED_BERRY, LilycoveCity_EventScript_ReceivedBerry
 	msgbox LilycoveCity_Text_BerrySuitsYou, MSGBOX_DEFAULT
-	random 10
+	random 9
 	addvar VAR_RESULT, FIRST_BERRY_INDEX
 	giveitem VAR_RESULT
 	compare VAR_RESULT, FALSE
