@@ -747,7 +747,7 @@ static const u8 sText_RyuDoTInfestation[] = _("The infestation continues to eat\
 static const u8 sText_RyuDoTCling[] = _("{B_ATK_NAME_WITH_PREFIX} is still being hugged\ntightly!"); 
 static const u8 sText_RyuItDoesntLikeCheaters[] = _("The wild pokémon doesn't\nlike cheaters!"); 
 static const u8 sText_RyuBurnedByMagma[] = _("{B_ATK_NAME_WITH_PREFIX} was burned by the\nswirling magma!"); 
-static const u8 sText_RyuSwarmedByHive[] = _("{B_ATK_NAME_WITH_PREFIX} is being swarmed\nby the hive!"); 
+static const u8 sText_RyuStillSwarmed[] = _("{B_ATK_NAME_WITH_PREFIX} is still being\npummeled by the swarm!"); 
 static const u8 sText_RyuBallBlockedReaper[] = _("YOU ARE NOT WORTHY!"); 
 static const u8 sText_RyuBallBlockedHorseman[] = _("A strange forcefield blocked\nthe ball."); 
 static const u8 sText_ToxicWebBlankets[] = _("The other side is blanketed\nwith a toxic thread!"); 
@@ -782,7 +782,7 @@ static const u8 sText_MonotypeDoesntMatch[] = _("You can only capture {STR_VAR_3
 static const u8 sText_MonotypeDoesntMatchMon[] = _("You can only use {STR_VAR_3}\ntype Pokémon!");
 static const u8 sText_MonotypeDoesntMatchMove[] = _("You can only use {STR_VAR_3}\nor normal type moves!");
 static const u8 sText_TechnicianModPrevented[] = _("The Technician challenge prevented\nthe move!");
-static const u8 sText_AttackOrderSwarm[] = _("{B_ATK_NAME_WITH_PREFIX}'s hive is\nswarming the opponent!");
+static const u8 sText_AttackOrderSwarm[] = _("{B_ATK_NAME_WITH_PREFIX}'s swarm is\npummeling the opponent!");
 static const u8 sText_DefendOrderRecall[] = _("{B_ATK_NAME_WITH_PREFIX} recalls the\nswarm from its target!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
@@ -1389,7 +1389,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_DOTCLING - 12] = sText_RyuDoTCling,
     [STRINGID_ITDOESNTLIKECHEATERS - 12] = sText_RyuItDoesntLikeCheaters,
     [STRINGID_DOTMS - 12] = sText_RyuBurnedByMagma,
-    [STRINGID_DOTATTACKORDER - 12] = sText_RyuSwarmedByHive,
+    [STRINGID_DOTATTACKORDER - 12] = sText_RyuStillSwarmed,
     [STRINGID_BALLBLOCKEDREAPER - 12] = sText_RyuBallBlockedReaper,
     [STRINGID_BALLBLOCKEDHORSEMAN - 12] = sText_RyuBallBlockedHorseman,
     [STRINGID_TOXICTHREADUSED - 12] = sText_ToxicWebBlankets,
@@ -1424,7 +1424,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_NONMONOTYPEMOVE- 12] = sText_MonotypeDoesntMatchMove,
     [STRINGID_NONMONOTYPEMON- 12] = sText_MonotypeDoesntMatchMon,
     [STRINGID_TECHNICIANPREVENTED- 12] = sText_TechnicianModPrevented,
-    [STRINGID_SWARMEDBYTHEHIVE- 12] = sText_AttackOrderSwarm,
+    [STRINGID_PUMMELEDBYSWARM- 12] = sText_AttackOrderSwarm,
     [STRINGID_SWARMRECALLED- 12] = sText_DefendOrderRecall,
 };
 
@@ -1587,7 +1587,7 @@ const u16 gWrappedStringIds[] =
     STRINGID_INFESTATION,            // MOVE_INFESTATION
     STRINGID_WASHUGGEDBY,            // MOVE_CLING
     STRINGID_TRAPPERBYSWIRLINGMAGMA, // MOVE_MAGMA_STORM
-    STRINGID_SWARMEDBYTHEHIVE,       // MOVE_ATTACK_ORDER
+    STRINGID_PUMMELEDBYSWARM,       // MOVE_ATTACK_ORDER
 };
 
 const u16 gWrappedDoTIds[] = 

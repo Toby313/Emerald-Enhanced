@@ -9007,13 +9007,13 @@ static void Cmd_setprotectlike(void)
                 gProtectStructs[gBattlerAttacker].protected = 1;
                 gBattleCommunication[MULTISTRING_CHOOSER] = 0;
                 
-                for (i = 0; i < gBattlersCount; i++) // Recalls the hive: Frees any target trapped by the attacker
+                for (i = 0; i < gBattlersCount; i++) // Recalls the swarm: Frees any target trapped by the attacker
                 {
                     if ((gBattleMons[i].status2 & STATUS2_WRAPPED) && gBattleStruct->wrappedBy[i] == gBattlerAttacker)
                     {
                         gBattleMons[i].status2 &= ~(STATUS2_WRAPPED);
                         gDisableStructs[i].wrapTurns = 0;
-                        gBattleCommunication[1] = 1;
+                        gBattleCommunication[1] = 1; // To check if the target was released this turn
                     }
                 }
             }

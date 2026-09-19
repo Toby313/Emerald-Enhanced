@@ -1758,16 +1758,16 @@ static const u8 sCHARGE_BEAMDescription[] = _(
     "May raise Sp. Atk.");
 
 static const u8 sATTACK_ORDERDescription[] = _(
-    "Sends out the hive to swarm\n"
-    "onto the foe.");
+    "Sends out The Swarm to\n"
+    "pummel the foe.");
 
 static const u8 sDEFEND_ORDERDescription[] = _(
-    "Calls onto the hive to\n"
-    "protect its queen.");
+    "Calls onto The Swarm to\n"
+    "protect its Queen.");
 
 static const u8 sHEAL_ORDERDescription[] = _(
-    "Commands the hive to heal\n"
-    "the queen or her ally.");
+    "Commands The Swarm to heal\n"
+    "the Queen or her ally.");
 
 static const u8 sHEAD_SMASHDescription[] = _(
     "A life-risking headbutt that\n"

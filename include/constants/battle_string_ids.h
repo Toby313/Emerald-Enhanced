@@ -652,7 +652,7 @@
 #define STRINGID_NONMONOTYPEMON                       648
 #define STRINGID_NONMONOTYPEMOVE                      649
 #define STRINGID_TECHNICIANPREVENTED                  650
-#define STRINGID_SWARMEDBYTHEHIVE                     651
+#define STRINGID_PUMMELEDBYSWARM                      651
 #define STRINGID_DOTATTACKORDER                       652
 #define STRINGID_SWARMRECALLED                        653
 

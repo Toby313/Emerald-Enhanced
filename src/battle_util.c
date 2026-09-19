@@ -4296,21 +4296,21 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
             {
             case ABILITY_HIVE_MIND:
             {
-                bool8 hiveAttacking = FALSE;
+                bool8 swarmAttacking = FALSE;
                 for (i = 0; i < gBattlersCount; i++)
                 {
-                    if (GetBattlerSide(i) != GetBattlerSide(battler) && IsBattlerAlive(i)) // Don't heal if the hive is already attacking
+                    if (GetBattlerSide(i) != GetBattlerSide(battler) && IsBattlerAlive(i)) // Don't heal if the swarm is already attacking
                     {
                         if ((gBattleMons[i].status2 & STATUS2_WRAPPED) 
                          && gBattleStruct->wrappedBy[i] == battler 
                          && gBattleStruct->wrappedMove[i] == MOVE_ATTACK_ORDER)
                         {
-                            hiveAttacking = TRUE;
+                            swarmAttacking = TRUE;
                             break;
                         }
                     }
                 }
-                if (!hiveAttacking && !BATTLER_MAX_HP(battler) && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK))
+                if (!swarmAttacking && !BATTLER_MAX_HP(battler) && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK))
                 {
                     gBattleScripting.battler = battler;
                     gBattlerTarget = battler;
