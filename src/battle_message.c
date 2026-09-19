@@ -782,7 +782,7 @@ static const u8 sText_MonotypeDoesntMatch[] = _("You can only capture {STR_VAR_3
 static const u8 sText_MonotypeDoesntMatchMon[] = _("You can only use {STR_VAR_3}\ntype Pokémon!");
 static const u8 sText_MonotypeDoesntMatchMove[] = _("You can only use {STR_VAR_3}\nor normal type moves!");
 static const u8 sText_TechnicianModPrevented[] = _("The Technician challenge prevented\nthe move!");
-static const u8 sText_AttackOrderSwarm[] = _("{B_ATK_NAME_WITH_PREFIX}'s swarm is\npummeling the opponent!");
+static const u8 sText_AttackOrderSwarm[] = _("{B_ATK_NAME_WITH_PREFIX}'s swarm is\npummeling the target!");
 static const u8 sText_DefendOrderRecall[] = _("{B_ATK_NAME_WITH_PREFIX} recalls the\nswarm from its target!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =

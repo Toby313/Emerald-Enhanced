@@ -10316,15 +10316,14 @@ const u32 gTMHMLearnsets[][2] =
 											| TMHM(TM21_FRUSTRATION)
 											| TMHM(TM10_HIDDEN_POWER)
 											| TMHM(TM15_HYPER_BEAM)
-											| TMHM(TM17_PROTECT)
 											| TMHM(TM18_RAIN_DANCE)
 											| TMHM(TM44_REST)
 											| TMHM(TM27_RETURN)
 											| TMHM(TM43_SECRET_POWER)
 											| TMHM(TM36_SLUDGE_BOMB)
 											| TMHM(TM11_SUNNY_DAY)
-											| TMHM(TM46_THIEF)
-											| TMHM(TM06_TOXIC)),
+											| TMHM(TM60_SUPERPOWER)
+											| TMHM(TM46_THIEF)),
 
     [SPECIES_PACHIRISU]   = TMHM_LEARNSET(TMHM(TM45_ATTRACT)
 											| TMHM(TM28_DIG)

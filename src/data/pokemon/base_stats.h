@@ -10879,7 +10879,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroup1 = EGG_GROUP_BUG,
         .eggGroup2 = EGG_GROUP_BUG,
-        .abilities = {ABILITY_HONEY_GATHER, ABILITY_NONE},
+        .abilities = {ABILITY_HONEY_GATHER, ABILITY_HONEY_GATHER},
         .abilityHidden = ABILITY_HUSTLE,
         .noFlip = FALSE,
         .bodyColor = BODY_COLOR_YELLOW,
@@ -10887,14 +10887,14 @@ const struct BaseStats gBaseStats[] =
 
     [SPECIES_VESPIQUEN] =
     {
-        .baseHP        = 70,
-        .baseAttack    = 80,
-        .baseDefense   = 102,
+        .baseHP        = 90,
+        .baseAttack    = 122,
+        .baseDefense   = 122,
         .baseSpeed     = 40,
         .baseSpAttack  = 80,
         .baseSpDefense = 102,
         .type1 = TYPE_BUG,
-        .type2 = TYPE_FLYING,
+        .type2 = TYPE_BUG,
         .catchRate = 45,
         .expYield = 166,
         .evYield_Defense   = 1,
