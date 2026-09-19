@@ -372,6 +372,7 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectVoidBurst
 	.4byte BattleScript_EffectShadowSlam
 	.4byte BattleScript_EffectAttackOrder
+    .4byte BattleScript_EffectDefendOrder
 	.4byte BattleScript_EffectHealOrder
 	.4byte BattleScript_BothCanNoLongerEscape
 
@@ -8246,6 +8247,23 @@ BattleScript_EffectAttackOrder::
 BattleScript_AttackOrderTrap::
     setmoveeffect MOVE_EFFECT_WRAP
     goto BattleScript_EffectHit
+
+BattleScript_EffectDefendOrder::
+    attackcanceler
+    attackstring
+    ppreduce
+    setprotectlike
+    jumpifbyte CMP_EQUAL, gBattleCommunication + 1, 1, BattleScript_DefendOrderRecall
+    goto BattleScript_DefendOrderProtect
+BattleScript_DefendOrderRecall:
+    printstring STRINGID_SWARMRECALLED
+    waitmessage 0x40
+BattleScript_DefendOrderProtect:
+    attackanimation
+    waitanimation
+    printfromtable gProtectLikeUsedStringIds
+    waitmessage 0x40
+    goto BattleScript_MoveEnd
 
 BattleScript_EffectHealOrder::
     attackcanceler

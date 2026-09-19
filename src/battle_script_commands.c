@@ -9013,6 +9013,7 @@ static void Cmd_setprotectlike(void)
                     {
                         gBattleMons[i].status2 &= ~(STATUS2_WRAPPED);
                         gDisableStructs[i].wrapTurns = 0;
+                        gBattleCommunication[1] = 1;
                     }
                 }
             }

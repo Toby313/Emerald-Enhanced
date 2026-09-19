@@ -783,6 +783,7 @@ static const u8 sText_MonotypeDoesntMatchMon[] = _("You can only use {STR_VAR_3}
 static const u8 sText_MonotypeDoesntMatchMove[] = _("You can only use {STR_VAR_3}\nor normal type moves!");
 static const u8 sText_TechnicianModPrevented[] = _("The Technician challenge prevented\nthe move!");
 static const u8 sText_AttackOrderSwarm[] = _("{B_ATK_NAME_WITH_PREFIX}'s hive is\nswarming the opponent!");
+static const u8 sText_DefendOrderRecall[] = _("{B_ATK_NAME_WITH_PREFIX} recalls the\nswarm from its target!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1424,6 +1425,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_NONMONOTYPEMON- 12] = sText_MonotypeDoesntMatchMon,
     [STRINGID_TECHNICIANPREVENTED- 12] = sText_TechnicianModPrevented,
     [STRINGID_SWARMEDBYTHEHIVE- 12] = sText_AttackOrderSwarm,
+    [STRINGID_SWARMRECALLED- 12] = sText_DefendOrderRecall,
 };
 
 const u16 gTerrainStringIds[] =

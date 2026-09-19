@@ -654,8 +654,9 @@
 #define STRINGID_TECHNICIANPREVENTED                  650
 #define STRINGID_SWARMEDBYTHEHIVE                     651
 #define STRINGID_DOTATTACKORDER                       652
+#define STRINGID_SWARMRECALLED                        653
 
-#define BATTLESTRINGS_COUNT                           653
+#define BATTLESTRINGS_COUNT                           654
 
 
 #endif // GUARD_CONSTANTS_BATTLE_STRING_IDS_H

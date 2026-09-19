@@ -6381,7 +6381,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_DEFEND_ORDER] =
     {
-        .effect = EFFECT_PROTECT, // Special effect coded in battle_script_commands.c
+        .effect = EFFECT_DEFEND_ORDER,
         .power = 0,
         .type = TYPE_BUG,
         .accuracy = 0,
