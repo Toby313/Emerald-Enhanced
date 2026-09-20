@@ -1,1 +1,24 @@
 mapscripts Route100_MapScripts {}
+
+script Route100_EventScript_SkittyGirl {
+	lock
+	faceplayer
+	msgbox("Did you know certain abilities
+    attract particular pokemon types?
+    
+    Thanks to my Normalize Skitty,
+    I finally got a Chansey!")
+	release
+	end
+}
+
+script Route100_EventScript_Skitty {
+	lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_SKITTY, 0)
+	msgbox("Skitty: Mew mew!")
+	waitmoncry
+	release
+	end
+}

@@ -95,7 +95,7 @@
       "id": "LAYOUT_LITTLEROOT_TOWN",
       "name": "LittlerootTown_Layout",
       "width": 26,
-      "height": 22,
+      "height": 26,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/LittlerootTown/border.bin",
@@ -5755,9 +5755,9 @@
       "id": "LAYOUT_ROUTE100",
       "name": "Route100_Layout",
       "width": 26,
-      "height": 54,
+      "height": 50,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
+      "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/Route100/border.bin",
       "blockdata_filepath": "data/layouts/Route100/map.bin"
     }
