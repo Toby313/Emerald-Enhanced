@@ -784,6 +784,7 @@ static const u8 sText_MonotypeDoesntMatchMove[] = _("You can only use {STR_VAR_3
 static const u8 sText_TechnicianModPrevented[] = _("The Technician challenge prevented\nthe move!");
 static const u8 sText_AttackOrderSwarm[] = _("{B_ATK_NAME_WITH_PREFIX}'s swarm is\npummeling the target!");
 static const u8 sText_DefendOrderRecall[] = _("{B_ATK_NAME_WITH_PREFIX} recalls the\nswarm from its target!");
+static const u8 sText_HiveMindEnters[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} has summoned\nThe Swarm!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1426,6 +1427,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_TECHNICIANPREVENTED- 12] = sText_TechnicianModPrevented,
     [STRINGID_PUMMELEDBYSWARM- 12] = sText_AttackOrderSwarm,
     [STRINGID_SWARMRECALLED- 12] = sText_DefendOrderRecall,
+    [STRINGID_HIVEMINDENTERS- 12] = sText_HiveMindEnters,
 };
 
 const u16 gTerrainStringIds[] =
@@ -1457,7 +1459,8 @@ const u16 gSwitchInAbilityStringIds[] =
 {
     STRINGID_MOLDBREAKERENTERS, STRINGID_TERAVOLTENTERS, STRINGID_TURBOBLAZEENTERS,
     STRINGID_SLOWSTARTENTERS, STRINGID_UNNERVEENTERS, STRINGID_ANTICIPATIONACTIVATES,
-    STRINGID_FOREWARNACTIVATES, STRINGID_ILLUSIONISTENHANCED, STRINGID_ILLUSIONISTBASE
+    STRINGID_FOREWARNACTIVATES, STRINGID_ILLUSIONISTENHANCED, STRINGID_ILLUSIONISTBASE,
+    STRINGID_HIVEMINDENTERS
 };
 
 const u16 gMissStringIds[] =

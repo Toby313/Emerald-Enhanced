@@ -655,8 +655,9 @@
 #define STRINGID_PUMMELEDBYSWARM                      651
 #define STRINGID_DOTATTACKORDER                       652
 #define STRINGID_SWARMRECALLED                        653
+#define STRINGID_HIVEMINDENTERS                       654
 
-#define BATTLESTRINGS_COUNT                           654
+#define BATTLESTRINGS_COUNT                           655
 
 
 #endif // GUARD_CONSTANTS_BATTLE_STRING_IDS_H
