@@ -1274,8 +1274,8 @@
     {
       "id": "LAYOUT_METEOR_FALLS_B1F_2R",
       "name": "MeteorFalls_B1F_2R_Layout",
-      "width": 11,
-      "height": 18,
+      "width": 29,
+      "height": 19,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_MeteorFalls",
       "border_filepath": "data/layouts/MeteorFalls_B1F_2R/border.bin",
