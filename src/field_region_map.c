@@ -77,9 +77,9 @@ static const struct WindowTemplate sFieldRegionMapWindowTemplates[] =
     },
     {
         .bg = 0,
-        .tilemapLeft = 22,
+        .tilemapLeft = 17,
         .tilemapTop = 1,
-        .width = 7,
+        .width = 6,
         .height = 2,
         .paletteNum = 15,
         .baseBlock = 25
@@ -151,7 +151,7 @@ static void FieldUpdateRegionMap(void)
             break;
         case 1:
             DrawStdFrameWithCustomTileAndPalette(1, 0, 0x27, 0xd);
-            offset = GetStringCenterAlignXOffset(1, gText_Hoenn, 0x38);
+            offset = GetStringCenterAlignXOffset(1, gText_Hoenn, 0x32);
             AddTextPrinterParameterized(1, 1, gText_Hoenn, offset, 1, 0, NULL);
             ScheduleBgCopyTilemapToVram(0);
             DrawStdFrameWithCustomTileAndPalette(0, 0, 0x27, 0xd);
