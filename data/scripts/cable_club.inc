@@ -1435,7 +1435,7 @@ CableClub_TrainerResetter_ResetTrainers::
 	cleartrainerflag TRAINER_STEVEN_POSTGAME9
 	cleartrainerflag TRAINER_REL_GLADION
 	cleartrainerflag TRAINER_REL_LILLIE
-	cleartrainerflag TRAINER_EMPTY_32
+	cleartrainerflag TRAINER_GLORIA
 	cleartrainerflag TRAINER_WARREN
 	cleartrainerflag TRAINER_MARY
 	cleartrainerflag TRAINER_ALEXIA
@@ -1460,7 +1460,7 @@ CableClub_TrainerResetter_ResetTrainers::
 	cleartrainerflag TRAINER_TASHA
 	cleartrainerflag TRAINER_JASE
 	cleartrainerflag TRAINER_MILLY
-	cleartrainerflag TRAINER_EMPTY_35
+	cleartrainerflag TRAINER_REBECCA
 	cleartrainerflag TRAINER_EMPTY_36
 	cleartrainerflag TRAINER_CINDY_1
 	cleartrainerflag TRAINER_DAPHNE

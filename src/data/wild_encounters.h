@@ -74,7 +74,7 @@
 //Start of regular Pokemon tables.
 
 //Custom encounters
- const struct WildPokemon gLittlerootTown_LandMons[] =
+ const struct WildPokemon gRoute100_LandMons[] =
 {
 	{5, 5, SPECIES_BULBASAUR},//20%
 	{5, 5, SPECIES_CHARMANDER},//20%
@@ -90,9 +90,9 @@
 	{5, 5, SPECIES_CHANSEY},//1%
 };
 
-const struct WildPokemonInfo gLittlerootTown_LandMonsInfo = {20, gLittlerootTown_LandMons};
+const struct WildPokemonInfo gRoute100_LandMonsInfo = {20, gRoute100_LandMons};
 
-const struct WildPokemon gLittlerootTown_WaterMons[] =
+const struct WildPokemon gRoute100_WaterMons[] =
 {
 	{5, 5, SPECIES_SQUIRTLE},//60%
 	{5, 5, SPECIES_TOTODILE},//30%
@@ -101,18 +101,18 @@ const struct WildPokemon gLittlerootTown_WaterMons[] =
 	{5, 5, SPECIES_BELDUM},//1%
 };
 
-const struct WildPokemonInfo gLittlerootTown_WaterMonsInfo = {4, gLittlerootTown_WaterMons};
+const struct WildPokemonInfo gRoute100_WaterMonsInfo = {4, gRoute100_WaterMons};
 
- const struct WildPokemon gLittlerootTown_HiddenMons[] =//dexnav only special species
+ const struct WildPokemon gRoute100_HiddenMons[] =//dexnav only special species
 {
 	{5, 5, SPECIES_IGGLYBUFF},
 	{5, 5, SPECIES_PICHU},
 	{5, 5, SPECIES_HAPPINY},
 };
 
-const struct WildPokemonInfo gLittlerootTown_HiddenMonsInfo = {3, gLittlerootTown_HiddenMons};
+const struct WildPokemonInfo gRoute100_HiddenMonsInfo = {3, gRoute100_HiddenMons};
 
-const struct WildPokemon gLittlerootTown_FishingMons[] =
+const struct WildPokemon gRoute100_FishingMons[] =
 {
 	{15, 20, SPECIES_MUDKIP},//70% old
 	{15, 20, SPECIES_MUDKIP},//30% old
@@ -126,7 +126,7 @@ const struct WildPokemon gLittlerootTown_FishingMons[] =
 	{40, 45, SPECIES_TOTODILE},//1% super
 };
 
-const struct WildPokemonInfo gLittlerootTown_FishingMonsInfo = {30, gLittlerootTown_FishingMons};
+const struct WildPokemonInfo gRoute100_FishingMonsInfo = {30, gRoute100_FishingMons};
 
 const struct WildPokemon gRoute66_LandMons[] =
 {
@@ -3964,12 +3964,12 @@ const struct WildPokemonHeader gWildMonHeaders[] =
 //Custom locations
 {
 	{
-		.mapGroup = MAP_GROUP(LITTLEROOT_TOWN),
-		.mapNum = MAP_NUM(LITTLEROOT_TOWN),
-		.landMonsInfo = &gLittlerootTown_LandMonsInfo,
-		.waterMonsInfo = &gLittlerootTown_WaterMonsInfo,
+		.mapGroup = MAP_GROUP(ROUTE100),
+		.mapNum = MAP_NUM(ROUTE100),
+		.landMonsInfo = &gRoute100_LandMonsInfo,
+		.waterMonsInfo = &gRoute100_WaterMonsInfo,
 		.rockSmashMonsInfo = NULL,
-		.fishingMonsInfo = &gLittlerootTown_FishingMonsInfo,
+		.fishingMonsInfo = &gRoute100_FishingMonsInfo,
 	},
 	{
 		.mapGroup = MAP_GROUP(ROUTE66),

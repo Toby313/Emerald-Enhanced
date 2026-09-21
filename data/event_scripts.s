@@ -1253,3 +1253,5 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/DewfordTown_Past/scripts.inc"
 
 	.include "data/maps/Route100/scripts.inc"
+
+	.include "data/maps/Route100_NormanShack/scripts.inc"

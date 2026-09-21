@@ -5760,6 +5760,16 @@
       "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/Route100/border.bin",
       "blockdata_filepath": "data/layouts/Route100/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE100_NORMAN_SHACK",
+      "name": "Route100_NormanShack_Layout",
+      "width": 9,
+      "height": 7,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Route100_NormanShack/border.bin",
+      "blockdata_filepath": "data/layouts/Route100_NormanShack/map.bin"
     }
   ]
 }

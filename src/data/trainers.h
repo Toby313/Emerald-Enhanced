@@ -1391,20 +1391,20 @@ const struct Trainer gTrainers[] = {
         .party = {.ItemCustomMoves = sParty_RelLillie},
     },
 
-    [TRAINER_EMPTY_32] =
+    [TRAINER_GLORIA] =
     {
         .partyFlags = F_AUTOFILL_PARTY,
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
-        .trainerFaction = FACTION_NOBLES,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
-        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
-        .trainerName = _("Wilton"),
-        .items = {ITEM_FULL_RESTORE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .trainerClass = TRAINER_CLASS_AROMA_LADY,
+        .trainerFaction = FACTION_OUTCASTS,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .trainerPic = TRAINER_PIC_AROMA_LADY,
+        .trainerName = _("Gloria"),
+        .items = {},
         .battleStyle = BS_SHIFT,
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
-        .partySize = ARRAY_COUNT(sParty_Wilton5),
-        .party = {.NoItemDefaultMoves = sParty_Wilton5},
+        .partySize = ARRAY_COUNT(sParty_Gloria),
+        .party = {.NoItemDefaultMoves = sParty_Gloria},
     },
 
     [TRAINER_WARREN] =
@@ -1791,20 +1791,20 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_JaseStory},
     },
 
-    [TRAINER_EMPTY_35] =
+    [TRAINER_REBECCA] =
     {
         .partyFlags = F_AUTOFILL_PARTY,
-        .trainerClass = TRAINER_CLASS_HEX_MANIAC,
-        .trainerFaction = FACTION_OUTCASTS,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
-        .trainerPic = TRAINER_PIC_HEX_MANIAC,
-        .trainerName = _("Valerie"),
+        .trainerClass = TRAINER_CLASS_SWIMMER_F,
+        .trainerFaction = FACTION_PROFESSIONALS,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_SWIMMER,
+        .trainerPic = TRAINER_PIC_SWIMMER_F,
+        .trainerName = _("Rebecca"),
         .items = {},
         .battleStyle = BS_SHIFT,
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
-        .partySize = ARRAY_COUNT(sParty_Valerie4),
-        .party = {.NoItemDefaultMoves = sParty_Valerie4},
+        .partySize = ARRAY_COUNT(sParty_Rebecca),
+        .party = {.NoItemDefaultMoves = sParty_Rebecca},
     },
 
     [TRAINER_EMPTY_36] =
@@ -7067,8 +7067,8 @@ const struct Trainer gTrainers[] = {
         .battleStyle = BS_SHIFT,
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
-        .partySize = ARRAY_COUNT(sParty_Beverly),
-        .party = {.NoItemDefaultMoves = sParty_Beverly},
+        .partySize = ARRAY_COUNT(sParty_Rebecca),
+        .party = {.NoItemDefaultMoves = sParty_Rebecca},
     },
 
     [TRAINER_IMANI] =

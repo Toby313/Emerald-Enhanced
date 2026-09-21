@@ -88,7 +88,7 @@
 #define TRAINER_STEVEN_POSTGAME9             84
 #define TRAINER_REL_GLADION                  85
 #define TRAINER_REL_LILLIE                   86
-#define TRAINER_EMPTY_32                     87
+#define TRAINER_GLORIA                       87
 #define TRAINER_WARREN                       88
 #define TRAINER_MARY                         89
 #define TRAINER_ALEXIA                       90
@@ -113,7 +113,7 @@
 #define TRAINER_TASHA                       109
 #define TRAINER_MILLY                       110
 #define TRAINER_JASE                        111
-#define TRAINER_EMPTY_35                    112
+#define TRAINER_REBECCA                     112
 #define TRAINER_EMPTY_36                    113
 #define TRAINER_CINDY_1                     114
 #define TRAINER_DAPHNE                      115

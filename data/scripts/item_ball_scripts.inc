@@ -1,4 +1,12 @@
 
+Route100_EventScript_ItemPotion::
+	finditem ITEM_POTION
+	end
+
+Route100_NormanShack_EventScript_ItemNetBall::
+	finditem ITEM_NET_BALL
+	end
+
 SnowyShore_DarkWorld_EventScript_ItemFireStone::
 	finditem ITEM_FIRE_STONE
 	end
@@ -173,10 +181,6 @@ Route66_EventScript_ItemDawnStone::
 
 Route66_EventScript_ItemLeafStone::
 	finditem ITEM_LEAF_STONE
-	end
-
-LittlerootTown_EventScript_ItemPotion::
-	finditem ITEM_POTION
 	end
 
 Ryu_GiveItemScript::

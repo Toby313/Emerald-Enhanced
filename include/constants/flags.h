@@ -460,7 +460,7 @@
 #define FLAG_ITEM_ROUTE_66_DAWN_STONE        0x1B1
 #define FLAG_ITEM_ROUTE_66_LEAF_STONE        0x1B2
 #define FLAG_RYU_ROUTE_66_ABSORB_BULB        0x1B3
-#define FLAG_ITEM_LITTLEROOT_TOWN_POTION     0x1B4
+#define FLAG_ITEM_ROUTE_100_POTION           0x1B4
 #define FLAG_ITEM_FROSTY_FOREST_DARK_GEM     0x1B5
 #define FLAG_ITEM_FROSTY_FOREST_EVERSTONE    0x1B6
 #define FLAG_ITEM_FROSTY_FOREST_DUSK_STONE   0x1B7
@@ -644,7 +644,7 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_128_HEART_SCALE_1             (FLAG_HIDDEN_ITEMS_START + 0x5C)
 #define FLAG_HIDDEN_ITEM_ROUTE_128_HEART_SCALE_2             (FLAG_HIDDEN_ITEMS_START + 0x5D)
 #define FLAG_HIDDEN_ITEM_ROUTE_128_HEART_SCALE_3             (FLAG_HIDDEN_ITEMS_START + 0x5F)
-#define FLAG_HIDDEN_ITEM_UNUSED_0x60                         (FLAG_HIDDEN_ITEMS_START + 0x60)//Unused hidden item flag.
+#define FLAG_TOBY_HIDDEN_ITEM_ROUTE_100_GREAT_BALL           (FLAG_HIDDEN_ITEMS_START + 0x60)//Unused hidden item flag.
 #define FLAG_HIDDEN_ITEM_UNUSED_0x61                         (FLAG_HIDDEN_ITEMS_START + 0x61)//Unused hidden item flag.
 #define FLAG_HIDDEN_ITEM_UNUSED_0x62                         (FLAG_HIDDEN_ITEMS_START + 0x62)//Unused hidden item flag.
 #define FLAG_HIDDEN_ITEM_UNUSED_0x63                         (FLAG_HIDDEN_ITEMS_START + 0x63)//Unused hidden item flag.
@@ -1420,6 +1420,7 @@
 #define FLAG_RYU_NGPLUS_BANKACCOUNT                               0x541
 #define FLAG_RYU_BILLCOLLECTOR_CALL                               0x542
 #define FLAG_RYU_SHOW_COORDINATES                                 0x543
+#define FLAG_ITEM_ROUTE_100_NORMAN_SHACK_NET_BALL                 0x544
 
 //tutorial system flags
 #define FLAG_RYU_FACTION_TUTORIAL_UNLOCKED                        0x5FB

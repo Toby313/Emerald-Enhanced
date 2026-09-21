@@ -3,11 +3,11 @@ mapscripts Route100_MapScripts {}
 script Route100_EventScript_SkittyGirl {
 	lock
 	faceplayer
-	msgbox("Did you know certain abilities
-    attract particular pokemon types?
+	msgbox("Did you know certain abilities attract
+            particular pokemon types?
     
-    Thanks to my Normalize Skitty,
-    I finally got a Chansey!")
+            Thanks to my Normalize Skitty,
+            I finally found a Chansey!")
 	release
 	end
 }
@@ -22,3 +22,43 @@ script Route100_EventScript_Skitty {
 	release
 	end
 }
+
+script Route100_EventScript_TuberF {
+	lock
+	faceplayer
+	msgbox("…Surf? HM's? What are you talking
+            about? Just jump right in!")
+	release
+	end
+}
+
+script Route100_EventScript_RouteSign {
+	msgbox("Route 100
+            {UP_ARROW_2} Littleroot Town", MSGBOX_SIGN)
+	end
+}
+
+script Route100_EventScript_FishingShack {
+	msgbox("Norman's fishing shack.
+            Private property!", MSGBOX_SIGN)
+	end
+}
+
+script Route100_EventScript_NormanBoat {
+	msgbox("It's Dad's boat. It doesn't look very
+            sea-worthy though…", MSGBOX_SIGN)
+	end
+}
+
+script Route100_EventScript_Gloria {
+	trainerbattle_single(TRAINER_GLORIA,"Have you seen a Bulbasaur?\nThey have such a strong scent!","Ah, the bitter smell of defeat…")
+	msgbox("Sniff… Sniff…\pI use my sense of smell to find\nthe pokemon I want!", MSGBOX_AUTOCLOSE)
+	end
+    }
+
+script Route100_EventScript_Rebecca {
+	trainerbattle_single(TRAINER_REBECCA,"Let's put on a show for my little sister!","Well, now I just look bad!")
+	msgbox("If you keep swimming southwest, you'll\nreach Dewford soon!", MSGBOX_AUTOCLOSE)
+	end
+    }
+
