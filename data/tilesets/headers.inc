@@ -241,17 +241,6 @@ gTileset_PokemonFanClub:: @ 83DF8FC
 	.4byte NULL @ animation callback
 
 	.align 2
-gTileset_Unused1:: @ 83DF914
-	.byte TRUE @ is compressed
-	.byte TRUE @ is secondary tileset
-	.2byte 0 @ padding
-	.4byte gTilesetTiles_Unused1
-	.4byte gTilesetPalettes_Unused1
-	.4byte gMetatiles_Unused1
-	.4byte gMetatileAttributes_Unused1
-	.4byte NULL @ animation callback
-
-	.align 2
 gTileset_MeteorFalls:: @ 83DF92C
 	.byte TRUE @ is compressed
 	.byte TRUE @ is secondary tileset
@@ -414,28 +403,6 @@ gTileset_SecretBaseRedCave:: @ 83DFA7C
 	.4byte gTilesetPalettes_SecretBaseRedCave
 	.4byte gMetatiles_SecretBaseSecondary
 	.4byte gMetatileAttributes_SecretBaseSecondary
-	.4byte NULL @ animation callback
-
-	.align 2
-gTileset_InsideOfTruck:: @ 83DFA94
-	.byte TRUE @ is compressed
-	.byte TRUE @ is secondary tileset
-	.2byte 0 @ padding
-	.4byte gTilesetTiles_InsideOfTruck
-	.4byte gTilesetPalettes_InsideOfTruck
-	.4byte gMetatiles_InsideOfTruck
-	.4byte gMetatileAttributes_InsideOfTruck
-	.4byte NULL @ animation callback
-
-	.align 2
-gTileset_Unused2:: @ 83DFAAC
-	.byte TRUE @ is compressed
-	.byte TRUE @ is secondary tileset
-	.2byte 0 @ padding
-	.4byte gTilesetTiles_Unused2
-	.4byte gTilesetPalettes_Unused2
-	.4byte gMetatiles_Unused2
-	.4byte gMetatileAttributes_Unused2
 	.4byte NULL @ animation callback
 
 	.align 2
@@ -807,17 +774,6 @@ gTileset_BattleTent:: @ 83DFDCC
 	.4byte gTilesetPalettes_BattleTent
 	.4byte gMetatiles_BattleTent
 	.4byte gMetatileAttributes_BattleTent
-	.4byte NULL @ animation callback
-
-	.align 2
-gTileset_MysteryEventsHouse:: @ 83DFDE4
-	.byte TRUE @ is compressed
-	.byte TRUE @ is secondary tileset
-	.2byte 0 @ padding
-	.4byte gTilesetTiles_MysteryEventsHouse
-	.4byte gTilesetPalettes_MysteryEventsHouse
-	.4byte gMetatiles_MysteryEventsHouse
-	.4byte gMetatileAttributes_MysteryEventsHouse
 	.4byte NULL @ animation callback
 
 	.align 2

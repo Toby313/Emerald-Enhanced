@@ -2367,7 +2367,7 @@
       "width": 5,
       "height": 5,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_InsideOfTruck",
+      "secondary_tileset": "gTileset_BrendansDawnsHouse",
       "border_filepath": "data/layouts/InsideOfTruck/border.bin",
       "blockdata_filepath": "data/layouts/InsideOfTruck/map.bin"
     },
@@ -5377,7 +5377,7 @@
       "width": 5,
       "height": 5,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Unused1",
+      "secondary_tileset": "gTileset_BattlePyramid",
       "border_filepath": "data/layouts/Limbo/border.bin",
       "blockdata_filepath": "data/layouts/Limbo/map.bin"
     },
@@ -5597,7 +5597,7 @@
       "width": 11,
       "height": 11,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Unused2",
+      "secondary_tileset": "gTileset_BattlePyramid",
       "border_filepath": "data/layouts/Underworld/border.bin",
       "blockdata_filepath": "data/layouts/Underworld/map.bin"
     },
@@ -5607,7 +5607,7 @@
       "width": 4,
       "height": 4,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Unused1",
+      "secondary_tileset": "gTileset_BattlePyramid",
       "border_filepath": "data/layouts/IntroRoom/border.bin",
       "blockdata_filepath": "data/layouts/IntroRoom/map.bin"
     },
@@ -5687,7 +5687,7 @@
       "width": 10,
       "height": 10,
       "primary_tileset": "gTileset_GeneralSpring",
-      "secondary_tileset": "gTileset_Unused1",
+      "secondary_tileset": "gTileset_BrendansDawnsHouse",
       "border_filepath": "data/layouts/LavaridgeTown_LucyHome/border.bin",
       "blockdata_filepath": "data/layouts/LavaridgeTown_LucyHome/map.bin"
     },
@@ -5697,7 +5697,7 @@
       "width": 10,
       "height": 10,
       "primary_tileset": "gTileset_GeneralSummer",
-      "secondary_tileset": "gTileset_Unused1",
+      "secondary_tileset": "gTileset_BrendansDawnsHouse",
       "border_filepath": "data/layouts/LavaridgeTown_LucyHome/border.bin",
       "blockdata_filepath": "data/layouts/LavaridgeTown_LucyHome/map.bin"
     },
@@ -5707,7 +5707,7 @@
       "width": 10,
       "height": 10,
       "primary_tileset": "gTileset_GeneralAutumn",
-      "secondary_tileset": "gTileset_Unused1",
+      "secondary_tileset": "gTileset_BrendansDawnsHouse",
       "border_filepath": "data/layouts/LavaridgeTown_LucyHome/border.bin",
       "blockdata_filepath": "data/layouts/LavaridgeTown_LucyHome/map.bin"
     },
@@ -5717,7 +5717,7 @@
       "width": 10,
       "height": 10,
       "primary_tileset": "gTileset_GeneralWinter",
-      "secondary_tileset": "gTileset_Unused1",
+      "secondary_tileset": "gTileset_BrendansDawnsHouse",
       "border_filepath": "data/layouts/LavaridgeTown_LucyHome/border.bin",
       "blockdata_filepath": "data/layouts/LavaridgeTown_LucyHome/map.bin"
     },

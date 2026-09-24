@@ -175,14 +175,6 @@ gMetatileAttributes_PokemonFanClub:: @ 83B4860
 	.incbin "data/tilesets/secondary/pokemon_fan_club/metatile_attributes.bin"
 
 	.align 1
-gMetatiles_Unused1:: @ 83B4930
-	.incbin "data/tilesets/secondary/unused_1/metatiles.bin"
-
-	.align 1
-gMetatileAttributes_Unused1:: @ 83B4950
-	.incbin "data/tilesets/secondary/unused_1/metatile_attributes.bin"
-
-	.align 1
 gMetatiles_MeteorFalls:: @ 83B4954
 	.incbin "data/tilesets/secondary/meteor_falls/metatiles.bin"
 
@@ -263,14 +255,6 @@ gMetatileAttributes_SecretBaseSecondary:: @ 83BCC52
 	.incbin "data/tilesets/secondary/secret_base/metatile_attributes.bin"
 
 	.align 1
-gMetatiles_InsideOfTruck:: @ 83BCEDA
-	.incbin "data/tilesets/secondary/inside_of_truck/metatiles.bin"
-
-	.align 1
-gMetatileAttributes_InsideOfTruck:: @ 83BD13A
-	.incbin "data/tilesets/secondary/inside_of_truck/metatile_attributes.bin"
-
-	.align 1
 gMetatiles_Contest:: @ 83BD186
 	.incbin "data/tilesets/secondary/contest/metatiles.bin"
 
@@ -325,14 +309,6 @@ gMetatiles_MauvilleGameCorner:: @ 83C3972
 	.align 1
 gMetatileAttributes_MauvilleGameCorner:: @ 83C3F72
 	.incbin "data/tilesets/secondary/mauville_game_corner/metatile_attributes.bin"
-
-	.align 1
-gMetatiles_Unused2:: @ 83C4032
-	.incbin "data/tilesets/secondary/unused_2/metatiles.bin"
-
-	.align 1
-gMetatileAttributes_Unused2:: @ 83C43D2
-	.incbin "data/tilesets/secondary/unused_2/metatile_attributes.bin"
 
 	.align 1
 gMetatiles_RustboroGym:: @ 83C4446
@@ -541,14 +517,6 @@ gMetatiles_BattleTent:: @ 83DDBF2
 	.align 1
 gMetatileAttributes_BattleTent:: @ 83DECC2
 	.incbin "data/tilesets/secondary/battle_tent/metatile_attributes.bin"
-
-	.align 1
-gMetatiles_MysteryEventsHouse:: @ 83DEEDC
-	.incbin "data/tilesets/secondary/mystery_events_house/metatiles.bin"
-
-	.align 1
-gMetatileAttributes_MysteryEventsHouse:: @ 83DF30C
-	.incbin "data/tilesets/secondary/mystery_events_house/metatile_attributes.bin"
 
 	.align 1
 gMetatiles_UnionRoom:: @ 83DF392
