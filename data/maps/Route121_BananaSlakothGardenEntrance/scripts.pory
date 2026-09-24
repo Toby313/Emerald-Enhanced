@@ -1,6 +1,11 @@
 raw `
 Route121_BananaSlakothGardenEntrance_MapScripts::
+	map_script ON_TRANSITION, Route121_BananaSlakothGardenEntrance_OnTransition
 	.byte 0
+
+Route121_BananaSlakothGardenEntrance_OnTransition:
+	setflag FLAG_LANDMARK_BANANA_SLAKOTH_GARDEN
+	end
 
 BotanyMaster_Master::
 	faceplayer

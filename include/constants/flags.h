@@ -1421,6 +1421,7 @@
 #define FLAG_RYU_BILLCOLLECTOR_CALL                               0x542
 #define FLAG_RYU_SHOW_COORDINATES                                 0x543
 #define FLAG_ITEM_ROUTE_100_NORMAN_SHACK_NET_BALL                 0x544
+#define FLAG_LANDMARK_BANANA_SLAKOTH_GARDEN                       0x545
 
 //tutorial system flags
 #define FLAG_RYU_FACTION_TUTORIAL_UNLOCKED                        0x5FB

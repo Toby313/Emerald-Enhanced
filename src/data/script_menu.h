@@ -903,18 +903,21 @@ static const struct MenuAction MultichoiceList_126[]=
     {gText_RyuTeleportOldale},
     {gText_RyuTeleportPetalburg},
     {gText_RyuTeleportRustboro},
-    {gText_RyuTeleportVerdanturf},
-    {gText_RyuTeleportSlateport},
     {gText_RyuTeleportDewford},
-    {gText_RyuTeleportPacifidlog},
+    {gText_RyuTeleportSlateport},
+    {gText_RyuTeleportVerdanturf},
+    {gText_RyuTeleportMauville},
     {gText_RyuTeleportLavaridge},
+    {gText_RyuTeleportPlaceholder},
     {gText_RyuTeleportFallarbor},
     {gText_RyuTeleportFortree},
-    {gText_RyuTeleportMauville},
     {gText_RyuTeleportLilycove},
-    {gText_RyuTeleportSootopolis},
     {gText_RyuTeleportMossdeep},
+    {gText_RyuTeleportSnowyShore},
+    {gText_RyuTeleportPacifidlog},
+    {gText_RyuTeleportSootopolis},
     {gText_RyuTeleportEvergrande},
+    {gText_RyuTeleportBattleFrontier},
     {gText_RyuTeleportLandmarks},
     {gText_RyuExitPokeEditMenuOption},
 };
@@ -934,11 +937,11 @@ static const struct MenuAction MultichoiceList_127[]=
 
 static const struct MenuAction MultichoiceList_128[]=
 {
-    {gText_RyuTeleportBattleFrontier},
-    {gText_RyuTeleportMtPyreExterior},
     {gText_RyuTeleportLCCDEPT},
-    {gText_RyuTeleportMCMH},
-    {gText_RyuTeleportSnowyShore},
+    {gText_RyuTeleportMagmaHQ},
+    {gText_RyuTeleportOldLadyRestStop},
+    {gText_RyuTeleportBerryFarm},
+    {gText_RyuTeleportBananaGarden},
     {gText_RyuTeleportBattleFrontierCallback},  
 };
 

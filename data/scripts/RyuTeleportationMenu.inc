@@ -15,20 +15,23 @@ RyuTeleport::
 	case 1, RT_Oldale
 	case 2, RT_Petalburg
 	case 3, RT_Rustboro
-	case 4, RT_Verdanturf
+	case 4, RT_Dewford
 	case 5, RT_Slateport
-	case 6, RT_Dewford
-	case 7, RT_Pacifidlog
+	case 6, RT_Verdanturf
+	case 7, RT_Mauville
 	case 8, RT_Lavaridge
-	case 9, RT_Fallarbor
-	case 10, RT_Fortree
-	case 11, RT_Mauville
+	case 9, RT_Placeholder
+	case 10, RT_Fallarbor
+	case 11, RT_Fortree
 	case 12, RT_Lilycove
-	case 13, RT_Sootopolis
-	case 14, RT_Mossdeep
-	case 15, RT_Evergrande
-	case 16, RT_Landmarks
-	case 17, RT_Exit
+	case 13, RT_Mossdeep
+	case 14, RT_SnowyShore
+	case 15, RT_Pacifidlog
+	case 16, RT_Sootopolis
+	case 17, RT_Evergrande
+	case 18, RT_BattleFrontier
+	case 19, RT_Landmarks
+	case 20, RT_Exit
 	case 127, RT_Exit
 	closemessage
 	release
@@ -117,6 +120,11 @@ RT_Lavaridge::
 	warpteleport MAP_LAVARIDGE_TOWN, 255, 12, 8
 	waitstate
 	
+RT_Placeholder::
+    goto_if_unset FLAG_VISITED_LAVARIDGE_TOWN, RT_NoFlag
+	warpteleport MAP_LAVARIDGE_TOWN, 255, 12, 8
+	waitstate
+	
 RT_Fallarbor::
     goto_if_unset FLAG_VISITED_FALLARBOR_TOWN, RT_NoFlag
 	warpteleport MAP_FALLARBOR_TOWN, 255, 9, 11
@@ -142,6 +150,11 @@ RT_BannedFromLilycove::
 	msgbox Ryu_YouReallyDontWantToGoThere
 	closemessage
 	goto RyuTeleport
+
+RT_SnowyShore::
+	goto_if_unset FLAG_LANDMARK_SNOWY_SHORE, RT_NoFlag
+	warpteleport MAP_SNOWY_SHORE, 255, 24, 12
+	waitstate
 	
 RT_Sootopolis::
     goto_if_unset FLAG_VISITED_SOOTOPOLIS_CITY, RT_NoFlag
@@ -162,12 +175,12 @@ RT_Evergrande::
 RT_Landmarks::
 	multichoicedefault 3, 0, 128, 9, 0
 	switch VAR_RESULT
-	case 0, RT_BattleFrontier
-	case 1, RT_MtPyre
-	case 2, RT_LCCDEPT
+	case 0, RT_LCCDEPT
+	case 1, RT_MagmaHQ
+	case 2, RT_OldLadyRestStop
 	case 3, RT_BerryFarm
-	case 4, RT_SnowyShore
-	case 5, RT_BF_CB
+	case 4, RT_BananaGarden
+	case 5, RT_ReturnToMenu
 	goto RyuTeleport
 	release
 	end
@@ -184,25 +197,35 @@ RT_BattleFrontier::
 	case 5, RT_BF_BF@factory
 	case 6, RT_BF_BA@arena
 	case 7, RT_BF_BD@dome
-	case 8, RT_BF_CB@go back to main teleport menu
+	case 8, RT_ReturnToMenu@go back to main teleport menu
 	case 127, RyuTeleport@also go back to teleport menu
 	release
 	end
-
-RT_MtPyre::
-	goto_if_unset FLAG_RYU_LANDMARK_MH, RT_NoFlag
-	warpteleport MAP_MAGMA_HIDEOUT_4F, 255, 22, 6
-	waitstate
 
 RT_LCCDEPT::
 	goto_if_set FLAG_RYU_PLAYER_BANNED_FROM_LILYCOVE, RT_BannedFromLilycove
     goto_if_unset FLAG_RYU_LANDMARK_LCCDEPTSTORE, RT_NoFlag
 	warpteleport MAP_LILYCOVE_CITY_DEPARTMENT_STORE_ROOFTOP, 255, 4, 5
 	waitstate
+
+RT_MagmaHQ::
+	goto_if_unset FLAG_RYU_LANDMARK_MH, RT_NoFlag
+	warpteleport MAP_MAGMA_HIDEOUT_4F, 255, 22, 6
+	waitstate
+
+RT_OldLadyRestStop::
+	goto_if_unset FLAG_LANDMARK_OLD_LADY_REST_SHOP, RT_NoFlag
+	warpteleport MAP_ROUTE111, 255, 26, 19
+	waitstate
 	
 RT_BerryFarm::
 	goto_if_unset FLAG_LANDMARK_BERRY_MASTERS_HOUSE, RT_NoFlag
 	warpteleport MAP_ROUTE123, 255, 14, 4
+	waitstate
+	
+RT_BananaGarden::
+	goto_if_unset FLAG_LANDMARK_BANANA_SLAKOTH_GARDEN, RT_NoFlag
+	warpteleport MAP_ROUTE121_BANANA_SLAKOTH_GARDEN_ENTRANCE, 255, 2, 10
 	waitstate
 	
 RT_BF_GATE::
@@ -236,13 +259,8 @@ RT_BF_BA::
 RT_BF_BD::
 	warpteleport MAP_BATTLE_FRONTIER_BATTLE_DOME_LOBBY, 255, 11, 11
 	waitstate
-
-RT_SnowyShore::
-	goto_if_unset FLAG_LANDMARK_SNOWY_SHORE, RT_NoFlag
-	warpteleport MAP_SNOWY_SHORE, 255, 24, 12
-	waitstate
 	
-RT_BF_CB::
+RT_ReturnToMenu::
 	goto RyuTeleport
 	
 RT_NYI:

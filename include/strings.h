@@ -2967,11 +2967,14 @@ extern const u8 gText_RyuTeleportMossdeep[];
 extern const u8 gText_RyuTeleportEvergrande[];
 extern const u8 gText_RyuTeleportLandmarks[];
 extern const u8 gText_RyuTeleportBattleFrontier[];
-extern const u8 gText_RyuTeleportMtPyreExterior[];
+extern const u8 gText_RyuTeleportMagmaHQ[];
 extern const u8 gText_RyuTeleportLCCDEPT[];
-extern const u8 gText_RyuTeleportMCMH[];
+extern const u8 gText_RyuTeleportBerryFarm[];
 extern const u8 gText_RyuTeleportSnowyShore[];
 extern const u8 gText_RyuTeleportLCAH[];
+extern const u8 gText_RyuTeleportPlaceholder[];
+extern const u8 gText_RyuTeleportBananaGarden[];
+extern const u8 gText_RyuTeleportOldLadyRestStop[];
 
 extern const u8 gText_RyuTeleportBattleFrontierGate[];
 extern const u8 gText_RyuTeleportBattleFrontierTower[];
