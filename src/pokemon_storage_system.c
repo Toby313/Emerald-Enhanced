@@ -397,7 +397,7 @@ enum
     WALLPAPER_POKECENTER2,
     WALLPAPER_FRAME,
     WALLPAPER_BLANK,
-    WALLPAPER_CIRCLES,
+    WALLPAPER_SLAKOTH,
     WALLPAPER_AZUMARILL,
     WALLPAPER_PIKACHU,
     WALLPAPER_LEGENDARY,
@@ -419,7 +419,7 @@ enum
     FRIENDS_POKECENTER2,
     FRIENDS_FRAME,
     FRIENDS_BLANK,
-    FRIENDS_CIRCLES,
+    FRIENDS_SLAKOTH,
     FRIENDS_AZUMARILL,
     FRIENDS_PIKACHU,
     FRIENDS_LEGENDARY,
@@ -1321,13 +1321,13 @@ static const u16 gWallpaperPalettes_Blank[][16] =
 static const u32 gWallpaperTiles_Blank[] = INCBIN_U32("graphics/pokemon_storage/blank.4bpp.lz");
 static const u32 gWallpaperTilemap_Blank[] = INCBIN_U32("graphics/pokemon_storage/blank.bin.lz");
 
-static const u16 gWallpaperPalettes_Circles[][16] =
+static const u16 gWallpaperPalettes_Slakoth[][16] =
 {
     INCBIN_U16("graphics/pokemon_storage/friends_frame2.gbapal"),
-    INCBIN_U16("graphics/pokemon_storage/circles_bg.gbapal"),
+    INCBIN_U16("graphics/pokemon_storage/slakoth_bg.gbapal"),
 };
-static const u32 gWallpaperTiles_Circles[] = INCBIN_U32("graphics/pokemon_storage/circles.4bpp.lz");
-static const u32 gWallpaperTilemap_Circles[] = INCBIN_U32("graphics/pokemon_storage/circles.bin.lz");
+static const u32 gWallpaperTiles_Slakoth[] = INCBIN_U32("graphics/pokemon_storage/slakoth.4bpp.lz");
+static const u32 gWallpaperTilemap_Slakoth[] = INCBIN_U32("graphics/pokemon_storage/slakoth.bin.lz");
 
 static const u16 gWallpaperPalettes_Azumarill[][16] =
 {
@@ -1404,7 +1404,7 @@ static const struct WallpaperTable gWallpaperTable[] =
     [WALLPAPER_POKECENTER2] = WALLPAPER_ENTRY(Pokecenter2),
     [WALLPAPER_FRAME] = WALLPAPER_ENTRY(Frame),
     [WALLPAPER_BLANK] = WALLPAPER_ENTRY(Blank),
-    [WALLPAPER_CIRCLES] = WALLPAPER_ENTRY(Circles),
+    [WALLPAPER_SLAKOTH] = WALLPAPER_ENTRY(Slakoth),
     [WALLPAPER_AZUMARILL] = WALLPAPER_ENTRY(Azumarill),
     [WALLPAPER_PIKACHU] = WALLPAPER_ENTRY(Pikachu),
     [WALLPAPER_LEGENDARY] = WALLPAPER_ENTRY(Legendary),
@@ -1454,7 +1454,7 @@ static const struct WallpaperTable gFriendsWallpaperTable[] =
     WALLPAPER_ENTRY(Pokecenter2),
     WALLPAPER_ENTRY(Frame),
     WALLPAPER_ENTRY(Blank),
-    WALLPAPER_ENTRY(Circles),
+    WALLPAPER_ENTRY(Slakoth),
     WALLPAPER_ENTRY(Azumarill),
     WALLPAPER_ENTRY(Pikachu),
     WALLPAPER_ENTRY(Legendary),
@@ -3614,7 +3614,7 @@ static void Cb_HandleWallpapers(u8 taskId)
                 WALLPAPER_POLKADOT, WALLPAPER_POKECENTER, WALLPAPER_MACHINE, WALLPAPER_PLAIN,
                 0xFF, 0xFF, 0xFF, 0xFF, // 39-42 are tabs, unused here
                 WALLPAPER_ZIGZAGOON, WALLPAPER_BLOCK, WALLPAPER_RIBBON, WALLPAPER_POKECENTER2,
-                WALLPAPER_FRAME, WALLPAPER_CIRCLES, WALLPAPER_AZUMARILL, WALLPAPER_PIKACHU,
+                WALLPAPER_FRAME, WALLPAPER_SLAKOTH, WALLPAPER_AZUMARILL, WALLPAPER_PIKACHU,
                 WALLPAPER_LEGENDARY, WALLPAPER_DUSCLOPS, WALLPAPER_LUDICOLO, WALLPAPER_WHISCASH
             };
             s32 index = sPSSData->wallpaperId - 23;
@@ -7898,7 +7898,7 @@ static const u8 *const gUnknown_0857BA80[] =
     gPCText_Simple,   // 45 - Ribbon
     gPCText_Simple,   // 46 - Pokecenter2
     gPCText_Simple,   // 47 - Frame
-    gPCText_Simple,   // 48 - Circles
+    gPCText_Simple,   // 48 - Slakoth
     gPCText_Simple,   // 49 - Azumarill
     gPCText_Simple,   // 50 - Pikachu
     gPCText_Simple,   // 51 - Legendary
