@@ -678,7 +678,7 @@ $(PSSGFXDIR)/frame.4bpp: $(PSSGFXDIR)/friends_frame1.4bpp $(PSSGFXDIR)/frame_bg.
 $(PSSGFXDIR)/blank.4bpp: $(PSSGFXDIR)/friends_frame1.4bpp $(PSSGFXDIR)/blank_bg.4bpp
 	@cat $^ >$@
 
-$(PSSGFXDIR)/circles.4bpp: $(PSSGFXDIR)/friends_frame1.4bpp $(PSSGFXDIR)/circles_bg.4bpp
+$(PSSGFXDIR)/slakoth.4bpp: $(PSSGFXDIR)/friends_frame1.4bpp $(PSSGFXDIR)/slakoth_bg.4bpp
 	@cat $^ >$@
 
 $(PSSGFXDIR)/azumarill.4bpp: $(PSSGFXDIR)/friends_frame2.4bpp $(PSSGFXDIR)/azumarill_bg.4bpp

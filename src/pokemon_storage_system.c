@@ -1251,7 +1251,7 @@ static const u16 gUnknown_08577574[][2] =
 #define WALLPAPER_ENTRY(name) {gWallpaperTiles_##name, gWallpaperTilemap_##name, gWallpaperPalettes_##name[0]}
 static const u16 gWallpaperPalettes_Zigzagoon[][16] =
 {
-    INCBIN_U16("graphics/pokemon_storage/friends_frame1.gbapal"),
+    INCBIN_U16("graphics/pokemon_storage/zigzagoon_bg.gbapal"),
     INCBIN_U16("graphics/pokemon_storage/zigzagoon_bg.gbapal"),
 };
 static const u32 gWallpaperTiles_Zigzagoon[] = INCBIN_U32("graphics/pokemon_storage/zigzagoon.4bpp.lz");
@@ -1259,7 +1259,7 @@ static const u32 gWallpaperTilemap_Zigzagoon[] = INCBIN_U32("graphics/pokemon_st
 
 static const u16 gWallpaperPalettes_Screen[][16] =
 {
-    INCBIN_U16("graphics/pokemon_storage/friends_frame1.gbapal"),
+    INCBIN_U16("graphics/pokemon_storage/screen_bg.gbapal"),
     INCBIN_U16("graphics/pokemon_storage/screen_bg.gbapal"),
 };
 static const u32 gWallpaperTiles_Screen[] = INCBIN_U32("graphics/pokemon_storage/screen.4bpp.lz");
@@ -1267,7 +1267,7 @@ static const u32 gWallpaperTilemap_Screen[] = INCBIN_U32("graphics/pokemon_stora
 
 static const u16 gWallpaperPalettes_Horizontal[][16] =
 {
-    INCBIN_U16("graphics/pokemon_storage/friends_frame1.gbapal"),
+    INCBIN_U16("graphics/pokemon_storage/horizontal_bg.gbapal"),
     INCBIN_U16("graphics/pokemon_storage/horizontal_bg.gbapal"),
 };
 static const u32 gWallpaperTiles_Horizontal[] = INCBIN_U32("graphics/pokemon_storage/horizontal.4bpp.lz");
@@ -1275,7 +1275,7 @@ static const u32 gWallpaperTilemap_Horizontal[] = INCBIN_U32("graphics/pokemon_s
 
 static const u16 gWallpaperPalettes_Diagonal[][16] =
 {
-    INCBIN_U16("graphics/pokemon_storage/friends_frame1.gbapal"),
+    INCBIN_U16("graphics/pokemon_storage/diagonal_bg.gbapal"),
     INCBIN_U16("graphics/pokemon_storage/diagonal_bg.gbapal"),
 };
 static const u32 gWallpaperTiles_Diagonal[] = INCBIN_U32("graphics/pokemon_storage/diagonal.4bpp.lz");
@@ -1291,7 +1291,7 @@ static const u32 gWallpaperTilemap_Block[] = INCBIN_U32("graphics/pokemon_storag
 
 static const u16 gWallpaperPalettes_Ribbon[][16] =
 {
-    INCBIN_U16("graphics/pokemon_storage/friends_frame1.gbapal"),
+    INCBIN_U16("graphics/pokemon_storage/ribbon_bg.gbapal"),
     INCBIN_U16("graphics/pokemon_storage/ribbon_bg.gbapal"),
 };
 static const u32 gWallpaperTiles_Ribbon[] = INCBIN_U32("graphics/pokemon_storage/ribbon.4bpp.lz");
@@ -1315,7 +1315,7 @@ static const u32 gWallpaperTilemap_Frame[] = INCBIN_U32("graphics/pokemon_storag
 
 static const u16 gWallpaperPalettes_Blank[][16] =
 {
-    INCBIN_U16("graphics/pokemon_storage/friends_frame1.gbapal"),
+    INCBIN_U16("graphics/pokemon_storage/zigzagoon_bg.gbapal"),
     INCBIN_U16("graphics/pokemon_storage/zigzagoon_bg.gbapal"),
 };
 static const u32 gWallpaperTiles_Blank[] = INCBIN_U32("graphics/pokemon_storage/blank.4bpp.lz");
@@ -1323,7 +1323,7 @@ static const u32 gWallpaperTilemap_Blank[] = INCBIN_U32("graphics/pokemon_storag
 
 static const u16 gWallpaperPalettes_Slakoth[][16] =
 {
-    INCBIN_U16("graphics/pokemon_storage/friends_frame2.gbapal"),
+    INCBIN_U16("graphics/pokemon_storage/slakoth_bg.gbapal"),
     INCBIN_U16("graphics/pokemon_storage/slakoth_bg.gbapal"),
 };
 static const u32 gWallpaperTiles_Slakoth[] = INCBIN_U32("graphics/pokemon_storage/slakoth.4bpp.lz");
@@ -1331,7 +1331,7 @@ static const u32 gWallpaperTilemap_Slakoth[] = INCBIN_U32("graphics/pokemon_stor
 
 static const u16 gWallpaperPalettes_Azumarill[][16] =
 {
-    INCBIN_U16("graphics/pokemon_storage/friends_frame2.gbapal"),
+    INCBIN_U16("graphics/pokemon_storage/azumarill_bg.gbapal"),
     INCBIN_U16("graphics/pokemon_storage/azumarill_bg.gbapal"),
 };
 static const u32 gWallpaperTiles_Azumarill[] = INCBIN_U32("graphics/pokemon_storage/azumarill.4bpp.lz");
@@ -1339,7 +1339,7 @@ static const u32 gWallpaperTilemap_Azumarill[] = INCBIN_U32("graphics/pokemon_st
 
 static const u16 gWallpaperPalettes_Pikachu[][16] =
 {
-    INCBIN_U16("graphics/pokemon_storage/friends_frame2.gbapal"),
+    INCBIN_U16("graphics/pokemon_storage/pikachu_bg.gbapal"),
     INCBIN_U16("graphics/pokemon_storage/pikachu_bg.gbapal"),
 };
 static const u32 gWallpaperTiles_Pikachu[] = INCBIN_U32("graphics/pokemon_storage/pikachu.4bpp.lz");
@@ -1347,7 +1347,7 @@ static const u32 gWallpaperTilemap_Pikachu[] = INCBIN_U32("graphics/pokemon_stor
 
 static const u16 gWallpaperPalettes_Legendary[][16] =
 {
-    INCBIN_U16("graphics/pokemon_storage/friends_frame2.gbapal"),
+    INCBIN_U16("graphics/pokemon_storage/legendary_bg.gbapal"),
     INCBIN_U16("graphics/pokemon_storage/legendary_bg.gbapal"),
 };
 static const u32 gWallpaperTiles_Legendary[] = INCBIN_U32("graphics/pokemon_storage/legendary.4bpp.lz");
@@ -1355,7 +1355,7 @@ static const u32 gWallpaperTilemap_Legendary[] = INCBIN_U32("graphics/pokemon_st
 
 static const u16 gWallpaperPalettes_Dusclops[][16] =
 {
-    INCBIN_U16("graphics/pokemon_storage/friends_frame2.gbapal"),
+    INCBIN_U16("graphics/pokemon_storage/dusclops_bg.gbapal"),
     INCBIN_U16("graphics/pokemon_storage/dusclops_bg.gbapal"),
 };
 static const u32 gWallpaperTiles_Dusclops[] = INCBIN_U32("graphics/pokemon_storage/dusclops.4bpp.lz");
@@ -1363,7 +1363,7 @@ static const u32 gWallpaperTilemap_Dusclops[] = INCBIN_U32("graphics/pokemon_sto
 
 static const u16 gWallpaperPalettes_Ludicolo[][16] =
 {
-    INCBIN_U16("graphics/pokemon_storage/friends_frame2.gbapal"),
+    INCBIN_U16("graphics/pokemon_storage/ludicolo_bg.gbapal"),
     INCBIN_U16("graphics/pokemon_storage/ludicolo_bg.gbapal"),
 };
 static const u32 gWallpaperTiles_Ludicolo[] = INCBIN_U32("graphics/pokemon_storage/ludicolo.4bpp.lz");
@@ -1371,7 +1371,7 @@ static const u32 gWallpaperTilemap_Ludicolo[] = INCBIN_U32("graphics/pokemon_sto
 
 static const u16 gWallpaperPalettes_Whiscash[][16] =
 {
-    INCBIN_U16("graphics/pokemon_storage/friends_frame2.gbapal"),
+    INCBIN_U16("graphics/pokemon_storage/whiscash_bg.gbapal"),
     INCBIN_U16("graphics/pokemon_storage/whiscash_bg.gbapal"),
 };
 static const u32 gWallpaperTiles_Whiscash[] = INCBIN_U32("graphics/pokemon_storage/whiscash.4bpp.lz");
@@ -3550,6 +3550,20 @@ static void Cb_HandleBoxOptions(u8 taskId)
     }
 }
 
+static bool8 AreNewWallpapersUnlocked(u8 tabId)
+{
+    switch (tabId)
+    {
+    case 0:
+        return FlagGet(FLAG_TOBY_WALLPAPER_ZIGZAGOON) || FlagGet(FLAG_TOBY_WALLPAPER_BLOCK) || FlagGet(FLAG_TOBY_WALLPAPER_RIBBON) || FlagGet(FLAG_TOBY_WALLPAPER_POKECENTER2);
+    case 1:
+        return FlagGet(FLAG_TOBY_WALLPAPER_FRAME) || FlagGet(FLAG_TOBY_WALLPAPER_SLAKOTH) || FlagGet(FLAG_TOBY_WALLPAPER_AZUMARILL) || FlagGet(FLAG_TOBY_WALLPAPER_PIKACHU);
+    case 2:
+        return FlagGet(FLAG_TOBY_WALLPAPER_LEGENDARY) || FlagGet(FLAG_TOBY_WALLPAPER_DUSCLOPS) || FlagGet(FLAG_TOBY_WALLPAPER_LUDICOLO) || FlagGet(FLAG_TOBY_WALLPAPER_WHISCASH);
+    }
+    return FALSE;
+}
+
 static void Cb_HandleWallpapers(u8 taskId)
 {
     switch (sPSSData->state)
@@ -4460,9 +4474,9 @@ static void AddWallpaperSetsMenu(void)
     SetMenuText(19);
     SetMenuText(20);
     SetMenuText(21);
-    SetMenuText(39);
-    SetMenuText(40);
-    SetMenuText(41);
+    if (AreNewWallpapersUnlocked(0)) SetMenuText(39);
+    if (AreNewWallpapersUnlocked(1)) SetMenuText(40);
+    if (AreNewWallpapersUnlocked(2)) SetMenuText(41);
     AddMenu();
 }
 
@@ -4471,47 +4485,47 @@ static void AddWallpapersMenu(u8 wallpaperSet)
     InitMenu();
     switch (wallpaperSet)
     {
-    case 0:
-        SetMenuText(23);
-        SetMenuText(24);
-        SetMenuText(25);
-        SetMenuText(26);
+    case 0: // Scenery 1 (Tab 1)
+        SetMenuText(23); // Forest
+        SetMenuText(24); // City
+        SetMenuText(25); // Desert
+        SetMenuText(26); // Savanna
         break;
-    case 1:
-        SetMenuText(27);
-        SetMenuText(28);
-        SetMenuText(29);
-        SetMenuText(30);
+    case 1: // Scenery 2 (Tab 2)
+        SetMenuText(27); // Crag
+        SetMenuText(28); // Volcano
+        SetMenuText(29); // Snow
+        SetMenuText(30); // Cave
         break;
-    case 2:
-        SetMenuText(31);
-        SetMenuText(32);
-        SetMenuText(33);
-        SetMenuText(34);
+    case 2: // Scenery 3 (Tab 3)
+        SetMenuText(31); // Beach
+        SetMenuText(32); // Seafloor
+        SetMenuText(33); // River
+        SetMenuText(34); // Sky
         break;
-    case 3:
-        SetMenuText(35);
-        SetMenuText(36);
-        SetMenuText(37);
-        SetMenuText(38);
+    case 3: // Other (Tab 4)
+        SetMenuText(35); // Bubbles
+        SetMenuText(36); // Pokecenter
+        SetMenuText(37); // Machine
+        SetMenuText(38); // Plain
         break;
-    case 4:
-        SetMenuText(43);
-        SetMenuText(44);
-        SetMenuText(45);
-        SetMenuText(46);
+    case 4: // Pokemon 1 (Tab 5)
+        if (FlagGet(FLAG_TOBY_WALLPAPER_ZIGZAGOON))    SetMenuText(43); // Zigzagoon
+        if (FlagGet(FLAG_TOBY_WALLPAPER_PIKACHU))      SetMenuText(50); // Pikachu
+        if (FlagGet(FLAG_TOBY_WALLPAPER_AZUMARILL))    SetMenuText(49); // Azumarill
+        if (FlagGet(FLAG_TOBY_WALLPAPER_DUSCLOPS))     SetMenuText(52); // Dusclops
         break;
-    case 5:
-        SetMenuText(47);
-        SetMenuText(48);
-        SetMenuText(49);
-        SetMenuText(50);
+    case 5: // Pokemon 2 (Tab 6)
+        if (FlagGet(FLAG_TOBY_WALLPAPER_LUDICOLO))     SetMenuText(53); // Ludicolo
+        if (FlagGet(FLAG_TOBY_WALLPAPER_WHISCASH))     SetMenuText(54); // Whiscash
+        if (FlagGet(FLAG_TOBY_WALLPAPER_SLAKOTH))      SetMenuText(48); // Slakoth
+        if (FlagGet(FLAG_TOBY_WALLPAPER_LEGENDARY))    SetMenuText(51); // Legendary
         break;
-    case 6:
-        SetMenuText(51);
-        SetMenuText(52);
-        SetMenuText(53);
-        SetMenuText(54);
+    case 6: // Special (Tab 7)
+        if (FlagGet(FLAG_TOBY_WALLPAPER_BLOCK))        SetMenuText(44); // Block
+        if (FlagGet(FLAG_TOBY_WALLPAPER_RIBBON))       SetMenuText(45); // Ribbon
+        if (FlagGet(FLAG_TOBY_WALLPAPER_POKECENTER2))  SetMenuText(46); // Pokeball
+        if (FlagGet(FLAG_TOBY_WALLPAPER_FRAME))        SetMenuText(47); // Star Frame
         break;
     }
     AddMenu();
@@ -7868,43 +7882,43 @@ static const u8 *const gUnknown_0857BA80[] =
     gPCText_Switch,
     gPCText_Bag,
     gPCText_Info,
-    gPCText_Scenery1, // 18 - Tab 1
-    gPCText_Scenery2, // 19 - Tab 2
-    gPCText_Scenery3, // 20 - Tab 3
-    gPCText_Etcetera, // 21 - Tab 4
-    gPCText_Friends,  // 22 - Walda (Unused in menu now)
-    gPCText_Forest,   // 23
-    gPCText_City,     // 24
-    gPCText_Desert,   // 25
-    gPCText_Savanna,  // 26
-    gPCText_Crag,     // 27
-    gPCText_Volcano,  // 28
-    gPCText_Snow,     // 29
-    gPCText_Cave,     // 30
-    gPCText_Beach,    // 31
-    gPCText_Seafloor, // 32
-    gPCText_River,    // 33
-    gPCText_Sky,      // 34
-    gPCText_PolkaDot, // 35
-    gPCText_Pokecenter, // 36
-    gPCText_Machine,  // 37
-    gPCText_Simple,   // 38
-    gPCText_Scenery1, // 39 - Tab 5
-    gPCText_Scenery2, // 40 - Tab 6
-    gPCText_Scenery3, // 41 - Tab 7
-    gPCText_Simple,   // 42 - (Unused)
-    gPCText_Simple,   // 43 - Zigzagoon
-    gPCText_Simple,   // 44 - Block
-    gPCText_Simple,   // 45 - Ribbon
-    gPCText_Simple,   // 46 - Pokecenter2
-    gPCText_Simple,   // 47 - Frame
-    gPCText_Simple,   // 48 - Slakoth
-    gPCText_Simple,   // 49 - Azumarill
-    gPCText_Simple,   // 50 - Pikachu
-    gPCText_Simple,   // 51 - Legendary
-    gPCText_Simple,   // 52 - Dusclops
-    gPCText_Simple,   // 53 - Ludicolo
-    gPCText_Simple,   // 54 - Whiscash
+    gPCText_Scenery1,     // 18 - Tab 1
+    gPCText_Scenery2,     // 19 - Tab 2
+    gPCText_Scenery3,     // 20 - Tab 3
+    gPCText_Etcetera,     // 21 - Tab 4
+    gPCText_Friends,      // 22 - Walda (Unused in menu now)
+    gPCText_Forest,       // 23
+    gPCText_City,         // 24
+    gPCText_Desert,       // 25
+    gPCText_Savanna,      // 26
+    gPCText_Crag,         // 27
+    gPCText_Volcano,      // 28
+    gPCText_Snow,         // 29
+    gPCText_Cave,         // 30
+    gPCText_Beach,        // 31
+    gPCText_Seafloor,     // 32
+    gPCText_River,        // 33
+    gPCText_Sky,          // 34
+    gPCText_PolkaDot,     // 35
+    gPCText_Pokecenter,   // 36
+    gPCText_Machine,      // 37
+    gPCText_Simple,       // 38
+    gPCText_Pokemon1,     // 39 - Tab 5
+    gPCText_Pokemon2,     // 40 - Tab 6
+    gPCText_Special,      // 41 - Tab 7
+    gPCText_Simple,       // 42 - (Unused)
+    gPCText_Zigzagoon,    // 43 - Zigzagoon
+    gPCText_Block,        // 44 - Block
+    gPCText_Ribbon,       // 45 - Ribbon
+    gPCText_Pokecenter2,  // 46 - Pokecenter2
+    gPCText_Frame,        // 47 - Frame
+    gPCText_Slakoth,      // 48 - Slakoth
+    gPCText_Azumarill,    // 49 - Azumarill
+    gPCText_Pikachu,      // 50 - Pikachu
+    gPCText_Legendary,    // 51 - Legendary
+    gPCText_Dusclops,     // 52 - Dusclops
+    gPCText_Ludicolo,     // 53 - Ludicolo
+    gPCText_Whiscash      // 54 - Whiscash
 };
 
 static void SetMenuText(u8 textId)

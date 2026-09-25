@@ -1151,7 +1151,20 @@ script Ryu_ExpShareMenu{
 }
 
 script RyuDebug_Utility1 {
-	giveitem(ITEM_LOOT_CAPSULE, 10)
+    setflag(FLAG_TOBY_WALLPAPER_ZIGZAGOON  )
+    setflag(FLAG_TOBY_WALLPAPER_BLOCK      )
+    setflag(FLAG_TOBY_WALLPAPER_RIBBON     )
+    setflag(FLAG_TOBY_WALLPAPER_POKECENTER2)
+    setflag(FLAG_TOBY_WALLPAPER_FRAME      )
+    setflag(FLAG_TOBY_WALLPAPER_SLAKOTH    )
+    setflag(FLAG_TOBY_WALLPAPER_AZUMARILL  )
+    setflag(FLAG_TOBY_WALLPAPER_PIKACHU    )
+    setflag(FLAG_TOBY_WALLPAPER_LEGENDARY  )
+    setflag(FLAG_TOBY_WALLPAPER_DUSCLOPS   )
+    setflag(FLAG_TOBY_WALLPAPER_LUDICOLO   )
+    setflag(FLAG_TOBY_WALLPAPER_WHISCASH   )
+	msgbox("Granted all box BG's")
+	closemessage
     end
 }
 

@@ -1422,6 +1422,18 @@
 #define FLAG_RYU_SHOW_COORDINATES                                 0x543
 #define FLAG_ITEM_ROUTE_100_NORMAN_SHACK_NET_BALL                 0x544
 #define FLAG_LANDMARK_BANANA_SLAKOTH_GARDEN                       0x545
+#define FLAG_TOBY_WALLPAPER_ZIGZAGOON                             0x546
+#define FLAG_TOBY_WALLPAPER_BLOCK                                 0x547
+#define FLAG_TOBY_WALLPAPER_RIBBON                                0x548
+#define FLAG_TOBY_WALLPAPER_POKECENTER2                           0x549
+#define FLAG_TOBY_WALLPAPER_FRAME                                 0x54A
+#define FLAG_TOBY_WALLPAPER_SLAKOTH                               0x54B
+#define FLAG_TOBY_WALLPAPER_AZUMARILL                             0x54C
+#define FLAG_TOBY_WALLPAPER_PIKACHU                               0x54D
+#define FLAG_TOBY_WALLPAPER_LEGENDARY                             0x54E
+#define FLAG_TOBY_WALLPAPER_DUSCLOPS                              0x54F
+#define FLAG_TOBY_WALLPAPER_LUDICOLO                              0x550
+#define FLAG_TOBY_WALLPAPER_WHISCASH                              0x551
 
 //tutorial system flags
 #define FLAG_RYU_FACTION_TUTORIAL_UNLOCKED                        0x5FB
