@@ -1005,6 +1005,7 @@ RS_GoldAchMsg:
 
 RyuScript_GiveDejaVu::
 	ach give ACH_DEJA_VU
+	notification UnlockedLegendaryBG NOTIFY_GENERAL 180
 	return
 
 RS_ACH_RECEIVED:
@@ -1012,6 +1013,9 @@ RS_ACH_RECEIVED:
 
 RS_GOLD_ACH_RECEIVED:
 	.string "{COLOR LIGHT_RED}{SHADOW BLUE}GOLDEN ACHIEVEMENT GET!!!\n{RYU_STR_4}$"
+
+UnlockedLegendaryBG:
+	.string "Unlocked the Legendary PC background!$"
 
 @@GAME OVER========================================================================================
 

@@ -3555,12 +3555,21 @@ static bool8 AreNewWallpapersUnlocked(u8 tabId)
 {
     switch (tabId)
     {
-    case 0:
-        return FlagGet(FLAG_TOBY_WALLPAPER_ZIGZAGOON) || FlagGet(FLAG_TOBY_WALLPAPER_BLOCK) || FlagGet(FLAG_TOBY_WALLPAPER_RIBBON) || FlagGet(FLAG_TOBY_WALLPAPER_POKECENTER2);
-    case 1:
-        return FlagGet(FLAG_TOBY_WALLPAPER_FRAME) || FlagGet(FLAG_TOBY_WALLPAPER_SLAKOTH) || FlagGet(FLAG_TOBY_WALLPAPER_AZUMARILL) || FlagGet(FLAG_TOBY_WALLPAPER_PIKACHU);
-    case 2:
-        return FlagGet(FLAG_TOBY_WALLPAPER_LEGENDARY) || FlagGet(FLAG_TOBY_WALLPAPER_DUSCLOPS) || FlagGet(FLAG_TOBY_WALLPAPER_LUDICOLO) || FlagGet(FLAG_TOBY_WALLPAPER_WHISCASH);
+    case 0: // Pokemon 1 (Tab 5)
+        return CheckAchievement(ACH_ENHANCED_BATTLE) == TRUE ||
+               CheckAchievement(ACH_THE_GUARDIAN) == TRUE ||
+               CheckAchievement(ACH_THE_PROTEGE) == TRUE ||
+               CheckAchievement(ACH_THE_MAGICIAN) == TRUE;
+    case 1: // Pokemon 2 (Tab 6)
+        return CheckAchievement(ACH_THE_TRADESMAN) == TRUE ||
+               CheckAchievement(ACH_THE_EMPEROR) == TRUE ||
+               CheckAchievement(ACH_THE_EXPLORER) == TRUE ||
+               CheckAchievement(ACH_DEJA_VU) == TRUE;
+    case 2: // Special (Tab 7)
+        return CheckAchievement(ACH_GENWUNNER) == TRUE ||
+               CheckAchievement(ACH_CONTEST_MASTER) == TRUE ||
+               CheckAchievement(ACH_NTMO) == TRUE ||
+               CheckAchievement(ACH_LOREMASTER) == TRUE;
     }
     return FALSE;
 }
@@ -4526,7 +4535,7 @@ static void AddWallpapersMenu(u8 wallpaperSet)
         if (CheckAchievement(ACH_GENWUNNER) == TRUE)        SetMenuText(44); // Nostalgic
         if (CheckAchievement(ACH_CONTEST_MASTER) == TRUE)   SetMenuText(45); // Ribbon
         if (CheckAchievement(ACH_NTMO) == TRUE)             SetMenuText(46); // Pokeball
-        if (CheckAchievement(ACH_LOREMASTER) == TRUE)       SetMenuText(47); // Star Frame
+        if (CheckAchievement(ACH_LOREMASTER) == TRUE)       SetMenuText(47); // Constellation
         break;
     }
     AddMenu();
@@ -7912,7 +7921,7 @@ static const u8 *const gUnknown_0857BA80[] =
     gPCText_Nostalgic,    // 44 - Nostalgic
     gPCText_Ribbon,       // 45 - Ribbon
     gPCText_Pokecenter2,  // 46 - Pokecenter2
-    gPCText_Frame,        // 47 - Frame
+    gPCText_Frame,        // 47 - Constellation
     gPCText_Slakoth,      // 48 - Slakoth
     gPCText_Azumarill,    // 49 - Azumarill
     gPCText_Pikachu,      // 50 - Pikachu

@@ -130,7 +130,7 @@ LilycoveCity_LilycoveMuseum_2F_EventScript_GiveGlassOrnament:: @ 82198EA
 	closemessage
 	call CH_GiveDiancie
     ach give ACH_CONTEST_MASTER
-	notification LM_UnlockedRibbonsBG NOTIFY_ACHIEVEMENT 180
+	notification UnlockedRibbonsBG NOTIFY_GENERAL 180
 	releaseall
 	end
 
@@ -140,7 +140,7 @@ LM_ObtainedGlassOrnament:
 LM_Alsotakethis:
 	.string "We also have another gift for\nyou...$"
 
-LM_UnlockedRibbonsBG:
+UnlockedRibbonsBG:
 	.string "Unlocked the Ribbons PC background!$"
 
 CH_GiveDiancie::

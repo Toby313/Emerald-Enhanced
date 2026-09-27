@@ -1145,6 +1145,7 @@ bool32 RyuCheckForAllExplorationAchievements(void)
 extern int RyuGetTotalCaughtMons();
 extern void TryGiveLeetAch();
 
+const u8 sTextConstellationBG[] = _("Unlocked the Constellation PC background!");
 static void CreateStartMenuTask(TaskFunc followupFunc)
 {
     u8 taskId;
@@ -1172,6 +1173,7 @@ static void CreateStartMenuTask(TaskFunc followupFunc)
     if (CheckAchievement(ACH_LOREMASTER) == FALSE)
         if (RyuCheckForAllQuestAchievements() == TRUE)
             GiveAchievement(ACH_LOREMASTER);
+            QueueNotification(sTextConstellationBG, NOTIFY_GENERAL, 180);
 
     if (CheckAchievement(ACH_TOURIST) == FALSE)
         if (RyuCheckForAllExplorationAchievements() == TRUE)

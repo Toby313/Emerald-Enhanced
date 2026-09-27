@@ -3075,6 +3075,7 @@
         }
     }
 
+    const u8 sTextNostalgicBG[] = _("Unlocked the Nostalgic PC background!");
     void GiveChallengeAchievements(void)
     {
         if (GetModFlag(NUZLOCKE_MOD) == TRUE){
@@ -3103,6 +3104,7 @@
         }
         if (GetModFlag(GEN1_MOD) == TRUE){
             GiveAchievement(ACH_GENWUNNER);
+            QueueNotification(sTextNostalgicBG, NOTIFY_GENERAL, 180);
         }
         if (GetModFlag(LATE_BLOOMER_MOD) == TRUE){
             GiveAchievement(ACH_PATIENT);

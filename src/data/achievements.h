@@ -340,7 +340,7 @@ static const u8 sDystopiaDesc [] = _("Team Aether wasn't going to price you out\
 
 static const u8 sContestMasterLabel[] = _("Contested Title");
 static const u8 sContestMasterHint [] = _("{COLOR LIGHT_RED}{SHADOW RED} Locked.  {COLOR DARK_GREY}{SHADOW LIGHT_GREY}Beat Master rank in every contest.");
-static const u8 sContestMasterDesc [] = _("Your pokemon couldn't be more popular!\nYou mastered all contests.");
+static const u8 sContestMasterDesc [] = _("Your pokemon couldn't be more popular!\n(You mastered all contests.)");
 
 static const struct AtlasAchPointData sAchAtlasData[] =
 {
