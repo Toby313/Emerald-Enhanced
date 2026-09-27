@@ -8753,6 +8753,7 @@ const u32 gTMHMLearnsets[][2] =
 
     [SPECIES_CASTFORM]    = TMHM_LEARNSET(TMHM(TM45_ATTRACT)
 											| TMHM(TM14_BLIZZARD)
+											| TMHM(TM04_CALM_MIND)
 											| TMHM(TM32_DOUBLE_TEAM)
 											| TMHM(TM42_FACADE)
 											| TMHM(TM38_FIRE_BLAST)

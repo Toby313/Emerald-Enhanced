@@ -14022,6 +14022,7 @@ static const struct LevelUpMove sAggronLevelUpLearnset[] = {
 static const struct LevelUpMove sCastformLevelUpLearnset[] = {
     // Gen 7 TM's
     LEVEL_UP_MOVE( 1, MOVE_WORK_UP),
+    LEVEL_UP_MOVE( 1, MOVE_CALM_MIND),
     LEVEL_UP_MOVE( 1, MOVE_TOXIC),
     LEVEL_UP_MOVE( 1, MOVE_HAIL),
     LEVEL_UP_MOVE( 1, MOVE_HIDDEN_POWER),

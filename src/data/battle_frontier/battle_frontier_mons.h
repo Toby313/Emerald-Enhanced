@@ -8424,7 +8424,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .ivs = 31,
         .ability = 1
     },
-    [FRONTIER_MON_MEGA_DIANCIE_1] = { // Mega_Diancie-3attacksCM (ID: 934)
+    [FRONTIER_MON_MEGA_DIANCIE_1] = { // Mega_Diancie-3attacks (ID: 934)
         .species = SPECIES_MEGA_DIANCIE,
         .moves = {MOVE_DAZZLING_GLEAM, MOVE_POWER_GEM, MOVE_EARTH_POWER, MOVE_CALM_MIND},
         .heldItem = ITEM_DIANCITE,
@@ -8433,7 +8433,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .ivs = 31,
         .ability = 0
     },
-    [FRONTIER_MON_MEGA_DIANCIE_2] = { // Mega_Diancie-MagnetRiseCM (ID: 935)
+    [FRONTIER_MON_MEGA_DIANCIE_2] = { // Mega_Diancie-MagnetRise (ID: 935)
         .species = SPECIES_MEGA_DIANCIE,
         .moves = {MOVE_DAZZLING_GLEAM, MOVE_EARTH_POWER, MOVE_CALM_MIND, MOVE_MAGNET_RISE},
         .heldItem = ITEM_DIANCITE,
