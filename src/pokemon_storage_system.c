@@ -3567,8 +3567,8 @@ static bool8 AreNewWallpapersUnlocked(u8 tabId)
                CheckAchievement(ACH_DEJA_VU) == TRUE;
     case 2: // Special (Tab 7)
         return CheckAchievement(ACH_GENWUNNER) == TRUE ||
-               CheckAchievement(ACH_CONTEST_MASTER) == TRUE ||
                CheckAchievement(ACH_NTMO) == TRUE ||
+               CheckAchievement(ACH_CONTEST_MASTER) == TRUE ||
                CheckAchievement(ACH_LOREMASTER) == TRUE;
     }
     return FALSE;
@@ -4533,8 +4533,8 @@ static void AddWallpapersMenu(u8 wallpaperSet)
         break;
     case 6: // Special (Tab 7)
         if (CheckAchievement(ACH_GENWUNNER) == TRUE)        SetMenuText(44); // Nostalgic
-        if (CheckAchievement(ACH_CONTEST_MASTER) == TRUE)   SetMenuText(45); // Ribbon
         if (CheckAchievement(ACH_NTMO) == TRUE)             SetMenuText(46); // Pokeball
+        if (CheckAchievement(ACH_CONTEST_MASTER) == TRUE)   SetMenuText(45); // Ribbon
         if (CheckAchievement(ACH_LOREMASTER) == TRUE)       SetMenuText(47); // Constellation
         break;
     }
