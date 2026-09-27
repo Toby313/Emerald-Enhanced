@@ -123,14 +123,25 @@ LilycoveCity_LilycoveMuseum_2F_EventScript_GiveGlassOrnament:: @ 82198EA
 	compare VAR_RESULT, FALSE
 	goto_if_eq LilycoveCity_LilycoveMuseum_2F_EventScript_NoRoomForGlassOrnament
 	setflag FLAG_RECEIVED_GLASS_ORNAMENT
+	playfanfare MUS_FANFA5
+	msgbox LM_ObtainedGlassOrnament
+	waitfanfare
 	msgbox LM_Alsotakethis
 	closemessage
 	call CH_GiveDiancie
+    ach give ACH_CONTEST_MASTER
+	notification LM_UnlockedRibbonsBG NOTIFY_ACHIEVEMENT 180
 	releaseall
 	end
 
+LM_ObtainedGlassOrnament:
+	.string "Obtained the Glass Ornament decoration!$"
+
 LM_Alsotakethis:
 	.string "We also have another gift for\nyou...$"
+
+LM_UnlockedRibbonsBG:
+	.string "Unlocked the Ribbons PC background!$"
 
 CH_GiveDiancie::
 	goto_if_set FLAG_RYU_GIVEN_DIANCIE, ryu_return
@@ -146,9 +157,9 @@ CH_GiveDiancie::
 
 CH_WhyReceivedDiancie::
 	.string "As recognition of your mastery\n"
-	.string "of contests, we confer upon you\p"
-	.string "this Pokémon. Please take good\n"
-	.string "care of it!$"
+	.string "of contests, we confer upon you\l"
+	.string "this magnificent Pokémon.\p"
+	.string "Please take good care of it!$"
 
 LilycoveCity_LilycoveMuseum_2F_EventScript_NoRoomForGlassOrnament:: @ 8219911
 	call Common_EventScript_NoRoomForDecor

@@ -41,6 +41,7 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "field_message_box.h"
+#include "ach_atlas.h"
 
 struct WallpaperTable
 {
@@ -392,7 +393,7 @@ enum
     WALLPAPER_SCREEN,
     WALLPAPER_HORIZONTAL,
     WALLPAPER_DIAGONAL,
-    WALLPAPER_BLOCK,
+    WALLPAPER_NOSTALGIC,
     WALLPAPER_RIBBON,
     WALLPAPER_POKECENTER2,
     WALLPAPER_FRAME,
@@ -414,7 +415,7 @@ enum
     FRIENDS_SCREEN,
     FRIENDS_HORIZONTAL,
     FRIENDS_DIAGONAL,
-    FRIENDS_BLOCK,
+    FRIENDS_NOSTALGIC,
     FRIENDS_RIBBON,
     FRIENDS_POKECENTER2,
     FRIENDS_FRAME,
@@ -1399,7 +1400,7 @@ static const struct WallpaperTable gWallpaperTable[] =
     [WALLPAPER_SCREEN] = WALLPAPER_ENTRY(Screen),
     [WALLPAPER_HORIZONTAL] = WALLPAPER_ENTRY(Horizontal),
     [WALLPAPER_DIAGONAL] = WALLPAPER_ENTRY(Diagonal),
-    [WALLPAPER_BLOCK] = WALLPAPER_ENTRY(Block),
+    [WALLPAPER_NOSTALGIC] = WALLPAPER_ENTRY(Block),
     [WALLPAPER_RIBBON] = WALLPAPER_ENTRY(Ribbon),
     [WALLPAPER_POKECENTER2] = WALLPAPER_ENTRY(Pokecenter2),
     [WALLPAPER_FRAME] = WALLPAPER_ENTRY(Frame),
@@ -3627,7 +3628,7 @@ static void Cb_HandleWallpapers(u8 taskId)
                 WALLPAPER_BEACH, WALLPAPER_SEAFLOOR, WALLPAPER_RIVER, WALLPAPER_SKY,
                 WALLPAPER_POLKADOT, WALLPAPER_POKECENTER, WALLPAPER_MACHINE, WALLPAPER_PLAIN,
                 0xFF, 0xFF, 0xFF, 0xFF, // 39-42 are tabs, unused here
-                WALLPAPER_ZIGZAGOON, WALLPAPER_BLOCK, WALLPAPER_RIBBON, WALLPAPER_POKECENTER2,
+                WALLPAPER_ZIGZAGOON, WALLPAPER_NOSTALGIC, WALLPAPER_RIBBON, WALLPAPER_POKECENTER2,
                 WALLPAPER_FRAME, WALLPAPER_SLAKOTH, WALLPAPER_AZUMARILL, WALLPAPER_PIKACHU,
                 WALLPAPER_LEGENDARY, WALLPAPER_DUSCLOPS, WALLPAPER_LUDICOLO, WALLPAPER_WHISCASH
             };
@@ -4510,22 +4511,22 @@ static void AddWallpapersMenu(u8 wallpaperSet)
         SetMenuText(38); // Plain
         break;
     case 4: // Pokemon 1 (Tab 5)
-        if (FlagGet(FLAG_TOBY_WALLPAPER_ZIGZAGOON))    SetMenuText(43); // Zigzagoon
-        if (FlagGet(FLAG_TOBY_WALLPAPER_PIKACHU))      SetMenuText(50); // Pikachu
-        if (FlagGet(FLAG_TOBY_WALLPAPER_AZUMARILL))    SetMenuText(49); // Azumarill
-        if (FlagGet(FLAG_TOBY_WALLPAPER_DUSCLOPS))     SetMenuText(52); // Dusclops
+        if (CheckAchievement(ACH_ENHANCED_BATTLE) == TRUE)  SetMenuText(43); // Zigzagoon
+        if (CheckAchievement(ACH_THE_GUARDIAN) == TRUE)     SetMenuText(50); // Pikachu
+        if (CheckAchievement(ACH_THE_PROTEGE) == TRUE)      SetMenuText(49); // Azumarill
+        if (CheckAchievement(ACH_THE_MAGICIAN) == TRUE)     SetMenuText(52); // Dusclops
         break;
     case 5: // Pokemon 2 (Tab 6)
-        if (FlagGet(FLAG_TOBY_WALLPAPER_LUDICOLO))     SetMenuText(53); // Ludicolo
-        if (FlagGet(FLAG_TOBY_WALLPAPER_WHISCASH))     SetMenuText(54); // Whiscash
-        if (FlagGet(FLAG_TOBY_WALLPAPER_SLAKOTH))      SetMenuText(48); // Slakoth
-        if (FlagGet(FLAG_TOBY_WALLPAPER_LEGENDARY))    SetMenuText(51); // Legendary
+        if (CheckAchievement(ACH_THE_TRADESMAN) == TRUE)    SetMenuText(53); // Ludicolo
+        if (CheckAchievement(ACH_THE_EMPEROR) == TRUE)      SetMenuText(54); // Whiscash
+        if (CheckAchievement(ACH_THE_EXPLORER) == TRUE)     SetMenuText(48); // Slakoth
+        if (CheckAchievement(ACH_DEJA_VU) == TRUE)          SetMenuText(51); // Legendary
         break;
     case 6: // Special (Tab 7)
-        if (FlagGet(FLAG_TOBY_WALLPAPER_BLOCK))        SetMenuText(44); // Block
-        if (FlagGet(FLAG_TOBY_WALLPAPER_RIBBON))       SetMenuText(45); // Ribbon
-        if (FlagGet(FLAG_TOBY_WALLPAPER_POKECENTER2))  SetMenuText(46); // Pokeball
-        if (FlagGet(FLAG_TOBY_WALLPAPER_FRAME))        SetMenuText(47); // Star Frame
+        if (CheckAchievement(ACH_GENWUNNER) == TRUE)        SetMenuText(44); // Nostalgic
+        if (CheckAchievement(ACH_CONTEST_MASTER) == TRUE)   SetMenuText(45); // Ribbon
+        if (CheckAchievement(ACH_NTMO) == TRUE)             SetMenuText(46); // Pokeball
+        if (CheckAchievement(ACH_LOREMASTER) == TRUE)       SetMenuText(47); // Star Frame
         break;
     }
     AddMenu();
@@ -7908,7 +7909,7 @@ static const u8 *const gUnknown_0857BA80[] =
     gPCText_Special,      // 41 - Tab 7
     gPCText_Simple,       // 42 - (Unused)
     gPCText_Zigzagoon,    // 43 - Zigzagoon
-    gPCText_Block,        // 44 - Block
+    gPCText_Nostalgic,    // 44 - Nostalgic
     gPCText_Ribbon,       // 45 - Ribbon
     gPCText_Pokecenter2,  // 46 - Pokecenter2
     gPCText_Frame,        // 47 - Frame

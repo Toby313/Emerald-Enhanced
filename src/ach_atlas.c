@@ -1650,7 +1650,8 @@ void CheckFormasterBallGift(u8 id)
         (id == ACH_TRULY_BAD_ENDING)||
         (id == ACH_OMEN)||
         (id == ACH_FERROMAGNETIC)||
-        (id == ACH_ULTRAKILL)))
+        (id == ACH_ULTRAKILL)||
+        (id == ACH_CONTEST_MASTER)))
         {
             AddBagItem(ITEM_MASTER_BALL, 1);
             QueueNotification(gGoldAchNotif, NOTIFY_GENERAL, 120);

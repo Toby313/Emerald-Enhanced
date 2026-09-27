@@ -338,6 +338,10 @@ static const u8 sDystopiaLabel[] = _("Dystopia?!");
 static const u8 sDystopiaHint [] = _("{COLOR LIGHT_RED}{SHADOW RED} Locked.  {COLOR DARK_GREY}{SHADOW LIGHT_GREY}Complete the game with\nEconomy Mode.");
 static const u8 sDystopiaDesc [] = _("Team Aether wasn't going to price you out\nof the life of your dreams!");
 
+static const u8 sContestMasterLabel[] = _("Contested Title");
+static const u8 sContestMasterHint [] = _("{COLOR LIGHT_RED}{SHADOW RED} Locked.  {COLOR DARK_GREY}{SHADOW LIGHT_GREY}Beat Master rank in every contest.");
+static const u8 sContestMasterDesc [] = _("Your pokemon couldn't be more popular!\nYou mastered all contests.");
+
 static const struct AtlasAchPointData sAchAtlasData[] =
 {
     [ACH_WHOLE_NEW_WORLD] = {12, 40, CATEGORY_EXPLORATION, ACH_WHOLE_NEW_WORLD, sWholeNewWorldAchLabel, sWholeNewWorldAchDesc, sWholeNewWorldAchHint}, //started exploring enhanced hoenn
@@ -398,13 +402,13 @@ static const struct AtlasAchPointData sAchAtlasData[] =
     [ACH_MILLIONAIRE] = {8, 45, CATEGORY_QUESTING | CATEGORY_FLAG_GOLD, ACH_MILLIONAIRE, sMillionaireLabel, sMillionaireDesc, sMillionaireHint},// 1 mirion dorars
     [ACH_MONEYBAGS] = {16, 45, CATEGORY_QUESTING | CATEGORY_FLAG_GOLD, ACH_MILLIONAIRE, sBillionaireLabel, sBillionaireDesc, sBillionaireHint},// 1 birion dorars
     [ACH_SLUM_LORD] = {16, 35, CATEGORY_EXPLORATION, ACH_SLUM_LORD, sSlumLordLabel, sSlumLordDesc, sSlumLordHint},// Own all NUM_PROPERTIES properties
-    [ACH_ULTRA_BEASTLY] = {28, 29, CATEGORY_BATTLE | CATEGORY_FLAG_GOLD, ACH_ULTRA_BEASTLY, sUltraBeastlyLabel, sUltraBeastlyDesc, sUltraBeastlyHint}, //Capture all roaming Ultra Beasts
+    [ACH_ULTRA_BEASTLY] = {27, 31, CATEGORY_BATTLE | CATEGORY_FLAG_GOLD, ACH_ULTRA_BEASTLY, sUltraBeastlyLabel, sUltraBeastlyDesc, sUltraBeastlyHint}, //Capture all roaming Ultra Beasts
     [ACH_WANTED] = {12, 47, CATEGORY_EXPLORATION, ACH_WANTED, sWantedLabel, sWantedDesc, sWantedHint}, //bounty of greater than 100000
     [ACH_DE_ORPHANED] = {37, 35, CATEGORY_QUESTING, ACH_DE_ORPHANED, sDeOrphanedLabel, sDeOrphanedDesc, sDeOrphanedHint}, //Unlocked May quest
     [ACH_LOST_GIRL] = {55, 35, CATEGORY_COMPANIONS, ACH_LOST_GIRL, sLostGirlLabel, sLostGirlDesc, sLostGirlHint}, //recruited May
     [ACH_MARKED_FOR_DEATH] = {12, 49, CATEGORY_EXPLORATION, ACH_MARKED_FOR_DEATH, sMarkedForDeathLabel, sMarkedForDeathDesc, sMarkedForDeathHint}, //defeat overlord ryu with zero blackouts
     [ACH_THE_PHOENIX] = {12, 51, CATEGORY_EXPLORATION | CATEGORY_FLAG_GOLD, ACH_MARKED_FOR_DEATH, sThePhoenixLabel, sThePhoenixDesc, sThePhoenixHint}, //defeat the four horsemen and arceus
-    [ACH_ULTRAKILL] = {28, 31, CATEGORY_BATTLE | CATEGORY_FLAG_GOLD, ACH_ULTRAKILL, sUltraKillLabel, sUltraKillDesc, sUltraKillHint}, //faint 50x
+    [ACH_ULTRAKILL] = {28, 29, CATEGORY_BATTLE | CATEGORY_FLAG_GOLD, ACH_ULTRAKILL, sUltraKillLabel, sUltraKillDesc, sUltraKillHint}, //faint 50x
     [ACH_ULTIMATE_END] = {57, 29, CATEGORY_COMPANIONS | CATEGORY_FLAG_GOLD, ACH_ULTIMATE_END, sUltimateEndLabel, sUltimateEndDesc, sUltimateEndHint}, //Complete advanced harem end
     [ACH_TRULY_BAD_ENDING] = {55, 29, CATEGORY_COMPANIONS | CATEGORY_FLAG_GOLD, ACH_TRULY_BAD_ENDING, sTrulyBadEndingLabel, sTrulyBadEndingDesc, sTrulyBadEndingHint}, //Unlock Mom as follower
     [ACH_SERPENTINE] = {55, 33, CATEGORY_COMPANIONS, ACH_SERPENTINE, sSerpentineLabel, sSerpentineDesc, sSerpentineHint}, //Unlock Lucy as follower
@@ -425,4 +429,5 @@ static const struct AtlasAchPointData sAchAtlasData[] =
     [ACH_ROUGH_AND_TOUGH] = {44, 49, CATEGORY_EXPLORATION, ACH_ROUGH_AND_TOUGH, sRoughAndToughLabel, sRoughAndToughDesc, sRoughAndToughHint}, //Complete the game with greedy trainers
     [ACH_TECHNICAL] = {40, 49, CATEGORY_EXPLORATION, ACH_TECHNICAL, sTechnicalLabel, sTechnicalDesc, sTechnicalHint}, //Complete the game with the technician mod active
     [ACH_DYSTOPIA] = {42, 49, CATEGORY_EXPLORATION, ACH_DYSTOPIA, sDystopiaLabel, sDystopiaDesc, sDystopiaHint}, //Complete the game with economy mode active
+    [ACH_CONTEST_MASTER] = {29, 31, CATEGORY_BATTLE | CATEGORY_FLAG_GOLD, ACH_CONTEST_MASTER, sContestMasterLabel, sContestMasterDesc, sContestMasterHint}, //Get Master rank on all contests (claim in Museum)
 }; 

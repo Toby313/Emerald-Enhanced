@@ -5035,6 +5035,7 @@ bool32 RyuCheckForLegendary(u16 species)
 
 
 const u8 sTextLootPickupNotify[] = _("Picked up a {STR_VAR_1} from the kingpin.");
+const u8 sTextPokeballBG[] = _("Unlocked the Pokeball PC background!");
 static void ReturnFromBattleToOverworld(void)
 {
     if (!(gBattleTypeFlags & BATTLE_TYPE_LINK))
@@ -5065,6 +5066,7 @@ static void ReturnFromBattleToOverworld(void)
         if (FlagGet(FLAG_ONLY_GIVE_ACHIEVEMENT_ONCE) == 0)
         {
             GiveAchievement(ACH_NTMO);
+            QueueNotification(sTextPokeballBG, NOTIFY_GENERAL, 180);
             FlagSet(FLAG_ONLY_GIVE_ACHIEVEMENT_ONCE);
         }
     }

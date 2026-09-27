@@ -2011,7 +2011,7 @@ extern const u8 gPCText_Pokecenter[];
 extern const u8 gPCText_Machine[];
 extern const u8 gPCText_Simple[];
 extern const u8 gPCText_Zigzagoon[];
-extern const u8 gPCText_Block[];
+extern const u8 gPCText_Nostalgic[];
 extern const u8 gPCText_Ribbon[];
 extern const u8 gPCText_Pokecenter2[];
 extern const u8 gPCText_Frame[];
