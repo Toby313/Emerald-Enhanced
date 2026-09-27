@@ -1171,10 +1171,13 @@ static void CreateStartMenuTask(TaskFunc followupFunc)
             GiveAchievement(ACH_THE_UNIVERSALIST);
 
     if (CheckAchievement(ACH_LOREMASTER) == FALSE)
+    {
         if (RyuCheckForAllQuestAchievements() == TRUE)
+        {
             GiveAchievement(ACH_LOREMASTER);
             QueueNotification(sTextConstellationBG, NOTIFY_GENERAL, 180);
-
+        }
+    }
     if (CheckAchievement(ACH_TOURIST) == FALSE)
         if (RyuCheckForAllExplorationAchievements() == TRUE)
             GiveAchievement(ACH_TOURIST);

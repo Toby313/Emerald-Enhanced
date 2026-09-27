@@ -5059,9 +5059,14 @@ static void ReturnFromBattleToOverworld(void)
             SetRoamerInactive();
     }
 
-    if (VarGet(VAR_LITTLEROOT_INTRO_STATE) >= 10)//player already finished tutorial
-        GiveAchievement(ACH_ENHANCED_BATTLE);
-        QueueNotification(sTextZigzagoonBG, NOTIFY_GENERAL, 180);
+    if (VarGet(VAR_LITTLEROOT_INTRO_STATE) >= 10) // player already finished tutorial
+    {
+        if (CheckAchievement(ACH_ENHANCED_BATTLE) == FALSE)
+        {
+            GiveAchievement(ACH_ENHANCED_BATTLE);
+            QueueNotification(sTextZigzagoonBG, NOTIFY_GENERAL, 180);
+        }
+    }
 
     if ((RyuCheckForLegendary(gBattleMons[gBattlerTarget].species) == TRUE) && (gLastUsedItem == ITEM_BEAST_BALL) && (gBattleOutcome == B_OUTCOME_CAUGHT))
     {

@@ -161,6 +161,12 @@ bool8 ScrCmd_changefactionstanding(struct ScriptContext *ctx)
     RyuAdjustOpposingFactionValues(factionId, amount, !negative);
     return FALSE;
 }
+const u8 sTextSlakothBG[] = _("Unlocked the Slakoth PC background!");
+const u8 sTextAzumarillBG[] = _("Unlocked the Azumarill PC background!");
+const u8 sTextWhiscashBG[] = _("Unlocked the Whiscash PC background!");
+const u8 sTextPikachuBG[] = _("Unlocked the Pikachu PC background!");
+const u8 sTextDusclopsBG[] = _("Unlocked the Dusclops PC background!");
+const u8 sTextLudicoloBG[] = _("Unlocked the Ludicolo PC background!");
 
 void RyuCheckForFactionAchievements(void)
 {
@@ -169,8 +175,34 @@ void RyuCheckForFactionAchievements(void)
     for(i = 0; i < FACTION_OTHERS; i++)
     {
         if (gSaveBlock2Ptr->gNPCTrainerFactionRelations[i] > 174)
+        {
             if (CheckAchievement(42 + i) == FALSE)
+            {
                 GiveAchievement(42 + i);
+                
+                switch (i) // Play the right notification based on the achievement
+                {
+                    case 0: // ACH_THE_EXPLORER (Naturalists)
+                        QueueNotification(sTextSlakothBG, NOTIFY_GENERAL, 180);
+                        break;
+                    case 1: // ACH_THE_PROTEGE (Students)
+                        QueueNotification(sTextAzumarillBG, NOTIFY_GENERAL, 180);
+                        break;
+                    case 2: // ACH_THE_EMPEROR (Nobles)
+                        QueueNotification(sTextWhiscashBG, NOTIFY_GENERAL, 180);
+                        break;
+                    case 3: // ACH_THE_GUARDIAN (Pokefans)
+                        QueueNotification(sTextPikachuBG, NOTIFY_GENERAL, 180);
+                        break;
+                    case 4: // ACH_THE_MAGICIAN (Outcasts)
+                        QueueNotification(sTextDusclopsBG, NOTIFY_GENERAL, 180);
+                        break;
+                    case 5: // ACH_THE_TRADESMAN (Professionals)
+                        QueueNotification(sTextLudicoloBG, NOTIFY_GENERAL, 180);
+                        break;
+                }
+            }
+        }
     }
     if ((gSaveBlock2Ptr->gNPCTrainerFactionRelations[FACTION_POKEMON_LEAGUE] < 13) && CheckAchievement(ACH_THE_WARRIOR) == FALSE)
         GiveAchievement(ACH_THE_WARRIOR);
