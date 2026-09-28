@@ -2821,7 +2821,7 @@ static const u16 sBattleFrontier_TutorMoves1[] =
 static const u16 sBattleFrontier_TutorMoves2[] =
 { 
     MOVE_OUTRAGE, 
-    MOVE_HEAT_WAVE, 
+    MOVE_SNORE, 
     MOVE_GUNK_SHOT, 
     MOVE_SYNTHESIS, 
     MOVE_HELPING_HAND, 

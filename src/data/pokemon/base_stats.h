@@ -4325,7 +4325,7 @@ const struct BaseStats gBaseStats[] =
     [SPECIES_SPINARAK] =
     {
         .baseHP        = 40,
-        .baseAttack    = 88,
+        .baseAttack    = 70,
         .baseDefense   = 40,
         .baseSpeed     = 80,
         .baseSpAttack  = 25,

@@ -22,13 +22,13 @@
 #define TUTOR_MOVE_LIQUIDATION          9
 #define TUTOR_MOVE_ZEN_HEADBUTT         10
 #define TUTOR_MOVE_HEAL_BELL            11
-#define TUTOR_MOVE_EXPLOSION            12
+#define TUTOR_MOVE_HEAT_WAVE            12
 #define TUTOR_MOVE_LOW_KICK             13
 #define TUTOR_MOVE_TAILWIND             14
 #define TUTOR_MOVE_DRAIN_PUNCH          15
 #define TUTOR_MOVE_STOMPING_TANTRUM     16
 #define TUTOR_MOVE_FOUL_PLAY            17
-#define TUTOR_MOVE_HEAT_WAVE            18
+#define TUTOR_MOVE_SNORE                18
 #define TUTOR_MOVE_HELPING_HAND         19
 #define TUTOR_MOVE_ENDURE               20
 #define TUTOR_MOVE_GUNK_SHOT            21

@@ -395,7 +395,7 @@ PacifidlogTown_PokemonCenter_1F_EventScript_ExplosionTutor:: @ 82C82BE
 	compare VAR_RESULT, NO
 	goto_if_eq MoveTutor_EventScript_ExplosionDeclined
 	msgbox MoveTutor_Text_ExplosionWhichMon, MSGBOX_DEFAULT
-	setvar VAR_0x8005, TUTOR_MOVE_EXPLOSION
+	setvar VAR_0x8005, TUTOR_MOVE_SNORE
 	call MoveTutor_EventScript_OpenPartyMenu
 	compare VAR_RESULT, 0
 	goto_if_eq MoveTutor_EventScript_ExplosionDeclined
