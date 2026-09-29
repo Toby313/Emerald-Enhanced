@@ -765,15 +765,6 @@ typedef union // 3b58
     u8 pad[0x40];
 } LilycoveLady;
 
-struct WaldaPhrase
-{
-    u16 colors[2]; // Background, foreground.
-    u8 text[16];
-    u8 iconId;
-    u8 patternId;
-    bool8 patternUnlocked;
-};
-
 struct DynamicMapObjects
 {
     bool8 active;
@@ -878,7 +869,6 @@ struct SaveBlock1
     /*0x3???*/ struct TrainerNameRecord trainerNameRecords[20];
     /*0x3???*/ u8 registeredTexts[UNION_ROOM_KB_ROW_COUNT][21];
     /*0x3???*/ struct SaveTrainerHill trainerHill;
-    /*0x3???*/ struct WaldaPhrase waldaPhrase;
                u8 dexNavSearchLevels[SPECIES_MELMETAL];
                u8 dexNavChain;
                struct Pokemon GCMS;

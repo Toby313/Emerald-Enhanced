@@ -33,7 +33,6 @@
 #include "text.h"
 #include "text_window.h"
 #include "trig.h"
-#include "walda_phrase.h"
 #include "window.h"
 #include "constants/items.h"
 #include "constants/maps.h"
@@ -1968,7 +1967,6 @@ void ResetPokemonStorageSystem(void)
     {
         SetBoxWallpaper(boxId, boxId % 4);
     }
-    ResetWaldaWallpaper();
 }
 
 static void sub_80C77E8(struct UnkPSSStruct_2002370 *a0, u16 tileTag, u16 palTag, u8 a3, bool32 loadPal)
@@ -5472,27 +5470,6 @@ static void LoadWallpaperGfx(u8 boxId, s8 direction)
             CpuCopy16(wallpaperGfx->palettes, &gPlttBufferUnfaded[(sPSSData->field_2D2 * 32) + 0x40], 0x40);
 
         sPSSData->wallpaperTiles = malloc_and_decompress(wallpaperGfx->tiles, &size1);
-        LoadBgTiles(2, sPSSData->wallpaperTiles, size1, sPSSData->field_2D2 << 8);
-    }
-    else
-    {
-        wallpaperGfx = &gFriendsWallpaperTable[GetWaldaWallpaperPatternId()];
-        LZ77UnCompWram(wallpaperGfx->tileMap, sPSSData->field_792);
-        sub_80CCA3C(sPSSData->field_792, sPSSData->field_6FB, sPSSData->field_2D2);
-
-        CpuCopy16(wallpaperGfx->palettes, sPSSData->field_792, 0x40);
-        CpuCopy16(GetWaldaWallpaperColorsPtr(), &sPSSData->field_792[1], 4);
-        CpuCopy16(GetWaldaWallpaperColorsPtr(), &sPSSData->field_792[17], 4);
-
-        if (sPSSData->field_6FB != 0)
-            LoadPalette(sPSSData->field_792, (sPSSData->field_2D2 * 32) + 0x40, 0x40);
-        else
-            CpuCopy16(sPSSData->field_792, &gPlttBufferUnfaded[(sPSSData->field_2D2 * 32) + 0x40], 0x40);
-
-        sPSSData->wallpaperTiles = malloc_and_decompress(wallpaperGfx->tiles, &size1);
-        iconGfx = malloc_and_decompress(gFriendsIcons[GetWaldaWallpaperIconId()], &size2);
-        CpuCopy32(iconGfx, sPSSData->wallpaperTiles + 0x800, size2);
-        Free(iconGfx);
         LoadBgTiles(2, sPSSData->wallpaperTiles, size1, sPSSData->field_2D2 << 8);
     }
 
@@ -9591,74 +9568,6 @@ bool32 AnyStorageMonWithMove(u16 moveId)
     }
 
     return FALSE;
-}
-
-void ResetWaldaWallpaper(void)
-{
-    gSaveBlock1Ptr->waldaPhrase.iconId = 0;
-    gSaveBlock1Ptr->waldaPhrase.patternId = 0;
-    gSaveBlock1Ptr->waldaPhrase.patternUnlocked = FALSE;
-    gSaveBlock1Ptr->waldaPhrase.colors[0] = RGB(21, 25, 30);
-    gSaveBlock1Ptr->waldaPhrase.colors[1] = RGB(6, 12, 24);
-    gSaveBlock1Ptr->waldaPhrase.text[0] = EOS;
-}
-
-void SetWaldaWallpaperLockedOrUnlocked(bool32 unlocked)
-{
-    gSaveBlock1Ptr->waldaPhrase.patternUnlocked = unlocked;
-}
-
-bool32 IsWaldaWallpaperUnlocked(void)
-{
-    return gSaveBlock1Ptr->waldaPhrase.patternUnlocked;
-}
-
-u32 GetWaldaWallpaperPatternId(void)
-{
-    return gSaveBlock1Ptr->waldaPhrase.patternId;
-}
-
-void SetWaldaWallpaperPatternId(u8 id)
-{
-    if (id < FRIENDS_WALLPAPERS_COUNT)
-        gSaveBlock1Ptr->waldaPhrase.patternId = id;
-}
-
-u32 GetWaldaWallpaperIconId(void)
-{
-    return gSaveBlock1Ptr->waldaPhrase.iconId;
-}
-
-void SetWaldaWallpaperIconId(u8 id)
-{
-    if (id < 30)
-        gSaveBlock1Ptr->waldaPhrase.iconId = id;
-}
-
-u16 *GetWaldaWallpaperColorsPtr(void)
-{
-    return gSaveBlock1Ptr->waldaPhrase.colors;
-}
-
-void SetWaldaWallpaperColors(u16 color1, u16 color2)
-{
-    gSaveBlock1Ptr->waldaPhrase.colors[0] = color1;
-    gSaveBlock1Ptr->waldaPhrase.colors[1] = color2;
-}
-
-u8 *GetWaldaPhrasePtr(void)
-{
-    return gSaveBlock1Ptr->waldaPhrase.text;
-}
-
-void SetWaldaPhrase(const u8 *src)
-{
-    StringCopy(gSaveBlock1Ptr->waldaPhrase.text, src);
-}
-
-bool32 IsWaldaPhraseEmpty(void)
-{
-    return (gSaveBlock1Ptr->waldaPhrase.text[0] == EOS);
 }
 
 // Not sure what the purpose of these functions is.
