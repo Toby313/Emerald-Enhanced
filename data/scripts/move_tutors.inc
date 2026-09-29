@@ -386,7 +386,7 @@ PacifidlogTown_PokemonCenter_1F_EventScript_HeatWaveTutor:: @ 82C82BE
 	faceplayer
 	checkitem ITEM_FRESH_WATER, 1
 	compare VAR_RESULT, 1
-	goto_if_ne PT_MT_NoLifeOrb
+	goto_if_ne HeatWaveTutor_NoFreshWater
 	setvar VAR_TEMP_5, ITEM_FRESH_WATER
 	msgbox MoveTutor_Text_HeatWaveTeach, MSGBOX_YESNO
 	compare VAR_RESULT, NO
@@ -403,15 +403,14 @@ PacifidlogTown_PokemonCenter_1F_EventScript_HeatWaveTutor:: @ 82C82BE
 	goto MoveTutor_EventScript_HeatWaveTaught
 	end
 
-PT_MT_NoLifeOrb::
-	msgbox PT1nolifeorb
+HeatWaveTutor_NoFreshWater::
+	msgbox HeatWaveTutor_NoFreshWater_Text
 	release
 	end
 
-PT1nolifeorb::
-	.string "Life Orb is something I require\n"
-	.string "to become popular. Please bring me\l"
-	.string "one!$"
+HeatWaveTutor_NoFreshWater_Text::
+	.string "I'm desperately in need of some\n"
+	.string "Fresh Water! Please bring me some!$"
 
 
 MoveTutor_EventScript_HeatWaveDeclined:: @ 82C8312
