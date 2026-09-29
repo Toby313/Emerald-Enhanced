@@ -381,26 +381,26 @@ MoveTutor_EventScript_DoubleEdgeTaught:: @ 82C82B4
 	release
 	end
 
-PacifidlogTown_PokemonCenter_1F_EventScript_ExplosionTutor:: @ 82C82BE
+PacifidlogTown_PokemonCenter_1F_EventScript_HeatWaveTutor:: @ 82C82BE
 	lock
 	faceplayer
-	checkitem ITEM_LIFE_ORB, 1
+	checkitem ITEM_FRESH_WATER, 1
 	compare VAR_RESULT, 1
 	goto_if_ne PT_MT_NoLifeOrb
-	setvar VAR_TEMP_5, ITEM_LIFE_ORB
-	msgbox MoveTutor_Text_ExplosionTeach, MSGBOX_YESNO
+	setvar VAR_TEMP_5, ITEM_FRESH_WATER
+	msgbox MoveTutor_Text_HeatWaveTeach, MSGBOX_YESNO
 	compare VAR_RESULT, NO
-	goto_if_eq MoveTutor_EventScript_ExplosionDeclined
+	goto_if_eq MoveTutor_EventScript_HeatWaveDeclined
 	call MoveTutor_EventScript_CanOnlyBeLearnedOnce
 	compare VAR_RESULT, NO
-	goto_if_eq MoveTutor_EventScript_ExplosionDeclined
-	msgbox MoveTutor_Text_ExplosionWhichMon, MSGBOX_DEFAULT
-	setvar VAR_0x8005, TUTOR_MOVE_SNORE
+	goto_if_eq MoveTutor_EventScript_HeatWaveDeclined
+	msgbox MoveTutor_Text_HeatWaveWhichMon, MSGBOX_DEFAULT
+	setvar VAR_0x8005, TUTOR_MOVE_HEAT_WAVE
 	call MoveTutor_EventScript_OpenPartyMenu
 	compare VAR_RESULT, 0
-	goto_if_eq MoveTutor_EventScript_ExplosionDeclined
-	removeitem ITEM_LIFE_ORB, 1
-	goto MoveTutor_EventScript_ExplosionTaught
+	goto_if_eq MoveTutor_EventScript_HeatWaveDeclined
+	removeitem ITEM_FRESH_WATER, 1
+	goto MoveTutor_EventScript_HeatWaveTaught
 	end
 
 PT_MT_NoLifeOrb::
@@ -414,13 +414,13 @@ PT1nolifeorb::
 	.string "one!$"
 
 
-MoveTutor_EventScript_ExplosionDeclined:: @ 82C8312
-	msgbox MoveTutor_Text_ExplosionDeclined, MSGBOX_DEFAULT
+MoveTutor_EventScript_HeatWaveDeclined:: @ 82C8312
+	msgbox MoveTutor_Text_HeatWaveDeclined, MSGBOX_DEFAULT
 	release
 	end
 
-MoveTutor_EventScript_ExplosionTaught:: @ 82C831C
-	msgbox MoveTutor_Text_ExplosionTaught, MSGBOX_DEFAULT
+MoveTutor_EventScript_HeatWaveTaught:: @ 82C831C
+	msgbox MoveTutor_Text_HeatWaveTaught, MSGBOX_DEFAULT
 	release
 	end
 

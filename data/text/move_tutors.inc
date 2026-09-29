@@ -202,30 +202,29 @@ MoveTutor_Text_DoubleEdgeTaught: @ 82C7CC8
 	.string "I won't live for love anymore!\n"
 	.string "I'll become tough!$"
 
-MoveTutor_Text_ExplosionTeach: @ 82C7CFA
-	.string "I don't intend to be going nowhere\n"
-	.string "fast in the sticks like this forever.\p"
-	.string "You watch me, I'll get out to the city\n"
-	.string "and become a huge hit.\p"
-	.string "Seriously, I'm going to cause\n"
-	.string "a huge Explosion of popularity!\p"
-	.string "If you overheard that, I'll happily\n"
-	.string "teach Explosion to your Pokémon!$"
+MoveTutor_Text_HeatWaveTeach: @ 82C7CFA
+	.string "Hot! Hot!\n"
+	.string "Hot-hot-hot!\p"
+	.string "I can't stand the heat waves around\n"
+	.string "these parts!\p"
+	.string "But! I bet your enemies can't stand\n"
+	.string "the heat either!\p"
+	.string "If you'll let me, I will teach\n"
+	.string "Heat Wave to your Pokémon!$"
 
-MoveTutor_Text_ExplosionDeclined: @ 82C7E04
-	.string "Gaah! You're turning me down because\n"
-	.string "I live in the country?$"
+MoveTutor_Text_HeatWaveDeclined: @ 82C7E04
+	.string "Gaah! Is the heat too much for you\n"
+	.string "too?$"
 
-MoveTutor_Text_ExplosionWhichMon: @ 82C7E40
-	.string "Fine! An Explosion it is!\n"
-	.string "Which Pokémon wants to blow up?$"
+MoveTutor_Text_HeatWaveWhichMon: @ 82C7E40
+	.string "Good! A Heat Wave it is!\n"
+	.string "Which Pokémon wants to heat up?$"
 
-MoveTutor_Text_ExplosionTaught: @ 82C7E7A
-	.string "For a long time, I've taught Pokémon\n"
-	.string "how to use Explosion, but I've yet\l"
-	.string "to ignite my own Explosion...\p"
-	.string "Maybe it's because deep down,\n"
-	.string "I would rather stay here…$"
+MoveTutor_Text_HeatWaveTaught: @ 82C7E7A
+	.string "There, now you too can harness\n"
+	.string "the power of Heat Wave!\p"
+	.string "Just don't use it near me, will you?\n"
+	.string "It's hot enough out here!$"
 
 MoveTutor_Text_ShadowSlamTeach:
 	.string "Ah, there you are…\p"
