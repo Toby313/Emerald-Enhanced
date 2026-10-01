@@ -37,13 +37,13 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0x0",
+      "script": "RustboroCity_Flat1_2F_EventScript_Walda",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SKITTY_DOLL",
-      "x": 8,
-      "y": 3,
+      "x": 12,
+      "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -56,7 +56,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_TREECKO_DOLL",
       "x": 11,
-      "y": 2,
+      "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -68,8 +68,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_TORCHIC_DOLL",
-      "x": 10,
-      "y": 3,
+      "x": 13,
+      "y": 2,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -81,8 +81,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_1",
-      "x": 9,
-      "y": 2,
+      "x": 7,
+      "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 1,
@@ -94,7 +94,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MUDKIP_DOLL",
-      "x": 8,
+      "x": 10,
       "y": 2,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -107,7 +107,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PIKACHU_DOLL",
-      "x": 11,
+      "x": 13,
       "y": 3,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
