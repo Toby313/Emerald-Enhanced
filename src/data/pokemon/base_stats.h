@@ -11242,12 +11242,12 @@ const struct BaseStats gBaseStats[] =
 
     [SPECIES_HONCHKROW] =
     {
-        .baseHP        = 100,
+        .baseHP        = 65,
         .baseAttack    = 125,
         .baseDefense   = 52,
         .baseSpeed     = 71,
         .baseSpAttack  = 105,
-        .baseSpDefense = 52,
+        .baseSpDefense = 112,
         .type1 = TYPE_DARK,
         .type2 = TYPE_FLYING,
         .catchRate = 30,

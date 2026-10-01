@@ -3762,11 +3762,11 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .ivs = 31,
         .ability = 2
     },
-    [FRONTIER_MON_HONCHKROW_1] = { // Honchkrow-Scarf (ID: 516)
+    [FRONTIER_MON_HONCHKROW_1] = { // Honchkrow-BigRoot (ID: 516)
         .species = SPECIES_HONCHKROW,
-        .moves = {MOVE_OBLIVION_WING, MOVE_DARK_PULSE, MOVE_HEAT_WAVE, MOVE_SWITCHEROO},
-        .heldItem = ITEM_CHOICE_SCARF,
-        .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
+        .moves = {MOVE_OBLIVION_WING, MOVE_DARK_PULSE, MOVE_HEAT_WAVE, MOVE_THUNDER_WAVE},
+        .heldItem = ITEM_BIG_ROOT,
+        .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_HP,
         .nature = NATURE_MODEST,
         .ivs = 31,
         .ability = 1
@@ -5580,12 +5580,12 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .ivs = 31,
         .ability = 2
     },
-    [FRONTIER_MON_HONCHKROW_2] = { // Honchkrow-Bulky (ID: 516)
+    [FRONTIER_MON_HONCHKROW_2] = { // Honchkrow-AV (ID: 516)
         .species = SPECIES_HONCHKROW,
-        .moves = {MOVE_OBLIVION_WING, MOVE_DARK_PULSE, MOVE_HEAT_WAVE, MOVE_THUNDER_WAVE},
-        .heldItem = ITEM_BIG_ROOT,
-        .evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_DEFENSE,
-        .nature = NATURE_MODEST,
+        .moves = {MOVE_OBLIVION_WING, MOVE_HEAT_WAVE, MOVE_SUCKER_PUNCH, MOVE_DARK_PULSE},
+        .heldItem = ITEM_ASSAULT_VEST,
+        .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_HP,
+        .nature = NATURE_MILD,
         .ivs = 31,
         .ability = 1
     },

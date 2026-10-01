@@ -15119,9 +15119,9 @@ static const struct TrainerMonItemCustomMoves sParty_PhoebeRematch4[] = {
     .iv = 255,
     .lvl = 100,
     .species = SPECIES_HONCHKROW,
-    .heldItem = ITEM_SHELL_BELL,
+    .heldItem = ITEM_BIG_ROOT,
     .ability = 1,
-    .moves = {MOVE_OBLIVION_WING, MOVE_DARK_PULSE, MOVE_HEAT_WAVE, MOVE_ROOST},
+    .moves = {MOVE_OBLIVION_WING, MOVE_DARK_PULSE, MOVE_HEAT_WAVE, MOVE_SUCKER_PUNCH},
     },
     {
     .iv = 255,
