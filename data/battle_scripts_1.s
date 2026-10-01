@@ -3451,7 +3451,7 @@ BattleScript_DoSnore::
 	attackstring
 	ppreduce
 	accuracycheck BattleScript_MoveMissedPause, ACC_CURR_MOVE
-	setmoveeffect MOVE_EFFECT_FLINCH
+	setmoveeffect MOVE_EFFECT_SP_ATK_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
 	goto BattleScript_HitFromCritCalc
 
 BattleScript_EffectConversion2::

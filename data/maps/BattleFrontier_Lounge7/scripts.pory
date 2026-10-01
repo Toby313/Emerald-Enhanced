@@ -325,10 +325,10 @@ BattleFrontier_Lounge7_Text_Outrage:: @ 826600A
 	.string "turns then gets\n"
 	.string "confused.$"
 
-BattleFrontier_Lounge7_Text_HeatWave:: @ 826603E
-	.string "A hot breath\n"
-	.string "attack that may\n"
-	.string "burn the foe.$"
+BattleFrontier_Lounge7_Text_Snore:: @ 826603E
+	.string "A boosting attack\n"
+	.string "that can be used\n"
+	.string "only while asleep.$"
 
 BattleFrontier_Lounge7_Text_GunkShot:: @ 8266070
 	.string "Hurls filthy trash\n"

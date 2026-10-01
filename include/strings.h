@@ -895,7 +895,7 @@ extern const u8 BattleFrontier_Lounge7_Text_MagicCoat[];
 extern const u8 BattleFrontier_Lounge7_Text_HealBell[];
 extern const u8 BattleFrontier_Lounge7_Text_Bounce[];
 extern const u8 BattleFrontier_Lounge7_Text_Outrage[];
-extern const u8 BattleFrontier_Lounge7_Text_HeatWave[];
+extern const u8 BattleFrontier_Lounge7_Text_Snore[];
 extern const u8 BattleFrontier_Lounge7_Text_GunkShot[];
 extern const u8 BattleFrontier_Lounge7_Text_Synthesis[];
 extern const u8 BattleFrontier_Lounge7_Text_HelpingHand[];

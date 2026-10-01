@@ -134,7 +134,7 @@ static const u32 sTutorLearnsets[] =
 											| TUTOR(MOVE_OUTRAGE)
 											| TUTOR(MOVE_SIGNAL_BEAM)),
 
-    [SPECIES_CATERPIE]      = TUTOR_LEARNSET(0),
+    [SPECIES_CATERPIE]      = TUTOR_LEARNSET(TUTOR(MOVE_SNORE)),
 
     [SPECIES_METAPOD]       = TUTOR_LEARNSET(0),
 
@@ -1361,8 +1361,7 @@ static const u32 sTutorLearnsets[] =
 											| TUTOR(MOVE_ENDURE)
 											| TUTOR(MOVE_OUTRAGE)),
 
-    [SPECIES_MAGIKARP]      = TUTOR_LEARNSET(TUTOR(MOVE_BOUNCE)
-												| TUTOR(MOVE_SNORE)),
+    [SPECIES_MAGIKARP]      = TUTOR_LEARNSET(TUTOR(MOVE_BOUNCE)),
 
     [SPECIES_GYARADOS]      = TUTOR_LEARNSET(TUTOR(MOVE_BOUNCE)
 											| TUTOR(MOVE_BODY_SLAM)
@@ -2758,7 +2757,7 @@ static const u32 sTutorLearnsets[] =
 											| TUTOR(MOVE_HYPER_VOICE)
 											| TUTOR(MOVE_CUT)),
 
-    [SPECIES_WURMPLE]       = TUTOR_LEARNSET(0),
+    [SPECIES_WURMPLE]       = TUTOR_LEARNSET(TUTOR(MOVE_SNORE)),
 
     [SPECIES_SILCOON]       = TUTOR_LEARNSET(0),
 
@@ -3859,8 +3858,7 @@ static const u32 sTutorLearnsets[] =
 											| TUTOR(MOVE_OUTRAGE)
 											| TUTOR(MOVE_CUT)),
 
-    [SPECIES_BELDUM]        = TUTOR_LEARNSET(TUTOR(MOVE_ZEN_HEADBUTT)
-												| TUTOR(MOVE_SNORE)),
+    [SPECIES_BELDUM]        = TUTOR_LEARNSET(TUTOR(MOVE_ZEN_HEADBUTT)),
 
     [SPECIES_METANG]        = TUTOR_LEARNSET(TUTOR(MOVE_BODY_SLAM)
 											| TUTOR(MOVE_DOUBLE_EDGE)
@@ -6295,7 +6293,6 @@ static const u32 sTutorLearnsets[] =
 											| TUTOR(MOVE_TRICK)
 											| TUTOR(MOVE_METRONOME)
 											| TUTOR(MOVE_FOUL_PLAY)
-											| TUTOR(MOVE_SNORE)
 											| TUTOR(MOVE_ENDURE)
 											| TUTOR(MOVE_SYNTHESIS)
 											| TUTOR(MOVE_SHADOW_SLAM)),
@@ -6305,7 +6302,6 @@ static const u32 sTutorLearnsets[] =
 											| TUTOR(MOVE_TRICK)
 											| TUTOR(MOVE_METRONOME)
 											| TUTOR(MOVE_FOUL_PLAY)
-											| TUTOR(MOVE_SNORE)
 											| TUTOR(MOVE_ENDURE)
 											| TUTOR(MOVE_SYNTHESIS)
 											| TUTOR(MOVE_SHADOW_SLAM)),
@@ -6745,7 +6741,6 @@ static const u32 sTutorLearnsets[] =
     [SPECIES_PYUKUMUKU]     = TUTOR_LEARNSET(TUTOR(MOVE_PAIN_SPLIT)
 											| TUTOR(MOVE_RECYCLE)
 											| TUTOR(MOVE_METRONOME)
-											| TUTOR(MOVE_SNORE)
 											| TUTOR(MOVE_HELPING_HAND)
 											| TUTOR(MOVE_ENDURE)),
 

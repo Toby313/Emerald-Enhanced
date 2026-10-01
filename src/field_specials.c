@@ -2888,7 +2888,7 @@ static void ShowBattleFrontierTutorMoveDescription(u8 menu, u16 selection)
     static const u8 *const sBattleFrontier_TutorMoveDescriptions2[] = 
     {
         BattleFrontier_Lounge7_Text_Outrage,
-        BattleFrontier_Lounge7_Text_HeatWave,
+        BattleFrontier_Lounge7_Text_Snore,
         BattleFrontier_Lounge7_Text_GunkShot,
         BattleFrontier_Lounge7_Text_Synthesis,
         BattleFrontier_Lounge7_Text_HelpingHand,
