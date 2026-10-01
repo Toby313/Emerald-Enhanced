@@ -3997,7 +3997,8 @@ const u16 gEggMoves[] = {
 		MOVE_CHARM,
 		MOVE_WISH,
 		MOVE_PLAY_ROUGH,
-		MOVE_SING),
+		MOVE_SING,
+        MOVE_FLAIL),
 
 	egg_moves(TURTONATOR,
 		MOVE_WIDE_GUARD,
