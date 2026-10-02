@@ -3339,11 +3339,8 @@
     void RyuCheckCanAffordCredits(void)
     {
         u32 requested = gSpecialVar_Result;
-        u32 amount = (requested * 1000);
-        if (amount > GetMoney(&gSaveBlock1Ptr->money))
-            gSpecialVar_0x8002 = FALSE;
-        else
-            gSpecialVar_0x8002 = TRUE;
+        u32 amount = (requested * 2000);
+        gSpecialVar_Result = (amount > GetMoney(&gSaveBlock1Ptr->money)) ? FALSE : TRUE;
 
     }
 
@@ -3351,8 +3348,13 @@
     {   
         u32 curMoney = GetMoney(&gSaveBlock1Ptr->money);
         u32 toExc = gSpecialVar_0x8001;
-        curMoney -= (toExc * 2000);
-        SetMoney(&gSaveBlock1Ptr->money, curMoney);
+        u32 cost = toExc * 2000;
+
+        if (cost > curMoney) { // Safety net so it can't underflow
+            gSpecialVar_Result = FALSE;
+            return;
+        }
+        SetMoney(&gSaveBlock1Ptr->money, curMoney - cost);
         VarSet(VAR_RYU_CASINO_CREDITS, (VarGet(VAR_RYU_CASINO_CREDITS) + toExc));
     }
 
@@ -3360,22 +3362,20 @@
     {
         u16 curSilver = VarGet(VAR_RYU_SILVER_CREDITS);
         u16 curPrem = VarGet(VAR_RYU_PREMIUM_CREDITS);
-        u16 amt = gSpecialVar_Result;
-        curSilver -= amt;
-        curPrem += amt / 10;
-        VarSet(VAR_RYU_SILVER_CREDITS, curSilver);
-        VarSet(VAR_RYU_PREMIUM_CREDITS, curPrem);
+        u16 amt = gSpecialVar_0x8001;
+        if (amt > curSilver) return;
+        VarSet(VAR_RYU_SILVER_CREDITS, curSilver - amt);
+        VarSet(VAR_RYU_PREMIUM_CREDITS, curPrem + amt / 10);
     }
 
     void RyuExchangeCopperForPremium(void)
     {
         u16 curCopper = VarGet(VAR_RYU_COPPER_CREDITS);
         u16 curPrem = VarGet(VAR_RYU_PREMIUM_CREDITS);
-        u16 amt = gSpecialVar_Result;
-        curCopper -= amt;
-        curPrem += amt / 100;
-        VarSet(VAR_RYU_COPPER_CREDITS, curCopper);
-        VarSet(VAR_RYU_PREMIUM_CREDITS, curPrem);
+        u16 amt = gSpecialVar_0x8001;
+        if (amt > curCopper) return;
+        VarSet(VAR_RYU_COPPER_CREDITS, curCopper - amt);
+        VarSet(VAR_RYU_PREMIUM_CREDITS, curPrem + amt / 100);
     }
 
     const u16 PremiumBannerStandardRoll[] = {  
@@ -3510,9 +3510,9 @@ void BufferBattlePoints(void){
 void CheckCasinoCapsuleExchange(void){
     u16 amt = gSpecialVar_0x8004;
     u16 casCred = VarGet(VAR_RYU_CASINO_CREDITS);
-    if (casCred > (amt * 39)){ //this is more than, not more or equal
-        gSpecialVar_Result = TRUE;
-        casCred -= (amt * 40);
+    u32 cost = (u32)amt * 40;
+    if (casCred >= cost){
+        casCred -= cost;
         VarSet(VAR_RYU_CASINO_CREDITS, casCred);
         AddBagItem(ITEM_LOOT_CAPSULE, amt);
         gSpecialVar_Result = TRUE;
@@ -3525,9 +3525,9 @@ void CheckCasinoCapsuleExchange(void){
 void CheckCasinoBPExchange(void){
     u16 amt = gSpecialVar_0x8004;
     u16 bp = gSaveBlock2Ptr->frontier.battlePoints;
-    if (bp > (amt * 24)){ //this is more than, not more or equal
-        gSpecialVar_Result = TRUE;
-        bp -= (amt * 25);
+    u32 cost = (u32)amt * 25;
+    if (bp >= cost){
+        bp -= cost;
         gSaveBlock2Ptr->frontier.battlePoints = bp;
         AddBagItem(ITEM_LOOT_CAPSULE, amt);
         gSpecialVar_Result = TRUE;
@@ -3540,8 +3540,7 @@ void CheckCasinoBPExchange(void){
 void CheckCasinoPremiumExchange(void){
     u16 amt = gSpecialVar_0x8004;
     u16 premCred = VarGet(VAR_RYU_PREMIUM_CREDITS);
-    if (premCred > 0){ //you just 1 or more
-        gSpecialVar_Result = TRUE;
+    if (premCred >= amt){ 
         premCred -= amt;
         VarSet(VAR_RYU_PREMIUM_CREDITS, premCred);
         AddBagItem(ITEM_LOOT_CAPSULE, amt);
