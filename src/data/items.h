@@ -1785,20 +1785,20 @@ const struct Item gItems[] =
         .secondaryId = 0,
     },
 
-    [ITEM_RED_NECTAR] =
+    [ITEM_GLOOM_ROCK] =
     {
-        .name = _("Red Nectar"),
-        .itemId = ITEM_RED_NECTAR,
-        .price = 300,
-        .holdEffectParam = 0,
-        .description = sRedNectarDesc,
-        .pocket = POCKET_COLLECTIBLES,
+        .name = _("Gloom Rock"),
+        .itemId = ITEM_GLOOM_ROCK,
+        .price = 10000,
+        .holdEffect = HOLD_EFFECT_GLOOM_ROCK,
+        .description = sGloomRockDesc,
+        .pocket = POCKET_ITEMS,
         .type = 4,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Placeholder
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
     },
 
-    [ITEM_YELLOW_NECTAR] =
+    [ITEM_YELLOW_NECTAR] = // Unused Oricorio nonsense
     {
         .name = _("Yellow Nectar"),
         .itemId = ITEM_YELLOW_NECTAR,
@@ -1811,7 +1811,7 @@ const struct Item gItems[] =
         .secondaryId = 0,
     },
 
-    [ITEM_PINK_NECTAR] =
+    [ITEM_PINK_NECTAR] = // Unused Oricorio nonsense
     {
         .name = _("Pink Nectar"),
         .itemId = ITEM_PINK_NECTAR,
@@ -1824,7 +1824,7 @@ const struct Item gItems[] =
         .secondaryId = 0,
     },
 
-    [ITEM_PURPLE_NECTAR] =
+    [ITEM_PURPLE_NECTAR] = // Unused Oricorio nonsense
     {
         .name = _("Purple Nectar"),
         .itemId = ITEM_PURPLE_NECTAR,
@@ -1922,7 +1922,7 @@ const struct Item gItems[] =
         .secondaryId = 5,
     },
 
-    [ITEM_IVPRINT] =  //EE-unused
+    [ITEM_IVPRINT] =
     {
         .name = _("Gene Imprint"),
         .itemId = ITEM_IVPRINT,
@@ -3306,7 +3306,7 @@ const struct Item gItems[] =
     {
         .name = _("Loot Capsule"),
         .itemId = ITEM_LOOT_CAPSULE,
-        .price = 10000,
+        .price = 0,
         .description = sLootCapsuleDesc,
         .pocket = POCKET_COLLECTIBLES,
         .type = 4,

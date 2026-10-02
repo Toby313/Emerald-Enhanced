@@ -3081,3 +3081,8 @@ static const u8 sGemPowderDesc [] = _(
     "Dust made from\n"
     "various jewels.\n"
     "Sells well.");
+
+static const u8 sGloomRockDesc[] = _(
+    "Extends the length\n"
+    "of Eclipse if used\n"
+    "by the holder.");

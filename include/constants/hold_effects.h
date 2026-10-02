@@ -140,6 +140,7 @@
 #define HOLD_EFFECT_DRY_ICE          155
 #define HOLD_EFFECT_BOXING_GLOVE     156
 #define HOLD_EFFECT_RAZOR_FANG       157
+#define HOLD_EFFECT_GLOOM_ROCK       158
 
 #define HOLD_EFFECT_CHOICE(holdEffect)((holdEffect == HOLD_EFFECT_CHOICE_BAND || holdEffect == HOLD_EFFECT_CHOICE_SCARF || holdEffect == HOLD_EFFECT_CHOICE_SPECS))
 
