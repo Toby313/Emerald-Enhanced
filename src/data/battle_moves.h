@@ -2559,7 +2559,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_USER,
         .priority = 3,
-        .flags = 0,
+        .flags = FLAG_PROTECTION_MOVE,
         .split = SPLIT_STATUS,
     },
 
@@ -2769,7 +2769,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_USER,
         .priority = 3,
-        .flags = 0,
+        .flags = FLAG_PROTECTION_MOVE,
         .split = SPLIT_STATUS,
     },
 
