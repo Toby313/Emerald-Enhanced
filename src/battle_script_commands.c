@@ -1206,6 +1206,8 @@ bool32 IsBattlerProtected(u8 battlerId, u16 move)
         return FALSE;
     else if (gBattleMoves[move].effect == MOVE_EFFECT_FEINT)
         return FALSE;
+    else if (GetBattlerAbility(gBattlerAttacker) == ABILITY_TRUANT)
+        return FALSE;
     else if (gProtectStructs[battlerId].protected)
         return TRUE;
     else if (gSideStatuses[GetBattlerSide(battlerId)] & SIDE_STATUS_WIDE_GUARD
@@ -12413,7 +12415,8 @@ bool32 DoesSubstituteBlockMove(u8 battlerAtk, u8 battlerDef, u32 move)
         return FALSE;
     else if (gBattleMoves[move].flags & FLAG_SOUND && B_SOUND_SUBSTITUTE >= GEN_6)
         return FALSE;
-    else if (GetBattlerAbility(battlerAtk) == ABILITY_INFILTRATOR)
+    else if (GetBattlerAbility(battlerAtk) == ABILITY_INFILTRATOR
+                  || GetBattlerAbility(battlerAtk) == ABILITY_TRUANT)
         return FALSE;
     else
         return TRUE;

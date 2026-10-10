@@ -2642,7 +2642,7 @@ AI_CV_Protect3:
 	get_last_used_bank_move AI_TARGET
 	get_move_effect_from_result
 	if_not_equal EFFECT_LOCK_ON, AI_CV_Protect_End
-AI_CV_Protect_ScoreDown2:
+AI_CV_Protect_ScoreDown8:
 	score -8
 AI_CV_Protect_End:
 	end

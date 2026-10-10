@@ -3024,8 +3024,8 @@ enum
     CANCELLER_FLAGS,
     CANCELLER_ASLEEP,
     CANCELLER_FROZEN,
-    CANCELLER_TRUANT,
     CANCELLER_RECHARGE,
+    CANCELLER_TRUANT,
     CANCELLER_FLINCH,
     CANCELLER_DISABLED,
     CANCELLER_GRAVITY,
@@ -3146,19 +3146,6 @@ u8 AtkCanceller_UnableToUseMove(void)
             }
             gBattleStruct->atkCancellerTracker++;
             break;
-        case CANCELLER_TRUANT: // truant
-            if (gBattleMons[gBattlerAttacker].ability == ABILITY_TRUANT && gDisableStructs[gBattlerAttacker].truantCounter)
-            {
-                CancelMultiTurnMoves(gBattlerAttacker);
-                gHitMarker |= HITMARKER_UNABLE_TO_USE_MOVE;
-                gBattleCommunication[MULTISTRING_CHOOSER] = 0;
-                gBattlerAbility = gBattlerAttacker;
-                gBattlescriptCurrInstr = BattleScript_TruantLoafingAround;
-                gMoveResultFlags |= MOVE_RESULT_MISSED;
-                effect = 1;
-            }
-            gBattleStruct->atkCancellerTracker++;
-            break;
         case CANCELLER_RECHARGE: // recharge
             if (gBattleMons[gBattlerAttacker].status2 & STATUS2_RECHARGE)
             {
@@ -3170,6 +3157,19 @@ u8 AtkCanceller_UnableToUseMove(void)
                 else
                     gBattlescriptCurrInstr = BattleScript_MoveUsedMustRecharge;
                 gHitMarker |= HITMARKER_UNABLE_TO_USE_MOVE;
+                effect = 1;
+            }
+            gBattleStruct->atkCancellerTracker++;
+            break;
+        case CANCELLER_TRUANT: // truant
+            if (gBattleMons[gBattlerAttacker].ability == ABILITY_TRUANT && gDisableStructs[gBattlerAttacker].truantCounter)
+            {
+                CancelMultiTurnMoves(gBattlerAttacker);
+                gHitMarker |= HITMARKER_UNABLE_TO_USE_MOVE;
+                gBattleCommunication[MULTISTRING_CHOOSER] = 0;
+                gBattlerAbility = gBattlerAttacker;
+                gBattlescriptCurrInstr = BattleScript_TruantLoafingAround;
+                gMoveResultFlags |= MOVE_RESULT_MISSED;
                 effect = 1;
             }
             gBattleStruct->atkCancellerTracker++;
