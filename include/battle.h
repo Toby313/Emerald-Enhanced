@@ -109,6 +109,7 @@ struct DisableStruct
     u8 throatChopTimer;
     u8 usedMoves:4;
     u8 wrapTurns;
+    bool8 rechargedThisTurn;
 };
 
 struct ProtectStruct

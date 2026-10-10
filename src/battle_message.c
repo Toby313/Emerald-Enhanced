@@ -785,6 +785,7 @@ static const u8 sText_TechnicianModPrevented[] = _("The Technician challenge pre
 static const u8 sText_AttackOrderSwarm[] = _("{B_ATK_NAME_WITH_PREFIX}'s swarm is\npummeling the target!");
 static const u8 sText_DefendOrderRecall[] = _("{B_ATK_NAME_WITH_PREFIX} recalls the\nswarm from its target!");
 static const u8 sText_HiveMindEnters[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} has summoned\nThe Swarm!");
+static const u8 sText_TruantHeal[] = _("{B_ATK_NAME_WITH_PREFIX}'s loafing around\nrestored its HP!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1428,6 +1429,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PUMMELEDBYSWARM- 12] = sText_AttackOrderSwarm,
     [STRINGID_SWARMRECALLED- 12] = sText_DefendOrderRecall,
     [STRINGID_HIVEMINDENTERS- 12] = sText_HiveMindEnters,
+    [STRINGID_TRUANTHEAL- 12] = sText_TruantHeal,
 };
 
 const u16 gTerrainStringIds[] =

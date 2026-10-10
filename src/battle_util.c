@@ -3150,6 +3150,7 @@ u8 AtkCanceller_UnableToUseMove(void)
             if (gBattleMons[gBattlerAttacker].status2 & STATUS2_RECHARGE)
             {
                 gBattleMons[gBattlerAttacker].status2 &= ~(STATUS2_RECHARGE);
+                gDisableStructs[gBattlerAttacker].rechargedThisTurn = TRUE;
                 gDisableStructs[gBattlerAttacker].rechargeTimer = 0;
                 CancelMultiTurnMoves(gBattlerAttacker);
                 if ((IsPlayerInUnderworld() == TRUE) && (GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT))
@@ -4443,6 +4444,19 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 break;
             case ABILITY_TRUANT:
                 gDisableStructs[gBattlerAttacker].truantCounter ^= 1;
+                if (!gDisableStructs[gBattlerAttacker].truantCounter // This only activates on turns the user loafs around
+                 && !gDisableStructs[gBattlerAttacker].rechargedThisTurn // Does not activate when the user spent the turn recharging instead
+                 && !BATTLER_MAX_HP(battler)
+                 && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK))
+                {
+                    BattleScriptPushCursorAndCallback(BattleScript_TruantHealActivates);
+                    gBattleMoveDamage = gBattleMons[battler].maxHP / 2;
+                    if (gBattleMoveDamage == 0)
+                        gBattleMoveDamage = 1;
+                    gBattleMoveDamage *= -1;
+                    effect++;
+                }
+                gDisableStructs[gBattlerAttacker].rechargedThisTurn = FALSE;  // Reset the recharge flag
                 break;
             case ABILITY_BAD_DREAMS:
                 if (gBattleMons[battler].status1 & STATUS1_SLEEP

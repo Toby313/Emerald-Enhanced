@@ -7107,6 +7107,15 @@ BattleScript_CheekPouchActivates::
 	call BattleScript_AbilityHpHeal
 	copybyte gBattlerAttacker, sSAVED_BATTLER
 	return
+	
+BattleScript_TruantHealActivates::
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_TRUANTHEAL
+	waitmessage 0x40
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	end3
 
 BattleScript_HarvestActivates::
 	pause 5
