@@ -1980,6 +1980,25 @@ BattleScript_GravityLoopEnd:
 	jumpifnexttargetvalid BattleScript_GravityLoop
 	end   
 
+BattleScript_GravityActivates::
+    pause 0x20
+    call BattleScript_AbilityPopUp
+    printstring STRINGID_PKMNSXINTENSIFIEDGRAVITY
+    waitmessage 0x40
+    setbyte gBattlerTarget, 0
+BattleScript_GravityAbilityLoop:
+    movevaluescleanup
+    jumpifstatus3 BS_TARGET, STATUS3_ON_AIR | STATUS3_MAGNET_RISE | STATUS3_TELEKINESIS, BattleScript_GravityAbilityLoopDrop
+    goto BattleScript_GravityAbilityLoopIncrement
+BattleScript_GravityAbilityLoopDrop:
+    bringdownairbornebattler BS_TARGET
+    printstring STRINGID_GRAVITYGROUNDING
+    waitmessage 0x40
+BattleScript_GravityAbilityLoopIncrement:
+    addbyte gBattlerTarget, 0x1
+    jumpifbytenotequal gBattlerTarget, gBattlersCount, BattleScript_GravityAbilityLoop
+    end3
+
 BattleScript_EffectRoost:
 	attackcanceler
 	attackstring

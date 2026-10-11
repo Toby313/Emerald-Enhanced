@@ -1418,8 +1418,8 @@ static const u8 sPsychoBoostDescription[] = _(
     "but sharply lowers Sp. Atk.");
 
 static const u8 sGRAVITYDescription[] = _(
-    "Gravity is intensified\n"
-    "negating levitation.");
+    "Gravity is intensified,\n"
+    "grounding everything.");
 
 static const u8 sMIRACLE_EYEDescription[] = _(
     "Makes GHOSTS and evasive\n"
@@ -2386,8 +2386,8 @@ static const u8 sFIRST_IMPRESSIONDescription[] = _(
     "Only works first turn.");
 
 static const u8 sBANEFUL_BUNKERDescription[] = _(
-	"Protects user. Can fail\n"
-	"if used repeatedly.");
+    "Protects, and poisons\n"
+    "the foe if struck.");
 
 static const u8 sSPIRIT_SHACKLEDescription[] = _(
     "After being hit, foes can\n"

@@ -657,8 +657,9 @@
 #define STRINGID_SWARMRECALLED                        653
 #define STRINGID_HIVEMINDENTERS                       654
 #define STRINGID_TRUANTHEAL                           655
+#define STRINGID_PKMNSXINTENSIFIEDGRAVITY             656
 
-#define BATTLESTRINGS_COUNT                           656
+#define BATTLESTRINGS_COUNT                           657
 
 
 #endif // GUARD_CONSTANTS_BATTLE_STRING_IDS_H

@@ -4221,6 +4221,15 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 effect++;
             }
             break;
+        case ABILITY_TOUGH_CLAWS:
+            if (!(gFieldStatuses & STATUS_FIELD_GRAVITY))
+            {
+                gFieldStatuses |= STATUS_FIELD_GRAVITY;
+                gFieldTimers.gravityTimer = 5;
+                BattleScriptPushCursorAndCallback(BattleScript_GravityActivates);
+                effect++;
+            }
+            break;
         case ABILITY_INTIMIDATE:
             if (!(gSpecialStatuses[battler].intimidatedMon))
             {
