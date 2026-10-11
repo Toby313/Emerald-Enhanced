@@ -3152,10 +3152,10 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     },
     [FRONTIER_MON_AMPHAROS_1] = { // Ampharos-DualSetup (ID: 349)
         .species = SPECIES_AMPHAROS,
-        .moves = {MOVE_PARABOLIC_CHARGE, MOVE_HIDDEN_POWER, MOVE_AGILITY, MOVE_TAIL_GLOW},
+        .moves = {MOVE_PARABOLIC_CHARGE, MOVE_HIDDEN_POWER, MOVE_CHARGE, MOVE_TAIL_GLOW},
         .heldItem = ITEM_LEFTOVERS,
         .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
-        .nature = NATURE_MODEST,
+        .nature = NATURE_TIMID,
         .ivs = 31,
         .ability = 0
     },
@@ -5643,10 +5643,10 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .ivs = 31,
         .ability = 2
     },
-    [FRONTIER_MON_ROTOM_FROST_2] = { // Rotom_Frost-Scarf (ID: 625)
+    [FRONTIER_MON_ROTOM_FROST_2] = { // Rotom_Frost-Charge (ID: 625)
         .species = SPECIES_ROTOM_FROST,
-        .moves = {MOVE_ICE_BEAM, MOVE_THUNDERBOLT, MOVE_VOLT_SWITCH, MOVE_HIDDEN_POWER},
-        .heldItem = ITEM_CHOICE_SCARF,
+        .moves = {MOVE_ICE_BEAM, MOVE_THUNDERBOLT, MOVE_HIDDEN_POWER, MOVE_CHARGE},
+        .heldItem = ITEM_DRY_ICE,
         .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
         .nature = NATURE_TIMID,
         .ivs = 30,
@@ -6291,10 +6291,10 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .ivs = 31,
         .ability = 0
     },
-    [FRONTIER_MON_ROTOM_HEAT_2] = { // Rotom_Heat-Specs (ID: 697)
+    [FRONTIER_MON_ROTOM_HEAT_2] = { // Rotom_Heat-Charge (ID: 697)
         .species = SPECIES_ROTOM_HEAT,
-        .moves = {MOVE_FIRE_BLAST, MOVE_THUNDERBOLT, MOVE_HIDDEN_POWER, MOVE_VOLT_SWITCH},
-        .heldItem = ITEM_CHOICE_SPECS,
+        .moves = {MOVE_FIRE_BLAST, MOVE_THUNDERBOLT, MOVE_HIDDEN_POWER, MOVE_CHARGE},
+        .heldItem = ITEM_SHELL_BELL,
         .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
         .nature = NATURE_TIMID,
         .ivs = 31,
@@ -8964,12 +8964,12 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .ivs = 31,
         .ability = 0
     },
-    [FRONTIER_MON_XURKITREE_2] = { // Xurkitree-Scarf (id 1006)
+    [FRONTIER_MON_XURKITREE_2] = { // Xurkitree-Charge (id 1006)
         .species = SPECIES_XURKITREE,
-        .moves = {MOVE_THUNDERBOLT, MOVE_VOLT_SWITCH, MOVE_ENERGY_BALL, MOVE_HIDDEN_POWER},
+        .moves = {MOVE_THUNDERBOLT, MOVE_ENERGY_BALL, MOVE_HIDDEN_POWER, MOVE_CHARGE},
         .heldItem = ITEM_CHOICE_SCARF,
         .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
-        .nature = NATURE_MODEST,
+        .nature = NATURE_TIMID,
         .ivs = 31,
         .ability = 0
     },

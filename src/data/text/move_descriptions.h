@@ -1070,8 +1070,8 @@ static const u8 sNaturePowerDescription[] = _(
     "depending on the location.");
 
 static const u8 sChargeDescription[] = _(
-    "Charges power to boost the\n"
-    "electric move used next.");
+    "Charge power to boost speed\n"
+    "and the next electric move .");
 
 static const u8 sTauntDescription[] = _(
     "Taunts the foe into only\n"

@@ -4604,7 +4604,7 @@ BattleScript_EffectCharge::
 	setcharge
 	attackanimation
 	waitanimation
-	setstatchanger STAT_SPDEF, 1, FALSE
+	setstatchanger STAT_SPEED, 1, FALSE
 	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_BUFF_ALLOW_PTR, BattleScript_EffectChargeString
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, 0x2, BattleScript_EffectChargeString
 	setgraphicalstatchangevalues
