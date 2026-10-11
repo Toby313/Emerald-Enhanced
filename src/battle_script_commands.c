@@ -932,7 +932,7 @@ static const u8 sForbiddenMoves[MOVES_COUNT] =
     [MOVE_STRUGGLE] = 0xFF, // Neither Struggle
     [MOVE_AFTER_YOU] = FORBIDDEN_METRONOME,
     [MOVE_ASSIST] = FORBIDDEN_METRONOME | FORBIDDEN_ASSIST | FORBIDDEN_COPYCAT | FORBIDDEN_SLEEP_TALK,
-    [MOVE_EE_PROTECT] = FORBIDDEN_METRONOME | FORBIDDEN_ASSIST | FORBIDDEN_COPYCAT,
+    [MOVE_BANEFUL_BUNKER] = FORBIDDEN_METRONOME | FORBIDDEN_ASSIST | FORBIDDEN_COPYCAT,
     [MOVE_BELCH] = FORBIDDEN_METRONOME | FORBIDDEN_ASSIST | FORBIDDEN_COPYCAT | FORBIDDEN_SLEEP_TALK,
     [MOVE_BESTOW] = FORBIDDEN_METRONOME | FORBIDDEN_ASSIST | FORBIDDEN_COPYCAT,
     [MOVE_BIDE] = FORBIDDEN_SLEEP_TALK,
@@ -5331,7 +5331,7 @@ static void Cmd_moveend(void)
                 else if (gProtectStructs[gBattlerTarget].banefulBunkered)
                 {
                     gBattleScripting.moveEffect = MOVE_EFFECT_POISON | MOVE_EFFECT_AFFECTS_USER;
-                    PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_EE_PROTECT);
+                    PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_BANEFUL_BUNKER);
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_BanefulBunkerEffect;
                     effect = 1;
@@ -8999,7 +8999,7 @@ static void Cmd_setprotectlike(void)
                 gProtectStructs[gBattlerAttacker].kingsShielded = 1;
                 gBattleCommunication[MULTISTRING_CHOOSER] = 0;
             }
-            else if (gCurrentMove == MOVE_EE_PROTECT)
+            else if (gCurrentMove == MOVE_BANEFUL_BUNKER)
             {
                 gProtectStructs[gBattlerAttacker].banefulBunkered = 1;
                 gBattleCommunication[MULTISTRING_CHOOSER] = 0;

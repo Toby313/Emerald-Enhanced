@@ -3747,7 +3747,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman1[] = {
 	.heldItem = ITEM_LEFTOVERS,
 	.evspread = 0,
     .ability = 1,
-	.moves = {MOVE_DAZZLING_GLEAM, MOVE_FLAMETHROWER, MOVE_WISH, MOVE_EE_PROTECT},
+	.moves = {MOVE_DAZZLING_GLEAM, MOVE_FLAMETHROWER, MOVE_WISH, MOVE_PROTECT},
 	},
 	{
 	.iv = 255,
@@ -12621,7 +12621,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman2[] = {
 	.heldItem = ITEM_LEFTOVERS,
 	.evspread = 0,
     .ability = 1,
-	.moves = {MOVE_DAZZLING_GLEAM, MOVE_FLAMETHROWER, MOVE_WISH, MOVE_EE_PROTECT},
+	.moves = {MOVE_DAZZLING_GLEAM, MOVE_FLAMETHROWER, MOVE_WISH, MOVE_PROTECT},
 	},
 	{
 	.iv = 255,

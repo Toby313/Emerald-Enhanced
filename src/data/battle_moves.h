@@ -8756,7 +8756,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .split = SPLIT_PHYSICAL,
     },
 
-    [MOVE_EE_PROTECT] =
+    [MOVE_BANEFUL_BUNKER] =
     {
         .effect = EFFECT_PROTECT,
         .power = 0,

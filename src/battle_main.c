@@ -3616,7 +3616,7 @@ extern bool32 IsPlayerInUnderworld(void);
 
 const u16 bossMovePoolSwaps[3][3] = {
     [0] = {MOVE_TORMENT, MOVE_SIMPLE_BEAM, MOVE_MOONBLAST},
-    [1] = {MOVE_KNOCK_OFF, MOVE_EE_PROTECT, MOVE_METEOR_MASH},
+    [1] = {MOVE_KNOCK_OFF, MOVE_PROTECT, MOVE_METEOR_MASH},
     [2] = {MOVE_GLARE, MOVE_SPORE, MOVE_FLASH_CANNON}
 };
 

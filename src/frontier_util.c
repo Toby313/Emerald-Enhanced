@@ -430,7 +430,7 @@ static const struct FrontierBrainMon sFrontierBrainsMons[][2][MAX_FRONTIER_PARTY
                 .nature = NATURE_IMPISH,
                 .evs = {252, 0, 0, 0, 6, 252},
                 .ability = 0,
-                .moves = {MOVE_TOXIC, MOVE_AERIAL_ACE, MOVE_EE_PROTECT, MOVE_STEEL_WING},
+                .moves = {MOVE_TOXIC, MOVE_AERIAL_ACE, MOVE_PROTECT, MOVE_STEEL_WING},
             },
             {
                 .species = SPECIES_AGGRON,
@@ -439,7 +439,7 @@ static const struct FrontierBrainMon sFrontierBrainsMons[][2][MAX_FRONTIER_PARTY
                 .nature = NATURE_ADAMANT,
                 .evs = {0, 252, 0, 0, 252, 6},
                 .ability = 0,
-                .moves = {MOVE_THUNDERBOLT, MOVE_EE_PROTECT, MOVE_SOLAR_BEAM, MOVE_DRAGON_CLAW},
+                .moves = {MOVE_THUNDERBOLT, MOVE_PROTECT, MOVE_SOLAR_BEAM, MOVE_DRAGON_CLAW},
             },
         },
         {
@@ -459,7 +459,7 @@ static const struct FrontierBrainMon sFrontierBrainsMons[][2][MAX_FRONTIER_PARTY
                 .nature = NATURE_IMPISH,
                 .evs = {252, 0, 0, 0, 6, 252},
                 .ability = 0,
-                .moves = {MOVE_TOXIC, MOVE_AERIAL_ACE, MOVE_EE_PROTECT, MOVE_STEEL_WING},
+                .moves = {MOVE_TOXIC, MOVE_AERIAL_ACE, MOVE_PROTECT, MOVE_STEEL_WING},
             },
             {
                 .species = SPECIES_AGGRON,
@@ -468,7 +468,7 @@ static const struct FrontierBrainMon sFrontierBrainsMons[][2][MAX_FRONTIER_PARTY
                 .nature = NATURE_ADAMANT,
                 .evs = {0, 252, 0, 0, 252, 6},
                 .ability = 0,
-                .moves = {MOVE_THUNDERBOLT, MOVE_EE_PROTECT, MOVE_SOLAR_BEAM, MOVE_DRAGON_CLAW},
+                .moves = {MOVE_THUNDERBOLT, MOVE_PROTECT, MOVE_SOLAR_BEAM, MOVE_DRAGON_CLAW},
             },
         },
     },

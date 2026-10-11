@@ -3677,6 +3677,9 @@ AI_Risky_EffectsToEncourage:
 sMovesTable_ProtectMoves:
     .2byte MOVE_PROTECT
     .2byte MOVE_DETECT
+    .2byte MOVE_KINGS_SHIELD
+    .2byte MOVE_SPIKY_SHIELD
+    .2byte MOVE_BANEFUL_BUNKER
     .2byte -1
 
 .align 1
