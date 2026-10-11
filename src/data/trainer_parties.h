@@ -900,7 +900,7 @@ static const struct TrainerMonItemCustomMoves sParty_George[] = {
     .species = SPECIES_VIGOROTH,
     .heldItem = ITEM_CHOICE_BAND,
     .ability = 0,
-    .moves = {MOVE_DOUBLE_EDGE, MOVE_EARTHQUAKE, MOVE_SHADOW_CLAW, MOVE_NONE},
+    .moves = {MOVE_DOUBLE_EDGE, MOVE_EARTHQUAKE, MOVE_THROAT_CHOP, MOVE_NONE},
     }
 };
 
@@ -12648,7 +12648,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman2[] = {
 	.heldItem = ITEM_LEFTOVERS,
 	.evspread = 0,
     .ability = 0,
-	.moves = {MOVE_DRAIN_PUNCH, MOVE_BODY_SLAM, MOVE_SUCKER_PUNCH, MOVE_BULK_UP},
+	.moves = {MOVE_FACADE, MOVE_EARTHQUAKE, MOVE_SUCKER_PUNCH, MOVE_BULK_UP},
 	}
 };
 
@@ -12705,7 +12705,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman3[] = {
 	.heldItem = ITEM_LEFTOVERS,
 	.evspread = 0,
     .ability = 0,
-	.moves = {MOVE_DRAIN_PUNCH, MOVE_BODY_SLAM, MOVE_SUCKER_PUNCH, MOVE_BULK_UP},
+	.moves = {MOVE_BODY_SLAM, MOVE_HAMMER_ARM, MOVE_SUCKER_PUNCH, MOVE_BULK_UP},
 	}
 };
 
@@ -12762,7 +12762,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman4[] = {
 	.heldItem = ITEM_LEFTOVERS,
 	.evspread = 0,
     .ability = 0,
-	.moves = {MOVE_DRAIN_PUNCH, MOVE_BODY_SLAM, MOVE_SUCKER_PUNCH, MOVE_BULK_UP},
+	.moves = {MOVE_BODY_SLAM, MOVE_EARTHQUAKE, MOVE_SUCKER_PUNCH, MOVE_BULK_UP},
 	}
 };
 
@@ -12819,7 +12819,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman5[] = {//challenger N
 	.heldItem = ITEM_LEFTOVERS,
 	.evspread = 0,
     .ability = 0,
-	.moves = {MOVE_DRAIN_PUNCH, MOVE_BODY_SLAM, MOVE_SUCKER_PUNCH, MOVE_BULK_UP},
+	.moves = {MOVE_BODY_SLAM, MOVE_EARTHQUAKE, MOVE_SUCKER_PUNCH, MOVE_BULK_UP},
 	}
 };
 
@@ -15068,9 +15068,9 @@ static const struct TrainerMonItemCustomMoves sParty_PhoebeRematch3[] = {
     .iv = 255,
     .lvl = 100,
     .species = SPECIES_SLAKING,
-    .heldItem = ITEM_LEFTOVERS,
+    .heldItem = ITEM_CHOICE_BAND,
     .ability = 0,
-    .moves = {MOVE_BODY_SLAM, MOVE_DRAIN_PUNCH, MOVE_BULK_UP, MOVE_SLACK_OFF},
+    .moves = {MOVE_GIGA_IMPACT, MOVE_HAMMER_ARM, MOVE_THROAT_CHOP, MOVE_U_TURN},
     },
     {
     .iv = 255,

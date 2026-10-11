@@ -1748,7 +1748,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     },
     [FRONTIER_MON_VIGOROTH_1] = { // Vigoroth-FlailReversal (ID: 194)
         .species = SPECIES_VIGOROTH,
-        .moves = {MOVE_FLAIL, MOVE_REVERSAL, MOVE_SHADOW_CLAW, MOVE_SUBSTITUTE},
+        .moves = {MOVE_FLAIL, MOVE_REVERSAL, MOVE_THROAT_CHOP, MOVE_SUBSTITUTE},
         .heldItem = ITEM_SALAC_BERRY,
         .evSpread = F_EV_SPREAD_SPEED | F_EV_SPREAD_ATTACK,
         .nature = NATURE_JOLLY,
@@ -2630,10 +2630,10 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     },
     [FRONTIER_MON_VIGOROTH_2] = { // Vigoroth-BU (ID: 292)
         .species = SPECIES_VIGOROTH,
-        .moves = {MOVE_RETURN, MOVE_DRAIN_PUNCH, MOVE_BULK_UP, MOVE_SLACK_OFF},
+        .moves = {MOVE_BODY_SLAM, MOVE_TAUNT, MOVE_BULK_UP, MOVE_SLACK_OFF},
         .heldItem = ITEM_EVIOLITE,
         .evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_SPEED | F_EV_SPREAD_HP,
-        .nature = NATURE_CAREFUL,
+        .nature = NATURE_JOLLY,
         .ivs = 31,
         .ability = 0
     },
@@ -4475,9 +4475,9 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     },
     [FRONTIER_MON_SLAKING_1] = { // Slaking-BU (ID: 496)
         .species = SPECIES_SLAKING,
-        .moves = {MOVE_DRAIN_PUNCH, MOVE_RETURN, MOVE_SUCKER_PUNCH, MOVE_BULK_UP},
+        .moves = {MOVE_DOUBLE_EDGE, MOVE_EARTHQUAKE, MOVE_SUCKER_PUNCH, MOVE_BULK_UP},
         .heldItem = ITEM_LEFTOVERS,
-        .evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_ATTACK,
+        .evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_ATTACK | F_EV_SPREAD_HP,
         .nature = NATURE_ADAMANT,
         .ivs = 31,
         .ability = 0
@@ -6318,12 +6318,12 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .ivs = 31,
         .ability = 0
     },
-    [FRONTIER_MON_SLAKING_2] = { // Slaking-BulkyAttacker (ID: 700)
+    [FRONTIER_MON_SLAKING_2] = { // Slaking-HitAndRun (ID: 700)
         .species = SPECIES_SLAKING,
-        .moves = {MOVE_RETURN, MOVE_DRAIN_PUNCH, MOVE_SUCKER_PUNCH, MOVE_SLACK_OFF},
+        .moves = {MOVE_GIGA_IMPACT, MOVE_SUPERPOWER, MOVE_THROAT_CHOP, MOVE_U_TURN},
         .heldItem = ITEM_LEFTOVERS,
-        .evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_ATTACK,
-        .nature = NATURE_ADAMANT,
+        .evSpread = F_EV_SPREAD_SPEED | F_EV_SPREAD_ATTACK,
+        .nature = NATURE_JOLLY,
         .ivs = 31,
         .ability = 0
     },

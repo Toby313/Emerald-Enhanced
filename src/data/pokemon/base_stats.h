@@ -7445,14 +7445,14 @@ const struct BaseStats gBaseStats[] =
 
     [SPECIES_VIGOROTH] =
     {
-        .baseHP        = 80,
-        .baseAttack    = 100,
-        .baseDefense   = 80,
+        .baseHP        = 92,
+        .baseAttack    = 88,
+        .baseDefense   = 85,
         .baseSpeed     = 100,
         .baseSpAttack  = 55,
         .baseSpDefense = 55,
         .type1 = TYPE_NORMAL,
-        .type2 = TYPE_FIGHTING,
+        .type2 = TYPE_NORMAL,
         .catchRate = 120,
         .expYield = 154,
         .evYield_Speed     = 2,
@@ -7470,14 +7470,14 @@ const struct BaseStats gBaseStats[] =
 
     [SPECIES_SLAKING] =
     {
-        .baseHP        = 120,
-        .baseAttack    = 130,
+        .baseHP        = 150,
+        .baseAttack    = 160,
         .baseDefense   = 100,
-        .baseSpeed     = 60,
-        .baseSpAttack  = 80,
+        .baseSpeed     = 85,
+        .baseSpAttack  = 95,
         .baseSpDefense = 65,
         .type1 = TYPE_NORMAL,
-        .type2 = TYPE_FIGHTING,
+        .type2 = TYPE_NORMAL,
         .catchRate = 45,
         .expYield = 252,
         .evYield_Attack    = 3,
@@ -7488,7 +7488,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_SLOW,
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_FIELD,
-        .abilities = {ABILITY_COMATOSE, ABILITY_COMATOSE},
+        .abilities = {ABILITY_TRUANT, ABILITY_TRUANT},
         .abilityHidden = ABILITY_NONE,
         .noFlip = FALSE,
         .bodyColor = BODY_COLOR_BROWN,

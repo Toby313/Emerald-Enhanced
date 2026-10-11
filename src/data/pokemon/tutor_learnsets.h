@@ -2965,6 +2965,8 @@ static const u32 sTutorLearnsets[] =
 											| TUTOR(MOVE_SNORE)
 											| TUTOR(MOVE_ENDURE)
 											| TUTOR(MOVE_GUNK_SHOT)
+											| TUTOR(MOVE_ICE_PUNCH)
+											| TUTOR(MOVE_THUNDER_PUNCH)
 											| TUTOR(MOVE_FIRE_PUNCH)
 											| TUTOR(MOVE_CUT)),
 
@@ -2973,10 +2975,11 @@ static const u32 sTutorLearnsets[] =
 											| TUTOR(MOVE_SEISMIC_TOSS)
 											| TUTOR(MOVE_METRONOME)
 											| TUTOR(MOVE_LOW_KICK)
-											| TUTOR(MOVE_DRAIN_PUNCH)
 											| TUTOR(MOVE_SNORE)
 											| TUTOR(MOVE_ENDURE)
 											| TUTOR(MOVE_GUNK_SHOT)
+											| TUTOR(MOVE_ICE_PUNCH)
+											| TUTOR(MOVE_THUNDER_PUNCH)
 											| TUTOR(MOVE_FIRE_PUNCH)
 											| TUTOR(MOVE_SHADOW_SLAM)
 											| TUTOR(MOVE_CUT)),
@@ -2986,11 +2989,12 @@ static const u32 sTutorLearnsets[] =
 											| TUTOR(MOVE_SEISMIC_TOSS)
 											| TUTOR(MOVE_METRONOME)
 											| TUTOR(MOVE_LOW_KICK)
-											| TUTOR(MOVE_DRAIN_PUNCH)
 											| TUTOR(MOVE_STOMPING_TANTRUM)
 											| TUTOR(MOVE_SNORE)
 											| TUTOR(MOVE_ENDURE)
 											| TUTOR(MOVE_GUNK_SHOT)
+											| TUTOR(MOVE_ICE_PUNCH)
+											| TUTOR(MOVE_THUNDER_PUNCH)
 											| TUTOR(MOVE_FIRE_PUNCH)
 											| TUTOR(MOVE_SHADOW_SLAM)
 											| TUTOR(MOVE_CUT)),
