@@ -237,6 +237,7 @@ static const u8 sPlaguebearerDescription[] = _("Bite moves dmg + infest boost");
 static const u8 sLunaticDescription[] = _("Gets strong during Eclipse.");
 static const u8 sTwilightRushDescription[] = _("Doubles Speed in Eclipse.");
 static const u8 sHiveMindDescription[] = _("Commands The Swarm.");
+static const u8 sGravitasDescription[] = _("Intensifies gravity.");
 
 const u8 gAbilityNames[ABILITIES_COUNT_GEN7][ABILITY_NAME_LENGTH + 1] =
 {
@@ -490,6 +491,7 @@ const u8 gAbilityNames[ABILITIES_COUNT_GEN7][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_LUNATIC] = _("Lunatic"),
     [ABILITY_TWILIGHT_RUSH] = _("TwilightRush"),
     [ABILITY_HIVE_MIND] = _("Hive Mind"),
+    [ABILITY_GRAVITAS] = _("Gravitas"),
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT_GEN7] =
@@ -743,5 +745,6 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT_GEN7] =
     [ABILITY_PLAGUEBEARER] = sPlaguebearerDescription,
     [ABILITY_LUNATIC] = sLunaticDescription,
     [ABILITY_TWILIGHT_RUSH] = sTwilightRushDescription,
-    [ABILITY_HIVE_MIND] = sHiveMindDescription
+    [ABILITY_HIVE_MIND] = sHiveMindDescription,
+    [ABILITY_GRAVITAS] = sGravitasDescription
 };

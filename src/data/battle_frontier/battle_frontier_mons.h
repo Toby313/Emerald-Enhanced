@@ -3204,14 +3204,14 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .ivs = 22,
         .ability = 1
     },
-    [FRONTIER_MON_CLAYDOL_1] = { // Claydol-Specs (ID: 355)
+    [FRONTIER_MON_CLAYDOL_1] = { // Claydol-GravitySetter (ID: 355)
         .species = SPECIES_CLAYDOL,
-        .moves = {MOVE_EARTH_POWER, MOVE_ICE_BEAM, MOVE_PSYCHIC, MOVE_SHADOW_BALL},
-        .heldItem = ITEM_CHOICE_SPECS,
-        .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_HP,
-        .nature = NATURE_MODEST,
+        .moves = {MOVE_EARTH_POWER, MOVE_HYPNOSIS, MOVE_PAIN_SPLIT, MOVE_VOLT_SWITCH},
+        .heldItem = ITEM_LEFTOVERS,
+        .evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_HP,
+        .nature = NATURE_CALM,
         .ivs = 31,
-        .ability = 0
+        .ability = 2
     },
     [FRONTIER_MON_WAILORD_1] = { // Wailord-OffensiveRestTalk (ID: 458)
         .species = SPECIES_WAILORD,
@@ -5049,14 +5049,14 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .ivs = 22,
         .ability = 1
     },
-    [FRONTIER_MON_CLAYDOL_2] = { // Claydol-WP (ID: 559)
+    [FRONTIER_MON_CLAYDOL_2] = { // Claydol-Specs (ID: 355)
         .species = SPECIES_CLAYDOL,
-        .moves = {MOVE_EARTH_POWER, MOVE_ICE_BEAM, MOVE_PSYSHOCK, MOVE_ROCK_POLISH},
-        .heldItem = ITEM_WEAKNESS_POLICY,
+        .moves = {MOVE_EARTH_POWER, MOVE_PSYSHOCK, MOVE_ZAP_CANNON, MOVE_VOLT_SWITCH},
+        .heldItem = ITEM_CHOICE_SPECS,
         .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_HP,
         .nature = NATURE_MODEST,
         .ivs = 31,
-        .ability = 0
+        .ability = 2
     },
     [FRONTIER_MON_WAILORD_2] = { // Wailord-MysticWater (ID: 662)
         .species = SPECIES_WAILORD,
