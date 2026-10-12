@@ -793,7 +793,7 @@ BattleScript_EffectAcupressure:
 BattleScript_EffectAcupressureTry:
 	attackstring
 	ppreduce
-	tryaccupressure BS_TARGET, BattleScript_ButItFailed
+	tryacupressure BS_TARGET, BattleScript_ButItFailed
 	attackanimation
 	waitanimation
 	setgraphicalstatchangevalues

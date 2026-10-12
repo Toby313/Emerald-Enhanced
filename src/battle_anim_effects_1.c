@@ -135,7 +135,7 @@ static void AnimMoveFeintSwipe(struct Sprite *);
 static void AnimMoveFeintZoom(struct Sprite *);
 static void AnimMoveTrumpCard(struct Sprite *);
 static void AnimMoveTrumpCardParticle(struct Sprite* sprite);
-static void AnimMoveAccupressure(struct Sprite* sprite);
+static void AnimMoveAcupressure(struct Sprite* sprite);
 static void AnimMoveWringOut(struct Sprite* sprite);
 static void AnimMoveWorrySeed(struct Sprite* sprite);
 static void AnimMoveSmallCloud(struct Sprite* sprite);
@@ -272,23 +272,23 @@ static const union AnimCmd * const sTrumpCardParticleAnims[] =
     sTrumpCardParticleFrame2,
 };
 
-static const union AffineAnimCmd sAccupressureTurn[] =
+static const union AffineAnimCmd sAcupressureTurn[] =
 {
     AFFINEANIMCMD_FRAME(0, 0, 1, 20),
     AFFINEANIMCMD_FRAME(0, 0, -1, 40),
     AFFINEANIMCMD_END,
 };
 
-static const union AffineAnimCmd sAccupressureStill[] =
+static const union AffineAnimCmd sAcupressureStill[] =
 {
     AFFINEANIMCMD_FRAME(256, 256, 0, 0),
     AFFINEANIMCMD_END
 };
 
-static const union AffineAnimCmd * const sAccupressureAffineAnims[] =
+static const union AffineAnimCmd * const sAcupressureAffineAnims[] =
 {
-    sAccupressureStill,
-    sAccupressureTurn
+    sAcupressureStill,
+    sAcupressureTurn
 };
 
 static const union AffineAnimCmd sSmallCloundsInit[] =
@@ -349,15 +349,15 @@ const struct SpriteTemplate gSmallCloudTemplate =
     .callback = AnimMoveSmallCloud
 };
 
-const struct SpriteTemplate gAccupressureSpriteTemplate =
+const struct SpriteTemplate gAcupressureSpriteTemplate =
 {
-    .tileTag = ANIM_TAG_ACCUPRESSURE,
-    .paletteTag = ANIM_TAG_ACCUPRESSURE,
+    .tileTag = ANIM_TAG_ACUPRESSURE,
+    .paletteTag = ANIM_TAG_ACUPRESSURE,
     .oam = &gOamData_AffineDouble_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
-    .affineAnims = sAccupressureAffineAnims,
-    .callback = AnimMoveAccupressure,
+    .affineAnims = sAcupressureAffineAnims,
+    .callback = AnimMoveAcupressure,
 };
 
 const struct SpriteTemplate gWringOutHandSpriteTemplate =
@@ -3395,7 +3395,7 @@ static void AnimMoveTrumpCardParticle(struct Sprite* sprite)
     sprite->callback = AnimMoveTrumpCardParticleAlive;
 }
 
-static void AnimMoveAccupressureTransition(struct Sprite* sprite)
+static void AnimMoveAcupressureTransition(struct Sprite* sprite)
 {
     switch(sprite->data[5])
     {
@@ -3415,7 +3415,7 @@ static void AnimMoveAccupressureTransition(struct Sprite* sprite)
     }
 }
 
-static void AnimMoveAccupressure(struct Sprite* sprite)
+static void AnimMoveAcupressure(struct Sprite* sprite)
 {
     InitSpritePosToAnimTarget(sprite, TRUE);
     sprite->data[0] = gBattleAnimArgs[2];
@@ -3425,7 +3425,7 @@ static void AnimMoveAccupressure(struct Sprite* sprite)
     sprite->data[4] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y);
     sprite->data[5] = 0;
     InitAnimLinearTranslation(sprite);
-    sprite->callback = AnimMoveAccupressureTransition;
+    sprite->callback = AnimMoveAcupressureTransition;
 }
 
 static void AnimMoveWringOutCircle(struct Sprite* sprite)

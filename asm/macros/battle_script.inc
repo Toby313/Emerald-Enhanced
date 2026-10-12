@@ -1636,7 +1636,7 @@
 	.4byte \ptr
 	.endm
 	
-	.macro tryaccupressure battler:req, ptr:req
+	.macro tryacupressure battler:req, ptr:req
 	various \battler, VARIOUS_ACUPRESSURE
 	.4byte \ptr
 	.endm
