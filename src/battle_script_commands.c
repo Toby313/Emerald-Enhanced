@@ -7906,12 +7906,21 @@ static void Cmd_various(void)
         if (bits)
         {
             u32 statId;
+            u8 acupressureStages;
+            u8 randMax;
+
+            // Acupressure can roll 1-7. Ancient Power and clones can only roll 1-5.
+            randMax = (gCurrentMove == MOVE_ACUPRESSURE) ? (NUM_BATTLE_STATS - 1) : (NUM_BATTLE_STATS - 3);
+
             do
             {
-                statId = (Random() % (NUM_BATTLE_STATS - 1)) + 1;
+                statId = (Random() % randMax) + 1;
             } while (!(bits & gBitTable[statId]));
 
-            SET_STATCHANGER(statId, 2, FALSE);
+            // If the move is Acupressure, raise by 2. Otherwise, raise by 1.
+            acupressureStages = (gCurrentMove == MOVE_ACUPRESSURE) ? 2 : 1;
+            
+            SET_STATCHANGER(statId, acupressureStages, FALSE);
             gBattlescriptCurrInstr += 7;
         }
         else
