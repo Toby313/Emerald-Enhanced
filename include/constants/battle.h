@@ -358,6 +358,7 @@
 #define MOVE_EFFECT_FRENZY_FANG         0x47
 #define MOVE_EFFECT_VOID_BURST          0x48
 #define MOVE_EFFECT_SHADOW_SLAM         0x49
+#define MOVE_EFFECT_DEF_DOWN            0x4A
 #define NUM_MOVE_EFFECTS                0x4B
 
 #define MOVE_EFFECT_AFFECTS_USER        0x4000

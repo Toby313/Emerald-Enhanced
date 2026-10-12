@@ -374,7 +374,7 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectAttackOrder
     .4byte BattleScript_EffectDefendOrder
 	.4byte BattleScript_EffectHealOrder
-	.4byte BattleScript_BothCanNoLongerEscape
+	.4byte BattleScript_EffectClangingScales
 
 BattleScript_EffectShadowSlam:
 	setmoveeffect MOVE_EFFECT_PARALYSIS
@@ -4705,6 +4705,10 @@ BattleScript_EffectCloseCombat:
 	setmoveeffect MOVE_EFFECT_DEF_SPDEF_DOWN | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	goto BattleScript_EffectHit
 
+BattleScript_EffectClangingScales:
+	setmoveeffect MOVE_EFFECT_DEF_DOWN | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
+	goto BattleScript_EffectHit
+
 BattleScript_EffectMagicCoat:
 	attackcanceler
 	trysetmagiccoat BattleScript_ButItFailedAtkStringPpReduce
@@ -6380,6 +6384,17 @@ BattleScript_DefSpDefDownTrySpDef::
 	waitmessage 0x40
 BattleScript_DefSpDefDownRet::
 	return
+
+BattleScript_DefDown::
+    setbyte sSTAT_ANIM_PLAYED, FALSE
+    playstatchangeanimation BS_ATTACKER, BIT_DEF, STAT_CHANGE_CANT_PREVENT | STAT_CHANGE_NEGATIVE
+    setstatchanger STAT_DEF, 1, TRUE
+    statbuffchange MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN | STAT_BUFF_ALLOW_PTR, BattleScript_DefDownRet
+    jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, 0x2, BattleScript_DefDownRet
+    printfromtable gStatDownStringIds
+    waitmessage 0x40
+BattleScript_DefDownRet::
+    return
 
 BattleScript_KnockedOff::
 	playanimation BS_TARGET, B_ANIM_ITEM_KNOCKOFF, NULL

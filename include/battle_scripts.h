@@ -407,5 +407,6 @@ extern const u8 BattleScript_TechnicianModPrevented[];
 extern const u8 BattleScript_HiveMindHeal[];
 extern const u8 BattleScript_TruantHealActivates[];
 extern const u8 BattleScript_GravityActivates[];
+extern const u8 BattleScript_DefDown[];
 
 #endif // GUARD_BATTLE_SCRIPTS_H
