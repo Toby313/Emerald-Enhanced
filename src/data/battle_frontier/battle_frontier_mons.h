@@ -4565,7 +4565,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     },
     [FRONTIER_MON_MISMAGIUS_2] = { // Mismagius-NP (ID: 505)
         .species = SPECIES_MISMAGIUS,
-        .moves = {MOVE_MOONBLAST, MOVE_SHADOW_BALL, MOVE_NASTY_PLOT, MOVE_MOONLIGHT},
+        .moves = {MOVE_DRAINING_KISS, MOVE_SHADOW_BALL, MOVE_NASTY_PLOT, MOVE_MOONLIGHT},
         .heldItem = ITEM_LIFE_ORB,
         .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
         .nature = NATURE_TIMID,

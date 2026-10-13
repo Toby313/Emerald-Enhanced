@@ -7162,13 +7162,13 @@ static const struct TrainerMonItemCustomMoves sParty_ChallengerLusamine[] = {
 	.moves = {MOVE_MOONBLAST, MOVE_COSMIC_POWER, MOVE_METRONOME, MOVE_MOONLIGHT},
 	},
 	{
-	.iv = 250,
+	.iv = 247,
 	.lvl = 92,
 	.species = SPECIES_LILLIGANT,
 	.heldItem = ITEM_FOCUS_SASH,
 	.evspread = 0,
     .ability = 2,
-	.moves = {MOVE_GIGA_DRAIN, MOVE_SLUDGE_BOMB, MOVE_QUIVER_DANCE, MOVE_SIGNAL_BEAM},
+	.moves = {MOVE_GIGA_DRAIN, MOVE_DAZZLING_GLEAM, MOVE_QUIVER_DANCE, MOVE_HIDDEN_POWER},
 	},
 	{
 	.iv = 250,
@@ -7177,7 +7177,7 @@ static const struct TrainerMonItemCustomMoves sParty_ChallengerLusamine[] = {
 	.heldItem = ITEM_EXPERT_BELT,
 	.evspread = 0,
     .ability = 0,
-	.moves = {MOVE_SHADOW_BALL, MOVE_MYSTICAL_FIRE, MOVE_POWER_GEM, MOVE_GRAVEL_STORM},
+	.moves = {MOVE_SHADOW_BALL, MOVE_MYSTICAL_FIRE, MOVE_POWER_GEM, MOVE_DRAINING_KISS},
 	},
 	{
 	.iv = 250,
@@ -7195,7 +7195,7 @@ static const struct TrainerMonItemCustomMoves sParty_ChallengerLusamine[] = {
 	.heldItem = ITEM_BLACK_BELT,
 	.evspread = 0,
     .ability = 0,
-	.moves = {MOVE_HAMMER_ARM, MOVE_TAKE_DOWN, MOVE_EARTHQUAKE, MOVE_SHADOW_SNEAK},
+	.moves = {MOVE_HAMMER_ARM, MOVE_TAKE_DOWN, MOVE_EARTHQUAKE, MOVE_IRON_HEAD},
 	},
 	{
 	.iv = 250,
@@ -7204,7 +7204,7 @@ static const struct TrainerMonItemCustomMoves sParty_ChallengerLusamine[] = {
 	.heldItem = ITEM_POISON_BARB,
 	.evspread = 0,
     .ability = 1,
-	.moves = {MOVE_ACID, MOVE_POWER_GEM, MOVE_GRASS_KNOT, MOVE_FREEZE_DRY},
+	.moves = {MOVE_ACID, MOVE_POWER_GEM, MOVE_GRASS_KNOT, MOVE_SLUDGE_WAVE},
 	}
 };
 
@@ -7225,7 +7225,7 @@ static const struct TrainerMonItemCustomMoves sParty_RelMay[] = {
 	.heldItem = ITEM_BLACK_BELT,
 	.evspread = 0,
     .ability = 2,
-	.moves = {MOVE_DOUBLE_KICK, MOVE_DOUBLE_EDGE, MOVE_DRILL_RUN, MOVE_PURSUIT},
+	.moves = {MOVE_HI_JUMP_KICK, MOVE_DOUBLE_EDGE, MOVE_ROCK_SLIDE, MOVE_DOUBLE_KICK},
 	},
 	{
 	.iv = 250,
@@ -7234,7 +7234,7 @@ static const struct TrainerMonItemCustomMoves sParty_RelMay[] = {
 	.heldItem = ITEM_LIFE_ORB,
 	.evspread = 0,
     .ability = 2,
-	.moves = {MOVE_GIGA_DRAIN, MOVE_SOLAR_BEAM, MOVE_SPORE, MOVE_SLUDGE_BOMB},
+	.moves = {MOVE_GIGA_DRAIN, MOVE_SOLAR_BEAM, MOVE_SLEEP_POWDER, MOVE_SLUDGE_BOMB},
 	},
 };
 
