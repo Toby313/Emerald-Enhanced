@@ -982,8 +982,8 @@ static const u8 sExtremeSpeedDescription[] = _(
     "powerful attack.");
 
 static const u8 sAncientPowerDescription[] = _(
-    "An attack that may raise\n"
-    "all stats.");
+    "A prehistoric attack that\n"
+    "raises a random stat.");
 
 static const u8 sShadowBallDescription[] = _(
     "Hurls a black blob that may\n"
@@ -1270,8 +1270,8 @@ static const u8 sRockTombDescription[] = _(
     "with rocks and cuts Speed.");
 
 static const u8 sSilverWindDescription[] = _(
-    "A powdery attack that may\n"
-    "raise abilities.");
+    "A powdery attack that\n"
+    "raises a random stat.");
 
 static const u8 sMetalSoundDescription[] = _(
     "Emits a horrible screech\n"
@@ -1802,8 +1802,8 @@ static const u8 sSEED_FLAREDescription[] = _(
     "sharply reduces Sp. Def.");
 
 static const u8 sOMINOUS_WINDDescription[] = _(
-    "A repulsive attack that may\n"
-    "raise all stats.");
+    "A repulsive attack that\n"
+    "raises a random stat.");
 
 static const u8 sSHADOW_FORCEDescription[] = _(
     "Vanishes on the first turn\n"

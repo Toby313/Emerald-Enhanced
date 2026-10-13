@@ -821,7 +821,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     },
     [FRONTIER_MON_DUSTOX_1] = { // Dustox-QD (ID: 91)
         .species = SPECIES_DUSTOX,
-        .moves = {MOVE_SLUDGE_BOMB, MOVE_SHADOW_BALL, MOVE_QUIVER_DANCE, MOVE_ROOST},
+        .moves = {MOVE_SLUDGE_BOMB, MOVE_OMINOUS_WIND, MOVE_QUIVER_DANCE, MOVE_ROOST},
         .heldItem = ITEM_BLACK_SLUDGE,
         .evSpread = F_EV_SPREAD_DEFENSE | F_EV_SPREAD_HP,
         .nature = NATURE_BOLD,
@@ -2648,7 +2648,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     },
     [FRONTIER_MON_COFAGRIGUS_1] = { // Cofagrigus-Defensive (ID: 294)
         .species = SPECIES_COFAGRIGUS,
-        .moves = {MOVE_SHADOW_BALL, MOVE_WILL_O_WISP, MOVE_PAIN_SPLIT, MOVE_TOXIC_SPIKES},
+        .moves = {MOVE_OMINOUS_WIND, MOVE_WILL_O_WISP, MOVE_PAIN_SPLIT, MOVE_TOXIC_SPIKES},
         .heldItem = ITEM_COLBUR_BERRY,
         .evSpread = F_EV_SPREAD_DEFENSE | F_EV_SPREAD_HP,
         .nature = NATURE_BOLD,
@@ -2682,12 +2682,12 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .ivs = 31,
         .ability = 0
     },
-    [FRONTIER_MON_MISDREAVUS_1] = { // Misdreavus-BulkyCM (ID: 297)
+    [FRONTIER_MON_MISDREAVUS_1] = { // Misdreavus-Defensive (ID: 297)
         .species = SPECIES_MISDREAVUS,
-        .moves = {MOVE_SHADOW_BALL, MOVE_DAZZLING_GLEAM, MOVE_CALM_MIND, MOVE_MOONLIGHT},
+        .moves = {MOVE_DRAINING_KISS, MOVE_WILL_O_WISP, MOVE_CALM_MIND, MOVE_MOONLIGHT},
         .heldItem = ITEM_EVIOLITE,
         .evSpread = F_EV_SPREAD_DEFENSE | F_EV_SPREAD_HP,
-        .nature = NATURE_BOLD,
+        .nature = NATURE_TIMID,
         .ivs = 31,
         .ability = 0
     },
@@ -3879,12 +3879,12 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .ivs = 31,
         .ability = 0
     },
-    [FRONTIER_MON_SPIRITOMB_1] = { // Spiritomb-NightShade (ID: 328)
+    [FRONTIER_MON_SPIRITOMB_1] = { // Spiritomb-Booster (ID: 328)
         .species = SPECIES_SPIRITOMB,
-        .moves = {MOVE_WILL_O_WISP, MOVE_NIGHT_SHADE, MOVE_STRENGTH_SAP, MOVE_PARTING_SHOT},
+        .moves = {MOVE_OMINOUS_WIND, MOVE_SILVER_WIND, MOVE_WILL_O_WISP, MOVE_STRENGTH_SAP},
         .heldItem = ITEM_LEFTOVERS,
         .evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_HP,
-        .nature = NATURE_SASSY,
+        .nature = NATURE_CALM,
         .ivs = 31,
         .ability = 2
     },
@@ -4527,9 +4527,9 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .ivs = 31,
         .ability = 0
     },
-    [FRONTIER_MON_MISDREAVUS_2] = { // Misdreavus-FastCM (ID: 501)
+    [FRONTIER_MON_MISDREAVUS_2] = { // Misdreavus-Offensive (ID: 501)
         .species = SPECIES_MISDREAVUS,
-        .moves = {MOVE_SHADOW_BALL, MOVE_DAZZLING_GLEAM, MOVE_CALM_MIND, MOVE_MOONLIGHT},
+        .moves = {MOVE_OMINOUS_WIND, MOVE_DRAINING_KISS, MOVE_CALM_MIND, MOVE_MOONLIGHT},
         .heldItem = ITEM_EVIOLITE,
         .evSpread = F_EV_SPREAD_SPEED | F_EV_SPREAD_HP,
         .nature = NATURE_TIMID,
@@ -4943,7 +4943,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     },
     [FRONTIER_MON_CRADILY_2] = { // Cradily-BulkyAttacker (ID: 547)
         .species = SPECIES_CRADILY,
-        .moves = {MOVE_GIGA_DRAIN, MOVE_GRAVEL_STORM, MOVE_EARTH_POWER, MOVE_RECOVER},
+        .moves = {MOVE_GIGA_DRAIN, MOVE_ANCIENT_POWER, MOVE_EARTH_POWER, MOVE_RECOVER},
         .heldItem = ITEM_LEFTOVERS,
         .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_HP,
         .nature = NATURE_MODEST,
@@ -5724,14 +5724,14 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .ivs = 31,
         .ability = 0
     },
-    [FRONTIER_MON_SPIRITOMB_2] = { // Spiritomb-Curse (ID: 532)
+    [FRONTIER_MON_SPIRITOMB_2] = { // Spiritomb-Pivot (ID: 328)
         .species = SPECIES_SPIRITOMB,
-        .moves = {MOVE_WILL_O_WISP, MOVE_CURSE, MOVE_STRENGTH_SAP, MOVE_PARTING_SHOT},
+        .moves = {MOVE_WILL_O_WISP, MOVE_NIGHT_SHADE, MOVE_STRENGTH_SAP, MOVE_PARTING_SHOT},
         .heldItem = ITEM_LEFTOVERS,
         .evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_HP,
         .nature = NATURE_SASSY,
         .ivs = 31,
-        .ability = 2
+        .ability = 1
     },
     [FRONTIER_MON_GIGALITH_2] = { // Gigalith-Bulky (ID: 635)
         .species = SPECIES_GIGALITH,

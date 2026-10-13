@@ -3448,7 +3448,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_ANCIENT_POWER] =
     {
         .effect = EFFECT_ALL_STATS_UP_HIT,
-        .power = 70,
+        .power = 65,
         .type = TYPE_ROCK,
         .accuracy = 100,
         .pp = 5,
@@ -4457,7 +4457,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_SILVER_WIND] =
     {
         .effect = EFFECT_ALL_STATS_UP_HIT,
-        .power = 70,
+        .power = 65,
         .type = TYPE_BUG,
         .accuracy = 100,
         .pp = 5,
@@ -6536,7 +6536,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_OMINOUS_WIND] =
     {
         .effect = EFFECT_ALL_STATS_UP_HIT,
-        .power = 70,
+        .power = 65,
         .type = TYPE_GHOST,
         .accuracy = 100,
         .pp = 5,
