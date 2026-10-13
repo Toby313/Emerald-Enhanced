@@ -1155,7 +1155,7 @@ script Ryu_ExpShareMenu{
 }
 
 script RyuDebug_Utility1 {
-	changefactionstanding(FACTION_OUTCASTS, 100, FALSE)
+	setvar(VAR_RYU_WEEK_COUNTER, 2)
     end
 }
 

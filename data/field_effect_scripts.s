@@ -74,6 +74,8 @@ gFieldEffectScriptPointers:: @ 82DB9D4
 	.4byte gFieldEffectScript_MoveDeoxysRock            @ FLDEFF_MOVE_DEOXYS_ROCK
     .4byte gFieldEffectScript_CaveDust                  @ FLDEFF_CAVE_DUST
 	.4byte gFieldEffectScript_TallGrassAutumn           @ FLDEFF_TALL_GRASS_AUTUMN
+	.4byte gFieldEffectScript_LongGrassAutumn           @ FLDEFF_LONG_GRASS_AUTUMN
+	.4byte gFieldEffectScript_LongGrassSafari           @ FLDEFF_LONG_GRASS_SAFARI
     
 gFieldEffectScript_ExclamationMarkIcon1:: @ 82DBAE0
 	field_eff_callnative FldEff_ExclamationMarkIcon
@@ -150,6 +152,14 @@ gFieldEffectScript_JumpSmallSplash:: @ 82DBB60
 
 gFieldEffectScript_LongGrass:: @ 82DBB6A
 	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect1, FldEff_LongGrass
+	field_eff_end
+
+gFieldEffectScript_LongGrassAutumn::
+	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect1Autumn, FldEff_LongGrassAutumn
+	field_eff_end
+
+gFieldEffectScript_LongGrassSafari::
+	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect1Safari, FldEff_LongGrassSafari
 	field_eff_end
 
 gFieldEffectScript_JumpLongGrass:: @ 82DBB74

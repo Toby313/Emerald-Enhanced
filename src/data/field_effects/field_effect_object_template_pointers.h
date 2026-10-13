@@ -38,6 +38,8 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_Rayquaza;
 const struct SpriteTemplate gFieldEffectObjectTemplate_CaveDust;
 const struct SpriteTemplate gFieldEffectObjectTemplate_SafariTallGrass;
 const struct SpriteTemplate gFieldEffectObjectTemplate_TallGrassAutumn;
+const struct SpriteTemplate gFieldEffectObjectTemplate_LongGrassAutumn;
+const struct SpriteTemplate gFieldEffectObjectTemplate_LongGrassSafari;
 
 const struct SpriteTemplate *const gFieldEffectObjectTemplatePointers[] = {
     [FLDEFFOBJ_SHADOW_S]              = &gFieldEffectObjectTemplate_ShadowSmall,
@@ -79,4 +81,6 @@ const struct SpriteTemplate *const gFieldEffectObjectTemplatePointers[] = {
     [FLDEFFOBJ_RAYQUAZA]              = &gFieldEffectObjectTemplate_Rayquaza,
     [FLDEFFOBJ_CAVE_DUST]             = &gFieldEffectObjectTemplate_CaveDust,
     [FLDEFFOBJ_TALL_GRASS_AUTUMN]     = &gFieldEffectObjectTemplate_TallGrassAutumn,
+    [FLDEFFOBJ_LONG_GRASS_AUTUMN]     = &gFieldEffectObjectTemplate_LongGrassAutumn,
+    [FLDEFFOBJ_LONG_GRASS_SAFARI]     = &gFieldEffectObjectTemplate_LongGrassSafari,
 };
