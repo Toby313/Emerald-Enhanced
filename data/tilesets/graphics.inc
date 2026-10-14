@@ -1897,3 +1897,23 @@ gTilesetPalettes_GeneralWinter::
 	.align 2
 gTilesetTiles_GeneralWinter::
 	.incbin "data/tilesets/primary/generalwinter/tiles.4bpp.lz"
+
+	.align 2
+gTilesetPalettes_Desert::
+	.incbin "data/tilesets/secondary/desert/palettes/00.gbapal"
+	.incbin "data/tilesets/secondary/desert/palettes/01.gbapal"
+	.incbin "data/tilesets/secondary/desert/palettes/02.gbapal"
+	.incbin "data/tilesets/secondary/desert/palettes/03.gbapal"
+	.incbin "data/tilesets/secondary/desert/palettes/04.gbapal"
+	.incbin "data/tilesets/secondary/desert/palettes/05.gbapal"
+	.incbin "data/tilesets/secondary/desert/palettes/06.gbapal"
+	.incbin "data/tilesets/secondary/desert/palettes/07.gbapal"
+	.incbin "data/tilesets/secondary/desert/palettes/08.gbapal"
+	.incbin "data/tilesets/secondary/desert/palettes/09.gbapal"
+	.incbin "data/tilesets/secondary/desert/palettes/10.gbapal"
+	.incbin "data/tilesets/secondary/desert/palettes/11.gbapal"
+	.incbin "data/tilesets/secondary/desert/palettes/12.gbapal"
+
+	.align 2
+gTilesetTiles_Desert::
+	.incbin "data/tilesets/secondary/desert/tiles.4bpp.lz"

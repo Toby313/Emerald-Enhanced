@@ -626,3 +626,10 @@ gMetatiles_GeneralWinter::
 	.align 1
 gMetatileAttributes_GeneralWinter::
 	.incbin "data/tilesets/primary/generalwinter/metatile_attributes.bin"
+	.align 1
+gMetatiles_Desert::
+	.incbin "data/tilesets/secondary/desert/metatiles.bin"
+
+	.align 1
+gMetatileAttributes_Desert::
+	.incbin "data/tilesets/secondary/desert/metatile_attributes.bin"

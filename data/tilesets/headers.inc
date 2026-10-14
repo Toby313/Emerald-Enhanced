@@ -929,3 +929,14 @@ gTileset_GeneralWinter::
 	.4byte gMetatiles_GeneralWinter
 	.4byte gMetatileAttributes_GeneralWinter
 	.4byte NULL
+
+	.align 2
+gTileset_Desert::
+	.byte TRUE @ is compressed
+	.byte TRUE @ is secondary
+	.2byte 0
+	.4byte gTilesetTiles_Desert
+	.4byte gTilesetPalettes_Desert
+	.4byte gMetatiles_Desert
+	.4byte gMetatileAttributes_Desert
+	.4byte NULL
