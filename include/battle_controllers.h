@@ -261,23 +261,11 @@ void ActionSelectionCreateCursorAt(u8 cursorPos, u8 unused);
 void ActionSelectionDestroyCursorAt(u8 cursorPos);
 void InitMoveSelectionsVarsAndStrings(void);
 
-// recorded player controller
-void SetControllerToRecordedPlayer(void);
-
 // opponent controller
 void SetControllerToOpponent(void);
 
 // player partner controller
 void SetControllerToPlayerPartner(void);
-
-// safari controller
-void SetControllerToSafari(void);
-
-// wally controller
-void SetControllerToWally(void);
-
-// recorded opponent controller
-void SetControllerToRecordedOpponent(void);
 
 // link opponent
 void SetControllerToLinkOpponent(void);
