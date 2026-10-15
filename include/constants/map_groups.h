@@ -1,10 +1,6 @@
 #ifndef GUARD_CONSTANTS_MAP_GROUPS_H
 #define GUARD_CONSTANTS_MAP_GROUPS_H
 
-//
-// DO NOT MODIFY THIS FILE! It is auto-generated from data/maps/map_groups.json
-//
-
 // Map Group 0
 #define MAP_LITTLEROOT_TOWN       (0 | (0 << 8))
 #define MAP_OLDALE_TOWN           (1 | (0 << 8))
@@ -323,10 +319,13 @@
 #define MAP_VICTINI                            (16 | (16 << 8))
 
 // Map Group 17
-#define MAP_ROUTE104_MR_BRINEYS_HOUSE         (0 | (17 << 8))
-#define MAP_ROUTE104_PRETTY_PETAL_FLOWER_SHOP (1 | (17 << 8))
-#define MAP_ROUTE104_MR_BRINEYS_HOUSE_STORY   (2 | (17 << 8))
-#define MAP_ROUTE100_NORMAN_SHACK             (3 | (17 << 8))
+#define MAP_ROUTE104_MR_BRINEYS_HOUSE                   (0 | (17 << 8))
+#define MAP_ROUTE104_PRETTY_PETAL_FLOWER_SHOP           (1 | (17 << 8))
+#define MAP_ROUTE104_MR_BRINEYS_HOUSE_STORY             (2 | (17 << 8))
+#define MAP_ROUTE104_PROTOTYPE                          (3 | (17 << 8))
+#define MAP_ROUTE104_PROTOTYPE_PRETTY_PETAL_FLOWER_SHOP (4 | (17 << 8))
+#define MAP_ROUTE100_NORMAN_SHACK                       (5 | (17 << 8))
+#define MAP_ROUTE109_SEASHORE_HOUSE                     (6 | (17 << 8))
 
 // Map Group 18
 #define MAP_ROUTE111_WINSTRATE_FAMILYS_HOUSE (0 | (18 << 8))
@@ -685,9 +684,7 @@
 #define MAP_MIRAGE_CAVE_HOUSE7      (10 | (28 << 8))
 
 // Map Group 29
-#define MAP_ROUTE109_SEASHORE_HOUSE                     (0 | (29 << 8))
-#define MAP_ROUTE104_PROTOTYPE                          (1 | (29 << 8))
-#define MAP_ROUTE104_PROTOTYPE_PRETTY_PETAL_FLOWER_SHOP (2 | (29 << 8))
+#define MAP_GREAT_CANYON (0 | (29 << 8))
 
 // Map Group 30
 #define MAP_ROUTE110_TRICK_HOUSE_ENTRANCE                (0 | (30 << 8))

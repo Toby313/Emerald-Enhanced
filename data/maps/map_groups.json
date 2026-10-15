@@ -357,7 +357,10 @@
     "Route104_MrBrineysHouse",
     "Route104_PrettyPetalFlowerShop",
     "Route104_MrBrineysHouse_Story",
-    "Route100_NormanShack"
+    "Route104_Prototype",
+    "Route104_PrototypePrettyPetalFlowerShop",
+    "Route100_NormanShack",
+    "Route109_SeashoreHouse"
   ],
   "gMapGroup18": [
     "Route111_WinstrateFamilysHouse",
@@ -716,9 +719,7 @@
     "MirageCave_House7"
   ],
   "gMapGroup29": [
-    "Route109_SeashoreHouse",
-    "Route104_Prototype",
-    "Route104_PrototypePrettyPetalFlowerShop"
+    "GreatCanyon"
   ],
   "gMapGroup30": [
     "Route110_TrickHouseEntrance",

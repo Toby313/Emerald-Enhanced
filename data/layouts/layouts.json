@@ -5770,6 +5770,16 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/Route100_NormanShack/border.bin",
       "blockdata_filepath": "data/layouts/Route100_NormanShack/map.bin"
+    },
+    {
+      "id": "LAYOUT_GREAT_CANYON",
+      "name": "GreatCanyon_Layout",
+      "width": 120,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Desert",
+      "border_filepath": "data/layouts/GreatCanyon/border.bin",
+      "blockdata_filepath": "data/layouts/GreatCanyon/map.bin"
     }
   ]
 }
