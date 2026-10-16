@@ -295,7 +295,7 @@
       "id": "LAYOUT_ROUTE114",
       "name": "Route114_Layout",
       "width": 40,
-      "height": 80,
+      "height": 110,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Fallarbor",
       "border_filepath": "data/layouts/Route114/border.bin",
@@ -5774,7 +5774,7 @@
     {
       "id": "LAYOUT_GREAT_CANYON",
       "name": "GreatCanyon_Layout",
-      "width": 120,
+      "width": 50,
       "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Desert",

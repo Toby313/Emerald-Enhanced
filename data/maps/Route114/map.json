@@ -22,6 +22,11 @@
       "direction": "right",
       "offset": -2,
       "map": "MAP_FALLARBOR_TOWN"
+    },
+    {
+      "direction": "right",
+      "offset": 60,
+      "map": "MAP_GREAT_CANYON"
     }
   ],
   "object_events": [
