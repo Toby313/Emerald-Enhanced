@@ -4086,14 +4086,14 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .ivs = 31,
         .ability = 1
     },
-    [FRONTIER_MON_GALVANTULA_1] = { // Galvantula-Sash (ID: 453)
+    [FRONTIER_MON_GALVANTULA_1] = { // Galvantula-Lead (ID: 453)
         .species = SPECIES_GALVANTULA,
-        .moves = {MOVE_THUNDER, MOVE_BUG_BUZZ, MOVE_ENERGY_BALL, MOVE_STICKY_WEB},
+        .moves = {MOVE_THUNDERBOLT, MOVE_BUG_BUZZ, MOVE_HYPER_BEAM, MOVE_STICKY_WEB},
         .heldItem = ITEM_FOCUS_SASH,
         .evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
         .nature = NATURE_TIMID,
         .ivs = 31,
-        .ability = 0
+        .ability = 2
     },
     [FRONTIER_MON_LUCARIO_1] = { // Lucario-LifeOrbNP (ID: 352)
         .species = SPECIES_LUCARIO,
@@ -5931,7 +5931,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
         .ivs = 31,
         .ability = 0
     },
-    [FRONTIER_MON_GALVANTULA_2] = { // Galvantula-LifeOrb (ID: 657)
+    [FRONTIER_MON_GALVANTULA_2] = { // Galvantula-Offensive (ID: 657)
         .species = SPECIES_GALVANTULA,
         .moves = {MOVE_THUNDER, MOVE_BUG_BUZZ, MOVE_GIGA_DRAIN, MOVE_STICKY_WEB},
         .heldItem = ITEM_LIFE_ORB,
