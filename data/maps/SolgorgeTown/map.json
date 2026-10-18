@@ -20,12 +20,12 @@
     },
     {
       "direction": "right",
-      "offset": -2,
+      "offset": 1,
       "map": "MAP_GREAT_CANYON"
     },
     {
       "direction": "left",
-      "offset": -62,
+      "offset": -59,
       "map": "MAP_ROUTE115"
     }
   ],
