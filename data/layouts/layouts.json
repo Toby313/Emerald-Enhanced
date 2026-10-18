@@ -274,7 +274,7 @@
     {
       "id": "LAYOUT_ROUTE112",
       "name": "Route112_Layout",
-      "width": 40,
+      "width": 32,
       "height": 60,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Lavaridge",
@@ -5774,7 +5774,7 @@
     {
       "id": "LAYOUT_GREAT_CANYON",
       "name": "GreatCanyon_Layout",
-      "width": 52,
+      "width": 60,
       "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Desert",

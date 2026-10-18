@@ -15,7 +15,7 @@
   "connections": [
     {
       "direction": "up",
-      "offset": -60,
+      "offset": -68,
       "map": "MAP_ROUTE113"
     },
     {
@@ -32,7 +32,7 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
-      "x": 23,
+      "x": 15,
       "y": 35,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT",
@@ -45,7 +45,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
-      "x": 29,
+      "x": 20,
       "y": 49,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -58,7 +58,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
-      "x": 29,
+      "x": 21,
       "y": 44,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_ROTATE_COUNTERCLOCKWISE",
@@ -71,7 +71,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
-      "x": 10,
+      "x": 2,
       "y": 38,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
@@ -84,7 +84,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 28,
+      "x": 20,
       "y": 6,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
@@ -97,7 +97,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 29,
+      "x": 21,
       "y": 6,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
@@ -110,7 +110,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 30,
+      "x": 22,
       "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
@@ -123,10 +123,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
-      "x": 8,
-      "y": 50,
+      "x": 17,
+      "y": 59,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WALK_DOWN_AND_UP",
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
       "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -136,7 +136,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 21,
+      "x": 13,
       "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -149,7 +149,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_5",
-      "x": 31,
+      "x": 23,
       "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
@@ -162,7 +162,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
-      "x": 31,
+      "x": 23,
       "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_LEFT",
@@ -175,7 +175,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
-      "x": 27,
+      "x": 19,
       "y": 30,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -188,7 +188,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_POOCHYENA",
-      "x": 26,
+      "x": 18,
       "y": 30,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -202,42 +202,28 @@
   ],
   "warp_events": [
     {
-      "x": 28,
+      "x": 20,
       "y": 27,
       "elevation": 0,
       "dest_map": "MAP_ROUTE112_CABLE_CAR_STATION",
       "dest_warp_id": 0
     },
     {
-      "x": 29,
+      "x": 21,
       "y": 27,
       "elevation": 0,
       "dest_map": "MAP_ROUTE112_CABLE_CAR_STATION",
       "dest_warp_id": 1
     },
     {
-      "x": 6,
-      "y": 46,
-      "elevation": 3,
-      "dest_map": "MAP_JAGGED_PASS",
-      "dest_warp_id": 0
-    },
-    {
-      "x": 7,
-      "y": 46,
-      "elevation": 3,
-      "dest_map": "MAP_JAGGED_PASS",
-      "dest_warp_id": 1
-    },
-    {
-      "x": 11,
+      "x": 3,
       "y": 36,
       "elevation": 0,
       "dest_map": "MAP_FIERY_PATH",
       "dest_warp_id": 0
     },
     {
-      "x": 22,
+      "x": 14,
       "y": 10,
       "elevation": 0,
       "dest_map": "MAP_FIERY_PATH",
@@ -250,7 +236,7 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 22,
+      "x": 14,
       "y": 44,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -258,7 +244,7 @@
     },
     {
       "type": "sign",
-      "x": 22,
+      "x": 14,
       "y": 37,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -266,8 +252,8 @@
     },
     {
       "type": "sign",
-      "x": 4,
-      "y": 49,
+      "x": 1,
+      "y": 47,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route112_EventScript_RouteSignLavaridge"
