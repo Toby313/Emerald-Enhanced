@@ -295,7 +295,7 @@
       "id": "LAYOUT_ROUTE114",
       "name": "Route114_Layout",
       "width": 40,
-      "height": 110,
+      "height": 62,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Fallarbor",
       "border_filepath": "data/layouts/Route114/border.bin",
@@ -5780,6 +5780,16 @@
       "secondary_tileset": "gTileset_Desert",
       "border_filepath": "data/layouts/GreatCanyon/border.bin",
       "blockdata_filepath": "data/layouts/GreatCanyon/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOLGORGE_TOWN",
+      "name": "SolgorgeTown_Layout",
+      "width": 40,
+      "height": 38,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Desert",
+      "border_filepath": "data/layouts/SolgorgeTown/border.bin",
+      "blockdata_filepath": "data/layouts/SolgorgeTown/map.bin"
     }
   ]
 }

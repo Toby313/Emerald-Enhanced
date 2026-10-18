@@ -1,10 +1,6 @@
 #ifndef GUARD_CONSTANTS_MAP_GROUPS_H
 #define GUARD_CONSTANTS_MAP_GROUPS_H
 
-//
-// DO NOT MODIFY THIS FILE! It is auto-generated from data/maps/map_groups.json
-//
-
 // Map Group 0
 #define MAP_LITTLEROOT_TOWN       (0 | (0 << 8))
 #define MAP_OLDALE_TOWN           (1 | (0 << 8))
@@ -76,6 +72,7 @@
 #define MAP_DEBUG_MAP             (67 | (0 << 8))
 #define MAP_ROUTE136              (68 | (0 << 8))
 #define MAP_AETHER_PARADISE       (69 | (0 << 8))
+#define MAP_SOLGORGE_TOWN         (70 | (0 << 8))
 
 // Map Group 1
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F            (0 | (1 << 8))

@@ -20,8 +20,8 @@
     },
     {
       "direction": "left",
-      "offset": -60,
-      "map": "MAP_ROUTE114"
+      "offset": 2,
+      "map": "MAP_SOLGORGE_TOWN"
     }
   ],
   "object_events": [
