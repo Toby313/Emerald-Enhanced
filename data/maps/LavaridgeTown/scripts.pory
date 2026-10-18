@@ -200,10 +200,6 @@ script LT_CheckCanReceiveGift {
 	}
 }
 script LT_RivalEnter3{
-	if ((flag(FLAG_RYU_DAWN_GIFTPOKE_RECEIVED) == TRUE) || (flag(FLAG_RYU_BRENDAN_GIFTPOKE_RECEIVED) == TRUE) || (flag(FLAG_DEFEATED_LAVARIDGE_GYM) == FALSE) || (flag(FLAG_RYU_COMPLETED_LAVARIDGE_EVENT) == TRUE)) {
-		setvar(VAR_TEMP_0, 100)
-		goto(ryu_end)
-	}
 	applymovement(PLAYER, Common_Movement_StepLeft)
 	waitmovement(PLAYER)
 	turnobject(PLAYER, DIR_NORTH)
@@ -444,9 +440,8 @@ movement LT_PlayerToLucy{
 }
 
 movement LT_LucyExitStageRight{
-	walk_right * 2
-	walk_down * 2
-	walk_right * 5
+	walk_down * 4
+	walk_right * 7
 	step_end 
 }
 

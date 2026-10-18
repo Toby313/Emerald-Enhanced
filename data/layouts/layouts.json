@@ -124,8 +124,8 @@
     {
       "id": "LAYOUT_LAVARIDGE_TOWN",
       "name": "LavaridgeTown_Layout",
-      "width": 30,
-      "height": 20,
+      "width": 28,
+      "height": 60,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Lavaridge",
       "border_filepath": "data/layouts/LavaridgeTown/border.bin",
@@ -5774,7 +5774,7 @@
     {
       "id": "LAYOUT_GREAT_CANYON",
       "name": "GreatCanyon_Layout",
-      "width": 50,
+      "width": 52,
       "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Desert",

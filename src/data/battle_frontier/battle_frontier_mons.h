@@ -1073,7 +1073,7 @@ const struct FacilityMon gBattleFrontierMons[NUM_FRONTIER_MONS] =
     },
     [FRONTIER_MON_RATICATE_1] = { // Raticate-SD (ID: 119)
         .species = SPECIES_RATICATE,
-        .moves = {MOVE_FRENZY_FANG, MOVE_CRUNCH, MOVE_LEECH_LIFE, MOVE_SWORDS_DANCE},
+        .moves = {MOVE_FRENZY_FANG, MOVE_CRUNCH, MOVE_STOMPING_TANTRUM, MOVE_SWORDS_DANCE},
         .heldItem = ITEM_RAZOR_FANG,
         .evSpread = F_EV_SPREAD_SPEED | F_EV_SPREAD_ATTACK,
         .nature = NATURE_JOLLY,
