@@ -117,7 +117,7 @@ RT_Pacifidlog::
 	
 RT_Lavaridge::
     goto_if_unset FLAG_VISITED_LAVARIDGE_TOWN, RT_NoFlag
-	warpteleport MAP_LAVARIDGE_TOWN, 255, 12, 8
+	warpteleport MAP_LAVARIDGE_TOWN, 255, 17, 49
 	waitstate
 	
 RT_Placeholder::
