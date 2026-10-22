@@ -336,10 +336,10 @@ const struct Item gItems[] =
         .secondaryId = 22,
     },
 
-    [ITEM_SPORT_BALL] =
+    [ITEM_SOLAR_BALL] =
     {
-        .name = _("Sport Ball"),
-        .itemId = ITEM_SPORT_BALL,
+        .name = _("Solar Ball"),
+        .itemId = ITEM_SOLAR_BALL,
         .price = 10,
         .description = sSportBallDesc,
         .pocket = POCKET_POKE_BALLS,

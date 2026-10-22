@@ -118,9 +118,9 @@ static const u8 sCherishBallDesc[] = _(
     "of some event.");
 
 static const u8 sSportBallDesc[] = _(
-    "A special ball used\n"
-    "in the Bug-Catching\n"
-    "Contest.");
+    "A heated ball that\n"
+    "works best during\n"
+    "bright sunlight.");
 
 static const u8 sParkBallDesc[] = _(
     "A special ball for\n"

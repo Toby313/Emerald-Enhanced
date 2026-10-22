@@ -12685,8 +12685,9 @@ static void Cmd_handleballthrow(void)
             case ITEM_CHERISH_BALL:
                 ballMultiplier = 10;
                 break;
-            case ITEM_SPORT_BALL:
-                ballMultiplier = 15;
+            case ITEM_SOLAR_BALL:
+                if (gBattleWeather & WEATHER_SUN_ANY)
+                    ballMultiplier = 60;
                 break;
             case ITEM_LEVEL_BALL:
                 if (gBattleMons[gBattlerAttacker].level >= 4 * gBattleMons[gBattlerTarget].level)

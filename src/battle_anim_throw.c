@@ -988,7 +988,7 @@ u8 ItemIdToBallId(u16 ballItem)
         return BALL_HEAVY;
     case ITEM_FAST_BALL:
         return BALL_FAST;
-    case ITEM_SPORT_BALL:
+    case ITEM_SOLAR_BALL:
         return BALL_SPORT;
     case ITEM_DUSK_BALL:
         return BALL_DUSK;
