@@ -44,6 +44,7 @@ pokeemerald.ss7
 pokeemerald.ss8
 pokeemerald.ss9
 include/constants/battle_frontier_mons.h.old
+include/constants/map_groups.h
 pokeemerald.bps
 tools/poryscript
 data/maps/*/scripts.inc
