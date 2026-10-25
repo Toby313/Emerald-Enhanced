@@ -18,9 +18,6 @@
 EWRAM_DATA static u8 gCurrentAbnormalWeather = 0;
 EWRAM_DATA static u16 gUnusedWeatherRelated = 0;
 
-// Extern
-extern s8 RyuGetDroughtGamma(void);
-
 // CONST
 const u16 gCloudsWeatherPalette[] = INCBIN_U16("graphics/weather/cloud.gbapal");
 const u16 gSandstormWeatherPalette[] = INCBIN_U16("graphics/weather/sandstorm.gbapal");
@@ -250,9 +247,9 @@ void Drought_InitVars(void)
 {
     gWeatherPtr->initStep = 0;
     gWeatherPtr->weatherGfxLoaded = FALSE;
-    gWeatherPtr->gammaIndex = RyuGetDroughtGamma();
-    gWeatherPtr->gammaTargetIndex = RyuGetDroughtGamma();
-    gWeatherPtr->gammaStepDelay = 0;
+    gWeatherPtr->gammaIndex = 0;
+    gWeatherPtr->gammaTargetIndex = 0;
+    gWeatherPtr->gammaStepDelay = 20;
 }
 
 void Drought_InitAll(void)

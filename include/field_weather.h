@@ -145,7 +145,6 @@ u8 sub_80ABF20(void);
 void LoadCustomWeatherSpritePalette(const struct SpritePalette *palette);
 void ResetDroughtWeatherPaletteLoading(void);
 bool8 LoadDroughtWeatherPalettes(void);
-void SetDroughtColorMap(s8 gammaIndex);
 void DroughtStateInit(void);
 void DroughtStateRun(void);
 void Weather_SetBlendCoeffs(u8 eva, u8 evb);

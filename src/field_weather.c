@@ -17,20 +17,12 @@
 #include "trig.h"
 #include "gpu_regs.h"
 #include "field_camera.h"
-#include "time_events.h"
-
-#define DROUGHT_COLOR_INDEX(color) ((((color) >> 1) & 0xF) | (((color) >> 2) & 0xF0) | (((color) >> 3) & 0xF00))
 
 struct RGBColor
 {
     u16 r:5;
     u16 g:5;
     u16 b:5;
-};
-
-struct WeatherPaletteData
-{
-    u16 gammaShiftColors[8][0x1000]; // 0x1000 is the number of bytes that make up all palettes.
 };
 
 struct WeatherCallbacks
@@ -47,10 +39,8 @@ static void BuildGammaShiftTables(void);
 static void UpdateWeatherGammaShift(void);
 void ApplyGammaShift(u8 startPalIndex, u8 numPalettes, s8 gammaIndex);
 static void ApplyGammaShiftWithBlend(u8 startPalIndex, u8 numPalettes, s8 gammaIndex, u8 blendCoeff, u16 blendColor);
-static void ApplyDroughtGammaShiftWithBlend(s8 gammaIndex, u8 blendCoeff, u16 blendColor);
 static void ApplyFogBlend(u8 blendCoeff, u16 blendColor);
 static bool8 FadeInScreen_RainShowShade(void);
-static bool8 FadeInScreen_Drought(void);
 static bool8 FadeInScreen_FogHorizontal(void);
 static void FadeInScreenWithWeather(void);
 static void DoNothing(void);
@@ -64,17 +54,6 @@ EWRAM_DATA struct Weather gWeather = {0};
 EWRAM_DATA static u8 sFieldEffectPaletteGammaTypes[32] = {0};
 
 static const u8 *sPaletteGammaTypes;
-
-// The drought weather effect uses a precalculated color lookup table. Presumably this
-// is because the underlying color shift calculation is slow.
-const u16 sDroughtWeatherColors[][0x1000] = {
-    INCBIN_U16("graphics/weather/drought/colors_0.bin"),
-    INCBIN_U16("graphics/weather/drought/colors_1.bin"),
-    INCBIN_U16("graphics/weather/drought/colors_2.bin"),
-    INCBIN_U16("graphics/weather/drought/colors_3.bin"),
-    INCBIN_U16("graphics/weather/drought/colors_4.bin"),
-    INCBIN_U16("graphics/weather/drought/colors_5.bin"),
-};
 
 // This is a pointer to gWeather. All code in this file accesses gWeather directly,
 // while code in other field weather files accesses gWeather through this pointer.
@@ -149,8 +128,6 @@ EWRAM_DATA u8 sBasePaletteGammaTypes[32] =
     GAMMA_NORMAL,
     GAMMA_NORMAL,
 };
-
-extern void SetDroughtGamma();
 
 const u16 gUnknown_083970E8[] = INCBIN_U16("graphics/weather/0.gbapal");
 
@@ -384,13 +361,6 @@ static void FadeInScreenWithWeather(void)
             gWeatherPtr->palProcessingState = WEATHER_PAL_STATE_IDLE;
         }
         break;
-    case WEATHER_DROUGHT:
-        if (FadeInScreen_Drought() == FALSE)
-        {
-            //gWeatherPtr->gammaIndex = 5;
-            gWeatherPtr->palProcessingState = WEATHER_PAL_STATE_IDLE;
-        }
-        break;
     case WEATHER_FOG_HORIZONTAL:
         if (FadeInScreen_FogHorizontal() == FALSE)
         {
@@ -425,39 +395,6 @@ static bool8 FadeInScreen_RainShowShade(void)
     }
 
     ApplyGammaShiftWithBlend(0, 32, 3, 16 - gWeatherPtr->fadeScreenCounter, gWeatherPtr->fadeDestColor);
-    return TRUE;
-}
-
-s8 RyuGetDroughtGamma(void)
-{
-    switch (RyuGetTimeOfDay())
-    {
-    case RTC_TIME_NIGHT:
-        return -2;
-    case RTC_TIME_MORNING:
-        return -1;
-    case RTC_TIME_DAY:
-        return -5;
-    case RTC_TIME_EVENING:
-        return -3;
-    default:
-        return -1;
-    }
-}
-
-static bool8 FadeInScreen_Drought(void)
-{
-    if (gWeatherPtr->fadeScreenCounter == 16)
-        return FALSE;
-
-    if (++gWeatherPtr->fadeScreenCounter >= 16)
-    {
-        //SetDroughtGamma();
-        gWeatherPtr->fadeScreenCounter = 16;
-        return FALSE;
-    }
-
-    ApplyDroughtGammaShiftWithBlend(RyuGetDroughtGamma(), 16 - gWeatherPtr->fadeScreenCounter, gWeatherPtr->fadeDestColor);
     return TRUE;
 }
 
@@ -520,34 +457,6 @@ void ApplyGammaShift(u8 startPalIndex, u8 numPalettes, s8 gammaIndex)
             curPalIndex++;
         }
     }
-    else if (gammaIndex < 0)
-    {
-        // A negative gammIndex value means that the blending will come from the special Drought weather's palette tables.
-        gammaIndex = -gammaIndex - 1;
-        palOffset = startPalIndex * 16;
-        numPalettes += startPalIndex;
-        curPalIndex = startPalIndex;
-
-        while (curPalIndex < numPalettes)
-        {
-            if (sPaletteGammaTypes[curPalIndex] == GAMMA_NONE)
-            {
-                // No palette change.
-                CpuFastCopy(gPlttBufferUnfaded + palOffset, gPlttBufferFaded + palOffset, 16 * sizeof(u16));
-                palOffset += 16;
-            }
-            else
-            {
-                for (i = 0; i < 16; i++)
-                {
-                    gPlttBufferFaded[palOffset] = sDroughtWeatherColors[gammaIndex][DROUGHT_COLOR_INDEX(gPlttBufferUnfaded[palOffset])];
-                    palOffset++;
-                }
-            }
-
-            curPalIndex++;
-        }
-    }
     else
     {
         // No palette blending.
@@ -603,61 +512,6 @@ static void ApplyGammaShiftWithBlend(u8 startPalIndex, u8 numPalettes, s8 gammaI
         }
 
         curPalIndex++;
-    }
-}
-
-static void ApplyDroughtGammaShiftWithBlend(s8 gammaIndex, u8 blendCoeff, u16 blendColor)
-{
-    struct RGBColor color;
-    u8 rBlend;
-    u8 gBlend;
-    u8 bBlend;
-    u16 curPalIndex;
-    u16 palOffset;
-    u16 i;
-
-    gammaIndex = -gammaIndex - 1;
-    color = *(struct RGBColor *)&blendColor;
-    rBlend = color.r;
-    gBlend = color.g;
-    bBlend = color.b;
-    palOffset = 0;
-    for (curPalIndex = 0; curPalIndex < 32; curPalIndex++)
-    {
-        if (sPaletteGammaTypes[curPalIndex] == GAMMA_NONE)
-        {
-            // No gamma shift. Simply blend the colors.
-            BlendPalette(palOffset, 16, blendCoeff, blendColor);
-            palOffset += 16;
-        }
-        else
-        {
-            for (i = 0; i < 16; i++)
-            {
-                u32 offset;
-                struct RGBColor color1;
-                struct RGBColor color2;
-                u8 r1, g1, b1;
-                u8 r2, g2, b2;
-
-                color1 = *(struct RGBColor *)&gPlttBufferUnfaded[palOffset];
-                r1 = color1.r;
-                g1 = color1.g;
-                b1 = color1.b;
-
-                offset = ((b1 & 0x1E) << 7) | ((g1 & 0x1E) << 3) | ((r1 & 0x1E) >> 1);
-                color2 = *(struct RGBColor *)&sDroughtWeatherColors[gammaIndex][offset];
-                r2 = color2.r;
-                g2 = color2.g;
-                b2 = color2.b;
-
-                r2 += ((rBlend - r2) * blendCoeff) >> 4;
-                g2 += ((gBlend - g2) * blendCoeff) >> 4;
-                b2 += ((bBlend - b2) * blendCoeff) >> 4;
-
-                gPlttBufferFaded[palOffset++] = (b2 << 10) | (g2 << 5) | r2;
-            }
-        }
     }
 }
 
@@ -788,7 +642,6 @@ void FadeScreen(u8 mode, s8 delay)
     case WEATHER_SNOW:
     case WEATHER_FOG_HORIZONTAL:
     case WEATHER_SHADE:
-    case WEATHER_DROUGHT:
         useWeatherPal = TRUE;
         break;
     default:
@@ -904,11 +757,6 @@ bool8 LoadDroughtWeatherPalettes(void)
     //}
     //return FALSE;
     return FALSE;
-}
-
-void SetDroughtColorMap(s8 gammaIndex)
-{
-    //ApplyWeatherColorMapIfIdle(-gammaIndex - 1);
 }
 
 void DroughtStateInit(void)
