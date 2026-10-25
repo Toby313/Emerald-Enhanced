@@ -2987,7 +2987,7 @@ extern const u8 gText_RyuTeleportLCCDEPT[];
 extern const u8 gText_RyuTeleportBerryFarm[];
 extern const u8 gText_RyuTeleportSnowyShore[];
 extern const u8 gText_RyuTeleportLCAH[];
-extern const u8 gText_RyuTeleportPlaceholder[];
+extern const u8 gText_RyuTeleportSolgorge[];
 extern const u8 gText_RyuTeleportBananaGarden[];
 extern const u8 gText_RyuTeleportOldLadyRestStop[];
 

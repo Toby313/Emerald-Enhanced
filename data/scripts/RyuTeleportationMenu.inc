@@ -20,7 +20,7 @@ RyuTeleport::
 	case 6, RT_Verdanturf
 	case 7, RT_Mauville
 	case 8, RT_Lavaridge
-	case 9, RT_Placeholder
+	case 9, RT_Solgorge
 	case 10, RT_Fallarbor
 	case 11, RT_Fortree
 	case 12, RT_Lilycove
@@ -120,9 +120,9 @@ RT_Lavaridge::
 	warpteleport MAP_LAVARIDGE_TOWN, 255, 17, 49
 	waitstate
 	
-RT_Placeholder::
+RT_Solgorge::
     goto_if_unset FLAG_VISITED_LAVARIDGE_TOWN, RT_NoFlag
-	warpteleport MAP_LAVARIDGE_TOWN, 255, 12, 8
+	warpteleport MAP_SOLGORGE_TOWN, 255, 24, 19
 	waitstate
 	
 RT_Fallarbor::
