@@ -300,13 +300,15 @@ bool8 Drought_Finish(void)
 
 void StartDroughtWeatherBlend(void)
 {
-    CreateTask(UpdateDroughtBlend, 80);
+    if (!FuncIsActiveTask(UpdateDroughtBlend))
+        CreateTask(UpdateDroughtBlend, 80);
 }
 
 #define tState      data[0]
 #define tBlendY     data[1]
 #define tBlendDelay data[2]
 #define tWinRange   data[3]
+#define tBlendDir   data[4]
 
 static void UpdateDroughtBlend(u8 taskId)
 {
@@ -315,45 +317,48 @@ static void UpdateDroughtBlend(u8 taskId)
     switch (task->tState)
     {
     case 0:
-        task->tBlendY = 0;
+        task->tBlendY = 3; //starting level
         task->tBlendDelay = 0;
+        task->tBlendDir = 1;
         task->tWinRange = REG_WININ;
         SetGpuReg(REG_OFFSET_WININ, WININ_WIN0_ALL | WININ_WIN1_ALL);
         SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT1_BG1 | BLDCNT_TGT1_BG2 | BLDCNT_TGT1_BG3 | BLDCNT_TGT1_OBJ | BLDCNT_EFFECT_LIGHTEN);
-        SetGpuReg(REG_OFFSET_BLDY, 0);
-        task->tState++;
-        // fall through
-    case 1:
-        task->tBlendY += 3;
-        if (task->tBlendY > 16)
-            task->tBlendY = 16;
         SetGpuReg(REG_OFFSET_BLDY, task->tBlendY);
-        if (task->tBlendY >= 16)
-            task->tState++;
+        task->tState = 1;
         break;
-    case 2:
+    case 1:
         task->tBlendDelay++;
-        if (task->tBlendDelay > 9)
+
+        if (task->tBlendY == 1 && task->tBlendDir == -1)
         {
-            task->tBlendDelay = 0;
-            task->tBlendY--;
-            if (task->tBlendY <= 0)
+            if (task->tBlendDelay > 100) //downtime at minimum brightness before next pulse
             {
-                task->tBlendY = 0;
-                task->tState++;
+                task->tBlendDelay = 0;
+                task->tBlendDir = 1;
+                task->tBlendY = 1;
             }
             SetGpuReg(REG_OFFSET_BLDY, task->tBlendY);
+            break;
         }
-        break;
-    case 3:
-        SetGpuReg(REG_OFFSET_BLDCNT, 0);
-        SetGpuReg(REG_OFFSET_BLDY, 0);
-        SetGpuReg(REG_OFFSET_WININ, task->tWinRange);
-        task->tState++;
-        break;
-    case 4:
-        EnableBothScriptContexts();
-        DestroyTask(taskId);
+
+        if (task->tBlendDelay > 13) //pulse speed, number stands for amount of frames per brightness level
+        {
+            task->tBlendDelay = 0;
+            task->tBlendY += task->tBlendDir;
+
+            if (task->tBlendY >= 4) //max brightness, edit this and the number below
+            {
+                task->tBlendY = 4;
+                task->tBlendDir = -1;
+            }
+            else if (task->tBlendY <= 1) //min brightness, edit this and the number below
+            {
+                task->tBlendY = 1;
+                task->tBlendDir = -1;
+            }
+
+            SetGpuReg(REG_OFFSET_BLDY, task->tBlendY);
+        }
         break;
     }
 }

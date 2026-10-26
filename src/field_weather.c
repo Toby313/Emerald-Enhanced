@@ -769,8 +769,19 @@ void DroughtStateInit(void)
 
 void DroughtStateRun(void)
 {
-    // Drought is a static palette/weather effect in field weather mode.
-    // The init path only needs to set the brightness stage high enough to complete.
+    if (gWeatherPtr->droughtBrightnessStage == 6)
+    {
+        if (gWeatherPtr->weatherGfxLoaded)
+        {
+            gWeatherPtr->droughtBrightnessStage = 0;
+            gWeatherPtr->droughtLastBrightnessStage = 0;
+            gWeatherPtr->droughtTimer = 0;
+            StartDroughtWeatherBlend();
+        }
+        return;
+    }
+
+    StartDroughtWeatherBlend();
 }
 
 void Weather_SetBlendCoeffs(u8 eva, u8 evb)
