@@ -53,6 +53,7 @@
     "SootopolisCity",
     "PacifidlogTown",
     "EverGrandeCity",
+    "SolgorgeTown",
     "SnowyShore",
     "CraggyCoast",
     "FrostyForest",
@@ -106,8 +107,7 @@
     "Underwater_Route135_2",
     "DebugMap",
     "Route136",
-    "AetherParadise",
-    "SolgorgeTown"
+    "AetherParadise"
   ],
   "gMapGroup1": [
     "LittlerootTown_BrendansHouse_1F",

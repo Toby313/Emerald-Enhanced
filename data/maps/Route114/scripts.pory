@@ -15,7 +15,7 @@ r114_FixMaxie::
 
 R114_DoMaxieFix::
 	clearflag FLAG_RYU_HIDE_114_MAXIE
-	addobject 28
+	addobject 26
 	end
 
 
@@ -191,16 +191,16 @@ Route114_Text_LanettesHouse: @ 81F2910
 @================================================================================================== Magma event
 R114_PlayerFindMaxie::
 	playse SE_PIN
-	applymovement 28, Common_Movement_ExclamationMark
-	waitmovement 28
+	applymovement 26, Common_Movement_ExclamationMark
+	waitmovement 26
 	msgbox R114_HowThisWill
 	closemessage
-	applymovement 28, Common_Movement_WalkInPlaceFastestDown
-	waitmovement 28
+	applymovement 26, Common_Movement_WalkInPlaceFastestDown
+	waitmovement 26
 	setfieldeffectargument 0, 1
 	dofieldeffect FLDEFF_NPCFLY_OUT
 	delay 15
-	removeobject 28
+	removeobject 26
 	setflag FLAG_HIDE_114_MAXIE
 	setvar VAR_RYU_QUEST_MAGMA, 570@Player found maxie in r114
 	waitfieldeffect FLDEFF_NPCFLY_OUT

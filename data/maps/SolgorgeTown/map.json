@@ -30,42 +30,91 @@
     }
   ],
   "object_events": [
-
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 37,
+      "y": 21,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
+      "x": 7,
+      "y": 5,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    }
   ],
   "warp_events": [
 
   ],
   "coord_events": [
     {
-      "type": "weather",
+      "type": "trigger",
       "x": 28,
-      "y": 0,
+      "y": 27,
       "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_DROUGHT"
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "NULL"
     },
     {
-      "type": "weather",
+      "type": "trigger",
       "x": 29,
-      "y": 0,
+      "y": 27,
       "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_DROUGHT"
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "NULL"
     },
     {
-      "type": "weather",
-      "x": 34,
-      "y": 2,
+      "type": "trigger",
+      "x": 25,
+      "y": 17,
       "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_DROUGHT"
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "NULL"
     },
     {
-      "type": "weather",
-      "x": 31,
-      "y": 0,
+      "type": "trigger",
+      "x": 26,
+      "y": 17,
       "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_DROUGHT"
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "NULL"
+    },
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "NULL"
     }
   ],
   "bg_events": [
-
+    {
+      "type": "sign",
+      "x": 25,
+      "y": 20,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "SolgorgeTown_EventScript_TownSign"
+    }
   ]
 }
