@@ -1121,6 +1121,8 @@ RyuCheckForWellTravelledAch::
 	goto_if_unset FLAG_VISITED_MOSSDEEP_CITY, ryu_return
 	goto_if_unset FLAG_VISITED_SOOTOPOLIS_CITY, ryu_return
 	goto_if_unset FLAG_VISITED_EVER_GRANDE_CITY, ryu_return
+	goto_if_unset FLAG_VISITED_SNOWY_SHORE, ryu_return
+	goto_if_unset FLAG_VISITED_SOLGORGE_TOWN, ryu_return
 	ach give ACH_WELL_TRAVELLED
 	return
 

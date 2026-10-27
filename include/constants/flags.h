@@ -331,7 +331,7 @@
 #define FLAG_RYU_PROF_DELIVERY_LATE              0x137 //player was late delivering packages, pay is reduced.
 #define FLAG_RECEIVED_TM57                   0x138
 #define FLAG_BEAT_MAGMA_GRUNT_JAGGED_PASS    0x139
-#define FLAG_TOBY_UNUSED_9                   0x13A //formerly FLAG_RECEIVED_AURORA_TICKET
+#define FLAG_VISITED_SOLGORGE_TOWN           0x13A
 #define FLAG_RECEIVED_MYSTIC_TICKET          0x13B
 #define FLAG_TOBY_UNUSED_10                  0x13C //formerly FLAG_RECEIVED_OLD_SEA_MAP
 #define FLAG_RYU_DS_SHELLY_ACQ               0x13D
@@ -1329,7 +1329,7 @@
 #define FLAG_RYU_NECROZMA                                           0x4EC
 #define FLAG_RYU_TYPENULL                                           0x4ED
 #define FLAG_RYU_COMPENSATION_REWARD                                0x4EE
-#define FLAG_LANDMARK_SNOWY_SHORE                                   0x4EF
+#define FLAG_VISITED_SNOWY_SHORE                                    0x4EF
 
 #define FLAG_DEFEATED_RUSTBORO_GYM                                  0x4F0
 #define FLAG_DEFEATED_DEWFORD_GYM                                   0x4F1

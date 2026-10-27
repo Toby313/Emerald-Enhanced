@@ -112,8 +112,6 @@ void RyuCheckForLNSU (void)
         count++;
     if (FlagGet(FLAG_LANDMARK_MIRAGE_TOWER) == TRUE)
         count++;
-    if (FlagGet(FLAG_LANDMARK_SNOWY_SHORE) == TRUE)
-        count++;
 
     if (count >= 25)
         GiveAchievement(ACH_LEAVE_NO_STONE_UNTURNED);

@@ -4,7 +4,8 @@ SnowyShore_MapScripts::
 	.byte 0
 
 SnowyShore_OnTransition:
-	setflag FLAG_LANDMARK_SNOWY_SHORE
+	setflag FLAG_VISITED_SNOWY_SHORE
+	call RyuCheckForWellTravelledAch
 	end
 
 SS_TemporaryPortal::

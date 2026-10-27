@@ -90,7 +90,7 @@ static const u8 sCorporateShillLabel[] = _("Corporate Shill");
 static const u8 sCorporateShillHint[] = _("{COLOR LIGHT_RED}{SHADOW RED} Locked.  {COLOR DARK_GREY}{SHADOW LIGHT_GREY}Blue-collar.");
 static const u8 sCorporateShillAchDesc[] = _("Stocks, lobbying, tax evasion, oh my!\n(Completed Devon Corporate line)");
 
-static const u8 sMasterBreederLabel[] = _("The birds and the bees");
+static const u8 sMasterBreederLabel[] = _("The Birds and the Bees");
 static const u8 sMasterBreederHint[] = _("{COLOR LIGHT_RED}{SHADOW RED} Locked.  {COLOR DARK_GREY}{SHADOW LIGHT_GREY}Eggscelent!");
 static const u8 sMasterBreederDesc[] = _("You know a thing or two about mating.\n(Hatched at least 100 eggs)");
 

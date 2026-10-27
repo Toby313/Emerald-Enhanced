@@ -298,7 +298,7 @@ RyuGiveEggAchievement::
 	return
 
 Route117_Text_SeeWifeIfYoudLikeMeToRaiseMon: @ 8291FCF
-	.string "I'm the DAY-CARE Man.\p"
+	.string "I'm the Day-Care Man.\p"
 	.string "I help take care of the precious\n"
 	.string "Pokémon of Trainers.\p"
 	.string "If you'd like me to raise your Pokémon,\n"
@@ -327,7 +327,7 @@ Route117_Text_YouHaveNoRoomForIt: @ 829216A
 
 Route117_Text_ReceivedEgg: @ 82921A4
 	.string "{PLAYER} received the EGG from\n"
-	.string "the DAY-CARE Man.$"
+	.string "the Day-Care Man.$"
 
 Route117_Text_TakeGoodCareOfIt: @ 82921CF
 	.string "Take good care of it.$"
@@ -348,7 +348,7 @@ Route117_Text_IWillKeepDoYouWantIt: @ 82922C6
 	.string "You do want this, yes?$"
 
 Route117_PokemonDayCare_Text_WouldYouLikeUsToRaiseAMon: @ 82922F4
-	.string "I'm the DAY-CARE Lady.\p"
+	.string "I'm the Day-Care Lady.\p"
 	.string "We can raise Pokémon for you.\p"
 	.string "Would you like us to raise one?$"
 
@@ -405,7 +405,7 @@ Route117_PokemonDayCare_Text_HeresYourMon: @ 8292575
 
 Route117_PokemonDayCare_Text_TookBackMon: @ 8292593
 	.string "{PLAYER} took back {STR_VAR_1} from\n"
-	.string "the DAY-CARE Lady.$"
+	.string "the Day-Care Lady.$"
 
 Route117_PokemonDayCare_Text_YouHaveJustOneMon: @ 82925BB
 	.string "Oh? But you have just one\n"

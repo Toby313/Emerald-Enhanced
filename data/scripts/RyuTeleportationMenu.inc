@@ -121,7 +121,7 @@ RT_Lavaridge::
 	waitstate
 	
 RT_Solgorge::
-    goto_if_unset FLAG_VISITED_LAVARIDGE_TOWN, RT_NoFlag
+    goto_if_unset FLAG_VISITED_SOLGORGE_TOWN, RT_NoFlag
 	warpteleport MAP_SOLGORGE_TOWN, 255, 24, 19
 	waitstate
 	
@@ -152,7 +152,7 @@ RT_BannedFromLilycove::
 	goto RyuTeleport
 
 RT_SnowyShore::
-	goto_if_unset FLAG_LANDMARK_SNOWY_SHORE, RT_NoFlag
+	goto_if_unset FLAG_VISITED_SNOWY_SHORE, RT_NoFlag
 	warpteleport MAP_SNOWY_SHORE, 255, 24, 12
 	waitstate
 	

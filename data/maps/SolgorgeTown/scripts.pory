@@ -1,1 +1,10 @@
-mapscripts SolgorgeTown_MapScripts {}
+mapscripts SolgorgeTown_MapScripts {
+    map_script(ON_TRANSITION, SolgorgeTown_OnTransition)
+    .byte 0
+}
+
+script SolgorgeTown_OnTransition {
+    setflag(FLAG_VISITED_SOLGORGE_TOWN)
+    call(RyuCheckForWellTravelledAch)
+    end
+}
