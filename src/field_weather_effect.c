@@ -242,6 +242,7 @@ static void UpdateCloudSprite(struct Sprite *sprite)
 //------------------------------------------------------------------------------
 
 static void UpdateDroughtBlend(u8);
+static void StopDroughtWeatherBlend(void);
 
 void Drought_InitVars(void)
 {
@@ -295,6 +296,7 @@ void Drought_Main(void)
 
 bool8 Drought_Finish(void)
 {
+    StopDroughtWeatherBlend();
     return FALSE;
 }
 
@@ -309,6 +311,8 @@ void StartDroughtWeatherBlend(void)
 #define tBlendDelay data[2]
 #define tWinRange   data[3]
 #define tBlendDir   data[4]
+#define tOldBldCnt  data[5]
+#define tOldBldY    data[6]
 
 static void UpdateDroughtBlend(u8 taskId)
 {
@@ -321,6 +325,8 @@ static void UpdateDroughtBlend(u8 taskId)
         task->tBlendDelay = 0;
         task->tBlendDir = 1;
         task->tWinRange = REG_WININ;
+        task->tOldBldCnt = GetGpuReg(REG_OFFSET_BLDCNT);
+        task->tOldBldY = GetGpuReg(REG_OFFSET_BLDY);
         SetGpuReg(REG_OFFSET_WININ, WININ_WIN0_ALL | WININ_WIN1_ALL);
         SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT1_BG1 | BLDCNT_TGT1_BG2 | BLDCNT_TGT1_BG3 | BLDCNT_TGT1_OBJ | BLDCNT_EFFECT_LIGHTEN);
         SetGpuReg(REG_OFFSET_BLDY, task->tBlendY);
@@ -363,10 +369,31 @@ static void UpdateDroughtBlend(u8 taskId)
     }
 }
 
+static void StopDroughtWeatherBlend(void)
+{
+    u8 taskId;
+    struct Task *task;
+
+    if (!FuncIsActiveTask(UpdateDroughtBlend))
+        return;
+
+    taskId = FindTaskIdByFunc(UpdateDroughtBlend);
+    task = &gTasks[taskId];
+    if (task->tState != 0)
+    {
+        SetGpuReg(REG_OFFSET_BLDCNT, task->tOldBldCnt);
+        SetGpuReg(REG_OFFSET_BLDY, task->tOldBldY);
+        SetGpuReg(REG_OFFSET_WININ, task->tWinRange);
+    }
+    DestroyTask(taskId);
+}
+
 #undef tState
 #undef tBlendY
 #undef tBlendDelay
 #undef tWinRange
+#undef tOldBldCnt
+#undef tOldBldY
 
 #undef tState
 #undef tBlendY

@@ -215,7 +215,7 @@ static const u8 sMapName_AetherParadise[] = _("Aether Paradise");
 static const u8 sMapName_Route136[] = _("Route 136");
 static const u8 sMapName_Route100[] = _("Route 100");
 static const u8 sMapName_SolgorgeTown[] = _("Solgorge Town");
-static const u8 sMapName_GreatCanyon[] = _("Solgorge Town");
+static const u8 sMapName_GreatCanyon[] = _("Great Canyon");
 
 const struct RegionMapLocation gRegionMapEntries[] = {
     [MAPSEC_ABANDONED_SHIP]             = {6, 14, 1, 1, sMapName_AbandonedShip},

@@ -234,10 +234,12 @@
 #define MAPSEC_ROUTE_136                    0xE6
 #define MAPSEC_AETHER_PARADISE              0xE7
 #define MAPSEC_ROUTE_100                    0xE8
-#define MAPSEC_NONE                         0xE9
-#define MAPSEC_SOLGORGE_TOWN                0xEA
-#define MAPSEC_GREAT_CANYON                 0xEB
-
+#define MAPSEC_SOLGORGE_TOWN                0xE9
+#define MAPSEC_GREAT_CANYON                 0xEA
+#define MAPSEC_NONE                         0xEB
+//MAPSEC_NONE has to be at the end here, else some features won't work
+//When you add new mapsex, this will turn the empty tiles on the region map layout into those
+//Don't forget to turn them back into MAPSEC_NONE
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE
