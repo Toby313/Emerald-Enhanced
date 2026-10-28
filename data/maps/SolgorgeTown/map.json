@@ -3,7 +3,7 @@
   "name": "SolgorgeTown",
   "layout": "LAYOUT_SOLGORGE_TOWN",
   "music": "MUS_ABANDONED_SHIP",
-  "region_map_section": "MAPSEC_ROUTE_100",
+  "region_map_section": "MAPSEC_SOLGORGE_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_DROUGHT",
   "map_type": "MAP_TYPE_TOWN",

@@ -235,6 +235,8 @@
 #define MAPSEC_AETHER_PARADISE              0xE7
 #define MAPSEC_ROUTE_100                    0xE8
 #define MAPSEC_NONE                         0xE9
+#define MAPSEC_SOLGORGE_TOWN                0xEA
+#define MAPSEC_GREAT_CANYON                 0xEB
 
 
 #define METLOC_SPECIAL_EGG                  0xFD

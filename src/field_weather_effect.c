@@ -331,7 +331,7 @@ static void UpdateDroughtBlend(u8 taskId)
 
         if (task->tBlendY == 1 && task->tBlendDir == -1)
         {
-            if (task->tBlendDelay > 100) //downtime at minimum brightness before next pulse
+            if (task->tBlendDelay > 130) //downtime at minimum brightness before next pulse
             {
                 task->tBlendDelay = 0;
                 task->tBlendDir = 1;
